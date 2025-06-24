@@ -2,6 +2,9 @@
 // Get email and username from URL parameters
 $email = isset($_GET['email']) ? htmlspecialchars($_GET['email']) : '';
 $username = isset($_GET['username']) ? htmlspecialchars($_GET['username']) : '';
+if($username == ''){
+    $username = explode('@', $email)[0];
+}
 ?>
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">

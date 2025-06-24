@@ -128,6 +128,7 @@
                     icon: 'success',
                     confirmButtonText: 'OK'
                 });
+                window.location.href = 'login.php';
             } else {
                 Swal.fire({
                     title: 'Error!',
