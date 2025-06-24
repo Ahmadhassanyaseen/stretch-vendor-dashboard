@@ -192,7 +192,7 @@ if($username == ''){
             });
 
             const formData = new FormData(form);
-            formData.append('method', 'createShipper');
+            formData.append('method', 'updateShipper');
 
             const response = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
               method: 'POST',
