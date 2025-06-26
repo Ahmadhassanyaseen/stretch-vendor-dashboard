@@ -1,4 +1,5 @@
 <?php include 'config/config.php'; ?>
+<?php include 'helper/globalHelper.php'; ?>
 <?php include 'components/layout/header.php'; ?>
     <?php include 'components/layout/sidebar.php'; ?>
      
@@ -9,7 +10,7 @@
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
-              Transactions
+              Vehicles
             </h2>
            
             

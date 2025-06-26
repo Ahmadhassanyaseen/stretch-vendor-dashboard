@@ -106,7 +106,7 @@
             });
 
             const formData = new FormData(e.target);
-            formData.append('method', 'forgetPassword');
+            formData.append('method', 'forgetPasswordVendor');
            
 
             const response = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {

@@ -221,7 +221,7 @@
         formData.append('email', document.getElementById('email').value);
         formData.append('password', document.getElementById('password').value);
         formData.append('confirm_password', document.getElementById('confirm_password').value);
-        formData.append('method', 'createShipper');
+        formData.append('method', 'createVendor');
         
         const response = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
             method: 'POST',

@@ -181,7 +181,7 @@
             });
 
             const formData = new FormData(form);
-            formData.append('method', 'resetPassword');
+            formData.append('method', 'resetPasswordVendor');
 
             const response = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
               method: 'POST',

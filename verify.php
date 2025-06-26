@@ -5,7 +5,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 {
    $token = $_GET['token'];
    $email = $_GET['email'];
-   $result = verifyToken(['token' => $token , 'email' => $email]);
+   $result = verifyTokenVendor(['token' => $token , 'email' => $email]);
+   // print_r($result);
 
    if($result['status'] == 'success')
    {
@@ -20,6 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
    }
    else
    {
+      // print_r($result);
       echo '<script>alert("Invalid token");window.location.href="./login.php";</script>';
    }
 }
