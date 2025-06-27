@@ -31,7 +31,7 @@ include __DIR__ . '/../../helper/globalHelper.php';
        let userData = <?php echo isset($userData) ? json_encode($userData) : 'null'; ?>;
       
       // Check if user is logged in and session is valid
-      if(!userData){
+      if(!userData || userData == null || userData.length == 0){
         window.location.href = 'login.php';
       }
       
