@@ -15,6 +15,7 @@
                     <th>Amount</th>
                     <th>Status</th>
                     <th>Date</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,6 +49,41 @@
                         </span>
                     </td>
                     <td><?= date('M d, Y', strtotime($shipment['created_at'])) ?></td>
+                    <td class="flex">
+                        <button class=" hover:bg-blue-600 text-white py-2 px-4 rounded mr-2 edit-shipment 
+                        <?php 
+                        if($shipment['vendor_status'] == '1') {
+                            echo 'bg-disabled';
+                        } else {
+                            echo 'bg-blue-600';
+                        } ?>
+                        " 
+
+                        <?php 
+                        if($shipment['vendor_status'] == '1') {
+                            echo 'disabled';
+                        } ?>
+
+                        data-id="<?= $shipment['id'] ?>"
+                        >
+                           <i class="fas fa-edit"></i>
+                        </button>
+                        <button class=" hover:bg-red-600 text-white py-2 px-4 rounded delete-shipment
+                         <?php 
+                         if($shipment['vendor_status'] == '1') {
+                            echo 'bg-disabled';
+                        } else {
+                            echo 'bg-red-600';
+                        } ?>
+                        "
+                        <?php 
+                        if($shipment['vendor_status'] == '1') {
+                            echo 'disabled';
+                        } ?>
+                        data-id="<?= $shipment['id'] ?>">
+                           <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
                 </tr>
                 <?php endforeach; ?>
                 <?php } ?>
@@ -56,40 +92,9 @@
     </div>
 </div>
 
-<!-- Add these lines before the closing </body> tag in your layout file -->
-<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"> -->
-<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css"> -->
-
-
-<!-- <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script> -->
 
 <script>
-// $(document).ready(function() {
-//     $('#shipmentsTable').DataTable({
-//         dom: 'Bfrtip',
-//         buttons: [
-//             'copy', 'csv', 'excel', 'pdf', 'print'
-//         ],
-//         responsive: true,
-//         pageLength: 25,
-//         order: [[9, 'desc']], // Sort by date column by default
-//         columnDefs: [
-//             { orderable: true, targets: '_all' },
-//             { className: 'dt-center', targets: [4,5,6,7,8] }
-//         ],
-//         language: {
-//             search: "_INPUT_",
-//             searchPlaceholder: "Search shipments...",
-//             paginate: {
-//                 next: '>',
-//                 previous: '<'
-//             }
-//         }
-//     });
-// });
+
 $(document).ready(function() {
     $('#shipmentsTable').DataTable({
         dom: "<'p-4'<'mb-4't>p>", // Simplified DOM structure
@@ -122,4 +127,29 @@ $(document).ready(function() {
         }
     });
 });
+
+$(document).on('click', '.edit-shipment', function() {
+    var shipmentId = $(this).data('id');
+    window.location.href = 'editShipment.php?id=' + shipmentId;
+    console.log(shipmentId);
+});
+
+$(document).on('click', '.delete-shipment', function() {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var shipmentId = $(this).data('id');
+            window.location.href = 'helper/shipment/delete.php?id=' + shipmentId;
+            console.log(shipmentId);
+        }
+    });
+});
+
 </script>

@@ -65,7 +65,7 @@ $user = $userData;
                   icon: "success"
                 });
                 setTimeout(() => {
-                  localStorage.removeItem('user');
+                  localStorage.removeItem('vendor');
                   window.location.href = 'login.php';
                 }, 1000);
               });

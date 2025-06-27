@@ -21,11 +21,12 @@
             <?php
        
 
-$data['email'] = $userData['email'];
-$response = fetchAllShipperLeads($data);
+$data['id'] = $userData['id'];
+$response = fetchAllVendorLeads($data);
 
 foreach($response as $key => $value){
   $shipments[] = [
+    'id' => $value['id'],
     'name' => $value['name'],
     'quantity' =>$value['freight_box_count_c'],
     'type' => $value['freight_type_c'],
@@ -36,6 +37,7 @@ foreach($response as $key => $value){
     'status' => $value['status_c'] ?? 'Pending',
     'weight' => $value['freight_weight_c'].'lbs',
     'created_at' => $value['date_entered'],
+    'vendor_status' => $value['vendor_status_c'] ?? '0',
   ];
 }
             ?>

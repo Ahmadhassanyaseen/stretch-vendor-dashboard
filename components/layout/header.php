@@ -12,6 +12,7 @@ include __DIR__ . '/../../helper/globalHelper.php';
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./assets/css/tailwind.css" />
     <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="./assets/css/variable.css" />
@@ -29,8 +30,21 @@ include __DIR__ . '/../../helper/globalHelper.php';
     <script>
        let userData = <?php echo isset($userData) ? json_encode($userData) : 'null'; ?>;
       
+      // Check if user is logged in and session is valid
       if(!userData){
         window.location.href = 'login.php';
+      }
+      
+      // Check session timeout (1 hour = 3600 seconds)
+      const sessionTime = localStorage.getItem('vendor_session');
+      const currentTime = Math.floor(Date.now() / 1000);
+      const oneHourInSeconds = 3600;
+      
+      if (sessionTime && (currentTime - parseInt(sessionTime) > oneHourInSeconds)) {
+        // Clear session and redirect to login
+        localStorage.removeItem('vendor');
+        localStorage.removeItem('vendor_session');
+        window.location.href = 'login.php?session=expired';
       }
       function logout(){
         Swal.fire({
@@ -52,7 +66,8 @@ include __DIR__ . '/../../helper/globalHelper.php';
                   icon: "success"
                 });
                 setTimeout(() => {
-                  localStorage.removeItem('user');
+                  localStorage.removeItem('vendor');
+                  localStorage.removeItem('vendor_session');
                   userData = null;
                   window.location.href = 'login.php';
                 }, 1000);

@@ -19,8 +19,8 @@
             <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
               <!-- Card -->
              <?php 
-             $data['email'] = $userData['email'];
-             $response = fetchAllShipperLeads($data);
+             $data['id'] = $userData['id'];
+             $response = fetchAllVendorLeads($data);
          
 
             
@@ -65,6 +65,7 @@
 
 foreach($response as $key => $value){
   $shipments[] = [
+    'id' => $value['id'],
     'name' => $value['name'],
     'quantity' =>$value['freight_box_count_c'],
     'type' => $value['freight_type_c'],
@@ -75,6 +76,7 @@ foreach($response as $key => $value){
     'status' => $value['status_c'] ?? 'Pending',
     'weight' => $value['freight_weight_c'].'lbs',
     'created_at' => $value['date_entered'],
+    'vendor_status' => $value['vendor_status_c'] ?? '0',
   ];
 }
 
@@ -88,5 +90,22 @@ foreach($response as $key => $value){
         </main>
       </div>
     </div>
+    <?php 
+    if(isset($_GET['status']) && $_GET['status'] == 'success') {
+      echo '<script>Swal.fire({
+        title: "Shipment deleted successfully!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500
+      });</script>';
+    } elseif(isset($_GET['status']) && $_GET['status'] == 'error') {
+      echo '<script>Swal.fire({
+        title: "Failed to delete shipment!",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1500
+      });</script>';
+    }
+    ?>
   </body>
 </html>

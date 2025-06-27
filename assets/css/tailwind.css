@@ -5,3 +5,12 @@
 .xeno-gap{
     gap:20px;
 }
+
+#image-preview{
+    display: flex;
+    flex-wrap: wrap;
+}
+.bg-disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+}

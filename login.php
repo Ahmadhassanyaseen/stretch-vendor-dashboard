@@ -262,7 +262,8 @@
                   confirmButtonText: 'Continue'
               });
 
-              localStorage.setItem('user', JSON.stringify(result.data));
+              localStorage.setItem('vendor', JSON.stringify(result.data));
+              localStorage.setItem('vendor_session', Math.floor(Date.now() / 1000));
 
               // Redirect to dashboard or home page
               window.location.href = 'index.php';
