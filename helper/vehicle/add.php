@@ -1,6 +1,12 @@
 <?php
 include '../../config/config.php';
+include '../../helper/imageUploader.php';
 
+$images = uploadVehicleImages($_FILES['images'], $_POST['vendor_id']);
+
+if(isset($images['files']) && is_array($images['files'])){
+    $images = implode('|', $images['files']);
+}
 
 $data = [
     'vendor_id' => $_POST['vendor_id'],
@@ -16,6 +22,7 @@ $data = [
     'pickup_city' => $_POST['pickup_city'],
     'pickup_state' => $_POST['pickup_state'],
     'availability' => $_POST['availability'],
+    'images' => $images,
 ];
 
 // print_r($data);

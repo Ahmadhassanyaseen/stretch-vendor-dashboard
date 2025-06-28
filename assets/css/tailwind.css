@@ -11,6 +11,9 @@
     flex-wrap: wrap;
 }
 .bg-disabled{
-    background-color: #ccc;
+    background-color: #ccc!important;
     cursor: not-allowed;
+}
+.bg-success{
+    background-color: #28a745;
 }

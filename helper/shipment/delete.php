@@ -4,7 +4,8 @@ include '../../config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $data['id'] = $_GET['id'];
-    $response = deleteShipment($data);
+    $data['status'] ='-1';
+    $response = updateShipmentStatus($data);
     echo $response;
     if ($response) {
         header('Location: ../../index.php?status=success');

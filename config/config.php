@@ -75,7 +75,16 @@ function deleteVehicle($data){
     return curlRequest($data);
 }
 
-function deleteShipment($data){
-    $data["method"] = "deleteShipment";
+function updateShipmentStatus($data){
+    $data["method"] = "updateShipmentStatus";
+    return curlRequest($data);
+}
+
+function fetchShipmentById($data){
+    $data["method"] = "fetchShipmentById";
+    return curlRequest($data);
+}
+function updateShipment($data){
+    $data["method"] = "updateShipment";
     return curlRequest($data);
 }

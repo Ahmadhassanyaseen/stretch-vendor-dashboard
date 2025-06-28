@@ -1,4 +1,5 @@
 <?php include 'config/config.php'; ?>
+<?php include 'helper/globalHelper.php'; ?>
 <?php include 'components/layout/header.php'; ?>
     <?php include 'components/layout/sidebar.php'; ?>
 
@@ -21,7 +22,8 @@
            
             <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
               <form action="helper/vehicle/update.php" enctype="multipart/form-data" method="POST" class="space-y-6">
-                <input type="hidden" name="id" value="<?= $response['id'] ?>">
+              <input type="hidden" name="vendor_id" value="<?php echo $userData['id']; ?>">
+              <input type="hidden" name="id" value="<?= $response['id'] ?>">
                 <div  class="flex xeno-gap">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
@@ -234,6 +236,32 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="w-full mt-4">
+                  <label for="images" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Images
+                  </label>
+                  <input type="file" name="images[]" id="images" max="3"   class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300" multiple>
+                </div>
+                
+              <div id="imagePreview" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                  <?php 
+                  if (!empty($response['images'])) {
+                      $images = explode('|', $response['images']);
+                      foreach ($images as $image) {
+                          if (!empty($image)) {
+                              $imagePath = 'vehicles/' . $userData['id'] . '/' . $image;
+                              echo '<div class="preview-container" style="position: relative; display: inline-block; margin: 5px; border: 1px solid #ddd; border-radius: 5px; overflow: hidden;">';
+                              echo '<img src="' . $imagePath . '" style="width: 100%; height: 100%; object-fit: contain; border-radius: 5px;">';
+                              echo '<span class="remove-existing-image" data-image="' . $image . '" style="position: absolute; top: 5px; right: 5px; background: red; color: white; border-radius: 50%; width: 20px; height: 20px; text-align: center; line-height: 20px; cursor: pointer; font-size: 16px; font-weight: bold;">×</span>';
+                              echo '<input type="hidden" name="existing_images[]" value="' . $image . '">';
+                              echo '</div>';
+                          }
+                      }
+                  }
+                  ?>
+              </div>
+                  
                 
                 
              
@@ -278,6 +306,203 @@
             });
         
         <?php } ?>
+
+        // $(document).ready(function() {
+        //   // Handle image preview with remove functionality
+        //   $('#images').on('change', function() {
+        //     var files = this.files;
+        //     var imagePreview = $('#imagePreview');
+        //     imagePreview.empty();
+            
+        //     for (var i = 0; i < files.length; i++) {
+        //       (function(file) {
+        //         var reader = new FileReader();
+        //         reader.onload = function(e) {
+        //           var previewContainer = $('<div class="preview-container">').css({
+        //             'position': 'relative',
+        //             'display': 'inline-block',
+        //             'margin': '5px',
+        //             // 'width': '150px',
+        //             // 'height': '150px',
+        //             'border': '1px solid #ddd',
+        //             'border-radius': '5px',
+        //             'overflow': 'hidden'
+        //           });
+                  
+        //           var img = $('<img>').attr('src', e.target.result).css({
+        //             'width': '100%',
+        //             'height': '100%',
+        //             'object-fit': 'contain',
+        //             'border-radius': '5px'
+        //           });
+                  
+        //           var removeBtn = $('<span class="remove-image">×</span>').css({
+        //             'position': 'absolute',
+        //             'top': '5px',
+        //             'right': '5px',
+        //             'background': 'red',
+        //             'color': 'white',
+        //             'border-radius': '50%',
+        //             'width': '20px',
+        //             'height': '20px',
+        //             'text-align': 'center',
+        //             'line-height': '20px',
+        //             'cursor': 'pointer',
+        //             'font-size': '16px',
+        //             'font-weight': 'bold'
+        //           });
+                  
+        //           removeBtn.on('click', function(e) {
+        //             e.stopPropagation();
+        //             previewContainer.remove();
+        //             updateFileInput();
+        //           });
+                  
+        //           previewContainer.append(img).append(removeBtn);
+        //           imagePreview.append(previewContainer);
+        //         };
+        //         reader.readAsDataURL(file);
+        //       })(files[i]);
+        //     }
+        //   });
+          
+        //   // Function to update the file input after removing a preview
+        //   function updateFileInput() {
+        //     var input = $('#images');
+        //     var files = input[0].files;
+        //     var newFiles = new DataTransfer();
+        //     var previews = $('.preview-container');
+            
+        //     // Map existing previews to their files
+        //     previews.each(function(index) {
+              
+        //       newFiles.items.add(files[index]);
+        //     });
+            
+          
+        //   }
+        //   // Add this inside your $(document).ready() function
+        //     // Handle click on remove button for existing images
+        //     $(document).on('click', '.remove-existing-image', function() {
+        //         if (confirm('Are you sure you want to remove this image?')) {
+        //             var imageToRemove = $(this).data('image');
+        //             $('<input>').attr({
+        //                 type: 'hidden',
+        //                 name: 'removed_images[]',
+        //                 value: imageToRemove
+        //             }).appendTo('form');
+        //             $(this).parent().remove();
+        //         }
+        //     });
+
+        //     // Update the updateFileInput function to handle both new and existing files
+        //         function updateFileInput() {
+        //             var input = $('#images');
+        //             var files = input[0].files;
+        //             var newFiles = new DataTransfer();
+        //             var previews = $('.preview-container:has(img[src^="data:"])');
+                    
+        //             previews.each(function(index) {
+        //                 newFiles.items.add(files[index]);
+        //             });
+                    
+        //             // Update the file input with the new files
+        //             input[0].files = newFiles.files;
+        //         }
+        // });
+    
+        $(document).ready(function() {
+    // Handle image preview with remove functionality
+    $('#images').on('change', function() {
+        var files = this.files;
+        var imagePreview = $('#imagePreview');
+        
+        // Don't empty the container, we want to keep existing images
+        // imagePreview.empty();
+        
+        for (var i = 0; i < files.length; i++) {
+            (function(file) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var previewContainer = $('<div class="preview-container new-image">').css({
+                        'position': 'relative',
+                        'display': 'inline-block',
+                        'margin': '5px',
+                        'border': '1px solid #ddd',
+                        'border-radius': '5px',
+                        'overflow': 'hidden'
+                    });
+                    
+                    var img = $('<img>').attr('src', e.target.result).css({
+                        'width': '100%',
+                        'height': '100%',
+                        'object-fit': 'contain',
+                        'border-radius': '5px'
+                    });
+                    
+                    var removeBtn = $('<span class="remove-new-image">×</span>').css({
+                        'position': 'absolute',
+                        'top': '5px',
+                        'right': '5px',
+                        'background': 'red',
+                        'color': 'white',
+                        'border-radius': '50%',
+                        'width': '20px',
+                        'height': '20px',
+                        'text-align': 'center',
+                        'line-height': '20px',
+                        'cursor': 'pointer',
+                        'font-size': '16px',
+                        'font-weight': 'bold'
+                    });
+                    
+                    removeBtn.on('click', function(e) {
+                        e.stopPropagation();
+                        previewContainer.remove();
+                        updateFileInput();
+                    });
+                    
+                    previewContainer.append(img).append(removeBtn);
+                    imagePreview.append(previewContainer);
+                };
+                reader.readAsDataURL(file);
+            })(files[i]);
+        }
+    });
+    
+    // Handle click on remove button for existing images
+    $(document).on('click', '.remove-existing-image', function() {
+        if (confirm('Are you sure you want to remove this image?')) {
+            var imageToRemove = $(this).data('image');
+            $('<input>').attr({
+                type: 'hidden',
+                name: 'removed_images[]',
+                value: imageToRemove
+            }).appendTo('form');
+            $(this).parent().remove();
+        }
+    });
+
+    // Handle click on remove button for new images
+    $(document).on('click', '.remove-new-image', function() {
+        $(this).parent().remove();
+        updateFileInput();
+    });
+
+    // Function to update the file input after removing a preview
+    function updateFileInput() {
+        var input = $('#images');
+        var newFiles = new DataTransfer();
+        var newPreviews = $('.preview-container.new-image');
+        
+        // Update the file input with remaining files
+        newPreviews.each(function(index) {
+            newFiles.items.add(input[0].files[index]);
+        });
+        
+        input[0].files = newFiles.files;
+    }
+});
     </script>
   </body>
 </html>

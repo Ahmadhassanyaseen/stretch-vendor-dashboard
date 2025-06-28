@@ -1,0 +1,931 @@
+[2025-06-28 08:36:10] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 08:36:11] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-27 13:38:49","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 08:36:12] [INFO] Sending to API: Array
+(
+    [email] => madarauchihaoffocial@gmail.com
+    [password] => Madara@1234
+    [method] => vendorLogin
+)
+
+[2025-06-28 08:36:12] [INFO] API Response: {"status":"success","message":"Login successful","data":{"id":"3010cac7-2139-3a23-1d47-685d4eeaa24c","name":"Ahmad Hassan","email":"madarauchihaoffocial@gmail.com","profile_status":"Complete","dot_number":"1000156","mc_number":"798798","vnd_type":"Intrastate","phone":"03154540483","city":"Faisalabad","state":"Faisalabad","zip":"38004","street":"Faisalabad"}}
+[2025-06-28 08:36:13] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 08:36:13] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-27 13:38:49","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 08:41:57] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 08:41:58] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-27 13:38:49","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"0"}]
+[2025-06-28 09:08:21] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:08:21] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:08:53] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:08:53] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:09:16] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:09:17] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:15:10] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:15:11] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:16:13] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:16:14] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:16:26] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:16:26] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:16:35] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:16:35] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:16:41] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:16:42] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:17:13] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:17:14] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:18:19] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:18:20] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:20:23] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:20:23] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:20:59] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:21:00] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:21:04] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:21:04] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:30:37] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:30:37] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:33:20] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:33:21] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:34:06] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:34:07] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:34:12] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:34:12] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:34:21] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:34:22] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:34:39] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 09:34:40] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-27 13:38:49","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"0"}]
+[2025-06-28 09:35:27] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:35:29] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:36:27] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:36:28] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:36:30] [INFO] Sending to API: Array
+(
+    [email] => madarauchihaoffocial@gmail.com
+    [password] => Madara@1234
+    [method] => vendorLogin
+)
+
+[2025-06-28 09:36:30] [INFO] API Response: {"status":"success","message":"Login successful","data":{"id":"3010cac7-2139-3a23-1d47-685d4eeaa24c","name":"Ahmad Hassan","email":"madarauchihaoffocial@gmail.com","profile_status":"Complete","dot_number":"1000156","mc_number":"798798","vnd_type":"Intrastate","phone":"03154540483","city":"Faisalabad","state":"Faisalabad","zip":"38004","street":"Faisalabad"}}
+[2025-06-28 09:36:32] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 09:36:32] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-27 13:38:49","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"0"}]
+[2025-06-28 09:36:35] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:36:35] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:37:47] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 09:37:48] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:36:38","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 09:38:50] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 09:38:51] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:36:38","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 09:38:57] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:38:58] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:39:08] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 09:39:08] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:39:05","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"-1"}]
+[2025-06-28 09:50:49] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 09:50:49] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:39:05","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"0"}]
+[2025-06-28 09:53:33] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:53:34] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:54:52] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 09:54:53] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 09:55:02] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 09:55:02] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 09:55:56] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 09:55:56] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 09:56:22] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 09:56:22] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 09:56:42] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 09:56:42] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 09:57:17] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 09:57:17] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 09:58:15] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 09:58:32] [ERROR] cURL Error: Failed to connect to stretchxlfreight.com port 443 after 17599 ms: Couldn't connect to server
+[2025-06-28 09:58:32] [INFO] API Response: 
+[2025-06-28 09:58:32] [ERROR] JSON Decode Error: Syntax error
+[2025-06-28 10:02:27] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 10:02:28] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 10:02:32] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:02:32] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 10:03:25] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:03:37] [ERROR] cURL Error: Could not resolve host: stretchxlfreight.com
+[2025-06-28 10:03:37] [INFO] API Response: 
+[2025-06-28 10:03:37] [ERROR] JSON Decode Error: Syntax error
+[2025-06-28 10:10:25] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:10:26] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 10:10:33] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:10:33] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com"}
+[2025-06-28 10:11:36] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:11:37] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:12:16] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:12:17] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:12:37] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:12:38] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:14:55] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:14:56] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:15:18] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:15:18] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:15:30] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:15:30] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:15:37] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:15:38] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:15:58] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:15:58] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:16:03] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:16:03] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:16:17] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:16:17] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:17:20] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:17:21] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:17:30] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:17:30] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:17:42] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:17:42] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:17:53] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:17:53] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:19:07] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:19:08] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:19:20] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:19:20] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:19:30] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:19:30] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:20:05] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:20:06] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:20:22] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:20:22] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:20:29] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 10:20:29] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 10:20:31] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 10:20:31] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 11:33:09] [INFO] Sending to API: Array
+(
+    [id] => cd0649ef-b47d-7642-9924-685e42053435
+    [method] => fetchShipmentById
+)
+
+[2025-06-28 11:33:10] [INFO] API Response: {"id":"cd0649ef-b47d-7642-9924-685e42053435","type":"bulk","description":"this is test","carrier_vehicle_type":"reefer","rate":"2","mileage":"11248.17","fuel":"2635.07","distance":"3,749.39","duration":"2 days 16 hrs 53 mins","pickup_time":"11:39","pickup_date":"2025-07-07","pickup_address":"Alaska 3, Willow, AK, USA","dropoff_address":"Los Santos, Lakeside, CA, USA","dropoff_date":"2025-07-11","dropoff_time":"11:41","freight_length":"12","freight_width":"12","freight_height":"12","freight_pallet_count":"12","freight_box_count":"12","number_of_stops":"","total_price":"14,129.74","addons":"layover-200,","addons_total":"200","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"1"}
+[2025-06-28 11:33:12] [INFO] Sending to API: Array
+(
+    [email] => madarauchihaoffocial@gmail.com
+    [password] => Madara@1234
+    [method] => vendorLogin
+)
+
+[2025-06-28 11:33:13] [INFO] API Response: {"status":"success","message":"Login successful","data":{"id":"3010cac7-2139-3a23-1d47-685d4eeaa24c","name":"Ahmad Hassan","email":"madarauchihaoffocial@gmail.com","profile_status":"Complete","dot_number":"1000156","mc_number":"798798","vnd_type":"Intrastate","phone":"03154540483","city":"Faisalabad","state":"Faisalabad","zip":"38004","street":"Faisalabad"}}
+[2025-06-28 11:33:15] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 11:33:15] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 11:40:00] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 11:40:01] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 11:40:35] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 11:40:36] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 11:40:59] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 11:41:00] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 11:41:03] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorVehicles
+)
+
+[2025-06-28 11:41:04] [INFO] API Response: [{"id":"45539e1c-6461-6b6b-0aa4-685e46c547b5","name":"Reefer","date_entered":"2025-06-27 07:19:53","date_modified":"2025-06-27 14:06:46","modified_user_id":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","created_by":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","description":null,"deleted":"0","assigned_user_id":"","vehicle_make":null,"vehicle_model":null,"vehicle_year":null,"vehicle_color":null,"luggage_limit":null,"vehicle_capacity":"12","vehicle_quantity":"1","vehicle_status":null,"interior_style":null,"onboard_luxury":null,"media_capability":null,"complimentary":null,"base_hourly_rate":"13.000000","currency_id":"-99","base_min_hours":"4.00","base_additional_hourly":"12.000000","custom_daily_rates":"0","hourly_rate_monday":"0.000000","hourly_rate_tuesday":"0.000000","hourly_rate_wednesday":"0.000000","hourly_rate_thursday":"0.000000","hourly_rate_friday":"0.000000","hourly_rate_saturday":"0.000000","hourly_rate_sunday":"0.000000","min_hours_monday":"0.00","min_hours_tuesday":"0.00","min_hours_wednesday":"0.00","min_hours_thursday":"0.00","min_hours_friday":"0.00","min_hours_saturday":"0.00","min_hours_sunday":"0.00","additional_hourly_monday":"0.000000","additional_hourly_tuesday":"0.000000","additional_hourly_wednesday":"0.000000","additional_hourly_thursday":"0.000000","additional_hourly_friday":"0.000000","additional_hourly_saturday":"0.000000","additional_hourly_sunday":"0.000000","fuel_surcharge_percentage":"13.00","driver_gratuity_percentage":"12.00","images":null,"id_c":"45539e1c-6461-6b6b-0aa4-685e46c547b5","published_c":"Yes","pickup_lat_c":"","pickup_long_c":"","pickup_address_c":"Midland, TX, US","pickup_state_c":"TX","pickup_city_c":"Midland","dropoff_lat_c":"","dropoff_long_c":"","dropoff_address_c":"","dropoff_state_c":"","dropoff_city_c":"","dropoff_all_states_c":"","availability_type_c":"every_weekend","availability_dates_c":"","mileage_c":"123"}]
+[2025-06-28 11:41:37] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorVehicles
+)
+
+[2025-06-28 11:41:38] [INFO] API Response: [{"id":"45539e1c-6461-6b6b-0aa4-685e46c547b5","name":"Reefer","date_entered":"2025-06-27 07:19:53","date_modified":"2025-06-27 14:06:46","modified_user_id":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","created_by":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","description":null,"deleted":"0","assigned_user_id":"","vehicle_make":null,"vehicle_model":null,"vehicle_year":null,"vehicle_color":null,"luggage_limit":null,"vehicle_capacity":"12","vehicle_quantity":"1","vehicle_status":null,"interior_style":null,"onboard_luxury":null,"media_capability":null,"complimentary":null,"base_hourly_rate":"13.000000","currency_id":"-99","base_min_hours":"4.00","base_additional_hourly":"12.000000","custom_daily_rates":"0","hourly_rate_monday":"0.000000","hourly_rate_tuesday":"0.000000","hourly_rate_wednesday":"0.000000","hourly_rate_thursday":"0.000000","hourly_rate_friday":"0.000000","hourly_rate_saturday":"0.000000","hourly_rate_sunday":"0.000000","min_hours_monday":"0.00","min_hours_tuesday":"0.00","min_hours_wednesday":"0.00","min_hours_thursday":"0.00","min_hours_friday":"0.00","min_hours_saturday":"0.00","min_hours_sunday":"0.00","additional_hourly_monday":"0.000000","additional_hourly_tuesday":"0.000000","additional_hourly_wednesday":"0.000000","additional_hourly_thursday":"0.000000","additional_hourly_friday":"0.000000","additional_hourly_saturday":"0.000000","additional_hourly_sunday":"0.000000","fuel_surcharge_percentage":"13.00","driver_gratuity_percentage":"12.00","images":null,"id_c":"45539e1c-6461-6b6b-0aa4-685e46c547b5","published_c":"Yes","pickup_lat_c":"","pickup_long_c":"","pickup_address_c":"Midland, TX, US","pickup_state_c":"TX","pickup_city_c":"Midland","dropoff_lat_c":"","dropoff_long_c":"","dropoff_address_c":"","dropoff_state_c":"","dropoff_city_c":"","dropoff_all_states_c":"","availability_type_c":"every_weekend","availability_dates_c":"","mileage_c":"123"}]
+[2025-06-28 11:41:45] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 11:41:46] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 11:41:57] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 11:41:58] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 11:42:18] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 11:42:19] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 11:42:36] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorVehicles
+)
+
+[2025-06-28 11:42:38] [INFO] API Response: [{"id":"45539e1c-6461-6b6b-0aa4-685e46c547b5","name":"Reefer","date_entered":"2025-06-27 07:19:53","date_modified":"2025-06-27 14:06:46","modified_user_id":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","created_by":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","description":null,"deleted":"0","assigned_user_id":"","vehicle_make":null,"vehicle_model":null,"vehicle_year":null,"vehicle_color":null,"luggage_limit":null,"vehicle_capacity":"12","vehicle_quantity":"1","vehicle_status":null,"interior_style":null,"onboard_luxury":null,"media_capability":null,"complimentary":null,"base_hourly_rate":"13.000000","currency_id":"-99","base_min_hours":"4.00","base_additional_hourly":"12.000000","custom_daily_rates":"0","hourly_rate_monday":"0.000000","hourly_rate_tuesday":"0.000000","hourly_rate_wednesday":"0.000000","hourly_rate_thursday":"0.000000","hourly_rate_friday":"0.000000","hourly_rate_saturday":"0.000000","hourly_rate_sunday":"0.000000","min_hours_monday":"0.00","min_hours_tuesday":"0.00","min_hours_wednesday":"0.00","min_hours_thursday":"0.00","min_hours_friday":"0.00","min_hours_saturday":"0.00","min_hours_sunday":"0.00","additional_hourly_monday":"0.000000","additional_hourly_tuesday":"0.000000","additional_hourly_wednesday":"0.000000","additional_hourly_thursday":"0.000000","additional_hourly_friday":"0.000000","additional_hourly_saturday":"0.000000","additional_hourly_sunday":"0.000000","fuel_surcharge_percentage":"13.00","driver_gratuity_percentage":"12.00","images":null,"id_c":"45539e1c-6461-6b6b-0aa4-685e46c547b5","published_c":"Yes","pickup_lat_c":"","pickup_long_c":"","pickup_address_c":"Midland, TX, US","pickup_state_c":"TX","pickup_city_c":"Midland","dropoff_lat_c":"","dropoff_long_c":"","dropoff_address_c":"","dropoff_state_c":"","dropoff_city_c":"","dropoff_all_states_c":"","availability_type_c":"every_weekend","availability_dates_c":"","mileage_c":"123"}]
+[2025-06-28 11:42:45] [INFO] Sending to API: Array
+(
+    [id] => 45539e1c-6461-6b6b-0aa4-685e46c547b5
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 11:42:47] [INFO] API Response: {"id":"45539e1c-6461-6b6b-0aa4-685e46c547b5","name":"Reefer","capacity":"12","quantity":"1","hourly_rate":"13.000000","fuel_percentage":"13.00","gratuity_percentage":"12.00","status":"Yes","created_at":"06\/27\/2025 07:19","pickup_city":"Midland","pickup_state":"TX","pickup_address":"Midland, TX, US","availability":"every_weekend","images":"","mileage":"123"}
+[2025-06-28 11:42:53] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 11:42:54] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 11:43:22] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 11:43:23] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 11:59:40] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorVehicles
+)
+
+[2025-06-28 11:59:41] [INFO] API Response: [{"id":"45539e1c-6461-6b6b-0aa4-685e46c547b5","name":"Reefer","date_entered":"2025-06-27 07:19:53","date_modified":"2025-06-27 14:06:46","modified_user_id":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","created_by":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","description":null,"deleted":"0","assigned_user_id":"","vehicle_make":null,"vehicle_model":null,"vehicle_year":null,"vehicle_color":null,"luggage_limit":null,"vehicle_capacity":"12","vehicle_quantity":"1","vehicle_status":null,"interior_style":null,"onboard_luxury":null,"media_capability":null,"complimentary":null,"base_hourly_rate":"13.000000","currency_id":"-99","base_min_hours":"4.00","base_additional_hourly":"12.000000","custom_daily_rates":"0","hourly_rate_monday":"0.000000","hourly_rate_tuesday":"0.000000","hourly_rate_wednesday":"0.000000","hourly_rate_thursday":"0.000000","hourly_rate_friday":"0.000000","hourly_rate_saturday":"0.000000","hourly_rate_sunday":"0.000000","min_hours_monday":"0.00","min_hours_tuesday":"0.00","min_hours_wednesday":"0.00","min_hours_thursday":"0.00","min_hours_friday":"0.00","min_hours_saturday":"0.00","min_hours_sunday":"0.00","additional_hourly_monday":"0.000000","additional_hourly_tuesday":"0.000000","additional_hourly_wednesday":"0.000000","additional_hourly_thursday":"0.000000","additional_hourly_friday":"0.000000","additional_hourly_saturday":"0.000000","additional_hourly_sunday":"0.000000","fuel_surcharge_percentage":"13.00","driver_gratuity_percentage":"12.00","images":null,"id_c":"45539e1c-6461-6b6b-0aa4-685e46c547b5","published_c":"Yes","pickup_lat_c":"","pickup_long_c":"","pickup_address_c":"Midland, TX, US","pickup_state_c":"TX","pickup_city_c":"Midland","dropoff_lat_c":"","dropoff_long_c":"","dropoff_address_c":"","dropoff_state_c":"","dropoff_city_c":"","dropoff_all_states_c":"","availability_type_c":"every_weekend","availability_dates_c":"","mileage_c":"123"}]
+[2025-06-28 11:59:42] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorVehicles
+)
+
+[2025-06-28 11:59:43] [INFO] API Response: [{"id":"45539e1c-6461-6b6b-0aa4-685e46c547b5","name":"Reefer","date_entered":"2025-06-27 07:19:53","date_modified":"2025-06-27 14:06:46","modified_user_id":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","created_by":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","description":null,"deleted":"0","assigned_user_id":"","vehicle_make":null,"vehicle_model":null,"vehicle_year":null,"vehicle_color":null,"luggage_limit":null,"vehicle_capacity":"12","vehicle_quantity":"1","vehicle_status":null,"interior_style":null,"onboard_luxury":null,"media_capability":null,"complimentary":null,"base_hourly_rate":"13.000000","currency_id":"-99","base_min_hours":"4.00","base_additional_hourly":"12.000000","custom_daily_rates":"0","hourly_rate_monday":"0.000000","hourly_rate_tuesday":"0.000000","hourly_rate_wednesday":"0.000000","hourly_rate_thursday":"0.000000","hourly_rate_friday":"0.000000","hourly_rate_saturday":"0.000000","hourly_rate_sunday":"0.000000","min_hours_monday":"0.00","min_hours_tuesday":"0.00","min_hours_wednesday":"0.00","min_hours_thursday":"0.00","min_hours_friday":"0.00","min_hours_saturday":"0.00","min_hours_sunday":"0.00","additional_hourly_monday":"0.000000","additional_hourly_tuesday":"0.000000","additional_hourly_wednesday":"0.000000","additional_hourly_thursday":"0.000000","additional_hourly_friday":"0.000000","additional_hourly_saturday":"0.000000","additional_hourly_sunday":"0.000000","fuel_surcharge_percentage":"13.00","driver_gratuity_percentage":"12.00","images":null,"id_c":"45539e1c-6461-6b6b-0aa4-685e46c547b5","published_c":"Yes","pickup_lat_c":"","pickup_long_c":"","pickup_address_c":"Midland, TX, US","pickup_state_c":"TX","pickup_city_c":"Midland","dropoff_lat_c":"","dropoff_long_c":"","dropoff_address_c":"","dropoff_state_c":"","dropoff_city_c":"","dropoff_all_states_c":"","availability_type_c":"every_weekend","availability_dates_c":"","mileage_c":"123"}]
+[2025-06-28 12:18:58] [INFO] Sending to API: Array
+(
+    [vendor_id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [name] => Reefer
+    [capacity] => 229
+    [quantity] => 370
+    [hourly_rate] => 62
+    [fuel_percentage] => 436
+    [gratuity_percentage] => 506
+    [mileage] => 522
+    [status] => No
+    [pickup_address] => 34859 Rippin Cliffs
+    [pickup_city] => Dale City
+    [pickup_state] => Arkansas
+    [availability] => every_weekend
+    [images] => img_685fc1924c0bb_97cba707.jpg|img_685fc1924c3bb_6ba3125c.jpg|img_685fc1924c741_036fa70d.jpg
+    [method] => addVehicle
+)
+
+[2025-06-28 12:18:59] [INFO] API Response: {"status":"success","message":"Vehicle added successfully"}
+[2025-06-28 12:18:59] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorVehicles
+)
+
+[2025-06-28 12:19:00] [INFO] API Response: [{"id":"45539e1c-6461-6b6b-0aa4-685e46c547b5","name":"Reefer","date_entered":"2025-06-27 07:19:53","date_modified":"2025-06-27 14:06:46","modified_user_id":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","created_by":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","description":null,"deleted":"0","assigned_user_id":"","vehicle_make":null,"vehicle_model":null,"vehicle_year":null,"vehicle_color":null,"luggage_limit":null,"vehicle_capacity":"12","vehicle_quantity":"1","vehicle_status":null,"interior_style":null,"onboard_luxury":null,"media_capability":null,"complimentary":null,"base_hourly_rate":"13.000000","currency_id":"-99","base_min_hours":"4.00","base_additional_hourly":"12.000000","custom_daily_rates":"0","hourly_rate_monday":"0.000000","hourly_rate_tuesday":"0.000000","hourly_rate_wednesday":"0.000000","hourly_rate_thursday":"0.000000","hourly_rate_friday":"0.000000","hourly_rate_saturday":"0.000000","hourly_rate_sunday":"0.000000","min_hours_monday":"0.00","min_hours_tuesday":"0.00","min_hours_wednesday":"0.00","min_hours_thursday":"0.00","min_hours_friday":"0.00","min_hours_saturday":"0.00","min_hours_sunday":"0.00","additional_hourly_monday":"0.000000","additional_hourly_tuesday":"0.000000","additional_hourly_wednesday":"0.000000","additional_hourly_thursday":"0.000000","additional_hourly_friday":"0.000000","additional_hourly_saturday":"0.000000","additional_hourly_sunday":"0.000000","fuel_surcharge_percentage":"13.00","driver_gratuity_percentage":"12.00","images":null,"id_c":"45539e1c-6461-6b6b-0aa4-685e46c547b5","published_c":"Yes","pickup_lat_c":"","pickup_long_c":"","pickup_address_c":"Midland, TX, US","pickup_state_c":"TX","pickup_city_c":"Midland","dropoff_lat_c":"","dropoff_long_c":"","dropoff_address_c":"","dropoff_state_c":"","dropoff_city_c":"","dropoff_all_states_c":"","availability_type_c":"every_weekend","availability_dates_c":"","mileage_c":"123"},{"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","date_entered":"2025-06-28 10:18:58","date_modified":"2025-06-28 10:18:58","modified_user_id":null,"created_by":null,"description":null,"deleted":"0","assigned_user_id":null,"vehicle_make":null,"vehicle_model":null,"vehicle_year":null,"vehicle_color":null,"luggage_limit":null,"vehicle_capacity":"229","vehicle_quantity":"370","vehicle_status":null,"interior_style":null,"onboard_luxury":null,"media_capability":null,"complimentary":null,"base_hourly_rate":"62.000000","currency_id":null,"base_min_hours":null,"base_additional_hourly":null,"custom_daily_rates":"0","hourly_rate_monday":null,"hourly_rate_tuesday":null,"hourly_rate_wednesday":null,"hourly_rate_thursday":null,"hourly_rate_friday":null,"hourly_rate_saturday":null,"hourly_rate_sunday":null,"min_hours_monday":null,"min_hours_tuesday":null,"min_hours_wednesday":null,"min_hours_thursday":null,"min_hours_friday":null,"min_hours_saturday":null,"min_hours_sunday":null,"additional_hourly_monday":null,"additional_hourly_tuesday":null,"additional_hourly_wednesday":null,"additional_hourly_thursday":null,"additional_hourly_friday":null,"additional_hourly_saturday":null,"additional_hourly_sunday":null,"fuel_surcharge_percentage":"436.00","driver_gratuity_percentage":"506.00","images":"img_685fc1924c0bb_97cba707.jpg|img_685fc1924c3bb_6ba3125c.jpg|img_685fc1924c741_036fa70d.jpg","id_c":"b699af2f-8197-2046-ec69-685fc117e1d0","published_c":"No","pickup_lat_c":"","pickup_long_c":"","pickup_address_c":"34859 Rippin Cliffs","pickup_state_c":"Arkansas","pickup_city_c":"Dale City","dropoff_lat_c":"","dropoff_long_c":"","dropoff_address_c":"","dropoff_state_c":"","dropoff_city_c":"","dropoff_all_states_c":"","availability_type_c":"every_weekend","availability_dates_c":"","mileage_c":"522"}]
+[2025-06-28 12:19:07] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:19:07] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc1924c0bb_97cba707.jpg|img_685fc1924c3bb_6ba3125c.jpg|img_685fc1924c741_036fa70d.jpg","mileage":"522"}
+[2025-06-28 12:20:10] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:20:10] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc1924c0bb_97cba707.jpg|img_685fc1924c3bb_6ba3125c.jpg|img_685fc1924c741_036fa70d.jpg","mileage":"522"}
+[2025-06-28 12:20:59] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:21:00] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc1924c0bb_97cba707.jpg|img_685fc1924c3bb_6ba3125c.jpg|img_685fc1924c741_036fa70d.jpg","mileage":"522"}
+[2025-06-28 12:23:02] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:23:03] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc1924c0bb_97cba707.jpg|img_685fc1924c3bb_6ba3125c.jpg|img_685fc1924c741_036fa70d.jpg","mileage":"522"}
+[2025-06-28 12:23:28] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:23:29] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc1924c0bb_97cba707.jpg|img_685fc1924c3bb_6ba3125c.jpg|img_685fc1924c741_036fa70d.jpg","mileage":"522"}
+[2025-06-28 12:24:26] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:24:27] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc1924c0bb_97cba707.jpg|img_685fc1924c3bb_6ba3125c.jpg|img_685fc1924c741_036fa70d.jpg","mileage":"522"}
+[2025-06-28 12:24:49] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [name] => Reefer
+    [capacity] => 229
+    [quantity] => 370
+    [hourly_rate] => 62
+    [fuel_percentage] => 436
+    [gratuity_percentage] => 506
+    [mileage] => 522
+    [status] => No
+    [pickup_address] => 34859 Rippin Cliffs
+    [pickup_city] => Dale City
+    [pickup_state] => Arkansas
+    [availability] => every_weekend
+    [method] => updateVehicle
+)
+
+[2025-06-28 12:24:49] [INFO] API Response: {"status":"success","message":"Vehicle updated successfully"}
+[2025-06-28 12:24:49] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:24:51] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc1924c0bb_97cba707.jpg|img_685fc1924c3bb_6ba3125c.jpg|img_685fc1924c741_036fa70d.jpg","mileage":"522"}
+[2025-06-28 12:25:07] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [name] => Reefer
+    [capacity] => 229
+    [quantity] => 370
+    [hourly_rate] => 62
+    [fuel_percentage] => 436
+    [gratuity_percentage] => 506
+    [mileage] => 522
+    [status] => No
+    [pickup_address] => 34859 Rippin Cliffs
+    [pickup_city] => Dale City
+    [pickup_state] => Arkansas
+    [availability] => every_weekend
+    [method] => updateVehicle
+)
+
+[2025-06-28 12:25:08] [INFO] API Response: {"status":"success","message":"Vehicle updated successfully"}
+[2025-06-28 12:25:08] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:25:08] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc1924c0bb_97cba707.jpg|img_685fc1924c3bb_6ba3125c.jpg|img_685fc1924c741_036fa70d.jpg","mileage":"522"}
+[2025-06-28 12:28:42] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [name] => Reefer
+    [capacity] => 229
+    [quantity] => 370
+    [hourly_rate] => 62
+    [fuel_percentage] => 436
+    [gratuity_percentage] => 506
+    [mileage] => 522
+    [status] => No
+    [pickup_address] => 34859 Rippin Cliffs
+    [pickup_city] => Dale City
+    [pickup_state] => Arkansas
+    [availability] => every_weekend
+    [images] => Array
+        (
+            [0] => img_685fc1924c0bb_97cba707.jpg
+        )
+
+    [method] => updateVehicle
+)
+
+[2025-06-28 12:28:43] [INFO] API Response: {"status":"success","message":"Vehicle updated successfully"}
+[2025-06-28 12:28:43] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:28:43] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc1924c0bb_97cba707.jpg","mileage":"522"}
+[2025-06-28 12:33:34] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:33:35] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc1924c0bb_97cba707.jpg","mileage":"522"}
+[2025-06-28 12:33:43] [INFO] Sending to API: Array
+(
+    [email] => madarauchihaoffocial@gmail.com
+    [password] => Madara@1234
+    [method] => vendorLogin
+)
+
+[2025-06-28 12:33:47] [INFO] API Response: {"status":"success","message":"Login successful","data":{"id":"3010cac7-2139-3a23-1d47-685d4eeaa24c","name":"Ahmad Hassan","email":"madarauchihaoffocial@gmail.com","profile_status":"Complete","dot_number":"1000156","mc_number":"798798","vnd_type":"Intrastate","phone":"03154540483","city":"Faisalabad","state":"Faisalabad","zip":"38004","street":"Faisalabad"}}
+[2025-06-28 12:33:49] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 12:33:49] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 12:33:52] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorVehicles
+)
+
+[2025-06-28 12:33:53] [INFO] API Response: [{"id":"45539e1c-6461-6b6b-0aa4-685e46c547b5","name":"Reefer","date_entered":"2025-06-27 07:19:53","date_modified":"2025-06-27 14:06:46","modified_user_id":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","created_by":"d84e674d-587d-afdf-0b8d-5cf6a5b8ae47","description":null,"deleted":"0","assigned_user_id":"","vehicle_make":null,"vehicle_model":null,"vehicle_year":null,"vehicle_color":null,"luggage_limit":null,"vehicle_capacity":"12","vehicle_quantity":"1","vehicle_status":null,"interior_style":null,"onboard_luxury":null,"media_capability":null,"complimentary":null,"base_hourly_rate":"13.000000","currency_id":"-99","base_min_hours":"4.00","base_additional_hourly":"12.000000","custom_daily_rates":"0","hourly_rate_monday":"0.000000","hourly_rate_tuesday":"0.000000","hourly_rate_wednesday":"0.000000","hourly_rate_thursday":"0.000000","hourly_rate_friday":"0.000000","hourly_rate_saturday":"0.000000","hourly_rate_sunday":"0.000000","min_hours_monday":"0.00","min_hours_tuesday":"0.00","min_hours_wednesday":"0.00","min_hours_thursday":"0.00","min_hours_friday":"0.00","min_hours_saturday":"0.00","min_hours_sunday":"0.00","additional_hourly_monday":"0.000000","additional_hourly_tuesday":"0.000000","additional_hourly_wednesday":"0.000000","additional_hourly_thursday":"0.000000","additional_hourly_friday":"0.000000","additional_hourly_saturday":"0.000000","additional_hourly_sunday":"0.000000","fuel_surcharge_percentage":"13.00","driver_gratuity_percentage":"12.00","images":null,"id_c":"45539e1c-6461-6b6b-0aa4-685e46c547b5","published_c":"Yes","pickup_lat_c":"","pickup_long_c":"","pickup_address_c":"Midland, TX, US","pickup_state_c":"TX","pickup_city_c":"Midland","dropoff_lat_c":"","dropoff_long_c":"","dropoff_address_c":"","dropoff_state_c":"","dropoff_city_c":"","dropoff_all_states_c":"","availability_type_c":"every_weekend","availability_dates_c":"","mileage_c":"123"},{"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","date_entered":"2025-06-28 10:18:58","date_modified":"2025-06-28 10:28:42","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"","vehicle_make":null,"vehicle_model":null,"vehicle_year":null,"vehicle_color":null,"luggage_limit":null,"vehicle_capacity":"229","vehicle_quantity":"370","vehicle_status":null,"interior_style":null,"onboard_luxury":null,"media_capability":null,"complimentary":null,"base_hourly_rate":"62.000000","currency_id":"","base_min_hours":null,"base_additional_hourly":null,"custom_daily_rates":"0","hourly_rate_monday":null,"hourly_rate_tuesday":null,"hourly_rate_wednesday":null,"hourly_rate_thursday":null,"hourly_rate_friday":null,"hourly_rate_saturday":null,"hourly_rate_sunday":null,"min_hours_monday":null,"min_hours_tuesday":null,"min_hours_wednesday":null,"min_hours_thursday":null,"min_hours_friday":null,"min_hours_saturday":null,"min_hours_sunday":null,"additional_hourly_monday":null,"additional_hourly_tuesday":null,"additional_hourly_wednesday":null,"additional_hourly_thursday":null,"additional_hourly_friday":null,"additional_hourly_saturday":null,"additional_hourly_sunday":null,"fuel_surcharge_percentage":"436.00","driver_gratuity_percentage":"506.00","images":"img_685fc1924c0bb_97cba707.jpg","id_c":"b699af2f-8197-2046-ec69-685fc117e1d0","published_c":"No","pickup_lat_c":"","pickup_long_c":"","pickup_address_c":"34859 Rippin Cliffs","pickup_state_c":"Arkansas","pickup_city_c":"Dale City","dropoff_lat_c":"","dropoff_long_c":"","dropoff_address_c":"","dropoff_state_c":"","dropoff_city_c":"","dropoff_all_states_c":"","availability_type_c":"every_weekend","availability_dates_c":"","mileage_c":"522"}]
+[2025-06-28 12:33:56] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:33:57] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc1924c0bb_97cba707.jpg","mileage":"522"}
+[2025-06-28 12:34:07] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [name] => Reefer
+    [capacity] => 229
+    [quantity] => 370
+    [hourly_rate] => 62
+    [fuel_percentage] => 436
+    [gratuity_percentage] => 506
+    [mileage] => 522
+    [status] => No
+    [pickup_address] => 34859 Rippin Cliffs
+    [pickup_city] => Dale City
+    [pickup_state] => Arkansas
+    [availability] => every_weekend
+    [images] => Array
+        (
+            [0] => img_685fc1924c0bb_97cba707.jpg
+            [1] => img_685fc51f19fa7_814becc7.jpg
+        )
+
+    [method] => updateVehicle
+)
+
+[2025-06-28 12:34:07] [INFO] API Response: {"status":"success","message":"Vehicle updated successfully"}
+[2025-06-28 12:34:07] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:34:08] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc51f19fa7_814becc7.jpg","mileage":"522"}
+[2025-06-28 12:34:43] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:34:43] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc51f19fa7_814becc7.jpg","mileage":"522"}
+[2025-06-28 12:36:21] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:36:22] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc51f19fa7_814becc7.jpg","mileage":"522"}
+[2025-06-28 12:38:03] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:38:04] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"No","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc51f19fa7_814becc7.jpg","mileage":"522"}
+[2025-06-28 12:38:40] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [name] => Reefer
+    [capacity] => 229
+    [quantity] => 370
+    [hourly_rate] => 62
+    [fuel_percentage] => 436
+    [gratuity_percentage] => 506
+    [mileage] => 522
+    [status] => Yes
+    [pickup_address] => 34859 Rippin Cliffs
+    [pickup_city] => Dale City
+    [pickup_state] => Arkansas
+    [availability] => every_weekend
+    [images] => img_685fc63057b0f_e60dac5c.jpeg|img_685fc6305817c_f7f40abf.jpg
+    [method] => updateVehicle
+)
+
+[2025-06-28 12:38:41] [INFO] API Response: {"status":"success","message":"Vehicle updated successfully"}
+[2025-06-28 12:38:41] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:38:42] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"Yes","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc63057b0f_e60dac5c.jpeg|img_685fc6305817c_f7f40abf.jpg","mileage":"522"}
+[2025-06-28 12:38:51] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [name] => Reefer
+    [capacity] => 229
+    [quantity] => 370
+    [hourly_rate] => 62
+    [fuel_percentage] => 436
+    [gratuity_percentage] => 506
+    [mileage] => 522
+    [status] => Yes
+    [pickup_address] => 34859 Rippin Cliffs
+    [pickup_city] => Dale City
+    [pickup_state] => Arkansas
+    [availability] => every_weekend
+    [images] => img_685fc63057b0f_e60dac5c.jpeg|img_685fc6305817c_f7f40abf.jpg|img_685fc63be59fe_8db90261.jpg
+    [method] => updateVehicle
+)
+
+[2025-06-28 12:38:52] [INFO] API Response: {"status":"success","message":"Vehicle updated successfully"}
+[2025-06-28 12:38:52] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:38:53] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"Yes","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc63057b0f_e60dac5c.jpeg|img_685fc6305817c_f7f40abf.jpg|img_685fc63be59fe_8db90261.jpg","mileage":"522"}
+[2025-06-28 12:39:01] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [name] => Reefer
+    [capacity] => 229
+    [quantity] => 370
+    [hourly_rate] => 62
+    [fuel_percentage] => 436
+    [gratuity_percentage] => 506
+    [mileage] => 522
+    [status] => Yes
+    [pickup_address] => 34859 Rippin Cliffs
+    [pickup_city] => Dale City
+    [pickup_state] => Arkansas
+    [availability] => every_weekend
+    [images] => img_685fc63057b0f_e60dac5c.jpeg|img_685fc63be59fe_8db90261.jpg
+    [method] => updateVehicle
+)
+
+[2025-06-28 12:39:02] [INFO] API Response: {"status":"success","message":"Vehicle updated successfully"}
+[2025-06-28 12:39:02] [INFO] Sending to API: Array
+(
+    [id] => b699af2f-8197-2046-ec69-685fc117e1d0
+    [method] => fetchVehicleById
+)
+
+[2025-06-28 12:39:02] [INFO] API Response: {"id":"b699af2f-8197-2046-ec69-685fc117e1d0","name":"Reefer","capacity":"229","quantity":"370","hourly_rate":"62.000000","fuel_percentage":"436.00","gratuity_percentage":"506.00","status":"Yes","created_at":"06\/28\/2025 10:18","pickup_city":"Dale City","pickup_state":"Arkansas","pickup_address":"34859 Rippin Cliffs","availability":"every_weekend","images":"img_685fc63057b0f_e60dac5c.jpeg|img_685fc63be59fe_8db90261.jpg","mileage":"522"}
+[2025-06-28 12:39:07] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 12:39:08] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]
+[2025-06-28 12:39:13] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-06-28 12:39:14] [INFO] API Response: [{"id":"cd0649ef-b47d-7642-9924-685e42053435","name":"Ahmad Hassan","date_entered":"2025-06-27 07:03:13","date_modified":"2025-06-28 07:54:58","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cd0649ef-b47d-7642-9924-685e42053435","pickup_address_c":"Alaska 3, Willow, AK, USA","pickup_lat_c":"61.75","pickup_lng_c":"-150.04","dropoff_address_c":"Los Santos, Lakeside, CA, USA","dropoff_lat_c":"32.86","dropoff_lng_c":"-116.92","freight_description_c":"this is test","carrier_vehicle_type_c":"reefer","freight_weight_c":"1200","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"bulk","rate_c":"2","mileage_c":"11248.17","total_price_c":"14,129.74","distance_c":"3,749.39","pickup_time_c":"11:39","fuel_c":"2635.07","addons_c":"layover-200,","duration_c":"2 days 16 hrs 53 mins","deadhead_price_c":"46.50","deadhead_distance_c":"23.25","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000064","pickup_state_c":"AK","vendor_name_c":"Madara","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Willow","pickup_zip_c":"","dropoff_city_c":"Lakeside","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"278838584","addons_total_c":"200","pickup_date_c":"2025-07-07","dropoff_time_c":"11:41","dropoff_date_c":"2025-07-11","toll_c":"0","status_c":"Assigned","co_signer_c":"","source_c":".com","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"","vendor_confirmation_c":"","client_payment_type_c":"","amount_paid_c":"","payments_made_c":"Nothing","payment_notes_c":"","agreement_status_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1"}]

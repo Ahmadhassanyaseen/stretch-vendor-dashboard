@@ -37,22 +37,22 @@
                     <td>
                         <?php
                         $statusClasses = [
-                            'In Transit' => 'text-blue-700 bg-blue-100',
-                            'Delivered' => 'text-green-700 bg-green-100',
-                            'Pending' => 'text-orange-700 bg-orange-100',
-                            'Cancelled' => 'text-red-700 bg-red-100'
+                            
+                            '1' => 'text-green-700 bg-green-100',
+                            '0' => 'text-orange-700 bg-orange-100',
+                            '-1' => 'text-red-700 bg-red-100'
                         ];
-                        $statusClass = $statusClasses[$shipment['status']] ?? 'bg-gray-100 text-gray-800';
+                        $statusClass = $statusClasses[$shipment['vendor_status']] ?? 'bg-gray-100 text-gray-800';
                         ?>
                         <span class="px-2 py-1 text-xs font-semibold leading-tight rounded-full <?= $statusClass ?>">
-                            <?= htmlspecialchars($shipment['status']) ?>
+                            <?= htmlspecialchars($shipment['vendor_status'] == '1' ? 'Accepted' : ($shipment['vendor_status'] == '0' ? 'Pending' : 'Rejected')) ?>
                         </span>
                     </td>
                     <td><?= date('M d, Y', strtotime($shipment['created_at'])) ?></td>
                     <td class="flex">
                         <button class=" hover:bg-blue-600 text-white py-2 px-4 rounded mr-2 edit-shipment 
                         <?php 
-                        if($shipment['vendor_status'] == '1') {
+                        if($shipment['vendor_status'] == '-1') {
                             echo 'bg-disabled';
                         } else {
                             echo 'bg-blue-600';
@@ -60,7 +60,7 @@
                         " 
 
                         <?php 
-                        if($shipment['vendor_status'] == '1') {
+                        if($shipment['vendor_status'] == '-1') {
                             echo 'disabled';
                         } ?>
 
@@ -70,14 +70,14 @@
                         </button>
                         <button class=" hover:bg-red-600 text-white py-2 px-4 rounded delete-shipment
                          <?php 
-                         if($shipment['vendor_status'] == '1') {
+                         if($shipment['vendor_status'] != '0') {
                             echo 'bg-disabled';
                         } else {
                             echo 'bg-red-600';
                         } ?>
                         "
                         <?php 
-                        if($shipment['vendor_status'] == '1') {
+                        if($shipment['vendor_status'] != '0') {
                             echo 'disabled';
                         } ?>
                         data-id="<?= $shipment['id'] ?>">
