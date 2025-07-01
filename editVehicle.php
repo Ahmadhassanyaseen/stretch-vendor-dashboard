@@ -15,19 +15,19 @@
         <main class="h-full overflow-y-auto pb-10">
           <div class="container px-6 pb-10 mx-auto grid">
             <h2
-              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              class="my-6 text-2xl font-semibold text-gray-700 "
             >
                Edit Vehicle
             </h2>
            
-            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md">
               <form action="helper/vehicle/update.php" enctype="multipart/form-data" method="POST" class="space-y-6">
               <input type="hidden" name="vendor_id" value="<?php echo $userData['id']; ?>">
               <input type="hidden" name="id" value="<?= $response['id'] ?>">
-                <div  class="flex xeno-gap">
+                <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label class="block text-sm font-medium text-gray-700  mb-1">
                        Name
                       </label>
                       <input
@@ -36,14 +36,14 @@
                         value="<?= $response['name'] ?>"
                         required
                         
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                        
                       />
                       
                     </div>
 
                     <div class="w-full">
-                      <label for="capacity" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label for="capacity" class="block text-sm font-medium text-gray-700  mb-1">
                         Capacity
                       </label>
                       <input
@@ -52,7 +52,7 @@
                         name="capacity"
                         value="<?= $response['capacity'] ?>"
                         
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                         required
                       />
                     </div>
@@ -65,7 +65,7 @@
                       
 
                       <div>
-                        <label for="quantity" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="quantity" class="block text-sm font-medium text-gray-700  mb-1">
                           Quantity
                         </label>
                         <input
@@ -73,13 +73,13 @@
                           id="quantity"
                           name="quantity"
                           value="<?= $response['quantity'] ?>"
-                          class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                           placeholder="Enter quantity"
                         />
                       </div>
 
                       <div>
-                        <label for="hourly_rate" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="hourly_rate" class="block text-sm font-medium text-gray-700  mb-1">
                          Hourly Rate
                         </label>
                         <input
@@ -87,18 +87,18 @@
                           id="hourly_rate"
                           name="hourly_rate"
                           value="<?= $response['hourly_rate'] ?>"
-                          class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                           placeholder="Enter hourly rate"
                         />
                       </div>
                     </div>
                   </div>
                 </div>
-                <hr class="mt-4 mb-4 w-full h-[1px] bg-gray-200 dark:bg-gray-700"/>
-                <div  class="flex xeno-gap">
+                <hr class="mt-4 mb-4 w-full h-[1px] bg-gray-200 "/>
+                <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label class="block text-sm font-medium text-gray-700  mb-1">
                         Fuel Percentage
                       </label>
                       <input
@@ -106,7 +106,7 @@
                         id="fuel_percentage"
                         name="fuel_percentage"
                         value="<?= $response['fuel_percentage'] ?>"
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                         placeholder="Enter fuel percentage"
                       />
                       
@@ -114,7 +114,7 @@
                     </div>
 
                     <div class="w-full">
-                      <label for="gratuity_percentage" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label for="gratuity_percentage" class="block text-sm font-medium text-gray-700  mb-1">
                       Gratuity Percentage
                       </label>
                       <input
@@ -122,7 +122,7 @@
                         id="gratuity_percentage"
                         name="gratuity_percentage"
                         value="<?= $response['gratuity_percentage'] ?>"
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                         placeholder="Enter gratuity percentage"
                       />
                     </div>
@@ -135,7 +135,7 @@
                       
 
                       <div>
-                        <label for="mileage" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="mileage" class="block text-sm font-medium text-gray-700  mb-1">
                           Mileage
                         </label>
                         <input
@@ -143,7 +143,7 @@
                           id="mileage"
                           name="mileage"
                           value="<?= $response['mileage'] ?>"
-                          class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                           placeholder="Enter mileage"
 
                         />
@@ -152,10 +152,10 @@
                       </div>
 
                       <div>
-                        <label for="status" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="status" class="block text-sm font-medium text-gray-700  mb-1">
                         Status
                         </label>
-                      <select name="status" id="status" class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300">
+                      <select name="status" id="status" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  ">
                           <option value="">Select Status</option>
                           <option value="Yes" <?= $response['status'] == 'Yes' ? 'selected' : '' ?> >Active</option>
                           <option value="No" <?= $response['status'] == 'No' ? 'selected' : '' ?> >Inactive</option>
@@ -165,17 +165,17 @@
                     </div>
                   </div>
                 </div>
-                <hr class="mt-4 mb-4 w-full h-[1px] bg-gray-200 dark:bg-gray-700"/>
-                <div  class="flex xeno-gap">
+                <hr class="mt-4 mb-4 w-full h-[1px] bg-gray-200 "/>
+                <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label class="block text-sm font-medium text-gray-700  mb-1">
                         Pick Up Address
                       </label>
                       <input
                         type="text"
                         value="<?= $response['pickup_address'] ?>"
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                         name="pickup_address"
                       
                       />
@@ -183,7 +183,7 @@
                     </div>
 
                     <div class="w-full">
-                      <label for="pickup_city" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label for="pickup_city" class="block text-sm font-medium text-gray-700  mb-1">
                       Pick Up City
                       </label>
                       <input
@@ -191,7 +191,7 @@
                         id="pickup_city"
                         name="pickup_city"
                         value="<?= $response['pickup_city'] ?>"
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                         required
                       />
                     </div>
@@ -204,7 +204,7 @@
                       
 
                       <div>
-                        <label for="pickup_state" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="pickup_state" class="block text-sm font-medium text-gray-700  mb-1">
                          Pick Up State
                         </label>
                         <input
@@ -214,17 +214,17 @@
                           value="<?= $response['pickup_state'] ?>"
                           
                           
-                          class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                           placeholder="Enter state"
                         />
                       </div>
 
                       <div>
-                        <label for="availability" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="availability" class="block text-sm font-medium text-gray-700  mb-1">
                         Availability
                         </label>
                      
-                       <select name="availability" id="availability" class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300">
+                       <select name="availability" id="availability" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  ">
                           <option value="">Select Availability</option>
                           <option value="every_day" <?= $response['availability'] == 'every_day' ? 'selected' : '' ?>>Every Day</option>
                           <option value="every_weekend" <?= $response['availability'] == 'every_weekend' ? 'selected' : '' ?>>Every Weekend</option>
@@ -238,10 +238,10 @@
                 </div>
 
                 <div class="w-full mt-4">
-                  <label for="images" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label for="images" class="block text-sm font-medium text-gray-700  mb-1">
                   Images
                   </label>
-                  <input type="file" name="images[]" id="images" max="3"   class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300" multiple>
+                  <input type="file" name="images[]" id="images" max="3"   class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  " multiple>
                 </div>
                 
               <div id="imagePreview" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
@@ -251,9 +251,9 @@
                       foreach ($images as $image) {
                           if (!empty($image)) {
                               $imagePath = 'vehicles/' . $userData['id'] . '/' . $image;
-                              echo '<div class="preview-container" style="position: relative; display: inline-block; margin: 5px; border: 1px solid #ddd; border-radius: 5px; overflow: hidden;">';
-                              echo '<img src="' . $imagePath . '" style="width: 100%; height: 100%; object-fit: contain; border-radius: 5px;">';
-                              echo '<span class="remove-existing-image" data-image="' . $image . '" style="position: absolute; top: 5px; right: 5px; background: red; color: white; border-radius: 50%; width: 20px; height: 20px; text-align: center; line-height: 20px; cursor: pointer; font-size: 16px; font-weight: bold;">×</span>';
+                              echo '<div class="preview-container" style="position: relative; display: inline-block; margin: 5px; border border-gray-400: 1px solid #ddd; border border-gray-400-radius: 5px; overflow: hidden;">';
+                              echo '<img src="' . $imagePath . '" style="width: 100%; height: 100%; object-fit: contain; border border-gray-400-radius: 5px;">';
+                              echo '<span class="remove-existing-image" data-image="' . $image . '" style="position: absolute; top: 5px; right: 5px; background: red; color: white; border border-gray-400-radius: 50%; width: 20px; height: 20px; text-align: center; line-height: 20px; cursor: pointer; font-size: 16px; font-weight: bold;">×</span>';
                               echo '<input type="hidden" name="existing_images[]" value="' . $image . '">';
                               echo '</div>';
                           }
@@ -324,8 +324,8 @@
         //             'margin': '5px',
         //             // 'width': '150px',
         //             // 'height': '150px',
-        //             'border': '1px solid #ddd',
-        //             'border-radius': '5px',
+        //             'border border-gray-400': '1px solid #ddd',
+        //             'border border-gray-400-radius': '5px',
         //             'overflow': 'hidden'
         //           });
                   
@@ -333,7 +333,7 @@
         //             'width': '100%',
         //             'height': '100%',
         //             'object-fit': 'contain',
-        //             'border-radius': '5px'
+        //             'border border-gray-400-radius': '5px'
         //           });
                   
         //           var removeBtn = $('<span class="remove-image">×</span>').css({
@@ -342,7 +342,7 @@
         //             'right': '5px',
         //             'background': 'red',
         //             'color': 'white',
-        //             'border-radius': '50%',
+        //             'border border-gray-400-radius': '50%',
         //             'width': '20px',
         //             'height': '20px',
         //             'text-align': 'center',
@@ -428,8 +428,8 @@
                         'position': 'relative',
                         'display': 'inline-block',
                         'margin': '5px',
-                        'border': '1px solid #ddd',
-                        'border-radius': '5px',
+                        'border border-gray-400': '1px solid #ddd',
+                        'border border-gray-400-radius': '5px',
                         'overflow': 'hidden'
                     });
                     
@@ -437,7 +437,7 @@
                         'width': '100%',
                         'height': '100%',
                         'object-fit': 'contain',
-                        'border-radius': '5px'
+                        'border border-gray-400-radius': '5px'
                     });
                     
                     var removeBtn = $('<span class="remove-new-image">×</span>').css({
@@ -446,7 +446,7 @@
                         'right': '5px',
                         'background': 'red',
                         'color': 'white',
-                        'border-radius': '50%',
+                        'border border-gray-400-radius': '50%',
                         'width': '20px',
                         'height': '20px',
                         'text-align': 'center',

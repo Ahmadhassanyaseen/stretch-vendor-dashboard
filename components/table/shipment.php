@@ -50,10 +50,10 @@
                     </td>
                     <td><?= date('M d, Y', strtotime($shipment['created_at'])) ?></td>
                     <td class="flex">
-                        <button class=" hover:bg-blue-600 text-white py-2 px-4 rounded mr-2 edit-shipment 
+                        <button class="cursor-pointer bg-blue-600 hover:bg-blue-400 text-white py-2 px-4 rounded mr-2 edit-shipment 
                         <?php 
                         if($shipment['vendor_status'] == '-1') {
-                            echo 'bg-disabled';
+                            echo 'bg-gray-600';
                         } else {
                             echo 'bg-blue-600';
                         } ?>
@@ -68,10 +68,10 @@
                         >
                            <i class="fas fa-edit"></i>
                         </button>
-                        <button class=" hover:bg-red-600 text-white py-2 px-4 rounded delete-shipment
+                        <button class="cursor-pointer bg-red-600 hover:bg-red-400 text-white py-2 px-4 rounded delete-shipment
                          <?php 
                          if($shipment['vendor_status'] != '0') {
-                            echo 'bg-disabled';
+                            echo 'bg-gray-600';
                         } else {
                             echo 'bg-red-600';
                         } ?>
