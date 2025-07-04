@@ -8,9 +8,19 @@ function login($data){
     $data["method"] = "vendorLogin";
     $response = curlRequest($data);
     if($response['status'] == "success"){
-        file_put_contents('store.json', json_encode($response['data']));
-
-        // $_SESSION['shipper_user'] = $response['data'];
+        $cookieData = json_encode($response['data']);
+        $cookieSet = setcookie(
+            "vendor", 
+            $cookieData, 
+            [
+                'expires' => time() + (86400),
+                'path' => '/',
+                'domain' => '', // current domain
+                'secure' => false, // set to true if using HTTPS
+                'httponly' => true,
+                'samesite' => 'Lax'
+            ]
+        );
     }
     return $response;
 }

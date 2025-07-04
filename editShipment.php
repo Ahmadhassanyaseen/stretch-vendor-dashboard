@@ -1,10 +1,15 @@
 <?php include 'config/config.php'; ?>
-<?php include 'helper/globalHelper.php'; ?>
+
 
 <?php include 'components/layout/header.php'; ?>
     <?php include 'components/layout/sidebar.php'; ?>
 
     <?php
+    if (isset($_COOKIE["vendor"])) {
+      $userData = json_decode($_COOKIE["vendor"], true);
+    } else {
+      $userData = [];
+    }
     $data['id'] = $_GET['id'];
     $data['vendor_id'] = $userData['id'];
     $shipment = fetchShipmentById($data);
@@ -106,24 +111,21 @@
                     </div>
                     <div class="flex justify-between">
                       <span class="text-gray-600 ">Description:</span>
-                      <span class="font-medium text-gray-700 "><?php echo $shipment['description']; ?></span>
+                      <span class="font-medium text-gray-700 w-1/2 text-right"><?php echo $shipment['description']; ?></span>
                     </div>
                     <div class="flex justify-between">
                       <span class="text-gray-600 ">Vehicle Type:</span>
                       <span class="font-medium text-gray-700 "><?php echo ucfirst($shipment['carrier_vehicle_type']); ?></span>
                     </div>
-                    <div class="flex justify-between">
+                    <!-- <div class="flex justify-between">
                       <span class="text-gray-600 ">Rate:</span>
-                      <span class="font-medium text-gray-700 ">$<?php echo number_format($shipment['rate'], 2); ?></span>
+                      <span class="font-medium text-gray-700 ">$<?php //echo number_format($shipment['rate'], 2); ?></span>
                     </div>
                     <div class="flex justify-between">
                       <span class="text-gray-600 ">Mileage:</span>
-                      <span class="font-medium text-gray-700 "><?php echo number_format($shipment['mileage'], 2); ?></span>
-                    </div>
-                    <div class="flex justify-between">
-                      <span class="text-gray-600 ">Fuel Surcharge:</span>
-                      <span class="font-medium text-gray-700 ">$<?php echo number_format($shipment['fuel'], 2); ?></span>
-                    </div>
+                      <span class="font-medium text-gray-700 "><?php //echo number_format($shipment['mileage'], 2); ?></span>
+                    </div> -->
+                   
                     <div class="flex justify-between">
                       <span class="text-gray-600 ">Distance:</span>
                       <span class="font-medium text-gray-700 "><?php echo $shipment['distance']; ?> miles</span>
@@ -134,7 +136,15 @@
                     </div>
                     <div class="flex justify-between">
                       <span class="text-gray-600 ">Total Price:</span>
-                      <span class="text-lg font-bold text-blue-600 ">$<?php echo $shipment['total_price']; ?></span>
+                      <span class="text-lg font-bold text-blue-600 ">$<?php echo $shipment['platform_price']; ?></span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600 ">Fuel Cost:</span>
+                      <span class="font-medium text-red-600 ">- $<?php echo $shipment['fuel']; ?></span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600 ">Profit:</span>
+                      <span class="text-lg font-medium text-green-600 ">$<?php echo (floatval(str_replace(',', '', $shipment['platform_price'])) - floatval(str_replace(',', '', $shipment['fuel']))); ?></span>
                     </div>
                   </div>
                 </div>

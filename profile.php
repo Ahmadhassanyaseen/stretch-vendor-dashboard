@@ -1,7 +1,11 @@
 <?php 
 // session_start();
 include 'config/config.php';
-include 'helper/globalHelper.php';
+if (isset($_COOKIE["vendor"])) {
+  $userData = json_decode($_COOKIE["vendor"], true);
+} else {
+  $userData = [];
+}
 
 $statusMsg = '';
 if(isset($_GET['status']) && $_GET['status'] == 'success'){

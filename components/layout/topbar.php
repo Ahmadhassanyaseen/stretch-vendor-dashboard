@@ -1,4 +1,4 @@
-<header class="z-10 py-4 bg-primary-color shadow-md ">
+<header class="z-10 py-4 bg-primary-color shadow-md">
           <div
             class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600"
           >
@@ -26,9 +26,9 @@
               <div
                 class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
               >
-                <div class="absolute inset-y-0 ml-3 flex items-center ">
+                <div class="absolute inset-y-0 flex items-center pl-2">
                   <svg
-                    class="w-4 h-4"
+                    class="w-4 h-4 mr-2"
                     aria-hidden="true"
                     fill="#D74559"
                     viewBox="0 0 20 20"
@@ -41,7 +41,7 @@
                   </svg>
                 </div>
                 <input
-                  class="w-full px-4 py-2 pl-8 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md  focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
+                  class="w-full px-6 py-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                   type="text"
                   placeholder="Search for shipments"
                   aria-label="Search"
@@ -88,7 +88,7 @@
               <!-- Profile menu -->
               <li class="relative">
                 <button
-                  class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
+                  class="align-middle rounded-full focus:outline-none cursor-pointer"
                   @click="toggleProfileMenu"
                   @keydown.escape="closeProfileMenu"
                   aria-label="Account"
@@ -101,6 +101,11 @@
                     aria-hidden="true"
                   /> -->
                   <?php
+                  if (isset($_COOKIE["vendor"])) {
+                    $userData = json_decode($_COOKIE["vendor"], true);
+                  } else {
+                    $userData = [];
+                  }
                   $name = $userData['name'];
                   $initial = strtoupper(substr($name, 0, 1));
                   ?>
@@ -118,7 +123,7 @@
                   >
                     <li class="flex">
                       <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 "
+                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
                         href="profile.php"
                       >
                         <svg
@@ -141,7 +146,7 @@
                     
                     <li class="flex">
                       <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 "
+                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
                         href="#"
                         onclick="logout()"
                       >

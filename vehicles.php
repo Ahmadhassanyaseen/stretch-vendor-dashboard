@@ -1,5 +1,5 @@
 <?php include 'config/config.php'; ?>
-<?php include 'helper/globalHelper.php'; ?>
+
 <?php include 'components/layout/header.php'; ?>
     <?php include 'components/layout/sidebar.php'; ?>
      
@@ -22,7 +22,14 @@
             
             
             <?php
-            
+
+
+if (isset($_COOKIE["vendor"])) {
+    $userData = json_decode($_COOKIE["vendor"], true);
+} else {
+    $userData = [];
+}
+
           
                   $data['id'] = $userData['id'];
                   $response = fetchAllVendorVehicles($data);

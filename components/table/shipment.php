@@ -13,7 +13,8 @@
                     <th>Quantity</th>
                     <th>Weight</th>
                     <th>Amount</th>
-                    <th>Status</th>
+                    <th>Lead Status</th>
+                    <th>Vendor Status</th>
                     <th>Date</th>
                     <th>Actions</th>
                 </tr>
@@ -34,6 +35,23 @@
                     <td><?= htmlspecialchars($shipment['quantity']) ?></td>
                     <td><?= htmlspecialchars($shipment['weight']) ?></td>
                     <td><?= htmlspecialchars($shipment['amount']) ?></td>
+
+                    <td>
+                        <?php
+                        $statusClasses = [
+                            
+                            'Converted' => 'text-green-700 bg-green-100',
+                            'Pending' => 'text-orange-700 bg-orange-100',
+                            'Assigned' => 'text-orange-700 bg-orange-100',
+                            'Deleted' => 'text-red-700 bg-red-100',
+                            'Dead' => 'text-red-700 bg-red-100'
+                        ];
+                        $statusClass = $statusClasses[$shipment['status']] ?? 'bg-gray-100 text-gray-800';
+                        ?>
+                        <span class="px-2 py-1 text-xs font-semibold leading-tight rounded-full <?= $statusClass ?>">
+                            <?= htmlspecialchars($shipment['status']) ?>
+                        </span>
+                    </td>
                     <td>
                         <?php
                         $statusClasses = [

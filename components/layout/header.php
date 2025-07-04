@@ -1,6 +1,11 @@
 
-<?php 
-include __DIR__ . '/../../helper/globalHelper.php';
+<?php
+if(!isset($_COOKIE['vendor'])){
+    // echo "Not set";
+   echo "<script> window.location.href = 'login.php';</script>";
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
@@ -31,24 +36,9 @@ include __DIR__ . '/../../helper/globalHelper.php';
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
    
     <script>
-       let userData = <?php echo isset($userData) ? json_encode($userData) : 'null'; ?>;
       
-      // Check if user is logged in and session is valid
-      if(!userData || userData == null || userData.length == 0){
-        window.location.href = 'login.php';
-      }
       
-      // Check session timeout (1 hour = 3600 seconds)
-      const sessionTime = localStorage.getItem('vendor_session');
-      const currentTime = Math.floor(Date.now() / 1000);
-      const oneHourInSeconds = 3600;
-      
-      if (sessionTime && (currentTime - parseInt(sessionTime) > oneHourInSeconds)) {
-        // Clear session and redirect to login
-        localStorage.removeItem('vendor');
-        localStorage.removeItem('vendor_session');
-        window.location.href = 'login.php?session=expired';
-      }
+     
       function logout(){
         Swal.fire({
           title: "Are you sure?",
@@ -69,9 +59,7 @@ include __DIR__ . '/../../helper/globalHelper.php';
                   icon: "success"
                 });
                 setTimeout(() => {
-                  localStorage.removeItem('vendor');
-                  localStorage.removeItem('vendor_session');
-                  userData = null;
+                  setcookie("vendor", "", time() - 3600, "/");
                   window.location.href = 'login.php';
                 }, 1000);
               });
@@ -84,6 +72,11 @@ include __DIR__ . '/../../helper/globalHelper.php';
     <script>
       // Wait for DOM to be fully loaded
       document.addEventListener('DOMContentLoaded', function() {
+        if (isset($_COOKIE["vendor"])) {
+          $userData = json_decode($_COOKIE["vendor"], true);
+        } else {
+          $userData = [];
+        }
        
         if(userData && userData.profile_status === 'incomplete'){
           Swal.fire({

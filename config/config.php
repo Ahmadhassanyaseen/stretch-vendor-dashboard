@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 // Include logger
 require_once __DIR__ . '/../includes/logger.php';

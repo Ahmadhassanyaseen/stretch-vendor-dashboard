@@ -42,13 +42,13 @@
             <img
               aria-hidden="true"
               class="object-cover w-full h-full dark:hidden"
-              src="./assets/img/login-office.jpeg"
+              src="./assets/img/login.jpg"
               alt="Office"
             />
             <img
               aria-hidden="true"
               class="hidden object-cover w-full h-full dark:block"
-              src="./assets/img/login-office-dark.jpeg"
+              src="./assets/img/login.jpg"
               alt="Office"
             />
           </div>
@@ -262,8 +262,8 @@
                   confirmButtonText: 'Continue'
               });
 
-              localStorage.setItem('vendor', JSON.stringify(result.data));
-              localStorage.setItem('vendor_session', Math.floor(Date.now() / 1000));
+              // localStorage.setItem('vendor', JSON.stringify(result.data));
+              // localStorage.setItem('vendor_session', Math.floor(Date.now() / 1000));
 
               // Redirect to dashboard or home page
               window.location.href = 'index.php';

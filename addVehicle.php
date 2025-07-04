@@ -1,7 +1,14 @@
-<?php include 'helper/globalHelper.php'; ?>
+
 <?php include 'config/config.php'; ?>
 <?php include 'components/layout/header.php'; ?>
-    <?php include 'components/layout/sidebar.php'; ?>
+    <?php include 'components/layout/sidebar.php'; 
+    
+    if (isset($_COOKIE["vendor"])) {
+      $userData = json_decode($_COOKIE["vendor"], true);
+  } else {
+      $userData = [];
+  }
+    ?>
 
     
      
@@ -10,18 +17,18 @@
         <main class="h-full overflow-y-auto pb-10">
           <div class="container px-6 pb-10 mx-auto grid">
             <h2
-              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              class="my-6 text-2xl font-semibold text-gray-700 "
             >
                Add Vehicle
             </h2>
            
-            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md">
               <form action="helper/vehicle/add.php"  method="POST" class="space-y-6" enctype="multipart/form-data">
               <input type="hidden" name="vendor_id" value="<?php echo $userData['id']; ?>">
-                <div  class="flex xeno-gap">
+                <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label class="block text-sm font-medium text-gray-700  mb-1">
                        Name
                       </label>
                       <input
@@ -30,14 +37,14 @@
                        
                         required
                         
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border rounded-md  "
                        
                       />
                       
                     </div>
 
                     <div class="w-full">
-                      <label for="capacity" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label for="capacity" class="block text-sm font-medium text-gray-700  mb-1">
                         Capacity
                       </label>
                       <input
@@ -46,20 +53,19 @@
                         name="capacity"
                         
                         
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border rounded-md  "
                         required
                       />
                     </div>
                   </div>
 
                   <div class="w-full">
-                    <!-- <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 mt-4">Change Password</h3> -->
-                    
+                   
                     <div class="space-y-4">
                       
 
                       <div>
-                        <label for="quantity" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="quantity" class="block text-sm font-medium text-gray-700  mb-1">
                           Quantity
                         </label>
                         <input
@@ -67,13 +73,13 @@
                           id="quantity"
                           name="quantity"
                           
-                          class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                          class="w-full px-3 py-2 mt-2 border rounded-md "
                           placeholder="Enter quantity"
                         />
                       </div>
 
                       <div>
-                        <label for="hourly_rate" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="hourly_rate" class="block text-sm font-medium text-gray-700">
                          Hourly Rate
                         </label>
                         <input
@@ -81,18 +87,18 @@
                           id="hourly_rate"
                           name="hourly_rate"
                           
-                          class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                          class="w-full px-3 py-2 mt-2 border rounded-md "
                           placeholder="Enter hourly rate"
                         />
                       </div>
                     </div>
                   </div>
                 </div>
-                <hr class="mt-4 mb-4 w-full h-[1px] bg-gray-200 dark:bg-gray-700"/>
-                <div  class="flex xeno-gap">
+                <hr class="mt-4 mb-4 w-full h-[1px] bg-gray-400 border-none"/>
+                <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label class="block text-sm font-medium text-gray-700">
                         Fuel Percentage
                       </label>
                       <input
@@ -100,7 +106,7 @@
                         id="fuel_percentage"
                         name="fuel_percentage"
                        
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border rounded-md"
                         placeholder="Enter fuel percentage"
                       />
                       
@@ -108,7 +114,7 @@
                     </div>
 
                     <div class="w-full">
-                      <label for="gratuity_percentage" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label for="gratuity_percentage" class="block text-sm font-medium text-gray-700">
                       Gratuity Percentage
                       </label>
                       <input
@@ -116,20 +122,19 @@
                         id="gratuity_percentage"
                         name="gratuity_percentage"
                         
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border rounded-md  "
                         placeholder="Enter gratuity percentage"
                       />
                     </div>
                   </div>
 
                   <div class="w-full">
-                    <!-- <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 mt-4">Change Password</h3> -->
                     
                     <div class="space-y-4">
                       
 
                       <div>
-                        <label for="mileage" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="mileage" class="block text-sm font-medium text-gray-700  mb-1">
                           Mileage
                         </label>
                         <input
@@ -137,39 +142,36 @@
                           id="mileage"
                           name="mileage"
                           
-                          class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                          class="w-full px-3 py-2 mt-2 border rounded-md  "
                           placeholder="Enter mileage"
 
                         />
-                        <!-- <span id="contact_number_error" class="text-xs text-red-600 dark:text-red-400 mt-1 hidden"></span> -->
-                        <!-- <p class="mt-1 text-xs text-gray-500">Must be at least 8 characters with uppercase, lowercase, number & special character</p> -->
-                      </div>
+                     </div>
 
                       <div>
-                        <label for="status" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="status" class="block text-sm font-medium text-gray-700  mb-1">
                         Status
                         </label>
-                      <select name="status" id="status" class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300">
+                      <select name="status" id="status" class="w-full px-3 py-2 mt-2 border rounded-md  ">
                           <option value="">Select Status</option>
                           <option value="Yes" >Active</option>
                           <option value="No" >Inactive</option>
                         </select>
-                        <!-- <span id="confirm_password_error" class="text-xs text-red-600 dark:text-red-400 mt-1 hidden"></span> -->
                       </div>
                     </div>
                   </div>
                 </div>
-                <hr class="mt-4 mb-4 w-full h-[1px] bg-gray-200 dark:bg-gray-700"/>
-                <div  class="flex xeno-gap">
+                <hr class="mt-4 mb-4 w-full h-[1px] bg-gray-400 border-none "/>
+                <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label class="block text-sm font-medium text-gray-700  mb-1">
                         Pick Up Address
                       </label>
                       <input
                         type="text"
                         
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border rounded-md  "
                         name="pickup_address"
                       
                       />
@@ -177,7 +179,7 @@
                     </div>
 
                     <div class="w-full">
-                      <label for="pickup_city" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label for="pickup_city" class="block text-sm font-medium text-gray-700  mb-1">
                       Pick Up City
                       </label>
                       <input
@@ -185,20 +187,19 @@
                         id="pickup_city"
                         name="pickup_city"
                         
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border rounded-md  "
                         required
                       />
                     </div>
                   </div>
 
                   <div class="w-full">
-                    <!-- <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 mt-4">Change Password</h3> -->
                     
                     <div class="space-y-4">
                       
 
                       <div>
-                        <label for="pickup_state" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="pickup_state" class="block text-sm font-medium text-gray-700  mb-1">
                          Pick Up State
                         </label>
                         <input
@@ -207,17 +208,17 @@
                           name="pickup_state"
                           
                           
-                          class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                          class="w-full px-3 py-2 mt-2 border rounded-md  "
                           placeholder="Enter state"
                         />
                       </div>
 
                       <div>
-                        <label for="availability" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="availability" class="block text-sm font-medium text-gray-700  mb-1">
                         Availability
                         </label>
                      
-                       <select name="availability" id="availability" class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300">
+                       <select name="availability" id="availability" class="w-full px-3 py-2 mt-2 border rounded-md  ">
                           <option value="">Select Availability</option>
                           <option value="every_day">Every Day</option>
                           <option value="every_weekend">Every Weekend</option>
@@ -230,10 +231,10 @@
                   </div>
                 </div>
                 <div class="w-full mt-4">
-                  <label for="images" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label for="images" class="block text-sm font-medium text-gray-700  mb-1">
                   Images
                   </label>
-                  <input type="file" name="images[]" id="images" max="3"   class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300" multiple>
+                  <input type="file" name="images[]" id="images" max="3"   class="w-full px-3 py-2 mt-2 border rounded-md  " multiple>
                 </div>
                 <div id="imagePreview" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
 

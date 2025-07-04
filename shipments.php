@@ -2,7 +2,13 @@
 
 
 <?php include 'config/config.php'; ?>
-<?php include 'helper/globalHelper.php'; ?>
+<?php 
+if (isset($_COOKIE["vendor"])) {
+  $userData = json_decode($_COOKIE["vendor"], true);
+} else {
+  $userData = [];
+}
+?>
 <?php include 'components/layout/header.php'; ?>
     <?php include 'components/layout/sidebar.php'; ?>
      
