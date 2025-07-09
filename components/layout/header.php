@@ -4,6 +4,8 @@ if(!isset($_COOKIE['vendor'])){
     // echo "Not set";
    echo "<script> window.location.href = 'login.php';</script>";
     exit();
+}else{
+  // print_r(json_decode($_COOKIE['vendor']));
 }
 
 ?>
@@ -59,7 +61,7 @@ if(!isset($_COOKIE['vendor'])){
                   icon: "success"
                 });
                 setTimeout(() => {
-                  setcookie("vendor", "", time() - 3600, "/");
+                 
                   window.location.href = 'login.php';
                 }, 1000);
               });
@@ -72,16 +74,33 @@ if(!isset($_COOKIE['vendor'])){
     <script>
       // Wait for DOM to be fully loaded
       document.addEventListener('DOMContentLoaded', function() {
+        <?php 
         if (isset($_COOKIE["vendor"])) {
-          $userData = json_decode($_COOKIE["vendor"], true);
-        } else {
-          $userData = [];
-        }
+        ?>
+        var userData = <?php echo ($_COOKIE["vendor"]); ?>;
+        <?php } else { ?>
+        var userData = [];
+        <?php } ?>
        
         if(userData && userData.profile_status === 'incomplete'){
           Swal.fire({
             title: "Profile Incomplete!",
             text: "Please complete your profile.",
+            icon: "warning",
+            showCancelButton: false,
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = 'profile.php';
+            }
+          });
+        }
+        console.log(userData);
+        if(userData && userData.tier_status == '0'){
+          Swal.fire({
+            title: "Tier Status!",
+            text: "Your tier status is not active. Please contact support.",
             icon: "warning",
             showCancelButton: false,
             confirmButtonColor: "#3085d6",

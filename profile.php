@@ -36,9 +36,10 @@ $user = $userData;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/css/tailwind.css" />
-    <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
-    <link rel="stylesheet" href="./assets/css/variable.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/tailwind.css" /> -->
+    <!-- <link rel="stylesheet" href="./assets/css/tailwind.output.css" /> -->
+    <!-- <link rel="stylesheet" href="./assets/css/variable.css" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
@@ -79,30 +80,54 @@ $user = $userData;
     </script>
   </head>
   <body>
-    <div class="flex h-screen bg-gray-50 dark:bg-gray-900">
+    <div class="flex h-screen bg-gray-50 ">
       <?php include 'components/layout/sidebar.php'; ?>
       <div class="flex flex-col flex-1 w-full">
         <?php include 'components/layout/topbar.php'; ?>
         <main class="h-full overflow-y-auto">
           <div class=" px-6 mx-auto grid">
-            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+            <div class="flex justify-between items-center">
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 ">
               Profile
             </h2>
-
-           
-
-            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <?php 
+                if($userData['tier_status'] != '1'){
+                  ?>
+              <div class="px-6 py-3 my-6 flex justify-between items-center bg-red-600 text-white rounded-lg shadow-md ">
+                
+                
+                  Your tier status is not active. Please activate your tier to avail all features.
+                  <a href="tier.php" class="text-red-600 font-bold border bg-white border-red-600 px-2 py-1 rounded hover:bg-red-600 hover:text-white hover:border-white transition-all duration-300">Activate Tier</a>
+                  
+                
+              </div>
+              <?php
+                }else{
+                  ?>
+                  <div class="px-6 py-3 my-6 flex justify-between items-center bg-green-600 text-white rounded-lg shadow-md ">
+                  
+                  
+                  Your tier status is active. You can avail all features.
+                  
+                
+              </div>
+                  <?php
+                }
+                ?>
+            
+            </div>
+            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md ">
               <form method="POST" class="space-y-6" action="helper/update.php" id="profileForm">
-                <div  class="flex xeno-gap">
+                <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label class="block text-sm font-medium text-gray-700  mb-1">
                         Email
                       </label>
                       <input
                         type="email"
                         value="<?= htmlspecialchars($user['email'] ?? '') ?>"
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                         disabled
                       />
                       <input
@@ -115,7 +140,7 @@ $user = $userData;
                     </div>
 
                     <div class="w-full">
-                      <label for="user_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label for="user_name" class="block text-sm font-medium text-gray-700  mb-1">
                         Username
                       </label>
                       <input
@@ -123,60 +148,59 @@ $user = $userData;
                         id="user_name"
                         name="user_name"
                         value="<?= htmlspecialchars($user['name'] ?? '') ?>"
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                         required
                       />
                     </div>
                   </div>
 
                   <div class="w-full">
-                    <!-- <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 mt-4">Change Password</h3> -->
                     
                     <div class="space-y-4">
                       
 
                       <div>
-                        <label for="new_password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="new_password" class="block text-sm font-medium text-gray-700  mb-1">
                           New Password
                         </label>
                         <input
                           type="password"
                           id="new_password"
                           name="new_password"
-                          class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                           placeholder="Enter new password"
                         />
-                        <span id="new_password_error" class="text-xs text-red-600 dark:text-red-400 mt-1 hidden"></span>
+                        <span id="new_password_error" class="text-xs text-red-600  mt-1 hidden"></span>
                         <p class="mt-1 text-xs text-gray-500">Must be at least 8 characters with uppercase, lowercase, number & special character</p>
                       </div>
 
                       <div>
-                        <label for="confirm_password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="confirm_password" class="block text-sm font-medium text-gray-700  mb-1">
                           Confirm New Password
                         </label>
                         <input
                           type="password"
                           id="confirm_password"
                           name="confirm_password"
-                          class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                           placeholder="Confirm new password"
                         />
-                        <span id="confirm_password_error" class="text-xs text-red-600 dark:text-red-400 mt-1 hidden"></span>
+                        <span id="confirm_password_error" class="text-xs text-red-600  mt-1 hidden"></span>
                       </div>
                     </div>
                   </div>
                 </div>
-                <hr class="mt-4 mb-4 w-full h-[1px] bg-gray-200 dark:bg-gray-700"/>
-                <div  class="flex xeno-gap">
+                <hr class="mt-4 mb-4 w-full h-[1px] border-gray-300 "/>
+                <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label class="block text-sm font-medium text-gray-700  mb-1">
                         DOT Number
                       </label>
                       <input
                         type="text"
                         value="<?= htmlspecialchars($user['dot_number'] ?? '') ?>"
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                         name="dot_number"
                       />
                       
@@ -184,7 +208,7 @@ $user = $userData;
                     </div>
 
                     <div class="w-full">
-                      <label for="mc_number" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label for="mc_number" class="block text-sm font-medium text-gray-700  mb-1">
                       MC Number
                       </label>
                       <input
@@ -192,59 +216,55 @@ $user = $userData;
                         id="mc_number"
                         name="mc_number"
                         value="<?= htmlspecialchars($user['mc_number'] ?? '') ?>"
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                         required
                       />
                     </div>
                   </div>
 
                   <div class="w-full">
-                    <!-- <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 mt-4">Change Password</h3> -->
-                    
+                   
                     <div class="space-y-4">
                       
 
                       <div>
-                        <label for="contact_number" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="contact_number" class="block text-sm font-medium text-gray-700  mb-1">
                           Contact Number
                         </label>
                         <input
                           type="text"
                           id="contact_number"
                           name="contact_number"
-                          class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                           placeholder="Enter contact number"
                           value="<?= htmlspecialchars($user['phone'] ?? '') ?>"
                         />
-                        <!-- <span id="contact_number_error" class="text-xs text-red-600 dark:text-red-400 mt-1 hidden"></span> -->
-                        <!-- <p class="mt-1 text-xs text-gray-500">Must be at least 8 characters with uppercase, lowercase, number & special character</p> -->
-                      </div>
+                   </div>
 
                       <div>
-                        <label for="vnd_type" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="vnd_type" class="block text-sm font-medium text-gray-700  mb-1">
                         Type
                         </label>
-                      <select name="vnd_type" id="vnd_type" class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300">
+                      <select name="vnd_type" id="vnd_type" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  ">
                           <option value="">Select Type</option>
                           <option value="Interstate" <?= $user['vnd_type'] == 'Interstate' ? 'selected' : '' ?>>Interstate</option>
                           <option value="Intrastate" <?= $user['vnd_type'] == 'Intrastate' ? 'selected' : '' ?>>Intrastate</option>
                         </select>
-                        <!-- <span id="confirm_password_error" class="text-xs text-red-600 dark:text-red-400 mt-1 hidden"></span> -->
-                      </div>
+                     </div>
                     </div>
                   </div>
                 </div>
-                <hr class="mt-4 mb-4 w-full h-[1px] bg-gray-200 dark:bg-gray-700"/>
-                <div  class="flex xeno-gap">
+                <hr class="mt-4 mb-4 w-full h-[1px] border-gray-300 "/>
+                <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label class="block text-sm font-medium text-gray-700  mb-1">
                         Street
                       </label>
                       <input
                         type="text"
                         value="<?= htmlspecialchars($user['street'] ?? '') ?>"
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                         name="street"
                       
                       />
@@ -252,7 +272,7 @@ $user = $userData;
                     </div>
 
                     <div class="w-full">
-                      <label for="city" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      <label for="city" class="block text-sm font-medium text-gray-700  mb-1">
                       City
                       </label>
                       <input
@@ -260,20 +280,19 @@ $user = $userData;
                         id="city"
                         name="city"
                         value="<?= htmlspecialchars($user['city'] ?? '') ?>"
-                        class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                         required
                       />
                     </div>
                   </div>
 
                   <div class="w-full">
-                    <!-- <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 mt-4">Change Password</h3> -->
-                    
+                   
                     <div class="space-y-4">
                       
 
                       <div>
-                        <label for="state" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="state" class="block text-sm font-medium text-gray-700  mb-1">
                          State
                         </label>
                         <input
@@ -281,16 +300,16 @@ $user = $userData;
                           id="state"
                           name="state"
                           value="<?= htmlspecialchars($user['state'] ?? '') ?>"
-                          class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300"
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                           placeholder="Enter state"
                         />
                       </div>
 
                       <div>
-                        <label for="zip" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        <label for="zip" class="block text-sm font-medium text-gray-700  mb-1">
                         Zip Code
                         </label>
-                      <input type="text" id="zip" name="zip" value="<?= htmlspecialchars($user['zip'] ?? '') ?>" class="w-full px-3 py-2 mt-2 border rounded-md dark:bg-gray-700 dark:text-gray-300" placeholder="Enter zip code" />
+                      <input type="text" id="zip" name="zip" value="<?= htmlspecialchars($user['zip'] ?? '') ?>" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  " placeholder="Enter zip code" />
                       </div>
                     </div>
                   </div>
@@ -298,7 +317,7 @@ $user = $userData;
                 <div class="flex  mt-4">
                   <button
                     type="submit"
-                    class="px-4 py-2 text-sm font-medium text-white bg-primary-color rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-color"
+                    class="px-4 py-2 text-sm font-medium text-white bg-blue-500 cursor-pointer rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     Save Changes
                   </button>
@@ -339,7 +358,7 @@ $user = $userData;
           let message = '';
 
           // Reset styles
-          if (input) input.classList.remove('border-red-500', 'border-green-500');
+          if (input) input.classList.remove('border border-gray-400-red-500', 'border border-gray-400-green-500');
           if (errorElement) errorElement.classList.add('hidden');
 
           // Skip validation if field is empty (handled on blur or submit)
@@ -362,11 +381,11 @@ $user = $userData;
 
           // Update UI
           if (!isValid && value && input && errorElement) {
-              input.classList.add('border-red-500');
+              input.classList.add('border border-gray-400-red-500');
               errorElement.textContent = message;
               errorElement.classList.remove('hidden');
           } else if (isValid && value && input) {
-              input.classList.add('border-green-500');
+              input.classList.add('border border-gray-400-green-500');
           }
 
           return isValid;
@@ -391,7 +410,7 @@ $user = $userData;
           const input = document.getElementById(field);
           const errorElement = document.getElementById(`${field}_error`);
           
-          if (input) input.classList.add('border-red-500');
+          if (input) input.classList.add('border border-gray-400-red-500');
           if (errorElement) {
               errorElement.textContent = message;
               errorElement.classList.remove('hidden');

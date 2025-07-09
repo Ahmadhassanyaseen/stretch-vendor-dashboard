@@ -68,17 +68,17 @@
                     </td>
                     <td><?= date('M d, Y', strtotime($shipment['created_at'])) ?></td>
                     <td class="flex">
-                        <button class="cursor-pointer bg-blue-600 hover:bg-blue-400 text-white py-2 px-4 rounded mr-2 edit-shipment 
+                        <button class="cursor-pointer  text-white py-2 px-4 rounded mr-2 edit-shipment 
                         <?php 
-                        if($shipment['vendor_status'] == '-1') {
-                            echo 'bg-gray-600';
+                        if($shipment['vendor_status'] == '-1' || $shipment['status'] == 'Dead' || $shipment['status'] == 'Deleted' || $shipment['vendor_status'] == '1') {
+                            echo 'bg-gray-600 hover:bg-gray-400';
                         } else {
-                            echo 'bg-blue-600';
+                            echo 'bg-blue-600 hover:bg-blue-400';
                         } ?>
                         " 
 
                         <?php 
-                        if($shipment['vendor_status'] == '-1') {
+                        if($shipment['vendor_status'] == '-1' || $shipment['status'] == 'Dead' || $shipment['status'] == 'Deleted' || $shipment['vendor_status'] == '1') {
                             echo 'disabled';
                         } ?>
 
@@ -86,16 +86,16 @@
                         >
                            <i class="fas fa-edit"></i>
                         </button>
-                        <button class="cursor-pointer bg-red-600 hover:bg-red-400 text-white py-2 px-4 rounded delete-shipment
+                        <button class="cursor-pointer  text-white py-2 px-4 rounded delete-shipment
                          <?php 
-                         if($shipment['vendor_status'] != '0') {
-                            echo 'bg-gray-600';
+                         if($shipment['vendor_status'] != '0' || $shipment['status'] == 'Dead' || $shipment['status'] == 'Deleted' || $shipment['vendor_status'] == '1') {
+                            echo 'bg-gray-600 hover:bg-gray-400';
                         } else {
-                            echo 'bg-red-600';
+                            echo 'bg-red-600 hover:bg-red-400';
                         } ?>
                         "
                         <?php 
-                        if($shipment['vendor_status'] != '0') {
+                        if($shipment['vendor_status'] != '0' || $shipment['status'] == 'Dead' || $shipment['status'] == 'Deleted' || $shipment['vendor_status'] == '1') {
                             echo 'disabled';
                         } ?>
                         data-id="<?= $shipment['id'] ?>">

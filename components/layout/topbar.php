@@ -1,4 +1,4 @@
-<header class="z-10 py-4 bg-primary-color shadow-md">
+<header class="z-10 py-4 bg-[#D74559] shadow-md">
           <div
             class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600"
           >
@@ -109,7 +109,7 @@
                   $name = $userData['name'];
                   $initial = strtoupper(substr($name, 0, 1));
                   ?>
-                  <div class="bg-white rounded-full w-8 h-8 flex items-center justify-center text-2xl font-bold text-primary-color"> <?php echo $initial; ?></div>
+                  <div class="bg-white rounded-full w-8 h-8 flex items-center justify-center text-2xl font-bold text-[#D74559]"> <?php echo $initial; ?></div>
                 </button>
                 <template x-if="isProfileMenuOpen">
                   <ul
