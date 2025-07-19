@@ -66,11 +66,11 @@
                             <?= htmlspecialchars($shipment['vendor_status'] == '1' ? 'Accepted' : ($shipment['vendor_status'] == '0' ? 'Pending' : 'Rejected')) ?>
                         </span>
                     </td>
-                    <td><?= date('M d, Y', strtotime($shipment['created_at'])) ?></td>
+                    <td><?= date('m-d-Y', strtotime($shipment['created_at'])) ?></td>
                     <td class="flex">
                         <button class="cursor-pointer  text-white py-2 px-4 rounded mr-2 edit-shipment 
                         <?php 
-                        if($shipment['vendor_status'] == '-1' || $shipment['status'] == 'Dead' || $shipment['status'] == 'Deleted' || $shipment['vendor_status'] == '1') {
+                        if($shipment['vendor_status'] == '-1' || $shipment['status'] == 'Dead' || $shipment['status'] == 'Deleted') {
                             echo 'bg-gray-600 hover:bg-gray-400';
                         } else {
                             echo 'bg-blue-600 hover:bg-blue-400';
@@ -78,7 +78,7 @@
                         " 
 
                         <?php 
-                        if($shipment['vendor_status'] == '-1' || $shipment['status'] == 'Dead' || $shipment['status'] == 'Deleted' || $shipment['vendor_status'] == '1') {
+                        if($shipment['vendor_status'] == '-1' || $shipment['status'] == 'Dead' || $shipment['status'] == 'Deleted') {
                             echo 'disabled';
                         } ?>
 
@@ -119,7 +119,7 @@ $(document).ready(function() {
         responsive: true,
         pageLength: 10,
         lengthMenu: [5, 10, 25, 50, 100],
-        order: [[9, 'desc']],
+        order: [[10, 'desc']],
         columnDefs: [
             { 
                 orderable: true, 
