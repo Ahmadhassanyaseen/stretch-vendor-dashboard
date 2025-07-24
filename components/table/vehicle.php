@@ -1,6 +1,6 @@
 <!-- New Table with DataTables -->
 
-<div class="w-full overflow-hidden rounded-lg shadow-xs">
+<div class="w-full overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800 text-gray-700 dark:text-white">
     <div class="w-full overflow-x-auto">
         <table id="shipmentsTable" class="w-full display">
             <thead>
@@ -25,7 +25,7 @@
                 </tr>
                 <?php } else{ ?>
                 <?php foreach ($vehicles as $vehicle): ?>
-                <tr>
+                <tr class=" dark:bg-gray-800">
                     <td><?= htmlspecialchars($vehicle['name']) ?></td>
                     <td><?= htmlspecialchars($vehicle['capacity']) ?></td>
                     <td><?= htmlspecialchars($vehicle['quantity']) ?></td>

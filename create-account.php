@@ -1,9 +1,31 @@
+<?php
+if (!isset($_GET['token'])) {
+  header('Location: verifyDot.php');
+  exit();
+}
+
+$token = $_GET['token'];
+$currentTime = time() * 1000;  // Convert to milliseconds to match JavaScript timestamp
+$tokenTime = intval($token);
+
+// Check if token is older than 1 minute (60000 milliseconds)
+// if (($currentTime - $tokenTime) > 60000) {
+//   header('Location: verifyDot.php?error=token_expired');
+//   exit();
+// }
+
+if (isset($_COOKIE['ref_id'])) {
+  $refData = $_COOKIE['ref_id'];
+}
+
+// Continue with your page rendering if token is valid
+?>
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create account - Windmill Dashboard</title>
+    <title>Create account - Stretch XL</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -43,6 +65,7 @@
             />
           </div>
           <form id="create-account-form" method="post" class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+            <input type="hidden" name="ref_id" id="ref_id" value="<?php echo $refData; ?>">
             <div class="w-full">
               <h1
                 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200"
@@ -145,66 +168,7 @@
     </div>
 
     <script>
-        // Move createShipper function to the top to ensure it's defined when called
-        // async function createShipper(data) {
-        //     try {
-        //         Swal.fire({
-        //             title: 'Please wait...',
-        //             text: 'Creating account...',
-        //             allowOutsideClick: false,
-        //             didOpen: () => {
-        //                 Swal.showLoading();
-        //             }
-        //         });
-        //         const formData = new FormData();
-        //         formData.append('user_name', document.getElementById('user_name').value);
-        //         formData.append('email', document.getElementById('email').value);
-        //         formData.append('password', document.getElementById('password').value);
-        //         formData.append('confirm_password', document.getElementById('confirm_password').value);
-        //         formData.append('method', 'createShipper');
-                
-                
-        //         const response = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
-        //             method: 'POST',
-        //             body: formData,
-        //         });
-                
-        //         const result = await response.json();
-        //         console.log(result);
-        //         if(result.status == "error"){
-        //           Swal.fire({
-        //             title: 'Error!',
-        //             text: result.message,
-        //             icon: 'error',
-        //             confirmButtonColor: '#D74559',
-        //             confirmButtonText: 'Continue'
-        //         });
-        //         }
-                
-        //         Swal.fire({
-        //             title: 'Success!',
-        //             text: 'Account created successfully!',
-        //             icon: 'success',
-        //             confirmButtonColor: '#D74559',
-        //             confirmButtonText: 'Continue'
-        //         }).then((result) => {
-        //             if (result.isConfirmed) {
-                      
-        //                 // Redirect after successful submission
-        //                 window.location.href = 'login.php';
-        //             }
-        //         });
-        //     } catch (error) {
-        //         console.error('Error creating account:', error);
-        //         Swal.fire({
-        //             title: 'Error!',
-        //             text: 'Failed to create account. Please try again.',
-        //             icon: 'error',
-        //             confirmButtonColor: '#D74559',
-        //             confirmButtonText: 'Continue'
-        //         });
-        //     }  
-        // }
+        
         async function createShipper(data) {
     try {
         Swal.fire({
@@ -221,6 +185,8 @@
         formData.append('email', document.getElementById('email').value);
         formData.append('password', document.getElementById('password').value);
         formData.append('confirm_password', document.getElementById('confirm_password').value);
+        formData.append('ref_id', document.getElementById('ref_id').value);
+
         formData.append('method', 'createVendor');
         
         const response = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {

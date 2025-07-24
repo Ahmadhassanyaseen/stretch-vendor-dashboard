@@ -1,6 +1,6 @@
 <!-- New Table with DataTables -->
 
-<div class="w-full overflow-hidden rounded-lg shadow-xs">
+<div class="w-full overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800 text-gray-700 dark:text-white">
     <div class="w-full overflow-x-auto">
         <table id="shipmentsTable" class="w-full display">
             <thead>
@@ -13,8 +13,8 @@
                     <th>Quantity</th>
                     <th>Weight</th>
                     <th>Amount</th>
-                    <th>Lead Status</th>
-                    <th>Vendor Status</th>
+                    <th class="truncate">Lead Status</th>
+                    <th class="truncate">Vendor Status</th>
                     <th>Date</th>
                     <th>Actions</th>
                 </tr>
@@ -26,11 +26,11 @@
                 </tr>
                 <?php } else{ ?>
                 <?php foreach ($shipments as $shipment): ?>
-                <tr>
-                    <td><?= htmlspecialchars($shipment['name']) ?></td>
+                <tr class=" dark:bg-gray-800">
+                    <td class="truncate"><?= htmlspecialchars(html_entity_decode($shipment['name']), ENT_QUOTES | ENT_HTML5) ?></td>
                     <td>#<?= htmlspecialchars($shipment['tracking_number']) ?></td>
-                    <td><?= htmlspecialchars($shipment['pickup']) ?></td>
-                    <td><?= htmlspecialchars($shipment['dropoff']) ?></td>
+                    <td class="truncate"><?= htmlspecialchars(html_entity_decode($shipment['pickup']), ENT_QUOTES | ENT_HTML5) ?></td>
+                    <td class="truncate"><?= htmlspecialchars(html_entity_decode($shipment['dropoff']), ENT_QUOTES | ENT_HTML5) ?></td>
                     <td><?= htmlspecialchars($shipment['type']) ?></td>
                     <td><?= htmlspecialchars($shipment['quantity']) ?></td>
                     <td><?= htmlspecialchars($shipment['weight']) ?></td>
@@ -66,7 +66,7 @@
                             <?= htmlspecialchars($shipment['vendor_status'] == '1' ? 'Accepted' : ($shipment['vendor_status'] == '0' ? 'Pending' : 'Rejected')) ?>
                         </span>
                     </td>
-                    <td><?= date('m-d-Y', strtotime($shipment['created_at'])) ?></td>
+                    <td class="truncate"><?= date('m-d-Y', strtotime($shipment['created_at'])) ?></td>
                     <td class="flex">
                         <button class="cursor-pointer  text-white py-2 px-4 rounded mr-2 edit-shipment 
                         <?php 

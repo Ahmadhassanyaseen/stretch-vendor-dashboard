@@ -36,9 +36,9 @@ $user = $userData;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <!-- <link rel="stylesheet" href="./assets/css/tailwind.css" /> -->
-    <!-- <link rel="stylesheet" href="./assets/css/tailwind.output.css" /> -->
-    <!-- <link rel="stylesheet" href="./assets/css/variable.css" /> -->
+    <link rel="stylesheet" href="./assets/css/tailwind.css" />
+    <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
+    <link rel="stylesheet" href="./assets/css/variable.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script
@@ -80,14 +80,15 @@ $user = $userData;
     </script>
   </head>
   <body>
-    <div class="flex h-screen bg-gray-50 ">
+    <div     class="flex h-screen bg-gray-50 dark:bg-gray-900"
+    :class="{ 'overflow-hidden': isSideMenuOpen }">
       <?php include 'components/layout/sidebar.php'; ?>
       <div class="flex flex-col flex-1 w-full">
         <?php include 'components/layout/topbar.php'; ?>
         <main class="h-full overflow-y-auto">
           <div class=" px-6 mx-auto grid">
             <div class="flex justify-between items-center">
-            <h2 class="my-6 text-2xl font-semibold text-gray-700 ">
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-white ">
               Profile
             </h2>
             <?php 
@@ -116,12 +117,12 @@ $user = $userData;
                 ?>
             
             </div>
-            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md ">
+            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md text-gray-700 dark:bg-gray-800 dark:text-white">
               <form method="POST" class="space-y-6" action="helper/update.php" id="profileForm">
                 <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700  mb-1">
+                      <label class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         Email
                       </label>
                       <input
@@ -136,11 +137,11 @@ $user = $userData;
                         value="<?= htmlspecialchars($user['email'] ?? '') ?>"
                         
                       />
-                      <p class="mt-1 text-xs text-gray-500">Email cannot be changed</p>
+                      <p class="mt-1 text-xs text-gray-500 dark:text-white">Email cannot be changed</p>
                     </div>
 
                     <div class="w-full">
-                      <label for="user_name" class="block text-sm font-medium text-gray-700  mb-1">
+                      <label for="user_name" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         Username
                       </label>
                       <input
@@ -160,7 +161,7 @@ $user = $userData;
                       
 
                       <div>
-                        <label for="new_password" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="new_password" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                           New Password
                         </label>
                         <input
@@ -171,11 +172,11 @@ $user = $userData;
                           placeholder="Enter new password"
                         />
                         <span id="new_password_error" class="text-xs text-red-600  mt-1 hidden"></span>
-                        <p class="mt-1 text-xs text-gray-500">Must be at least 8 characters with uppercase, lowercase, number & special character</p>
+                        <p class="mt-1 text-xs text-gray-500 dark:text-white">Must be at least 8 characters with uppercase, lowercase, number & special character</p>
                       </div>
 
                       <div>
-                        <label for="confirm_password" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="confirm_password" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                           Confirm New Password
                         </label>
                         <input
@@ -194,7 +195,7 @@ $user = $userData;
                 <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700  mb-1">
+                      <label class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         DOT Number
                       </label>
                       <input
@@ -208,7 +209,7 @@ $user = $userData;
                     </div>
 
                     <div class="w-full">
-                      <label for="mc_number" class="block text-sm font-medium text-gray-700  mb-1">
+                      <label for="mc_number" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                       MC Number
                       </label>
                       <input
@@ -228,7 +229,7 @@ $user = $userData;
                       
 
                       <div>
-                        <label for="contact_number" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="contact_number" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                           Contact Number
                         </label>
                         <input
@@ -242,10 +243,10 @@ $user = $userData;
                    </div>
 
                       <div>
-                        <label for="vnd_type" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="vnd_type" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         Type
                         </label>
-                      <select name="vnd_type" id="vnd_type" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  ">
+                      <select name="vnd_type" id="vnd_type" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white">
                           <option value="">Select Type</option>
                           <option value="Interstate" <?= $user['vnd_type'] == 'Interstate' ? 'selected' : '' ?>>Interstate</option>
                           <option value="Intrastate" <?= $user['vnd_type'] == 'Intrastate' ? 'selected' : '' ?>>Intrastate</option>
@@ -258,7 +259,7 @@ $user = $userData;
                 <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700  mb-1">
+                      <label class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         Street
                       </label>
                       <input
@@ -272,7 +273,7 @@ $user = $userData;
                     </div>
 
                     <div class="w-full">
-                      <label for="city" class="block text-sm font-medium text-gray-700  mb-1">
+                      <label for="city" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                       City
                       </label>
                       <input
@@ -292,7 +293,7 @@ $user = $userData;
                       
 
                       <div>
-                        <label for="state" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="state" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                          State
                         </label>
                         <input
@@ -306,7 +307,7 @@ $user = $userData;
                       </div>
 
                       <div>
-                        <label for="zip" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="zip" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         Zip Code
                         </label>
                       <input type="text" id="zip" name="zip" value="<?= htmlspecialchars($user['zip'] ?? '') ?>" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  " placeholder="Enter zip code" />

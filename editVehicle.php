@@ -21,19 +21,19 @@ if (isset($_COOKIE["vendor"])) {
         <main class="h-full overflow-y-auto pb-10">
           <div class="container px-6 pb-10 mx-auto grid">
             <h2
-              class="my-6 text-2xl font-semibold text-gray-700 "
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-white "
             >
                Edit Vehicle
             </h2>
            
-            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md">
+            <div class="px-4 py-3 mb-8 bg-white dark:bg-gray-800 rounded-lg shadow-md">
               <form action="helper/vehicle/update.php" enctype="multipart/form-data" method="POST" class="space-y-6">
               <input type="hidden" name="vendor_id" value="<?php echo $userData['id']; ?>">
               <input type="hidden" name="id" value="<?= $response['id'] ?>">
                 <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700  mb-1">
+                      <label class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                        Name
                       </label>
                       <input
@@ -42,14 +42,14 @@ if (isset($_COOKIE["vendor"])) {
                         value="<?= $response['name'] ?>"
                         required
                         
-                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md text-gray-700 dark:text-white "
                        
                       />
                       
                     </div>
 
                     <div class="w-full">
-                      <label for="capacity" class="block text-sm font-medium text-gray-700  mb-1">
+                      <label for="capacity" class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                         Capacity
                       </label>
                       <input
@@ -58,7 +58,7 @@ if (isset($_COOKIE["vendor"])) {
                         name="capacity"
                         value="<?= $response['capacity'] ?>"
                         
-                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white"
                         required
                       />
                     </div>
@@ -71,7 +71,7 @@ if (isset($_COOKIE["vendor"])) {
                       
 
                       <div>
-                        <label for="quantity" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="quantity" class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                           Quantity
                         </label>
                         <input
@@ -79,13 +79,13 @@ if (isset($_COOKIE["vendor"])) {
                           id="quantity"
                           name="quantity"
                           value="<?= $response['quantity'] ?>"
-                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white"
                           placeholder="Enter quantity"
                         />
                       </div>
 
                       <div>
-                        <label for="hourly_rate" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="hourly_rate" class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                          Hourly Rate
                         </label>
                         <input
@@ -93,7 +93,7 @@ if (isset($_COOKIE["vendor"])) {
                           id="hourly_rate"
                           name="hourly_rate"
                           value="<?= $response['hourly_rate'] ?>"
-                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md text-gray-700 dark:text-white"
                           placeholder="Enter hourly rate"
                         />
                       </div>
@@ -104,7 +104,7 @@ if (isset($_COOKIE["vendor"])) {
                 <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700  mb-1">
+                      <label class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                         Fuel Percentage
                       </label>
                       <input
@@ -112,7 +112,7 @@ if (isset($_COOKIE["vendor"])) {
                         id="fuel_percentage"
                         name="fuel_percentage"
                         value="<?= $response['fuel_percentage'] ?>"
-                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white"
                         placeholder="Enter fuel percentage"
                       />
                       
@@ -120,7 +120,7 @@ if (isset($_COOKIE["vendor"])) {
                     </div>
 
                     <div class="w-full">
-                      <label for="gratuity_percentage" class="block text-sm font-medium text-gray-700  mb-1">
+                      <label for="gratuity_percentage" class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                       Gratuity Percentage
                       </label>
                       <input
@@ -128,7 +128,7 @@ if (isset($_COOKIE["vendor"])) {
                         id="gratuity_percentage"
                         name="gratuity_percentage"
                         value="<?= $response['gratuity_percentage'] ?>"
-                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md text-gray-700 dark:text-white "
                         placeholder="Enter gratuity percentage"
                       />
                     </div>
@@ -141,7 +141,7 @@ if (isset($_COOKIE["vendor"])) {
                       
 
                       <div>
-                        <label for="mileage" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="mileage" class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                           Mileage
                         </label>
                         <input
@@ -149,7 +149,7 @@ if (isset($_COOKIE["vendor"])) {
                           id="mileage"
                           name="mileage"
                           value="<?= $response['mileage'] ?>"
-                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white"
                           placeholder="Enter mileage"
 
                         />
@@ -158,10 +158,10 @@ if (isset($_COOKIE["vendor"])) {
                       </div>
 
                       <div>
-                        <label for="status" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="status" class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                         Status
                         </label>
-                      <select name="status" id="status" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  ">
+                      <select name="status" id="status" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md text-gray-700 dark:text-white ">
                           <option value="">Select Status</option>
                           <option value="Yes" <?= $response['status'] == 'Yes' ? 'selected' : '' ?> >Active</option>
                           <option value="No" <?= $response['status'] == 'No' ? 'selected' : '' ?> >Inactive</option>
@@ -175,13 +175,13 @@ if (isset($_COOKIE["vendor"])) {
                 <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700  mb-1">
+                      <label class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                         Pick Up Address
                       </label>
                       <input
                         type="text"
                         value="<?= $response['pickup_address'] ?>"
-                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white"
                         name="pickup_address"
                       
                       />
@@ -189,7 +189,7 @@ if (isset($_COOKIE["vendor"])) {
                     </div>
 
                     <div class="w-full">
-                      <label for="pickup_city" class="block text-sm font-medium text-gray-700  mb-1">
+                      <label for="pickup_city" class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                       Pick Up City
                       </label>
                       <input
@@ -197,7 +197,7 @@ if (isset($_COOKIE["vendor"])) {
                         id="pickup_city"
                         name="pickup_city"
                         value="<?= $response['pickup_city'] ?>"
-                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white"
                         required
                       />
                     </div>
@@ -210,7 +210,7 @@ if (isset($_COOKIE["vendor"])) {
                       
 
                       <div>
-                        <label for="pickup_state" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="pickup_state" class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                          Pick Up State
                         </label>
                         <input
@@ -220,17 +220,17 @@ if (isset($_COOKIE["vendor"])) {
                           value="<?= $response['pickup_state'] ?>"
                           
                           
-                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white"
                           placeholder="Enter state"
                         />
                       </div>
 
                       <div>
-                        <label for="availability" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="availability" class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                         Availability
                         </label>
                      
-                       <select name="availability" id="availability" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  ">
+                       <select name="availability" id="availability" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white">
                           <option value="">Select Availability</option>
                           <option value="every_day" <?= $response['availability'] == 'every_day' ? 'selected' : '' ?>>Every Day</option>
                           <option value="every_weekend" <?= $response['availability'] == 'every_weekend' ? 'selected' : '' ?>>Every Weekend</option>
@@ -244,10 +244,10 @@ if (isset($_COOKIE["vendor"])) {
                 </div>
 
                 <div class="w-full mt-4">
-                  <label for="images" class="block text-sm font-medium text-gray-700  mb-1">
+                  <label for="images" class="block text-sm font-medium text-gray-700 dark:text-white  mb-1">
                   Images
                   </label>
-                  <input type="file" name="images[]" id="images" max="3"   class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  " multiple>
+                  <input type="file" name="images[]" id="images" max="3"   class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white" multiple>
                 </div>
                 
               <div id="imagePreview" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">

@@ -17,18 +17,18 @@
         <main class="h-full overflow-y-auto pb-10">
           <div class="container px-6 pb-10 mx-auto grid">
             <h2
-              class="my-6 text-2xl font-semibold text-gray-700 "
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-white"
             >
                Add Vehicle
             </h2>
            
-            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md">
+            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 text-gray-700 dark:text-white">
               <form action="helper/vehicle/add.php"  method="POST" class="space-y-6" enctype="multipart/form-data">
               <input type="hidden" name="vendor_id" value="<?php echo $userData['id']; ?>">
                 <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700  mb-1">
+                      <label class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                        Name
                       </label>
                       <input
@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="w-full">
-                      <label for="capacity" class="block text-sm font-medium text-gray-700  mb-1">
+                      <label for="capacity" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         Capacity
                       </label>
                       <input
@@ -65,7 +65,7 @@
                       
 
                       <div>
-                        <label for="quantity" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="quantity" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                           Quantity
                         </label>
                         <input
@@ -79,7 +79,7 @@
                       </div>
 
                       <div>
-                        <label for="hourly_rate" class="block text-sm font-medium text-gray-700">
+                        <label for="hourly_rate" class="block text-sm font-medium text-gray-700 dark:text-white">
                          Hourly Rate
                         </label>
                         <input
@@ -98,7 +98,7 @@
                 <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700">
+                      <label class="block text-sm font-medium text-gray-700 dark:text-white">
                         Fuel Percentage
                       </label>
                       <input
@@ -114,7 +114,7 @@
                     </div>
 
                     <div class="w-full">
-                      <label for="gratuity_percentage" class="block text-sm font-medium text-gray-700">
+                      <label for="gratuity_percentage" class="block text-sm font-medium text-gray-700 dark:text-white">
                       Gratuity Percentage
                       </label>
                       <input
@@ -134,7 +134,7 @@
                       
 
                       <div>
-                        <label for="mileage" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="mileage" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                           Mileage
                         </label>
                         <input
@@ -149,7 +149,7 @@
                      </div>
 
                       <div>
-                        <label for="status" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="status" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         Status
                         </label>
                       <select name="status" id="status" class="w-full px-3 py-2 mt-2 border rounded-md  ">
@@ -165,7 +165,7 @@
                 <div  class="flex gap-4">
                   <div class="space-y-4 w-full">
                     <div class="w-full">
-                      <label class="block text-sm font-medium text-gray-700  mb-1">
+                      <label class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         Pick Up Address
                       </label>
                       <input
@@ -179,7 +179,7 @@
                     </div>
 
                     <div class="w-full">
-                      <label for="pickup_city" class="block text-sm font-medium text-gray-700  mb-1">
+                      <label for="pickup_city" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                       Pick Up City
                       </label>
                       <input
@@ -199,7 +199,7 @@
                       
 
                       <div>
-                        <label for="pickup_state" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="pickup_state" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                          Pick Up State
                         </label>
                         <input
@@ -214,7 +214,7 @@
                       </div>
 
                       <div>
-                        <label for="availability" class="block text-sm font-medium text-gray-700  mb-1">
+                        <label for="availability" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         Availability
                         </label>
                      
@@ -231,7 +231,7 @@
                   </div>
                 </div>
                 <div class="w-full mt-4">
-                  <label for="images" class="block text-sm font-medium text-gray-700  mb-1">
+                  <label for="images" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                   Images
                   </label>
                   <input type="file" name="images[]" id="images" max="3"   class="w-full px-3 py-2 mt-2 border rounded-md  " multiple>

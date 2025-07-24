@@ -50,9 +50,9 @@
             </div>
             <ul class="flex items-center flex-shrink-0 space-x-6">
               <!-- Theme toggler -->
-              <!-- <li class="flex">
+              <li class="flex">
                 <button
-                  class="rounded-md focus:outline-none focus:shadow-outline-purple"
+                  class="rounded-md focus:outline-none focus:shadow-outline-purple cursor-pointer"
                   @click="toggleTheme"
                   aria-label="Toggle color mode"
                 >
@@ -83,7 +83,7 @@
                     </svg>
                   </template>
                 </button>
-              </li> -->
+              </li>
             
               <!-- Profile menu -->
               <li class="relative">

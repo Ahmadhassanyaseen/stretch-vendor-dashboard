@@ -23,7 +23,7 @@
             <div class="flex justify-between items-center">
 
               <h2
-              class="my-6 text-2xl font-semibold text-gray-700 "
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-white "
               >
               Edit Shipment
             </h2>
@@ -97,78 +97,78 @@
                                         </div>
                                     </div>
           </div>
-            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md ">
+            <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
               <div class="grid gap-6 mb-8 md:grid-cols-2">
                 <!-- Shipment Details Card -->
-                <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs ">
-                  <h4 class="mb-4 font-semibold text-gray-800 ">
+                <div class="min-w-0 p-4 bg-white dark:bg-gray-700 rounded-lg shadow-xs ">
+                  <h4 class="mb-4 font-semibold text-gray-800 dark:text-white ">
                     Shipment Details
                   </h4>
                   <div class="space-y-4">
                     <div class="flex justify-between">
-                      <span class="text-gray-600 ">Type:</span>
-                      <span class="font-medium text-gray-700 "><?php echo ucfirst($shipment['type']); ?></span>
+                      <span class="text-gray-600 dark:text-white ">Type:</span>
+                      <span class="font-medium text-gray-700 dark:text-white "><?php echo ucfirst($shipment['type']); ?></span>
                     </div>
                     <div class="flex justify-between">
-                      <span class="text-gray-600 ">Description:</span>
-                      <span class="font-medium text-gray-700 w-1/2 text-right"><?php echo $shipment['description']; ?></span>
+                      <span class="text-gray-600 dark:text-white ">Description:</span>
+                      <span class="font-medium text-gray-700 dark:text-white w-1/2 text-right"><?php echo $shipment['description']; ?></span>
                     </div>
                     <div class="flex justify-between">
-                      <span class="text-gray-600 ">Vehicle Type:</span>
-                      <span class="font-medium text-gray-700 "><?php echo ucfirst($shipment['carrier_vehicle_type']); ?></span>
+                      <span class="text-gray-600 dark:text-white ">Vehicle Type:</span>
+                      <span class="font-medium text-gray-700 dark:text-white "><?php echo ucfirst($shipment['carrier_vehicle_type']); ?></span>
                     </div>
                     <!-- <div class="flex justify-between">
-                      <span class="text-gray-600 ">Rate:</span>
-                      <span class="font-medium text-gray-700 ">$<?php //echo number_format($shipment['rate'], 2); ?></span>
+                      <span class="text-gray-600 dark:text-white ">Rate:</span>
+                      <span class="font-medium text-gray-700 dark:text-white ">$<?php //echo number_format($shipment['rate'], 2); ?></span>
                     </div>
                     <div class="flex justify-between">
-                      <span class="text-gray-600 ">Mileage:</span>
-                      <span class="font-medium text-gray-700 "><?php //echo number_format($shipment['mileage'], 2); ?></span>
+                      <span class="text-gray-600 dark:text-white ">Mileage:</span>
+                      <span class="font-medium text-gray-700 dark:text-white "><?php //echo number_format($shipment['mileage'], 2); ?></span>
                     </div> -->
                    
                     <div class="flex justify-between">
-                      <span class="text-gray-600 ">Distance:</span>
-                      <span class="font-medium text-gray-700 "><?php echo $shipment['distance']; ?> miles</span>
+                      <span class="text-gray-600 dark:text-white ">Distance:</span>
+                      <span class="font-medium text-gray-700 dark:text-white "><?php echo $shipment['distance']; ?> miles</span>
                     </div>
                     <div class="flex justify-between">
-                      <span class="text-gray-600 ">Duration:</span>
-                      <span class="font-medium text-gray-700 "><?php echo $shipment['duration']; ?></span>
+                      <span class="text-gray-600 dark:text-white ">Duration:</span>
+                      <span class="font-medium text-gray-700 dark:text-white "><?php echo $shipment['duration']; ?></span>
                     </div>
                     <div class="flex justify-between">
-                      <span class="text-gray-600 ">Total Price:</span>
+                      <span class="text-gray-600 dark:text-white ">Total Price:</span>
                       <span class="text-lg font-bold text-blue-600 ">$<?php echo $shipment['platform_price']; ?></span>
                     </div>
                     <div class="flex justify-between">
-                      <span class="text-gray-600 ">Fuel Cost:</span>
+                      <span class="text-gray-600 dark:text-white ">Fuel Cost:</span>
                       <span class="font-medium text-red-600 ">- $<?php echo $shipment['fuel']; ?></span>
                     </div>
                     <div class="flex justify-between">
-                      <span class="text-gray-600 ">Profit:</span>
+                      <span class="text-gray-600 dark:text-white ">Profit:</span>
                       <span class="text-lg font-medium text-green-600 ">$<?php echo (floatval(str_replace(',', '', $shipment['platform_price'])) - floatval(str_replace(',', '', $shipment['fuel']))); ?></span>
                     </div>
                   </div>
                 </div>
 
                 <!-- Pickup & Dropoff Card -->
-                <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs ">
-                  <h4 class="mb-4 font-semibold text-gray-800 ">
+                <div class="min-w-0 p-4 bg-white dark:bg-gray-700 rounded-lg shadow-xs ">
+                  <h4 class="mb-4 font-semibold text-gray-800 dark:text-white ">
                     Pickup & Dropoff
                   </h4>
                   <div class="space-y-6">
                     <div class="space-y-2">
-                      <h5 class="font-medium text-gray-700 ">Pickup</h5>
+                      <h5 class="font-medium text-gray-700 dark:text-white ">Pickup</h5>
                       <div class="pl-4 border-l-2 border-blue-200 ">
-                        <p class="font-medium"><?php echo $shipment['pickup_address']; ?></p>
-                        <p class="text-sm text-gray-600 ">
+                        <p class="font-medium text-gray-700 dark:text-white "><?php echo $shipment['pickup_address']; ?></p>
+                        <p class="text-sm text-gray-600 dark:text-white ">
                           <?php echo date('M d, Y', strtotime($shipment['pickup_date'])); ?> at <?php echo $shipment['pickup_time']; ?>
                         </p>
                       </div>
                     </div>
                     <div class="space-y-2">
-                      <h5 class="font-medium text-gray-700 ">Dropoff</h5>
+                      <h5 class="font-medium text-gray-700 dark:text-white ">Dropoff</h5>
                       <div class="pl-4 border-l-2 border-blue-200 ">
-                        <p class="font-medium"><?php echo $shipment['dropoff_address']; ?></p>
-                        <p class="text-sm text-gray-600 ">
+                        <p class="font-medium text-gray-700 dark:text-white "><?php echo $shipment['dropoff_address']; ?></p>
+                        <p class="text-sm text-gray-600 dark:text-white ">
                           <?php echo date('M d, Y', strtotime($shipment['dropoff_date'])); ?> at <?php echo $shipment['dropoff_time']; ?>
                         </p>
                       </div>
@@ -176,20 +176,20 @@
                     
                     <!-- Shipper Information -->
                     <div class="pb-4 mt-4 border-t border-gray-200 ">
-                      <h5 class="mb-2 mt-4 font-semibold text-gray-700 ">Shipper Information</h5>
+                      <h5 class="mb-2 mt-4 font-semibold text-gray-700 dark:text-white ">Shipper Information</h5>
                       <div class="space-y-1 ">
-                        <p><?php echo $shipment['shipper_name']; ?></p>
-                        <p class="text-gray-600 "><?php echo $shipment['shipper_phone']; ?></p>
-                        <p class="text-gray-600 "><?php echo $shipment['shipper_email']; ?></p>
-                        <p class="text-gray-600 "><?php echo $shipment['shipper_address']; ?></p>
+                        <p class="text-gray-700 dark:text-white "><?php echo $shipment['shipper_name']; ?></p>
+                        <p class="text-gray-700 dark:text-white "><?php echo $shipment['shipper_phone']; ?></p>
+                        <p class="text-gray-700 dark:text-white "><?php echo $shipment['shipper_email']; ?></p>
+                        <p class="text-gray-700 dark:text-white "><?php echo $shipment['shipper_address']; ?></p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="bg-white p-4 rounded-lg shadow">
+              <div class="bg-white p-4 rounded-lg shadow dark:bg-gray-700">
                                 
-                                <h4 class="font-semibold text-xl text-gray-700 mb-2">Vendor Quotes</h4>
+                                <h4 class="font-semibold text-xl text-gray-700 dark:text-white mb-2">Vendor Quotes</h4>
                                 <div class="space-y-2 text-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                     <?php
                                     // Check if any quote is accepted
@@ -204,11 +204,11 @@
                                     foreach ($shipment['vendor_quotes'] as $quote) {
                                       ?>
                                     <div class="space-y-2 m-0 text-sm shadow border border-gray-200 p-2 rounded-lg <?= $quote['status'] == 'accepted' ? 'bg-green-100' : ($quote['status'] == 'rejected' ? 'bg-red-100' : '') ?>">
-                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium">Name:</span> <span class="col-span-2"><?= htmlspecialchars($quote['name'] ?? 'N/A') ?></span></p>
-                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium">Email:</span> <span class="col-span-2"><?= htmlspecialchars($quote['email'] ?? 'N/A') ?></span></p>
-                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium">Phone:</span> <span class="col-span-2"><?= htmlspecialchars($quote['phone'] ?? 'N/A') ?></span></p>
-                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium">Quoted Price: </span><span class="col-span-2">$<?= htmlspecialchars($quote['price'] ?? 'N/A') ?></span></p>
-                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium">Status:</span><span class="col-span-2"><?= htmlspecialchars($quote['status'] ?? 'N/A') ?></span></p>
+                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700 dark:text-white ">Name:</span> <span class="col-span-2 text-gray-700 dark:text-white "><?= htmlspecialchars($quote['name'] ?? 'N/A') ?></span></p>
+                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700 dark:text-white ">Email:</span> <span class="col-span-2 text-gray-700 dark:text-white "><?= htmlspecialchars($quote['email'] ?? 'N/A') ?></span></p>
+                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700 dark:text-white ">Phone:</span> <span class="col-span-2 text-gray-700 dark:text-white "><?= htmlspecialchars($quote['phone'] ?? 'N/A') ?></span></p>
+                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700 dark:text-white ">Quoted Price: </span><span class="col-span-2 text-gray-700 dark:text-white ">$<?= htmlspecialchars($quote['price'] ?? 'N/A') ?></span></p>
+                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700 dark:text-white ">Status:</span><span class="col-span-2 text-gray-700 dark:text-white "><?= htmlspecialchars($quote['status'] ?? 'N/A') ?></span></p>
                                     
                                     </div>
                         
@@ -225,8 +225,8 @@
                 <div class="flex justify-end items-end mt-6 space-x-4 w-full">
                 <div class="w-full">
 
-                  <label for="custom_price" class="block text-sm font-medium text-gray-700 mb-2">Custom Price</label>
-                  <input type="number" name="custom_price" id="custom_price_value" class="shadow appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter amount" min="0" step="0.01">
+                  <label for="custom_price" class="block text-sm font-medium text-gray-700 dark:text-white mb-2">Custom Price</label>
+                  <input type="number" name="custom_price" id="custom_price_value" class="shadow appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter amount" min="0" step="0.01">
                 </div>
                 <div class="w-[150px]">
                   <button type="button"  class="px-6 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-600 hover:bg-green-700 border border-transparent rounded-lg  focus:outline-none focus:shadow-outline-green " id="custom-price-quote">Custom Price</button>
@@ -240,7 +240,7 @@
                 <button type="button" id="accept-shipment" <?php if ($shipment['vendor_status'] == '1' || $shipment['vendor_status'] == '-1') { echo 'disabled'; } ?> class="px-6 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150  border border-transparent rounded-lg  focus:outline-none focus:shadow-outline-green <?php if ($shipment['vendor_status'] == '-1' || $shipment['vendor_status'] == '1') { echo 'bg-gray-600 hover:bg-gray-400'; } else { echo 'bg-green-600 hover:bg-green-700'; } ?>">
                   Accept
                 </button>
-                <button type="button" id="custom-price" <?php if ($shipment['vendor_status'] == '-1') { echo 'disabled'; } ?> class="px-6 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150  border border-transparent rounded-lg  focus:outline-none focus:shadow-outline-green <?php if ($shipment['vendor_status'] == '-1') { echo 'bg-gray-600 hover:bg-gray-400'; } else { echo 'bg-green-600 hover:bg-green-700'; } ?>">
+                <button type="button" id="custom-price" <?php if ($shipment['vendor_status'] == '-1') { echo 'disabled'; } ?> class="px-6 py-2 text-sm font-medium leading-5 text-gray-700 dark:text-white transition-colors duration-150  border border-gray-400 rounded-lg  focus:outline-none focus:shadow-outline-green <?php if ($shipment['vendor_status'] == '-1') { echo 'bg-gray-600 hover:bg-gray-400'; } else { echo 'bg-green-600 hover:bg-green-700'; } ?>">
                   Custom Price
                 </button>
               </div>

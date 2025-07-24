@@ -88,3 +88,7 @@ function updateShipment($data){
     $data["method"] = "updateShipment";
     return curlRequest($data);
 }
+function getReferralData($data){
+    $data["method"] = "getReferralData";
+    return curlRequest($data);
+}
