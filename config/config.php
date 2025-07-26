@@ -92,3 +92,8 @@ function getReferralData($data){
     $data["method"] = "getReferralData";
     return curlRequest($data);
 }
+function fetchAllUserCards($data){
+    $data["method"] = "fetchAllUserCards";
+    return curlRequest($data);
+}
+

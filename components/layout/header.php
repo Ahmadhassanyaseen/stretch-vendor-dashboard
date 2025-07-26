@@ -96,7 +96,7 @@ if(!isset($_COOKIE['vendor'])){
             }
           });
         }
-        console.log(userData);
+       
         if(userData && userData.tier_status == '0'){
           Swal.fire({
             title: "Tier Status!",
