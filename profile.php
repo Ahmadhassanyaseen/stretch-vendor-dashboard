@@ -280,11 +280,18 @@ $user = $userData;
                       </label>
                       <input
                         type="text"
+                        id="city_hidden"
+                        name="city_hidden"
+                        value="<?= htmlspecialchars($user['city'] ?? '') ?>"
+                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
+                        disabled
+                      />
+                      <input
+                        type="hidden"
                         id="city"
                         name="city"
                         value="<?= htmlspecialchars($user['city'] ?? '') ?>"
-                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
-                        required
+                      
                       />
                     </div>
                   </div>
@@ -298,14 +305,23 @@ $user = $userData;
                         <label for="state" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                          State
                         </label>
-                        <input
+                       
+                          <input
                           type="text"
+                          id="state_hidden"
+                          name="state_hidden"
+                          value="<?= htmlspecialchars($user['state'] ?? '') ?>"
+                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md"
+                          disabled
+                          />
+                          <input
+                          type="hidden"
                           id="state"
                           name="state"
                           value="<?= htmlspecialchars($user['state'] ?? '') ?>"
-                          class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
-                          placeholder="Enter state"
-                        />
+                         
+                          />
+                        
                       </div>
 
                       <div>
@@ -351,6 +367,8 @@ $user = $userData;
         const cityInput = document.getElementById('city');
         const stateInput = document.getElementById('state');
         const zipInput = document.getElementById('zip');
+        const stateHiddenInput = document.getElementById('state_hidden');
+        const cityHiddenInput = document.getElementById('city_hidden'); 
 
         // Create autocomplete for street address
         const autocomplete = new google.maps.places.Autocomplete(streetInput, {
@@ -371,6 +389,8 @@ $user = $userData;
             if (cityInput) cityInput.value = '';
             if (stateInput) stateInput.value = '';
             if (zipInput) zipInput.value = '';
+            if (stateHiddenInput) stateHiddenInput.value = '';
+            if (cityHiddenInput) cityHiddenInput.value = '';
 
             // Get each component of the address
             if (place.address_components) {
@@ -380,10 +400,12 @@ $user = $userData;
                     switch (componentType) {
                         case 'locality':
                             if (cityInput) cityInput.value = component.long_name;
+                            if (cityHiddenInput) cityHiddenInput.value = component.long_name;
                             break;
                         case 'administrative_area_level_1':
                             if (stateInput) stateInput.value = component.short_name;
-                            break;
+                            if (stateHiddenInput) stateHiddenInput.value = component.short_name;
+                              break;
                         case 'postal_code':
                             if (zipInput) zipInput.value = component.long_name;
                             break;

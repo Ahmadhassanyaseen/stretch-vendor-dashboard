@@ -48,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     ];
      
     if($result['status'] == 'success'){
-        echo json_encode($result);
+        // echo json_encode($result);
         file_put_contents('store.json', json_encode($result['data']));
         setcookie("vendor", json_encode($cacheData), time() + (86400 * 30), "/");
         header('Location: ../profile.php?status=success');
@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         
 
     } else{
-       echo json_encode($result);
+    //    echo json_encode($result);
        header('Location: ../profile.php?status=error');
        exit;
     }
