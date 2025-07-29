@@ -262,13 +262,15 @@ $user = $userData;
                       <label class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         Street
                       </label>
-                      <input
-                        type="text"
-                        value="<?= htmlspecialchars($user['street'] ?? '') ?>"
-                        class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
-                        name="street"
-                      
-                      />
+                        <input
+                            type="text"
+                            id="autocomplete"
+                            value="<?= htmlspecialchars($user['street'] ?? '') ?>"
+                            class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md"
+                            name="street"
+                            placeholder="Start typing your address..."
+                            autocomplete="off"
+                        />
                       <!-- <p class="mt-1 text-xs text-gray-500">DOT Number cannot be changed</p> -->
                     </div>
 
@@ -331,7 +333,86 @@ $user = $userData;
     </div>
 
     <script>
-      // Validation patterns
+    // Initialize Google Maps Places Autocomplete
+    function initAutocomplete() {
+        const streetInput = document.querySelector('input[name="street"]');
+        if (!streetInput) return;
+
+        // Only load the Google Maps API if it's not already loaded
+        if (typeof google === 'undefined' || !google.maps || !google.maps.places) {
+            const script = document.createElement('script');
+            script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA-XmAtSvNj2CjcYT7VRfnIk58aGsdeh7k&libraries=places&callback=initAutocomplete';
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+            return;
+        }
+
+        const cityInput = document.getElementById('city');
+        const stateInput = document.getElementById('state');
+        const zipInput = document.getElementById('zip');
+
+        // Create autocomplete for street address
+        const autocomplete = new google.maps.places.Autocomplete(streetInput, {
+            componentRestrictions: { country: 'us' },
+            fields: ['address_components', 'formatted_address', 'geometry', 'name'],
+            types: ['address']
+        });
+
+        // When a user selects an address
+        autocomplete.addListener('place_changed', function() {
+            const place = autocomplete.getPlace();
+            if (!place.geometry) {
+                console.log('No details available for input: ' + place.name);
+                return;
+            }
+            
+            // Reset all address fields
+            if (cityInput) cityInput.value = '';
+            if (stateInput) stateInput.value = '';
+            if (zipInput) zipInput.value = '';
+
+            // Get each component of the address
+            if (place.address_components) {
+                for (const component of place.address_components) {
+                    const componentType = component.types[0];
+                    
+                    switch (componentType) {
+                        case 'locality':
+                            if (cityInput) cityInput.value = component.long_name;
+                            break;
+                        case 'administrative_area_level_1':
+                            if (stateInput) stateInput.value = component.short_name;
+                            break;
+                        case 'postal_code':
+                            if (zipInput) zipInput.value = component.long_name;
+                            break;
+                        case 'route':
+                            // Update street number if available
+                            const streetNumber = place.address_components.find(c => c.types.includes('street_number'))?.long_name || '';
+                            streetInput.value = streetNumber ? `${streetNumber} ${component.long_name}` : component.long_name;
+                            break;
+                    }
+                }
+            }
+        });
+
+        // Prevent form submission when pressing Enter in the address field
+        streetInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+            }
+        });
+    }
+
+    // Initialize when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        initAutocomplete();
+    });
+    </script>
+
+    <script>
+    // Validation patterns
       const patterns = {
           password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
       };

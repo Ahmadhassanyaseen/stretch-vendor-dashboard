@@ -96,4 +96,8 @@ function fetchAllUserCards($data){
     $data["method"] = "fetchAllUserCards";
     return curlRequest($data);
 }
+function getLoadsFromTP($data){
+    $data["method"] = "getLoadsFromTP";
+    return curlRequest($data);
+}
 
