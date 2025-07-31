@@ -22,7 +22,7 @@
             <tbody>
                 <?php if(empty($shipments)){ ?>
                 <tr>
-                    <td colspan="10" class="text-center py-4">No shipments found</td>
+                    <td colspan="10" class="text-center py-4 text-gray-700 dark:text-white bg-gray-100 dark:bg-gray-700">No shipments found</td>
                 </tr>
                 <?php } else{ ?>
                 <?php foreach ($shipments as $shipment): ?>

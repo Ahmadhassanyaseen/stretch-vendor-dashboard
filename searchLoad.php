@@ -42,20 +42,28 @@ if (isset($_COOKIE['vendor'])) {
 // print_r($userData);
 
 $address = '';
+$loadRadius = '';
+$loadType = '';
 if(isset($_GET['address'])){
     $address = $_GET['address'];
+    $loadRadius = $_GET['load_radius'];
+    $loadType = $_GET['load_type'];
 }else{
 
   $address = $userData['city'] . ', ' . $userData['state'] . ', USA';
   if($address == ', , '){
     $address = 'Glen Burnie,MD,US';
   }
+  $loadRadius = '300';
+  $loadType = 'all';
 }
 
 
 
 $data['id'] = $userData['id'];
 $data['address'] = $address;
+$data['load_radius'] = $loadRadius;
+$data['load_type'] = $loadType;
 $response = getLoadsFromTP($data);
 
 
@@ -154,6 +162,7 @@ foreach ($loads as $key => $value) {
    "weight" => $value['weight'] ?? 0,
    "created_at" => time_elapsed_string($value['created_at'] / 1000), // Show relative time (e.g., '2 hours ago')
    "equipment" => $equipment,
+   "id" => $value['shipment_id']
   ];
 }
 
@@ -174,11 +183,29 @@ foreach ($loads as $key => $value) {
             placeholder="Search by city, state, or zip..." 
             class="block w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
         >
-        <button id="clearSearch" class="absolute inset-y-0 right-[110px] pr-3 flex items-center text-gray-400 hover:text-gray-600">
+        <button id="clearSearch" class="absolute inset-y-0 right-[320px] pr-3 flex items-center text-gray-400 hover:text-gray-600">
             <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
             </svg>
         </button>
+       
+        <select name="load_radius" id="load_radius" class="block w-[100px] p-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            <option value="50" <?php if($loadRadius == '50') echo 'selected'; ?>>50</option>
+            <option value="100" <?php if($loadRadius == '100') echo 'selected'; ?>>100</option>
+            <option value="150" <?php if($loadRadius == '150') echo 'selected'; ?>>150</option>
+            <option value="200" <?php if($loadRadius == '200') echo 'selected'; ?>>200</option>
+            <option value="250" <?php if($loadRadius == '250') echo 'selected'; ?>>250</option>
+            <option value="300" <?php if($loadRadius == '300') echo 'selected'; ?>>300</option>
+        </select>
+        <select name="load_type" id="load_type" class="block w-[100px] p-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            <option value="all" <?php if($loadType == 'all') echo 'selected'; ?>>All</option>
+            <option value="flatbed" <?php if($loadType == 'flatbed') echo 'selected'; ?>>Flatbed</option>
+            <option value="van" <?php if($loadType == 'van') echo 'selected'; ?>>Van</option>
+            <option value="reefer" <?php if($loadType == 'reefer') echo 'selected'; ?>>Reefer</option>
+            <option value="box truck" <?php if($loadType == 'box truck') echo 'selected'; ?>>Box Truck</option>
+            <option value="stepdeck" <?php if($loadType == 'stepdeck') echo 'selected'; ?>>Stepdeck</option>
+        </select>
+
         <button id="searchButton" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Search</button>
     </div>
     <div id="searchResults" class="mt-2 hidden bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
@@ -204,11 +231,11 @@ window.initAutocomplete = function() {
     const searchResults = document.getElementById('searchResults');
     const clearButton = document.getElementById('clearSearch');
 
-    // Create autocomplete object with city-level suggestions
+    // Create autocomplete object with city and postal code suggestions
     const autocomplete = new google.maps.places.Autocomplete(searchInput, {
-        types: ['(cities)'],
+        types: ['(regions)'],
         componentRestrictions: {country: 'us'}, // Restrict to US addresses
-        fields: ['address_components', 'geometry', 'formatted_address', 'name']
+        fields: ['address_components', 'geometry', 'formatted_address', 'name', 'postal_code']
     });
 
     // When a place is selected
@@ -219,23 +246,30 @@ window.initAutocomplete = function() {
             return;
         }
         
-        // Get the city and state
-        // let city = '';
-        // let state = '';
+        // Get address components
+        let city = '';
+        let state = '';
+        let postalCode = '';
         
-        // // Find city and state from address components
-        // for (const component of place.address_components) {
-        //     const componentType = component.types[0];
-        //     if (componentType === 'locality') {
-        //         city = component.long_name;
-        //     }
-        //     if (componentType === 'administrative_area_level_1') {
-        //         state = component.short_name;
-        //     }
-        // }
+        // Find city, state, and postal code from address components
+        for (const component of place.address_components) {
+            const componentType = component.types[0];
+            if (componentType === 'locality') {
+                city = component.long_name;
+            }
+            if (componentType === 'administrative_area_level_1') {
+                state = component.short_name;
+            }
+            if (componentType === 'postal_code') {
+                postalCode = component.long_name;
+            }
+        }
         
-        // Format as "City, ST"
-        // const formattedAddress = city && state ? `${city}, ${state}` : place.name;
+        // If input was a zip code, format as "ZIP, City, State"
+        if (searchInput.value.match(/^\d{5}(-\d{4})?$/) && city && state) {
+            searchInput.value = `${postalCode || searchInput.value}, ${city}, ${state}`;
+            return;
+        }
         searchInput.value = place.formatted_address;
         
         console.log('Selected location:', place.formatted_address);
@@ -279,10 +313,12 @@ let searchButton = document.getElementById('searchButton');
 searchButton.addEventListener('click', function() {
   // Get the formatted address
   let searchInput = document.getElementById('search');
+  let loadRadius = document.getElementById('load_radius').value;
+  let loadType = document.getElementById('load_type').value;
 
     const address = searchInput.value.trim();
     console.log('Selected location:', address);
-    window.location.href = 'searchLoad.php?address=' + address;
+    window.location.href = 'searchLoad.php?address=' + address + '&load_radius=' + loadRadius + '&load_type=' + loadType;
     // Here you can add code to filter your table based on the selected location
     // For example: filterTableByLocation(place);
 });
