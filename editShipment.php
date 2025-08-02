@@ -54,9 +54,24 @@
                                             $words = explode(', ', $first_city);
                                             $words2 = explode(', ', $second_city);
 
+                                            // print_r($words);
+                                            // echo count($words);
+                                            if(count($words) < 3){
+                                              $first_word = $words[0] . ',' . $words[1];
+                                            }
+                                            else{
+                                              $first_word = $words[0] . ',' . $words[1] . ',' . $words[2];
+                                            }
+                                            if(count($words2) < 3){
+                                              $second_word = $words2[0] . ',' . $words2[1];
+                                            }
+                                            else{
+                                              $second_word = $words2[0] . ',' . $words2[1] . ',' . $words2[2];
+                                            }
+
                                             // Extract the first word
-                                            $first_word = $words[0] . ',' . $words[1] . ',' . $words[2];
-                                            $second_word = $words2[0] . ',' . $words2[1] . ',' . $words2[2];
+                                            // $first_word = $first_word;
+                                            // $second_word = $words2[0] . ',' . $words2[1] . ',' . $words2[2];
                                             $distanceVal = explode(' ', $shipment['distance']);
 
                                             $zoomLevel = 10;
@@ -237,7 +252,7 @@
                 <button type="button" id="reject-shipment" <?php if ($shipment['vendor_status'] == '1') { echo 'disabled'; } ?> class="px-6 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150  border border-transparent rounded-lg focus:outline-none focus:shadow-outline-red <?php if ($shipment['vendor_status'] == '1') { echo 'bg-gray-600 hover:bg-gray-400'; } else { echo 'bg-red-600 hover:bg-red-700'; } ?>">
                   Reject
                 </button>
-                <button type="button" id="accept-shipment" <?php if ($shipment['vendor_status'] == '1' || $shipment['vendor_status'] == '-1') { echo 'disabled'; } ?> class="px-6 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150  border border-transparent rounded-lg  focus:outline-none focus:shadow-outline-green <?php if ($shipment['vendor_status'] == '-1' || $shipment['vendor_status'] == '1') { echo 'bg-gray-600 hover:bg-gray-400'; } else { echo 'bg-green-600 hover:bg-green-700'; } ?>">
+                <button type="button" id="accept-shipment" <?php if ($shipment['vendor_status'] == '1' || $shipment['vendor_status'] == '-1') { echo 'disabled'; } ?> class="px-6 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150  border border-transparent rounded-lg  focus:outline-none focus:shadow-outline-green <?php if ($shipment['vendor_status'] == '-1' || $shipment['vendor_status'] == '1') { echo 'bg-gray-600 hover:bg-gray-400'; } else { echo 'bg-blue-500 hover:bg-blue-700'; } ?>">
                   Accept
                 </button>
                 <button type="button" id="custom-price" <?php if ($shipment['vendor_status'] == '-1') { echo 'disabled'; } ?> class="px-6 py-2 text-sm font-medium leading-5 text-gray-700 dark:text-white transition-colors duration-150  border border-gray-400 rounded-lg  focus:outline-none focus:shadow-outline-green <?php if ($shipment['vendor_status'] == '-1') { echo 'bg-gray-600 hover:bg-gray-400'; } else { echo 'bg-green-600 hover:bg-green-700'; } ?>">

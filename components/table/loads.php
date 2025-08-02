@@ -146,11 +146,11 @@
                 <span class="close" onclick="closeModal()">&times;</span>
                 <div class="mb-4">
                     <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
-                    <input type="number" id="price" name="price" class="mt-1 p-2 border border-gray-300 rounded w-full">
+                    <input type="number" id="quotePrice" name="price" class="mt-1 p-2 border border-gray-300 rounded w-full">
                 </div>
                 <div class="mb-4">
                     <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                    <textarea id="description" name="description" class="mt-1 p-2 border border-gray-300 rounded w-full"></textarea>
+                    <textarea id="quoteDescription" name="description" class="mt-1 p-2 border border-gray-300 rounded w-full"></textarea>
                 </div>
                 <button type="submit" class="bg-blue-500 p-2 rounded text-white">Submit</button>
             </form>
@@ -159,6 +159,7 @@
 </div>
 
 <script>
+    let shipmentData;
 
 $(document).ready(function() {
     const table = $('#shipmentsTable').DataTable({
@@ -216,8 +217,6 @@ $(document).ready(function() {
             row.child.hide();
             toggleIcon.removeClass('rotate-90');
         } else {
-            // Show loading state
-            row.child(loadingTemplate).show();
             toggleIcon.addClass('rotate-90');
             
             try {
@@ -237,20 +236,21 @@ $(document).ready(function() {
 });
 // Function to format the details row content
 async function formatDetails(data) {
+    shipmentData = data;
+  
     const details = typeof data === 'string' ? JSON.parse(data) : data;
     
-    // Generate map URL
+    // Generate map URL immediately
     const pickup = details.pickup.split(', ').slice(0, 3).join(',');
     const dropoff = details.dropoff.split(', ').slice(0, 3).join(',');
-    const distance = parseFloat(details.distance);
-    // const zoomLevel = distance < 500 ? 5 : distance < 1000 ? 4 : distance < 1500 ? 3 : 2;
     const mapUrl = `https://maps.google.com/maps?q=${pickup}to=${dropoff}&t=&z=7&ie=UTF8&iwloc=&output=embed`;
-
-    const fuelAndTollCost = await getfuelAndTollCost(pickup, dropoff, "general");
-    // console.log(fuelAndTollCost);
-  
-    return `
-        <div class="flex gap-4">
+    
+    // Generate a unique ID for this loading container
+    const loadingContainerId = 'loading-container-' + Date.now();
+    
+    // Return the map immediately with a loading state for other details
+    const initialContent = `
+        <div class="flex gap-4 details-row">
             <div class="bg-white text-gray-700 p-4 rounded-lg shadow dark:bg-gray-700 dark:text-white w-full">
                 <h4 class="font-semibold text-xl text-gray-700 dark:text-white mb-2">Route Information</h4>
                 <div class="space-y-2 text-sm">
@@ -261,31 +261,72 @@ async function formatDetails(data) {
                     </div>
                 </div>
             </div>
+            <div id="${loadingContainerId}" class="bg-white text-gray-700 p-4 rounded-lg shadow dark:bg-gray-700 dark:text-white w-full flex items-center justify-center loading-container">
+                <div class="text-center">
+                    <div class="animate-spin loader mx-auto"></div>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Loading shipment details...</p>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Start loading other details in the background
+    loadAdditionalDetails(details).then(updatedContent => {
+        // Find the loading container by its unique ID and replace it with the updated content
+        const loadingContainer = document.getElementById(loadingContainerId);
+        if (loadingContainer) {
+            loadingContainer.outerHTML = updatedContent;
+        }
+    });
+
+    // Return the initial content with the map and loading state
+    return initialContent;
+}
+
+async function loadAdditionalDetails(details) {
+    try {
+        const fuelAndTollCost = await getfuelAndTollCost(
+            details.pickup_lat, 
+            details.pickup_lng, 
+            details.dropoff_lat, 
+            details.dropoff_lng, 
+            details.distance_total
+        );
+        console.log(fuelAndTollCost);
+        
+        return `
             <div class="bg-white text-gray-700 p-4 rounded-lg shadow dark:bg-gray-700 dark:text-white w-full">
                 <h4 class="font-semibold text-xl text-gray-700 dark:text-white mb-2">Shipment Information</h4>
                 <div class="space-y-2 text-md">
-                    <p class="grid grid-cols-2"><span class="font-medium">Distance:</span> <span>${fuelAndTollCost.distance} miles</span></p>
+                    <p class="grid grid-cols-2"><span class="font-medium">Distance:</span> <span>${details.distance_total} miles</span></p>
                     <p class="grid grid-cols-2"><span class="font-medium">Fuel Cost:</span> <span>$${fuelAndTollCost.fuel_cost}</span></p>
                     <p class="grid grid-cols-2"><span class="font-medium">Toll Cost:</span> <span>$${fuelAndTollCost.toll_cost.total_toll_cost}</span></p>
                     <p class="grid grid-cols-2"><span class="font-medium">Requested Price:</span> <span>$${details.price}</span></p>
                     <p class="grid grid-cols-2"><span class="font-medium">Average Market Price:</span> <span>$${details.avg_price}</span></p>
-                   
                 </div>
-              
-            </div>
-           
-        </div>
-    `;
+            </div>`;
+    } catch (error) {
+        console.error('Error loading details:', error);
+        return `
+            <div class="bg-white text-gray-700 p-4 rounded-lg shadow dark:bg-gray-700 dark:text-white w-full flex items-center justify-center">
+                <div class="text-center text-red-600 dark:text-red-400">
+                    <p>Failed to load shipment details. Please try again.</p>
+                </div>
+            </div>`;
+    }
 }
 
 
 
-async function getfuelAndTollCost(pickup, dropoff, freightType){
+async function getfuelAndTollCost(pickup_lat, pickup_long, dropoff_lat, dropoff_long, distance){
     const formData = new FormData();
-    formData.append('pickup_address', pickup);
-    formData.append('dropoff_address', dropoff);
+    formData.append('pickup_lat', pickup_lat);
+    formData.append('pickup_long', pickup_long);
+    formData.append('dropoff_lat', dropoff_lat);
+    formData.append('dropoff_long', dropoff_long);
+    formData.append('distance', distance);
     formData.append('freight_type', "general");
-    formData.append('method', "get_fuel_and_toll_cost");
+    formData.append('method', "get_fuel_and_toll_cost_vendor");
     
     const response = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
         method: 'POST',
@@ -297,8 +338,8 @@ async function getfuelAndTollCost(pickup, dropoff, freightType){
 }
 
 function quoteLoad(){
-    const shipmentId = $(this).data('id');
-    console.log(shipmentId);
+    // const shipmentId = $(this).data('id');
+    // console.log(shipmentId);
     $('#quoteModal').css('display', 'flex');
 }
 
@@ -306,10 +347,72 @@ function closeModal(){
     $('#quoteModal').css('display', 'none');
 }
 
-$('#quoteForm').submit(function(e) {
+$('#quoteForm').submit(async function(e) {
     e.preventDefault();
-    const formData = new FormData(this);
-    formData.append('method', 'quote');
+    Swal.fire({
+        title: 'Please wait...',
+        text: 'Submitting quote...',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+    let quotePrice = $("#quotePrice").val();
+        let quoteDescription = $("#quoteDescription").val();
+        // console.log(shipmentData);
+        
+        // Add loading state
+        const submitBtn = $(this).find('button[type="submit"]');
+        const originalBtnText = submitBtn.html();
+        submitBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Processing...');
+
+        // Wait for broker data
+        // const brokerData = await getBrokerData(shipmentData.broker_dot);
+        // console.log('Broker data received:', brokerData);
+
+        // let brokerEmail = '';
+        // let brokerName = '';
+        // let brokerPhone = '';
+        // let brokerAddress = '';
+
+        // if (brokerData && brokerData["CarrierService.CarrierLookup"]?.CarrierDetails?.Identity) {
+        //     const identity = brokerData["CarrierService.CarrierLookup"].CarrierDetails.Identity;
+        //     brokerEmail = identity.emailAddress || '';
+        //     brokerName = identity.legalName || '';
+        //     brokerPhone = identity.cellPhone || '';
+        //     brokerAddress = brokerData.identity?.address || '';
+        // }
+
+        // console.log('Broker details:', { brokerEmail, brokerName, brokerPhone, brokerAddress });
+
+let cookie = getCookie('vendor');
+
+
+if (cookie) {
+    try {
+        // First decode the URL-encoded string, then parse the JSON
+        const decodedCookie = decodeURIComponent(cookie);
+        vendorData = JSON.parse(decodedCookie);
+        
+    } catch (error) {
+        console.error('Error parsing vendor cookie:', error);
+    }
+} else {
+    console.log('No vendor cookie found');
+}
+// let formattedBrokerAddress = brokerAddress.street + ', ' + brokerAddress.city + ', ' + brokerAddress.state + ', USA';
+let formData = new FormData();
+formData.append('method', 'quoteLoad');
+formData.append('quote_price', quotePrice);
+formData.append('quote_description', quoteDescription);
+// formData.append('broker_email', brokerEmail);
+// formData.append('broker_name', brokerName);
+// formData.append('broker_phone', brokerPhone);
+// formData.append('broker_address', formattedBrokerAddress);
+formData.append('vendor_data',JSON.stringify(vendorData));
+formData.append('shipment_data',JSON.stringify(shipmentData));
+
+    
     $.ajax({
         url: 'https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem',
         type: 'POST',
@@ -318,10 +421,76 @@ $('#quoteForm').submit(function(e) {
         contentType: false,
         success: function(response) {
             console.log(response);
+            Swal.fire({
+                title: 'Success!',
+                text: 'Quote submitted successfully!',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
             $('#quoteModal').hide();
+        },
+        error: function(xhr, status, error) {
+            console.error('Error submitting quote:', error);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Failed to submit quote. Please try again.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
         }
     });
 });
+
+
+// async function getBrokerData(brokerDot){
+//     try {
+//         const formData = new FormData();
+//         formData.append('method', 'getBrokerData');
+//         formData.append('dot', brokerDot);
+//         const response = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
+//             method: 'POST',
+//             body: formData
+//         });
+//         const data = await response.json();
+//         console.log(data);
+//         return data;
+//     } catch (error) {
+//         console.error('Error loading details:', error);
+//         return null;
+//     }
+    
+
+
+// }
+// async function getBrokerData(brokerDot) {
+//     try {
+//         const formData = new FormData();
+//         formData.append('method', 'getBrokerData');
+//         formData.append('dot', brokerDot);
+        
+//         const response = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
+//             method: 'POST',
+//             body: formData
+//         });
+        
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+        
+//         return await response.json();
+//     } catch (error) {
+//         console.error('Error in getBrokerData:', error);
+//         return null; // or handle the error as needed
+//     }
+// }
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+
+
 
 </script>
 

@@ -153,16 +153,22 @@ foreach ($loads as $key => $value) {
   $shipments[] = [
     "pickup_date" => $value['all_in_one_date']['pickup_day'] ?? 'N/A',
    "pickup" => $value['pickup']['address']['city'] . ', ' . $value['pickup']['address']['state'] ,
+   "pickup_lat" => $value['pickup']['location']['lat'],
+   "pickup_lng" => $value['pickup']['location']['lng'],
+   "dropoff_lat" => $value['drop_off']['location']['lat'],
+   "dropoff_lng" => $value['drop_off']['location']['lng'],
    "deadhead" => number_format($value['pickup']['deadhead'], 2),
    "dropoff" => $dropoff,
    "broker" => $value['broker']['company'] ?? 'N/A',
+   "broker_dot" => $value['broker']['dot'] ?? 'N/A',
    "price" => $value['price'] ?? 0,
    "avg_price" => $value['avg_price'] ?? 0,
    "distance_total" => $value['distance_total'] ?? 0,
    "weight" => $value['weight'] ?? 0,
    "created_at" => time_elapsed_string($value['created_at'] / 1000), // Show relative time (e.g., '2 hours ago')
    "equipment" => $equipment,
-   "id" => $value['shipment_id']
+   "id" => $value['shipment_id'],
+   "shipment_data" => $value
   ];
 }
 
