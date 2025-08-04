@@ -20,8 +20,8 @@
     background-color: #6f767d!important;
 }
 .truncate {
-    width: 150px;
-    max-width: 150px;
+    width: 100px;
+    max-width: 100px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

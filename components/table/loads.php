@@ -161,6 +161,67 @@
 <script>
     let shipmentData;
 
+// Function to convert time string to sortable value
+function timeStringToSortableValue(timeStr) {
+    if (!timeStr) return 0;
+    
+    // Handle 'now' case
+    if (timeStr === 'now') return 0;
+    
+    // Handle seconds (e.g., '30s')
+    if (timeStr.endsWith('s')) {
+        return parseInt(timeStr) / 60; // Convert to minutes for sorting
+    }
+    
+    // Handle minutes (e.g., '30m')
+    if (timeStr.endsWith('m')) {
+        return parseInt(timeStr);
+    }
+    
+    // Handle hours (e.g., '2h')
+    if (timeStr.endsWith('h')) {
+        return parseInt(timeStr) * 60; // Convert to minutes
+    }
+    
+    // Handle days (e.g., '3d' or '3d 4h')
+    if (timeStr.includes('d')) {
+        const parts = timeStr.split(' ');
+        let totalMinutes = 0;
+        
+        // Handle days part
+        const daysMatch = timeStr.match(/(\d+)d/);
+        if (daysMatch) {
+            totalMinutes += parseInt(daysMatch[1]) * 24 * 60; // Convert days to minutes
+        }
+        
+        // Handle hours part if exists (e.g., '3d 4h')
+        const hoursMatch = timeStr.match(/(\d+)h/);
+        if (hoursMatch) {
+            totalMinutes += parseInt(hoursMatch[1]) * 60; // Convert hours to minutes
+        }
+        
+        // Handle minutes part if exists (e.g., '3d 4h 30m')
+        const minutesMatch = timeStr.match(/(\d+)m/);
+        if (minutesMatch) {
+            totalMinutes += parseInt(minutesMatch[1]);
+        }
+        
+        return totalMinutes;
+    }
+    
+    // Handle months (e.g., '2mo')
+    if (timeStr.endsWith('mo')) {
+        return parseInt(timeStr) * 30 * 24 * 60; // Approximate month to minutes
+    }
+    
+    // Handle years (e.g., '1y')
+    if (timeStr.endsWith('y')) {
+        return parseInt(timeStr) * 365 * 24 * 60; // Approximate year to minutes
+    }
+    
+    return 0;
+}
+
 $(document).ready(function() {
     const table = $('#shipmentsTable').DataTable({
         searching: false,
@@ -178,7 +239,18 @@ $(document).ready(function() {
                         </svg>`;
                 }
             },
-            { data: 'created_at' },
+            { 
+                data: 'created_at',
+                type: 'num',
+                render: function(data, type, row) {
+                    // For display, return the original string
+                    if (type === 'display') {
+                        return data;
+                    }
+                    // For sorting, return the sortable value
+                    return timeStringToSortableValue(data);
+                }
+            },
             { data: 'pickup_date' },
             { data: 'pickup' },
             { data: 'deadhead' },
@@ -190,7 +262,7 @@ $(document).ready(function() {
             { data: 'broker' },
             { data: 'action' }
         ],
-        order: [[1, 'desc']], // Sort by Date column
+        order: [[1, 'asc']], // Sort by Age column (index 1)
         createdRow: function(row, data, dataIndex) {
             // Store the data-details JSON for the row
             const details = $(row).data('details');
