@@ -244,7 +244,7 @@
                   <input type="number" name="custom_price" id="custom_price_value" class="shadow appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter amount" min="0" step="0.01">
                 </div>
                 <div class="w-[150px]">
-                  <button type="button"  class="px-6 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-600 hover:bg-green-700 border border-transparent rounded-lg  focus:outline-none focus:shadow-outline-green " id="custom-price-quote">Custom Price</button>
+                  <button type="button"  class="px-6 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-500 hover:bg-blue-700 border border-transparent rounded-lg  focus:outline-none focus:shadow-outline-green " id="custom-price-quote">Custom Price</button>
                 </div>
                 </div>
                 </div>
