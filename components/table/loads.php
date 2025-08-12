@@ -421,6 +421,78 @@ function closeModal(){
 
 $('#quoteForm').submit(async function(e) {
     e.preventDefault();
+    
+    // Try to get vendor data from cookie or localStorage
+    let vendorData = <?php echo $_COOKIE['vendor']; ?>;
+    console.log(vendorData);
+    // let cookie = getCookie('vendor');
+    // console.log('Raw cookie value:', cookie);
+    
+    // If no cookie found, try to get from URL parameters (for testing)
+    // if (!cookie) {
+    //     const urlParams = new URLSearchParams(window.location.search);
+    //     const vendorParam = urlParams.get('vendor');
+    //     if (vendorParam) {
+    //         try {
+    //             const decoded = decodeURIComponent(vendorParam);
+    //             console.log('Found vendor data in URL parameters');
+    //             cookie = decoded;
+    //             // Optionally save to localStorage for future use
+    //             try {
+    //                 localStorage.setItem('cookie_vendor', decoded);
+    //             } catch (e) {
+    //                 console.warn('Could not save to localStorage:', e);
+    //             }
+    //         } catch (e) {
+    //             console.error('Error decoding URL parameter:', e);
+    //         }
+    //     }
+    // }
+    
+    // if (cookie) {
+    //     try {
+    //         // Clean the cookie value if it's URL encoded
+    //         let cleanCookie = cookie.trim();
+    //         // Remove any surrounding quotes if present
+    //         cleanCookie = cleanCookie.replace(/^"|"$/g, '');
+            
+    //         console.log('Cleaned cookie value:', cleanCookie);
+            
+    //         // Try to parse the JSON
+    //         vendorData = JSON.parse(cleanCookie);
+    //         console.log('Parsed vendor data:', vendorData);
+            
+    //         // Verify required fields
+    //         if (!vendorData || !vendorData.id) {
+    //             throw new Error('Invalid vendor data format');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error parsing vendor cookie:', error);
+    //         console.error('Cookie content that failed to parse:', cookie);
+    //         Swal.fire({
+    //             title: 'Session Error',
+    //             text: 'There was an issue with your session. Please log in again.',
+    //             icon: 'error',
+    //             confirmButtonText: 'OK'
+    //         });
+    //         // Redirect to login or refresh the page
+    //         setTimeout(() => {
+    //             window.location.href = 'login.php';
+    //         }, 2000);
+    //         return false;
+    //     }
+    // } else {
+    //     console.log('No vendor cookie found');
+    //     Swal.fire({
+    //         title: 'Not Logged In',
+    //         text: 'Please log in to submit a quote.',
+    //         icon: 'warning',
+    //         confirmButtonText: 'OK'
+    //     });
+    //     return false;
+    // }
+    
+    // Show loading state
     Swal.fire({
         title: 'Please wait...',
         text: 'Submitting quote...',
@@ -429,60 +501,30 @@ $('#quoteForm').submit(async function(e) {
             Swal.showLoading();
         }
     });
+    
     let quotePrice = $("#quotePrice").val();
-        let quoteDescription = $("#quoteDescription").val();
-        // console.log(shipmentData);
-        
-        // Add loading state
-        const submitBtn = $(this).find('button[type="submit"]');
-        const originalBtnText = submitBtn.html();
-        submitBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Processing...');
-
-        // Wait for broker data
-        // const brokerData = await getBrokerData(shipmentData.broker_dot);
-        // console.log('Broker data received:', brokerData);
-
-        // let brokerEmail = '';
-        // let brokerName = '';
-        // let brokerPhone = '';
-        // let brokerAddress = '';
-
-        // if (brokerData && brokerData["CarrierService.CarrierLookup"]?.CarrierDetails?.Identity) {
-        //     const identity = brokerData["CarrierService.CarrierLookup"].CarrierDetails.Identity;
-        //     brokerEmail = identity.emailAddress || '';
-        //     brokerName = identity.legalName || '';
-        //     brokerPhone = identity.cellPhone || '';
-        //     brokerAddress = brokerData.identity?.address || '';
-        // }
-
-        // console.log('Broker details:', { brokerEmail, brokerName, brokerPhone, brokerAddress });
-
-let cookie = getCookie('vendor');
-
-
-if (cookie) {
-    try {
-        // First decode the URL-encoded string, then parse the JSON
-        const decodedCookie = decodeURIComponent(cookie);
-        vendorData = JSON.parse(decodedCookie);
-        
-    } catch (error) {
-        console.error('Error parsing vendor cookie:', error);
+    let quoteDescription = $("#quoteDescription").val();
+    
+    if (!quotePrice) {
+        Swal.fire({
+            title: 'Error!',
+            text: 'Please enter a price for your quote.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+        return false;
     }
-} else {
-    console.log('No vendor cookie found');
-}
+    
+    // Add loading state to submit button
+    const submitBtn = $(this).find('button[type="submit"]');
+    submitBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Processing...');
 // let formattedBrokerAddress = brokerAddress.street + ', ' + brokerAddress.city + ', ' + brokerAddress.state + ', USA';
 let formData = new FormData();
 formData.append('method', 'quoteLoad');
 formData.append('quote_price', quotePrice);
 formData.append('quote_description', quoteDescription);
-// formData.append('broker_email', brokerEmail);
-// formData.append('broker_name', brokerName);
-// formData.append('broker_phone', brokerPhone);
-// formData.append('broker_address', formattedBrokerAddress);
-formData.append('vendor_data',JSON.stringify(vendorData));
-formData.append('shipment_data',JSON.stringify(shipmentData));
+formData.append('vendor_data', JSON.stringify(vendorData));
+formData.append('shipment_data', JSON.stringify(shipmentData));
 
     
     $.ajax({
@@ -555,11 +597,31 @@ formData.append('shipment_data',JSON.stringify(shipmentData));
 //         return null; // or handle the error as needed
 //     }
 // }
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
-}
+// function getCookie(name) {
+//     // First try to get from document.cookie
+//     const value = `; ${document.cookie}`;
+//     const parts = value.split(`; ${name}=`);
+    
+//     if (parts.length === 2) {
+//         const cookieValue = parts.pop().split(';').shift();
+//         console.log('Found cookie in document.cookie:', {name, value: cookieValue});
+//         return cookieValue;
+//     }
+    
+//     // If not found in document.cookie, try localStorage as fallback
+//     try {
+//         const storedValue = localStorage.getItem(`cookie_${name}`);
+//         if (storedValue) {
+//             console.log('Found cookie in localStorage:', {name, value: storedValue});
+//             return storedValue;
+//         }
+//     } catch (e) {
+//         console.warn('Error accessing localStorage:', e);
+//     }
+    
+//     console.log('Cookie not found in document.cookie or localStorage:', name);
+//     return null;
+// }
 
 
 

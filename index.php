@@ -76,7 +76,7 @@ foreach ($stats as $stat) {
               $shipments[] = [
                 'id' => $value['id'],
                 'name' => $value['name'],
-                'quantity' => $value['freight_box_count_c'],
+                'quantity' => $value['freight_pallet_count_c'],
                 'type' => $value['freight_type_c'],
                 'tracking_number' => $value['truckerpath_ref_id_c'] ?? 'N/A',
                 'pickup' => $value['pickup_address_c'],

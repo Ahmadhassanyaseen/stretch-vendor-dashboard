@@ -91,9 +91,9 @@ if(!isset($_COOKIE['vendor'])){
             confirmButtonColor: "#3085d6",
             confirmButtonText: "OK"
           }).then((result) => {
-            if (result.isConfirmed) {
+            // if (result.isConfirmed) {
               window.location.href = 'profile.php';
-            }
+            // }
           });
         }
        
@@ -106,9 +106,9 @@ if(!isset($_COOKIE['vendor'])){
             confirmButtonColor: "#3085d6",
             confirmButtonText: "OK"
           }).then((result) => {
-            if (result.isConfirmed) {
+            // if (result.isConfirmed) {
               window.location.href = 'profile.php';
-            }
+            // }
           });
         }
       });

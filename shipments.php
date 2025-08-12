@@ -28,7 +28,7 @@ if (isset($_COOKIE["vendor"])) {
        
 
 $data['id'] = $userData['id'];
-$response = fetchAllVendorLeads($data);
+$response = fetchAllVendorLeadsConverted($data);
 
 foreach($response as $key => $value){
   $shipments[] = [

@@ -49,6 +49,10 @@ function fetchAllVendorLeads($data){
     $data["method"] = "fetchAllVendorLeads";
     return curlRequest($data);
 }
+function fetchAllVendorLeadsConverted($data){
+    $data["method"] = "fetchAllVendorLeadsConverted";
+    return curlRequest($data);
+}
 function fetchAllVendorVehicles($data){
     $data["method"] = "fetchAllVendorVehicles";
     return curlRequest($data);
