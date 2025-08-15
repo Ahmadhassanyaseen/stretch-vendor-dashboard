@@ -1,22 +1,28 @@
 <!-- New Table with DataTables -->
-
+<style>
+    .xeno-table tbody tr:nth-child(odd) {
+        background-color:#f27474;
+        color: #fff;
+    }
+        
+</style>
 <div class="w-full overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800 text-gray-700 dark:text-white">
     <div class="w-full overflow-x-auto">
-        <table id="shipmentsTable" class="w-full display">
-            <thead>
+        <table id="shipmentsTable" class="w-full display xeno-table" >
+            <thead class="text-white">
                 <tr>
-                    <th>Customer</th>
-                    <th>Tracking #</th>
-                    <th>Pickup</th>
-                    <th>Dropoff</th>
-                    <th>Type</th>
-                    <th>Quantity</th>
-                    <th>Weight</th>
-                    <th>Amount</th>
-                    <th class="truncate">Lead Status</th>
-                    <th class="truncate">Vendor Status</th>
-                    <th>Date</th>
-                    <th>Actions</th>
+                    <th class="bg-blue-500 rounded-tl-xl ">Customer</th>
+                    <th class="bg-blue-500 ">Tracking #</th>
+                    <th class="bg-blue-500 ">Pickup</th>
+                    <th class="bg-blue-500 ">Dropoff</th>
+                    <th class="bg-blue-500 ">Type</th>
+                    <th class="bg-blue-500 ">Quantity</th>
+                    <th class="bg-blue-500 ">Weight</th>
+                    <th class="bg-blue-500 ">Amount</th>
+                    <th class="truncate bg-blue-500 ">Lead Status</th>
+                    <th class="truncate bg-blue-500 ">Vendor Status</th>
+                    <th class="bg-blue-500 ">Date</th>
+                    <th class="bg-blue-500 rounded-tr-xl ">Actions</th>
                 </tr>
             </thead>
             <tbody>
