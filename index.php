@@ -4,6 +4,17 @@
 
   <?php include 'components/layout/header.php'; ?>
     <?php include 'components/layout/sidebar.php'; ?>
+    <?php
+    
+    if (isset($_COOKIE['vendor'])) {
+      $userData = json_decode($_COOKIE['vendor'], true);
+    } else {
+      $userData = [];
+    }
+
+    $data['id'] = $userData['id'];
+    $response = fetchAllVendorLeads($data);
+    ?>
      
       <div class="flex flex-col flex-1 w-full">
        <?php include 'components/layout/topbar.php'; ?>
@@ -16,60 +27,68 @@
             </h2>
            
             <!-- Cards -->
-            <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-              <!-- Card -->
-             <?php
+            <div class="grid gap-4 mb-5 md:grid-cols-4 w-full">
+            
+            <?php
+ 
+                 
+ 
+                   // print_r($response);
+ 
+                   $stats = [
+                     [
+                       'title' => 'Total Shipments',
+                       'value' => count($response),
+                       'icon' => 'boxes-stacked',
+                       'color' => 'orange'
+                     ],
+                     [
+                       'title' => 'In Progress Shipments',
+                       'value' => array_reduce($response, function ($carry, $item) {
+                         return $carry + (in_array(strtolower($item['status_c']), ['assigned', 'quoted', '', 'inprocess']) ? 1 : 0);
+                       }, 0),
+                       'icon' => 'hourglass-start',
+                       'color' => 'blue'
+                     ],
+                   
+                     [
+                       'title' => 'Completed Shipments',
+                       'value' => array_reduce($response, function ($carry, $item) {
+                         return $carry + (strtolower($item['status_c']) === 'converted' ? 1 : 0);
+                       }, 0),
+                       'icon' => 'check',
+                       'color' => 'green'
+                     ],
+                     [
+                       'title' => 'Cancelled Shipments',
+                       'value' => array_reduce($response, function ($carry, $item) {
+                         return $carry + (in_array(strtolower($item['status_c']), ['cancelled', 'dead', 'deleted']) ? 1 : 0);
+                       }, 0),
+                       'icon' => 'xmark',
+                       'color' => 'red'
+                     ]
+                     
+                     
+                   ];
+ 
+                   foreach ($stats as $stat) {
+                     include 'components/cards/stats.php';
+                   }
+             ?>
+            
+           </div>
+             <div class="flex gap-5 mb-5">
+            
+            <div class="w-1/2">
 
-if (isset($_COOKIE['vendor'])) {
-  $userData = json_decode($_COOKIE['vendor'], true);
-} else {
-  $userData = [];
-}
-
-$data['id'] = $userData['id'];
-$response = fetchAllVendorLeads($data);
-
-// print_r($response);
-
-$stats = [
-  [
-    'title' => 'Total Shipments',
-    'value' => count($response),
-    'icon' => 'boxes-stacked',
-    'color' => 'orange'
-  ],
-  [
-    'title' => 'In Progress Shipments',
-    'value' => array_reduce($response, function ($carry, $item) {
-      return $carry + (in_array(strtolower($item['status_c']), ['assigned', 'in progress', 'in_progress', 'inprocess']) ? 1 : 0);
-    }, 0),
-    'icon' => 'clock',
-    'color' => 'blue'
-  ],
-  [
-    'title' => 'Completed Shipments',
-    'value' => array_reduce($response, function ($carry, $item) {
-      return $carry + (strtolower($item['status_c']) === 'completed' ? 1 : 0);
-    }, 0),
-    'icon' => 'check',
-    'color' => 'green'
-  ],
-  [
-    'title' => 'Cancelled/Dead Shipments',
-    'value' => array_reduce($response, function ($carry, $item) {
-      return $carry + (in_array(strtolower($item['status_c']), ['cancelled', 'dead', 'deleted']) ? 1 : 0);
-    }, 0),
-    'icon' => 'xmark',
-    'color' => 'red'
-  ]
-];
-
-foreach ($stats as $stat) {
-  include 'components/cards/stats.php';
-}
-?>
-              
+            <?php include 'components/cards/chart.php'; ?>
             </div>
+            <div class="w-1/2">
+            <?php include 'components/cards/chartMain.php'; ?>
+            </div>
+          </div>
+         
+            <!-- Card -->
             <?php
 
             foreach ($response as $key => $value) {

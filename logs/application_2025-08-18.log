@@ -1,0 +1,45 @@
+[2025-08-18 08:06:21] [INFO] Sending to API: Array
+(
+    [email] => madarauchihaoffocial@gmail.com
+    [password] => Madara@1234
+    [method] => vendorLogin
+)
+
+[2025-08-18 08:06:22] [INFO] API Response: 
+[2025-08-18 08:06:22] [ERROR] JSON Decode Error: Syntax error
+[2025-08-18 08:17:12] [INFO] Sending to API: Array
+(
+    [email] => madarauchihaoffocial@gmail.com
+    [password] => Madara@1234
+    [method] => vendorLogin
+)
+
+[2025-08-18 08:17:13] [INFO] API Response: 
+[2025-08-18 08:17:13] [ERROR] JSON Decode Error: Syntax error
+[2025-08-18 08:17:21] [INFO] Sending to API: Array
+(
+    [email] => ahmadhassangithub@gmail.com
+    [password] => Ahmad@1234
+    [method] => vendorLogin
+)
+
+[2025-08-18 08:17:21] [INFO] API Response: 
+[2025-08-18 08:17:21] [ERROR] JSON Decode Error: Syntax error
+[2025-08-18 08:26:51] [INFO] Sending to API: Array
+(
+    [email] => ahmadhassangithub@gmail.com
+    [password] => Ahmad@1234
+    [method] => vendorLogin
+)
+
+[2025-08-18 08:26:52] [INFO] API Response: 
+[2025-08-18 08:26:52] [ERROR] JSON Decode Error: Syntax error
+[2025-08-18 10:00:16] [INFO] Sending to API: Array
+(
+    [email] => ahmadhassangithub@gmail.com
+    [password] => Ahmad@1234
+    [method] => vendorLogin
+)
+
+[2025-08-18 10:00:17] [INFO] API Response: 
+[2025-08-18 10:00:17] [ERROR] JSON Decode Error: Syntax error

@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Ensure we have a valid stat item
 $stat = $stat ?? [
     'title' => 'Default Title',
@@ -16,7 +16,7 @@ $stat = $stat ?? [
             <?= htmlspecialchars($stat['title']) ?>
         </p>
         <p class="text-lg font-semibold text-gray-700 dark:text-white ">
-                    <?= htmlspecialchars($stat['value']) ?>
-                  </p>
-                </div>
-              </div>
+            <?= htmlspecialchars($stat['value']) ?>
+        </p>
+    </div>
+</div>

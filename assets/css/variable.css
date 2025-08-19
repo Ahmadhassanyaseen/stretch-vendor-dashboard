@@ -33,3 +33,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .bg-green-500{
+    background-color: #28a745!important;
+}
