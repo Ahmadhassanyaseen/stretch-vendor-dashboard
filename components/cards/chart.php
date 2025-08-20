@@ -40,7 +40,7 @@ foreach ($response as $item) {
     
     <!-- Vendor Status Chart -->
     <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">Vendor Status</h2>
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Booking Status</h2>
         <div id="vendorChart"></div>
     </div>
 </div>

@@ -25,20 +25,7 @@
                 href="index.php"
                 title="Dashboard"
               >
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  ></path>
-                </svg>
+              <i class="fa-solid fa-house text-xl"></i>
                 <span class="ml-4 sidebar-item hidden">Dashboard</span>
               </a>
             </li>
@@ -48,7 +35,7 @@
                 href="searchLoad.php"
                 title="Search Load"
               >
-              <i class="fas fa-search"></i>
+              <i class="fas fa-search text-xl"></i>
                 <span class="ml-4 sidebar-item hidden">Search Load</span>
               </a>
             </li>
@@ -58,40 +45,27 @@
                 href="shipments.php"
                 title="Shipments"
               >
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
-                  ></path>
-                </svg>
+              <i class="fa-solid fa-clipboard-list text-xl"></i>
                 <span class="ml-4 sidebar-item hidden">Shipments</span>
               </a>
             </li>
-            <!-- <li class="relative px-6 py-3 sidebar-menu-item">
+            <li class="relative px-6 py-3 sidebar-menu-item">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-500 transition-colors duration-150 hover:text-gray-800"
                 href="formalQuotes.php"
                 title="Formal Quotes"
               >
-                <i class="fas fa-file-invoice-dollar"></i>
+              <i class="fa-solid fa-clipboard-check text-xl"></i>
                 <span class="ml-4 sidebar-item hidden">Formal Quotes</span>
               </a>
-            </li> -->
+            </li>
             <li class="relative px-6 py-3 sidebar-menu-item">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-500 transition-colors duration-150 hover:text-gray-800"
                 href="vehicles.php"
                 title="Vehicles"
               >
-               <i class="fas fa-truck"></i>
+               <i class="fas fa-truck text-xl"></i>
                 <span class="ml-4 sidebar-item hidden">Vehicles</span>
               </a>
             </li>
@@ -101,7 +75,7 @@
                 href="referrals.php"
                 title="Referrals"
               >
-               <i class="fas fa-user"></i>
+               <i class="fas fa-user text-xl"></i>
                 <span class="ml-4 sidebar-item hidden">Referrals</span>
               </a>
             </li>
@@ -211,7 +185,7 @@
                 <span class="ml-4">Shipments</span>
               </a>
             </li>
-            <!-- <li class="relative px-6 py-3 sidebar-menu-item">
+            <li class="relative px-6 py-3 sidebar-menu-item">
               <span
                 class="absolute inset-y-0 left-0 w-1 bg-primary-color rounded-tr-lg rounded-br-lg opacity-0"
                 aria-hidden="true"
@@ -223,7 +197,7 @@
                 <i class="fas fa-file-invoice-dollar"></i>
                 <span class="ml-4">Formal Quotes</span>
               </a>
-            </li> -->
+            </li>
             <li class="relative px-6 py-3 sidebar-menu-item">
               <span
                 class="absolute inset-y-0 left-0 w-1 bg-primary-color rounded-tr-lg rounded-br-lg opacity-0"
