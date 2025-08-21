@@ -77,11 +77,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     var options = {
         series: [{
-            name: 'Pending',
+            name: 'Available',
             type: 'column',
             data: Object.values(statusData[0])
         }, {
-            name: 'Completed',
+            name: 'Booked',
             type: 'area',
             data: Object.values(statusData[1])
         }, {
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         yaxis: {
             title: {
-                text: 'Number of Shipments',
+                text: 'Number of Loads',
             },
             min: 0,
             forceNiceScale: true,
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
             y: {
                 formatter: function (y) {
                     if (typeof y !== "undefined") {
-                        return y + (y === 1 ? ' shipment' : ' shipments');
+                        return y + (y === 1 ? ' Load' : ' Loads');
                     }
                     return y;
                 }

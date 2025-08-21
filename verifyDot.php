@@ -204,10 +204,10 @@
         const result = await response.json();
         console.log('Form data:', data);
         console.log('Server response:', result);
-        console.log('DOT Status:', result.data.CarrierDetails.dotNumber['@status']);  // "ACTIVE"
-        console.log('DOT Number:', result.data.CarrierDetails.dotNumber['#text']);    // "2941667"
+        // console.log('DOT Status:', result.data.CarrierDetails.dotNumber['@status']);  // "ACTIVE"
+        // console.log('DOT Number:', result.data.CarrierDetails.dotNumber['#text']);    // "2941667"
         
-        if ( result.data.CarrierDetails.dotNumber['@status'] != "ACTIVE") {
+        if (!result.data.valid) {
             Swal.fire({
                 title: 'Error!',
                 text:'DOT/MC Number is not active',
