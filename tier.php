@@ -475,7 +475,9 @@ $user = $userData;
                     formData.append('cardName', cardName.value.trim());
                     formData.append('expiryDate', expiryDate.value);
                     formData.append('cvv', cvv.value);
+                    formData.append('cardType', cardType.value);
                     formData.append('vendor_id', '<?php echo $user['id']; ?>');
+
                     formData.append('method', 'vendorTierPayment');
 
                     try {
