@@ -22,6 +22,7 @@ $data = [
     'pickup_city' => $_POST['pickup_city'],
     'pickup_state' => $_POST['pickup_state'],
     'availability' => $_POST['availability'],
+    'vehicle_type' => $_POST['vehicle_type'],
     'images' => $images,
 ];
 

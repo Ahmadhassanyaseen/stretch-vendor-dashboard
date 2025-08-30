@@ -34,12 +34,51 @@
                       <input
                         type="text"
                         name="name"
-                       
                         required
-                        
-                        class="w-full px-3 py-2 mt-2 border rounded-md  "
-                       
+                        class="w-full px-3 py-2 mt-2 border rounded-md"
                       />
+                      
+                      <div class="mt-4">
+                        <label for="vehicle_type" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
+                          Vehicle Type
+                        </label>
+                        <select
+                          id="vehicle_type"
+                          name="vehicle_type"
+                          required
+                          class="w-full px-3 py-2 mt-2 border rounded-md"
+                        >
+                          <option value="">Select Vehicle Type</option>
+                          <option value="aircraft_LD3_ULD">Aircraft - LD3 ULD (3,500lb Max)</option>
+                          <option value="aircraft_LD7_pallet">Aircraft - LD7 Pallet (13,000lb Max)</option>
+                          <option value="aircraft_freighter">Aircraft - Freighter (100-140ton Max)</option>
+                          <option value="auto_carrier_trailer">Auto Carrier Trailer - Open Carrier (20-30,000lb Max)</option>
+                          <option value="auto_carrier_trailer2">Auto Carrier Trailer - Enclosed Carrier (10-20,000lb Max)</option>
+                          <option value="barge_inland">Inland Barge (1,500–3,000 tons)</option>
+                          <option value="barge_costal">Coastal Barge (5,000–10,000 tons)</option>
+                          <option value="bulk_carrier_ship">Bulk Carrier Ship - Handy Size (20,000–40,000 DWT)</option>
+                          <option value="bulk_carrier_ship2">Bulk Carrier Ship - Panamax (60,000–80,000 DWT)</option>
+                          <option value="container_ship_20">Container Ship - 20' TEU (20'L x 8'W x 8.5'H, 33.2 m³, ~48,000 lbs Max)</option>
+                          <option value="container_ship_40">Container Ship - 40' Standard (40'L x 8'W x 8.5'H, 67.7 m³, ~67,000 lbs Max)</option>
+                          <option value="container_ship_HC">Container Ship - 40' High-Cube (40'L x 8'W x 9.5'H, 76.3 m³, ~67,000 lbs Max)</option>
+                          <option value="container_ship_45HC">Container Ship - 45' High-Cube (45'L x 8'W x 9.5'H, 86 m³, ~67,000 lbs Max)</option>
+                          <option value="day_cab_4x2">Day Cab Tractor - 4x2 (18-22'L x 8'W x 10-12'H, 45,000 lbs Max)</option>
+                          <option value="day_cab_6x4">Day Cab Tractor - 6x4 (18-22'L x 8'W x 10-12'H, 45,000-48,000 lbs Max)</option>
+                          <option value="day_cab_10x6">Day Cab Tractor - 10x6 (18-22'L x 8'W x 10-12'H, 80,000+ lbs Max with Permits)</option>
+                          <option value="double_drop_trailer">Double Drop Trailer - RGN Deck (48–53'L x 8.5'W x 3–3.5'H, ~40,000–80,000 lbs)</option>
+                          <option value="double_drop_trailer2">Double Drop Trailer - RGN Well (26–29'L, height up to 11.5–12'H)</option>
+                          <option value="drayage_4x2">Drayage Tractor - 4x2 (18-22'L x 8'W x 10-12'H, 48,000 lbs Max)</option>
+                          <option value="drayage_6x4">Drayage Tractor - 6x4 (18-22'L x 8'W x 10-12'H, 48,000-67,000 lbs Max)</option>
+                          <option value="drayage_10x6">Drayage Tractor - 10x6 (18-22'L x 8'W x 10-12'H, 80,000+ lbs Max with Permits)</option>
+                          <option value="dry_van_trailer_48">Dry Van Trailer - 48' Trailer (48'L x 8.5'W x 8.5'H, ~3,400 ft³, ~45,000 lbs Max)</option>
+                          <option value="dry_van_trailer_53">Dry Van Trailer - 53' Trailer (53'L x 8.5'W x 8.5'H, ~3,800 ft³, ~45,000 lbs Max)</option>
+                          <option value="flatbed_trailer_48">Flat Bed Trailer - 48' Trailer (48'L x 8.5'W x 5'H, ~48,000 lbs Max)</option>
+                          <option value="flatbed_trailer_53">Flat Bed Trailer - 53' Trailer (53'L x 8.5'W x 5'H, ~48,000 lbs Max)</option>
+                          <option value="freight_train_boxcar">Freight Train - Boxcar (50–60'L x 9.5'W x 10–13'H, ~4,500–6,000 ft³, 100–150 tons)</option>
+                          <option value="freight_train_flatcar">Freight Train - Flatcar Container (60–89'L x 9.5'W, carries 2x20' or 1x40'/53' containers, ~100–150 tons)</option>
+                          <option value="freight_train_tankcar">Freight Train - Tankcar (40–60'L, 10,000–30,000 gallons, ~80–120 tons)</option>
+                        </select>
+                      </div>
                       
                     </div>
 
@@ -93,6 +132,7 @@
                       </div>
                     </div>
                   </div>
+                  
                 </div>
                 <hr class="mt-4 mb-4 w-full h-[1px] bg-gray-400 border-none"/>
                 <div  class="flex gap-4">

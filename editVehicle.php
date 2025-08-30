@@ -45,7 +45,47 @@ if (isset($_COOKIE["vendor"])) {
                         class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md text-gray-700 dark:text-white "
                        
                       />
-                      
+                      <div class="mt-4">
+                        <label for="vehicle_type" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
+                          Vehicle Type
+                        </label>
+                        <select
+                          id="vehicle_type"
+                          name="vehicle_type"
+                          required
+                          class="w-full px-3 py-2 mt-2 border rounded-md"
+                        >
+                          <option value="">Select Vehicle Type</option>
+                          <option value="aircraft_LD3_ULD" <?= $response['vehicle_type'] == 'aircraft_LD3_ULD' ? 'selected' : '' ?>>Aircraft - LD3 ULD (3,500lb Max)</option>
+                          <option value="aircraft_LD7_pallet" <?= $response['vehicle_type'] == 'aircraft_LD7_pallet' ? 'selected' : '' ?>>Aircraft - LD7 Pallet (13,000lb Max)</option>
+                          <option value="aircraft_freighter" <?= $response['vehicle_type'] == 'aircraft_freighter' ? 'selected' : '' ?>>Aircraft - Freighter (100-140ton Max)</option>
+                          <option value="auto_carrier_trailer" <?= $response['vehicle_type'] == 'auto_carrier_trailer' ? 'selected' : '' ?>>Auto Carrier Trailer - Open Carrier (20-30,000lb Max)</option>
+                          <option value="auto_carrier_trailer2" <?= $response['vehicle_type'] == 'auto_carrier_trailer2' ? 'selected' : '' ?>>Auto Carrier Trailer - Enclosed Carrier (10-20,000lb Max)</option>
+                          <option value="barge_inland" <?= $response['vehicle_type'] == 'barge_inland' ? 'selected' : '' ?>>Inland Barge (1,500–3,000 tons)</option>
+                          <option value="barge_costal" <?= $response['vehicle_type'] == 'barge_costal' ? 'selected' : '' ?>>Coastal Barge (5,000–10,000 tons)</option>
+                          <option value="bulk_carrier_ship" <?= $response['vehicle_type'] == 'bulk_carrier_ship' ? 'selected' : '' ?>>Bulk Carrier Ship - Handy Size (20,000–40,000 DWT)</option>
+                          <option value="bulk_carrier_ship2" <?= $response['vehicle_type'] == 'bulk_carrier_ship2' ? 'selected' : '' ?>>Bulk Carrier Ship - Panamax (60,000–80,000 DWT)</option>
+                          <option value="container_ship_20" <?= $response['vehicle_type'] == 'container_ship_20' ? 'selected' : '' ?>>Container Ship - 20' TEU (20'L x 8'W x 8.5'H, 33.2 m³, ~48,000 lbs Max)</option>
+                          <option value="container_ship_40" <?= $response['vehicle_type'] == 'container_ship_40' ? 'selected' : '' ?>>Container Ship - 40' Standard (40'L x 8'W x 8.5'H, 67.7 m³, ~67,000 lbs Max)</option>
+                          <option value="container_ship_HC" <?= $response['vehicle_type'] == 'container_ship_HC' ? 'selected' : '' ?>>Container Ship - 40' High-Cube (40'L x 8'W x 9.5'H, 76.3 m³, ~67,000 lbs Max)</option>
+                          <option value="container_ship_45HC" <?= $response['vehicle_type'] == 'container_ship_45HC' ? 'selected' : '' ?>>Container Ship - 45' High-Cube (45'L x 8'W x 9.5'H, 86 m³, ~67,000 lbs Max)</option>
+                          <option value="day_cab_4x2" <?= $response['vehicle_type'] == 'day_cab_4x2' ? 'selected' : '' ?>>Day Cab Tractor - 4x2 (18-22'L x 8'W x 10-12'H, 45,000 lbs Max)</option>
+                          <option value="day_cab_6x4" <?= $response['vehicle_type'] == 'day_cab_6x4' ? 'selected' : '' ?>>Day Cab Tractor - 6x4 (18-22'L x 8'W x 10-12'H, 45,000-48,000 lbs Max)</option>
+                          <option value="day_cab_10x6" <?= $response['vehicle_type'] == 'day_cab_10x6' ? 'selected' : '' ?>>Day Cab Tractor - 10x6 (18-22'L x 8'W x 10-12'H, 80,000+ lbs Max with Permits)</option>
+                          <option value="double_drop_trailer" <?= $response['vehicle_type'] == 'double_drop_trailer' ? 'selected' : '' ?>>Double Drop Trailer - RGN Deck (48–53'L x 8.5'W x 3–3.5'H, ~40,000–80,000 lbs)</option>
+                          <option value="double_drop_trailer2" <?= $response['vehicle_type'] == 'double_drop_trailer2' ? 'selected' : '' ?>>Double Drop Trailer - RGN Well (26–29'L, height up to 11.5–12'H)</option>
+                          <option value="drayage_4x2" <?= $response['vehicle_type'] == 'drayage_4x2' ? 'selected' : '' ?>>Drayage Tractor - 4x2 (18-22'L x 8'W x 10-12'H, 48,000 lbs Max)</option>
+                          <option value="drayage_6x4" <?= $response['vehicle_type'] == 'drayage_6x4' ? 'selected' : '' ?>>Drayage Tractor - 6x4 (18-22'L x 8'W x 10-12'H, 48,000-67,000 lbs Max)</option>
+                          <option value="drayage_10x6" <?= $response['vehicle_type'] == 'drayage_10x6' ? 'selected' : '' ?>>Drayage Tractor - 10x6 (18-22'L x 8'W x 10-12'H, 80,000+ lbs Max with Permits)</option>
+                          <option value="dry_van_trailer_48" <?= $response['vehicle_type'] == 'dry_van_trailer_48' ? 'selected' : '' ?>>Dry Van Trailer - 48' Trailer (48'L x 8.5'W x 8.5'H, ~3,400 ft³, ~45,000 lbs Max)</option>
+                          <option value="dry_van_trailer_53" <?= $response['vehicle_type'] == 'dry_van_trailer_53' ? 'selected' : '' ?>>Dry Van Trailer - 53' Trailer (53'L x 8.5'W x 8.5'H, ~3,800 ft³, ~45,000 lbs Max)</option>
+                          <option value="flatbed_trailer_48" <?= $response['vehicle_type'] == 'flatbed_trailer_48' ? 'selected' : '' ?>>Flat Bed Trailer - 48' Trailer (48'L x 8.5'W x 5'H, ~48,000 lbs Max)</option>
+                          <option value="flatbed_trailer_53" <?= $response['vehicle_type'] == 'flatbed_trailer_53' ? 'selected' : '' ?>>Flat Bed Trailer - 53' Trailer (53'L x 8.5'W x 5'H, ~48,000 lbs Max)</option>
+                          <option value="freight_train_boxcar" <?= $response['vehicle_type'] == 'freight_train_boxcar' ? 'selected' : '' ?>>Freight Train - Boxcar (50–60'L x 9.5'W x 10–13'H, ~4,500–6,000 ft³, 100–150 tons)</option>
+                          <option value="freight_train_flatcar" <?= $response['vehicle_type'] == 'freight_train_flatcar' ? 'selected' : '' ?>>Freight Train - Flatcar Container (60–89'L x 9.5'W, carries 2x20' or 1x40'/53' containers, ~100–150 tons)</option>
+                          <option value="freight_train_tankcar" <?= $response['vehicle_type'] == 'freight_train_tankcar' ? 'selected' : '' ?>>Freight Train - Tankcar (40–60'L, 10,000–30,000 gallons, ~80–120 tons)</option>
+                        </select>
+                      </div>
                     </div>
 
                     <div class="w-full">
