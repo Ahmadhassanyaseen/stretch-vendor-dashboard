@@ -1,4 +1,4 @@
-<!-- New Table with DataTables -->
+<!-- New Table with DataTables --> 
 <style>
     .xeno-table tbody tr:nth-child(odd) {
         background-color:#f27474;

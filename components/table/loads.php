@@ -80,29 +80,38 @@
     .badge{
         padding: 2px 5px;
         border-radius: 5px;
-        background-color: #f0f0f0;
-        color: #333;
+        background-color: #D74559;
+        color: #fff;
         font-size: 12px;
         font-weight: bold;
     }
-    
-</style>
+    #shipmentsTable{
+        padding: 1rem;
 
+    }
+    #shipmentsTable tbody tr:nth-child(odd) {
+        background-color:#f27474;
+        color: #fff;
+    }
+        
+</style>
+<div class="w-full overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800 text-gray-700 dark:text-white">
+    <div class="w-full overflow-x-auto">
 <table id="shipmentsTable" class="w-full display dataTable no-footer bg-white text-gray-700 dark:bg-gray-800 dark:text-white">
-    <thead>
+    <thead class="text-white">
         <tr>
-            <th></th> 
-            <th>Age</th>
-            <th>Pickup Date</th>
-            <th class="truncate">Pickup</th>
-            <th>Deadhead</th>
-            <th>Dropoff</th>
-            <th>Requested Price</th>
-            <th>Avg Mrkt Price</th>
-            <th>Type</th>
-            <th>Weight</th>
-            <th>Broker</th>
-            <th>Actions</th>
+            <th class="bg-blue-500 rounded-tl-xl "></th> 
+            <th class="bg-blue-500">Age</th>
+            <th class="bg-blue-500 truncate">Pickup Date</th>
+            <th class="truncate bg-blue-500">Pickup</th>
+            <th class="bg-blue-500">Deadhead</th>
+            <th class="bg-blue-500">Dropoff</th>
+            <th class="bg-blue-500 truncate">Requested Price</th>
+            <th class="bg-blue-500 truncate">Avg Mrkt Price</th>
+            <th class="bg-blue-500">Type</th>
+            <th class="bg-blue-500">Weight</th>
+            <th class="bg-blue-500">Broker</th>
+            <th class="bg-blue-500 rounded-tr-xl ">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -115,10 +124,10 @@
             </td>
             <td class="toggle-details truncate"><?= htmlspecialchars($shipment['created_at']) ?></td>
             <td class="toggle-details truncate"><?= htmlspecialchars(htmlspecialchars_decode($shipment['pickup_date'])) ?></td>
-            <td class="toggle-details"><?= htmlspecialchars($shipment['pickup']) ?></td>
+            <td class="toggle-details truncate"><?= htmlspecialchars($shipment['pickup']) ?></td>
             <td class="toggle-details"><?= htmlspecialchars($shipment['deadhead']) ?></td>
-            <td class="toggle-details"><?= htmlspecialchars($shipment['dropoff']) ?></td>
-            <td class="toggle-details"><?= htmlspecialchars($shipment['price']) ?></td>
+            <td class="toggle-details truncate"><?= htmlspecialchars($shipment['dropoff']) ?></td>
+            <td class="toggle-details "><?= htmlspecialchars($shipment['price']) ?></td>
             <td class="toggle-details"><?= htmlspecialchars($shipment['avg_price']) ?></td>
             <td class="toggle-details">
                 <div class="badge-container"><?php 
@@ -128,7 +137,7 @@
                }
                 ?></div></td>
             <td class="toggle-details"><?= htmlspecialchars($shipment['weight']) ?></td>
-            <td class="toggle-details"><?= htmlspecialchars($shipment['broker']) ?></td>
+            <td class="toggle-details truncate"><?= htmlspecialchars($shipment['broker']) ?></td>
             <td class="toggle-details">
                 <button class="bg-blue-500 p-2 rounded text-white quoteBtn" onclick="quoteLoad()"  data-id="<?= htmlspecialchars($shipment['id']) ?>">Quote</button>
         </td>
@@ -138,6 +147,9 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+</div>
+</div>
+
 <div>
     <div id="quoteModal" >
         <div class="modal-content">

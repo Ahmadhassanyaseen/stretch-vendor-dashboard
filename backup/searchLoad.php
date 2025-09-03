@@ -66,8 +66,13 @@ $data['load_radius'] = $loadRadius;
 $data['load_type'] = $loadType;
 $response = getLoadsFromTP($data);
 
+// $data123['location'] = $address;
+// $response123 = getLoadFrom123($data123);
+
+// print_r($response123['data']['loads']);
 
 ?>
+
 
 <?php include 'components/layout/header.php'; ?>
   <?php include 'components/layout/sidebar.php'; ?>

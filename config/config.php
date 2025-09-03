@@ -104,4 +104,8 @@ function getLoadsFromTP($data){
     $data["method"] = "getLoadsFromTP";
     return curlRequest($data);
 }
+function getLoadFrom123($data){
+    $data["method"] = "getLoadFrom123";
+    return curlRequest($data);
+}
 
