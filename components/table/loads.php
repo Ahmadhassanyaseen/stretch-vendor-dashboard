@@ -1,100 +1,5 @@
 
-<style>
-    .loader{
-        border: 8px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 8px solid blue;
-        border-bottom: 8px solid blue;
-        width: 50px;
-        height: 50px;
-        animation: spin 2s linear infinite;
-        margin: auto;
-    }
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    .mapouter {
-        position: relative;
-        text-align: right;
-        height: 90%;
-        width: 100%;
-        border-radius: 10px;
-        max-height: 400px;
-    }
-    .gmap_canvas {
-        overflow: hidden;
-        background: none !important;
-        height: 100%;
-        width: 100%;
-        border-radius: 10px;
-    }
-    .toggle-details {
-        cursor: pointer;
-        transition: transform 0.2s;
-    }
-    .toggle-details.rotate-45 {
-        transform: rotate(45deg);
-    }
-    table.dataTable thead>tr>th.sorting:before,table.dataTable thead>tr>th.sorting:after{
-        display: none;
-    }
-    #quoteModal{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
 
-    }
-    #quoteModal .modal-content{
-        background-color: white;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: relative;
-    }
-    #quoteModal .close{
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        background-color: red;
-        color: white;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50px;
-        cursor: pointer;
-    }
-    .badge-container{
-        display: flex;
-        gap: 5px;
-    }
-    .badge{
-        padding: 2px 5px;
-        border-radius: 5px;
-        background-color: #D74559;
-        color: #fff;
-        font-size: 12px;
-        font-weight: bold;
-    }
-    #shipmentsTable{
-        padding: 1rem;
-
-    }
-    #shipmentsTable tbody tr:nth-child(odd) {
-        background-color:#f27474;
-        color: #fff;
-    }
-        
-</style>
 <div class="w-full overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800 text-gray-700 dark:text-white">
     <div class="w-full overflow-x-auto">
 <table id="shipmentsTable" class="w-full display dataTable no-footer bg-white text-gray-700 dark:bg-gray-800 dark:text-white">
@@ -127,7 +32,7 @@
             <td class="toggle-details truncate"><?= htmlspecialchars($shipment['pickup']) ?></td>
             <td class="toggle-details"><?= htmlspecialchars($shipment['deadhead']) ?></td>
             <td class="toggle-details truncate"><?= htmlspecialchars($shipment['dropoff']) ?></td>
-            <td class="toggle-details "><?= htmlspecialchars($shipment['price']) ?></td>
+            <td class="toggle-details font-bold"><?= htmlspecialchars($shipment['price']) ?></td>
             <td class="toggle-details"><?= htmlspecialchars($shipment['avg_price']) ?></td>
             <td class="toggle-details">
                 <div class="badge-container"><?php 
@@ -139,7 +44,7 @@
             <td class="toggle-details"><?= htmlspecialchars($shipment['weight']) ?></td>
             <td class="toggle-details truncate"><?= htmlspecialchars($shipment['broker']) ?></td>
             <td class="toggle-details">
-                <button class="bg-blue-500 p-2 rounded text-white quoteBtn" onclick="quoteLoad()"  data-id="<?= htmlspecialchars($shipment['id']) ?>">Quote</button>
+                <button class="bg-blue-500 p-2 rounded text-white quoteBtn" onclick="openQuoteModal('<?= htmlspecialchars($shipment['id']) ?>')" data-id="<?= htmlspecialchars($shipment['id']) ?>">Quote</button>
         </td>
 
             
@@ -150,25 +55,148 @@
 </div>
 </div>
 
-<div>
-    <div id="quoteModal" >
-        <div class="modal-content">
-            <h2 class="text-lg font-semibold mb-4">Quote</h2>
-            <form id="quoteForm">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <div class="mb-4">
-                    <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
-                    <input type="number" id="quotePrice" name="price" class="mt-1 p-2 border border-gray-300 rounded w-full">
-                </div>
-                <div class="mb-4">
-                    <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                    <textarea id="quoteDescription" name="description" class="mt-1 p-2 border border-gray-300 rounded w-full"></textarea>
-                </div>
-                <button type="submit" class="bg-blue-500 p-2 rounded text-white">Submit</button>
-            </form>
-        </div>
-    </div>  
+<div id="quoteModal" class="quote-modal">
+    <div class="modal-content">
+        <form id="quoteForm">
+            <button type="button" class="close" id="closeModalBtn" aria-label="Close">&times;</button>
+            <h2>Create Quote</h2>
+            <div class="form-group">
+                <label for="price">Price ($)</label>
+                <input type="number" id="quotePrice" name="price" step="0.01" min="0" placeholder="Enter amount" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="quoteDescription" name="description" placeholder="Enter quote details" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+                <span>Submit Quote</span>
+            </button>
+        </form>
+    </div>
 </div>
+
+<script>
+// Function to close the modal
+function closeModal() {
+    const modal = document.getElementById('quoteModal');
+    if (!modal) return;
+    
+    modal.classList.remove('show');
+    
+    // Remove event listeners when closing
+    const closeButton = document.getElementById('closeModalBtn');
+    if (closeButton) {
+        closeButton.removeEventListener('click', closeModal);
+    }
+    
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+// Function to open the modal with the load ID
+function openQuoteModal(loadId) {
+    const modal = document.getElementById('quoteModal');
+    modal.style.display = 'flex';
+    
+    // Store the load ID in the form
+    const form = document.getElementById('quoteForm');
+    form.dataset.loadId = loadId;
+    
+    // Reset and focus the form
+    form.reset();
+    document.getElementById('quotePrice').focus();
+    
+    // Trigger the animation
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
+}
+
+// Close modal when clicking outside the content or pressing Escape key
+function handleModalClose(event) {
+    const modal = document.getElementById('quoteModal');
+    if (event.type === 'keydown' && event.key === 'Escape') {
+        closeModal();
+        return;
+    }
+    
+    // Check if click is outside the modal content
+    const modalContent = document.querySelector('#quoteModal .modal-content');
+    if (modal && modalContent && !modalContent.contains(event.target) && event.target === modal) {
+        closeModal();
+    }
+}
+
+// Add event listeners when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Close button event listener
+    const closeButton = document.getElementById('closeModalBtn');
+    if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+    }
+    
+    // Close on outside click
+    document.addEventListener('click', handleModalClose);
+    // Close on Escape key
+    document.addEventListener('keydown', handleModalClose);
+    
+    // Clean up event listeners when the page is unloaded
+    window.addEventListener('beforeunload', function() {
+        document.removeEventListener('click', handleModalClose);
+        document.removeEventListener('keydown', handleModalClose);
+        if (closeButton) {
+            closeButton.removeEventListener('click', closeModal);
+        }
+    });
+});
+
+// Handle form submission
+document.getElementById('quoteForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const loadId = form.dataset.loadId;
+    const price = document.getElementById('quotePrice').value;
+    const description = document.getElementById('quoteDescription').value;
+    
+    // Here you can add your AJAX call to submit the quote
+    console.log('Submitting quote for load ID:', loadId);
+    console.log('Price:', price);
+    console.log('Description:', description);
+    
+    // Example AJAX call (uncomment and modify as needed)
+    /*
+    fetch('/submit-quote.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            loadId: loadId,
+            price: price,
+            description: description
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Quote submitted successfully!');
+            closeModal();
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while submitting the quote.');
+    });
+    */
+    
+    // For now, just close the modal
+    closeModal();
+});
+</script>
 
 <script>
     let shipmentData;

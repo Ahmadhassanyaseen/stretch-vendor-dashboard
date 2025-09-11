@@ -71,7 +71,7 @@
             </li>
             <li class="relative px-6 py-3 sidebar-menu-item">
               <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-500 transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center w-full text-sm font-semibold text-gray-500 transition-colors duration-150 hover:bgRed"
                 href="referrals.php"
                 title="Referrals"
               >
@@ -84,7 +84,7 @@
           
         </div>
 </aside>
-<div class="absolute top-18 -right-4 flex items-center justify-center rounded-full w-8 h-8 bg-[#D74559] z-50 cursor-pointer" onclick="toggleSideMenu()">
+<div class="absolute top-18 -right-4 flex items-center justify-center rounded-full w-8 h-8 bgRed z-50 cursor-pointer" onclick="toggleSideMenu()">
         <i class="fas fa-angle-right text-white cursor-pointer text-lg" ></i>
       </div>
 </div>

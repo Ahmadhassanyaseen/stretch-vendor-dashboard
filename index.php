@@ -20,11 +20,9 @@
        <?php include 'components/layout/topbar.php'; ?>
         <main class="h-full overflow-y-auto">
           <div class=" px-6 pb-10 mx-auto grid">
-            <h2
-              class="my-6 text-2xl font-semibold text-gray-700 dark:text-white"
-            >
+             <h1 class="text-3xl font-bold my-6 tracking-tight neon-red-header">
               Carrier Dashboard
-            </h2>
+            </h1>
            
             <!-- Cards -->
             <div class="grid gap-4 mb-5 md:grid-cols-4 w-full">
@@ -40,7 +38,8 @@
                        'title' => 'Total Shipments',
                        'value' => count($response),
                        'icon' => 'boxes-stacked',
-                       'color' => 'orange'
+                       'color' => 'orange',
+                       'bgClass' => 'modern-btn-2',
                      ],
                      [
                        'title' => 'In Progress Shipments',
@@ -48,7 +47,8 @@
                          return $carry + (in_array(strtolower($item['status_c']), ['assigned', 'quoted', '', 'inprocess']) ? 1 : 0);
                        }, 0),
                        'icon' => 'hourglass-start',
-                       'color' => 'blue'
+                       'color' => 'blue',
+                       'bgClass' => 'modern-btn-2',
                      ],
                    
                      [
@@ -57,7 +57,8 @@
                          return $carry + (strtolower($item['status_c']) === 'converted' ? 1 : 0);
                        }, 0),
                        'icon' => 'check',
-                       'color' => 'green'
+                       'color' => 'green',
+                       'bgClass' => 'modern-btn',
                      ],
                      [
                        'title' => 'Cancelled Shipments',
@@ -65,7 +66,8 @@
                          return $carry + (in_array(strtolower($item['status_c']), ['cancelled', 'dead', 'deleted']) ? 1 : 0);
                        }, 0),
                        'icon' => 'xmark',
-                       'color' => 'red'
+                       'color' => 'red',
+                       'bgClass' => 'modern-btn',
                      ]
                      
                      

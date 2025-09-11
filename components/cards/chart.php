@@ -33,14 +33,14 @@ foreach ($response as $item) {
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <!-- Shipment Status Chart -->
-    <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">Shipment Status</h2>
+    <div class=" modern-btn-2 rounded-lg shadow p-6">
+        <h2 class="text-lg font-semibold text-white mb-4">Shipment Status</h2>
         <div id="statusChart"></div>
     </div>
     
     <!-- Vendor Status Chart -->
-    <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">Booking Status</h2>
+    <div class=" modern-btn-2 rounded-lg shadow p-6">
+        <h2 class="text-lg font-semibold text-white mb-4">Booking Status</h2>
         <div id="vendorChart"></div>
     </div>
 </div>
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         },
-        colors: ['#3B82F6'],
+        colors: ['#fff'],
         plotOptions: { 
             bar: { 
                 columnWidth: '60%', 
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             offsetY: -20,
             style: {
                 fontSize: '10px',
-                colors: ['#000']
+                colors: ['#fff']
             }
         },
         xaxis: {
@@ -110,7 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
             labels: { 
                 style: { 
                     fontSize: '12px',
-                    fontFamily: 'Inter, sans-serif'
+                    fontFamily: 'Inter, sans-serif',
+                    color: '#fff'
                 } 
             },
             axisBorder: {
@@ -125,13 +126,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 text: 'Number of Shipments',
                 style: {
                     fontSize: '12px',
-                    fontFamily: 'Inter, sans-serif'
+                    fontFamily: 'Inter, sans-serif',
+                    color: '#fff'
                 }
             },
             labels: {
                 style: {
                     fontSize: '12px',
-                    fontFamily: 'Inter, sans-serif'
+                    fontFamily: 'Inter, sans-serif',
+                    color: '#fff'
                 }
             },
             min: 0,
@@ -145,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } 
         },
         grid: {
-            borderColor: '#f1f1f1',
+            borderColor: '#fff',
             strokeDashArray: 4,
             xaxis: {
                 lines: {
@@ -186,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fontFamily: 'Inter, sans-serif',
             fontSize: '14px',
             labels: {
-                colors: '#4B5563',
+                colors: '#fff',
                 useSeriesColors: false
             },
             itemMargin: {
@@ -203,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         total: { 
                             show: true, 
                             label: 'Total',
-                            color: '#6B7280',
+                            color: '#fff',
                             fontFamily: 'Inter, sans-serif',
                             formatter: function (w) {
                                 return w.globals.seriesTotals.reduce((a, b) => a + b, 0);

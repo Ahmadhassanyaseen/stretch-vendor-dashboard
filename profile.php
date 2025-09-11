@@ -78,6 +78,8 @@ $user = $userData;
         });
       }
     </script>
+    <link rel="stylesheet" href="./assets/css/variable.css" />
+    <link rel="stylesheet" href="./assets/css/newStyle.css" />
   </head>
   <body>
     <div     class="flex h-screen bg-gray-50 dark:bg-gray-900"
@@ -94,7 +96,7 @@ $user = $userData;
             <?php 
                 if($userData['tier_status'] != '1'){
                   ?>
-              <div class="px-6 py-3 my-6 flex justify-between items-center bg-red-600 text-white rounded-lg shadow-md ">
+              <div class="px-6 py-3 my-6 flex justify-between items-center bgRed text-white rounded-lg shadow-md ">
                 
                 
                   Your tier status is not active. Please activate your tier to avail all features.
@@ -105,7 +107,7 @@ $user = $userData;
               <?php
                 }else{
                   ?>
-                  <div class="px-6 py-3 my-6 flex justify-between items-center bg-green-600 text-white rounded-lg shadow-md ">
+                  <div class="px-6 py-3 my-6 flex justify-between items-center bgBlue text-white rounded-lg shadow-md ">
                   
                   
                   Your tier status is active. You can avail all features.
@@ -336,7 +338,7 @@ $user = $userData;
                 <div class="flex  mt-4">
                   <button
                     type="submit"
-                    class="px-4 py-2 text-sm font-medium text-white bg-blue-500 cursor-pointer rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    class="px-4 py-2 text-sm font-medium text-white bgBlue cursor-pointer rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     Save Changes
                   </button>

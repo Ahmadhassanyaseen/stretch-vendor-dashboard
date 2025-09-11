@@ -29,11 +29,9 @@ foreach($response as $referral){
 
 ?>
 
-          <h2
-            class="my-6 text-2xl font-semibold text-gray-700 dark:text-white"
-          >
+<h1 class="text-3xl font-bold my-6 tracking-tight neon-red-header">
             Referrals
-          </h2>
+          </h1>
          <button id="inviteButton" class="bg-primary-color text-white py-2 px-4 rounded-lg transition-colors duration-200 flex items-center">
            <i class="fas fa-user-plus mr-2"></i> Invite
          </button>
@@ -63,7 +61,7 @@ foreach($response as $referral){
              </div>
              <button 
                id="copyButton" 
-               class="ml-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-r-lg transition-colors duration-200 flex items-center"
+               class="ml-2 px-4 py-3 bgBlue text-white rounded-r-lg transition-colors duration-200 flex items-center"
              >
                <i class="fas fa-copy mr-2"></i> Copy
              </button>
@@ -75,11 +73,9 @@ foreach($response as $referral){
          </div>
          <div>
           <div class="flex items-center justify-between">
-            <h2
-            class="my-6 text-2xl font-semibold text-gray-700 dark:text-white"
-          >
+          <h1 class="text-3xl font-bold my-6 tracking-tight neon-red-header">
             All Referrals
-          </h2>
+          </h1>
           <p class="text-lg font-semibold text-gray-700 dark:text-white">Earned: <?php echo $earned; ?></p>
           </div>
           <div class="flex flex-wrap gap-4">
@@ -87,11 +83,11 @@ foreach($response as $referral){
             if(isset($response) && count($response) > 0){
                 foreach($response as $referral){
                     ?>
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 w-[fit-content] flex flex-col gap-2">
-                        <p class="text-lg text-gray-700 dark:text-white">Email: <?php echo $referral['email']; ?></p>
-                        <p class="text-lg text-gray-700 dark:text-white">Status: <?php echo $referral['status']; ?></p>
+                    <div class="bgBlue dark:bg-gray-800 rounded-lg shadow-md p-6 w-[fit-content] flex flex-col gap-2">
+                        <p class="text-lg text-white">Email: <?php echo $referral['email']; ?></p>
+                        <p class="text-lg text-white">Status: <?php echo $referral['status']; ?></p>
                         <?php if($referral['status'] == 'incomplete') { ?>
-                        <p class="text-sm text-red-500">You will get reward when your referral complete profile</p>
+                        <p class="text-sm text-white">You will get reward when your referral complete profile</p>
                         <?php }else{
                           ?>
                           <p class="text-sm text-green-500">Earned: $5</p>
@@ -153,7 +149,8 @@ foreach($response as $referral){
           >
           <button 
             id="copyLinkBtn" 
-            class="absolute right-2.5 top-1/2 -translate-y-1/2 p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+            class="absolute right-2.5 top-1/2 -translate-y-1/2 p-2 neon-blue-header "
+            style="position: absolute;"
             title="Copy to clipboard"
           >
             <i class="far fa-copy"></i>

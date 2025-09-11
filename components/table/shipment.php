@@ -1,11 +1,5 @@
 <!-- New Table with DataTables --> 
-<style>
-    .xeno-table tbody tr:nth-child(odd) {
-        background-color:#f27474;
-        color: #fff;
-    }
-        
-</style>
+
 <div class="w-full overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800 text-gray-700 dark:text-white">
     <div class="w-full overflow-x-auto">
         <table id="shipmentsTable" class="w-full display xeno-table" >
@@ -79,7 +73,7 @@
                         if($shipment['vendor_status'] == '-1' || $shipment['status'] == 'Dead' || $shipment['status'] == 'Deleted') {
                             echo 'bg-gray-600 hover:bg-gray-400';
                         } else {
-                            echo 'bg-blue-600 hover:bg-blue-400';
+                            echo 'bgBlue';
                         } ?>
                         " 
 
@@ -97,7 +91,7 @@
                          if($shipment['vendor_status'] != '0' || $shipment['status'] == 'Dead' || $shipment['status'] == 'Deleted' || $shipment['vendor_status'] == '1') {
                             echo 'bg-gray-600 hover:bg-gray-400';
                         } else {
-                            echo 'bg-red-600 hover:bg-red-400';
+                            echo 'bgRed';
                         } ?>
                         "
                         <?php 

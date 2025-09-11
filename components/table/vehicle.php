@@ -52,11 +52,11 @@
                     </td>
                     <td><?= date('M d, Y', strtotime($vehicle['created_at'])) ?></td>
                     <td class="flex">
-                        <button class="bg-blue-600 hover:bg-blue-600 text-white py-2 px-4 rounded mr-2 edit-vehicle" data-id="<?= $vehicle['id'] ?>"
+                        <button class="bgBlue text-white py-2 px-4 rounded mr-2 edit-vehicle" data-id="<?= $vehicle['id'] ?>"
                         >
                            <i class="fas fa-edit"></i>
                         </button>
-                        <button class="bg-red-600 hover:bg-red-600 text-white py-2 px-4 rounded delete-vehicle" data-id="<?= $vehicle['id'] ?>">
+                        <button class="bgRed text-white py-2 px-4 rounded delete-vehicle" data-id="<?= $vehicle['id'] ?>">
                            <i class="fas fa-trash"></i>
                         </button>
                     </td>

@@ -3,7 +3,20 @@
   <?php
 function time_elapsed_string($datetime, $full = false) {
     $now = new DateTime('now', new DateTimeZone('UTC'));
-    $ago = new DateTime('@' . $datetime, new DateTimeZone('UTC'));
+    
+    // Check if the input is a reasonable timestamp (after 2000-01-01)
+    // If it's less than 946684800 (2000-01-01), treat it as age in seconds
+    if (is_numeric($datetime) && $datetime < 946684800) {
+        // Treat as age in seconds, convert to timestamp by subtracting from current time
+        $ago = new DateTime('now', new DateTimeZone('UTC'));
+        // Round to whole seconds for DateInterval compatibility
+        $seconds = (int) round($datetime);
+        $ago->sub(new DateInterval('PT' . $seconds . 'S'));
+    } else {
+        // Original logic: treat as Unix timestamp
+        $ago = new DateTime('@' . $datetime, new DateTimeZone('UTC'));
+    }
+    
     $diff = $now->diff($ago);
 
     // If less than a minute old
@@ -66,12 +79,13 @@ $data['load_radius'] = $loadRadius;
 $data['load_type'] = $loadType;
 $response = getLoadsFromTP($data);
 
-// $data123['location'] = $address;
-// $response123 = getLoadFrom123($data123);
+$data123['location'] = $address;
+$response123 = getLoadFrom123($data123);
 
-// print_r($response123['data']['loads']);
+
 
 ?>
+
 
 
 <?php include 'components/layout/header.php'; ?>
@@ -176,8 +190,55 @@ foreach ($loads as $key => $value) {
    "shipment_data" => $value
   ];
 }
+$shipmentsNew = []; // Initialize empty array
 
+if(isset($response123['status']) && $response123['status'] != 'pending' && $response123['status'] == 200){
+    
+    $loadsNew = $response123['data']['loads'];
+
+foreach ($loadsNew as $key => $value) {
+  
+    if(!empty($value['equipments'])){
+        $equipmentInitials = array_map(function($eq) {
+            // Extract equipment type from the nested array
+            $eqType = is_array($eq) ? ($eq['equipmentType'] ?? '') : $eq;
+            return strtoupper(substr($eqType, 0, 1));
+        }, $value['equipments']);
+        $equipment = implode(',', array_filter(array_unique($equipmentInitials)));
+        $equipment = $equipment ?: 'N/A';
+    } else {
+        $equipment = 'N/A';
+    }
+    $price = 0;
+    if(isset($value['rate']['amount']) && $value['rate']['amount'] > 0){
+        $price = $value['rate']['amount'];
+    }
+  $shipmentsNew[] = [
+    "pickup_date" => $value['pickupDates'][0] ?? 'N/A',
+   "pickup" => $value['originLocation']['address']['city'] . ', ' . $value['originLocation']['address']['state'] ,
+   "pickup_lat" => $value['originLocation']['geolocation']['latitude'],
+   "pickup_lng" => $value['originLocation']['geolocation']['longitude'],
+   "dropoff_lat" => $value['destinationLocation']['geolocation']['latitude'],
+   "dropoff_lng" => $value['destinationLocation']['geolocation']['longitude'],
+   "deadhead" => 00,
+   "dropoff" => $value['destinationLocation']['address']['city'] . ', ' . $value['destinationLocation']['address']['state'],
+   "broker" => $value['poster']['name'] ?? 'N/A',
+   "broker_dot" => $value['poster']['docketNumber']['number'] ?? 'N/A',
+   "price" => $price,
+   "avg_price" => $price ?? 0,
+   "distance_total" => $value['computedMileage'] ?? 0,
+   "weight" => $value['weight'] ?? 0,
+   "created_at" => time_elapsed_string($value['age'] / 1000), // Show relative time (e.g., '2 hours ago')
+   "equipment" => $equipment,
+   "id" => $value['id'],
+   "shipment_data" => $value
+  ];
+}
+}
+
+$shipments = array_merge($shipments, $shipmentsNew);
 ?>
+
 
 <!-- Google Places Autocomplete Search -->
 <div class="mb-6 max-w-2xl">

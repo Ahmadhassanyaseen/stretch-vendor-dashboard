@@ -113,6 +113,7 @@ if(!isset($_COOKIE['vendor'])){
         }
       });
     </script>
+    <link rel="stylesheet" href="./assets/css/newStyle.css">
   </head>
   <body>
     <div
