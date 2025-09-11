@@ -507,15 +507,26 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         position: relative;
         width: 100%;
-        max-width: 500px;
+        max-width: 90%;
         transform: translateY(20px);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         border: 1px solid rgba(59, 130, 246, 0.1);
         overflow: hidden;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .quoteModalDetails{
+       flex:2;
     }
 
     #quoteModal.show .modal-content {
         transform: translateY(0);
+       
+    }
+    #quoteModal.show .modal-content div:nth-child(1){
+        width: 100%;
     }
 
     #quoteModal .close {
@@ -543,6 +554,8 @@
 
     #quoteForm {
         position: relative;
+        height:fit-content;
+        flex: 1;
     }
 
     #quoteForm h2 {
@@ -571,8 +584,11 @@
         display: block;
         margin-bottom: 0.5rem;
         font-weight: 500;
-        color: #4b5563;
+        color: #fff;
         font-size: 0.875rem;
+    }
+    #quoteForm label i {
+        color: #fff;
     }
 
     #quoteForm input[type="number"],
@@ -610,7 +626,7 @@
         cursor: pointer;
         font-size: 1rem;
         transition: all 0.3s ease;
-        margin-top: 1rem;
+        /* margin-top: 1rem; */
         text-transform: uppercase;
         letter-spacing: 0.5px;
         position: relative;
@@ -757,4 +773,25 @@
     .apexcharts-text tspan,text,.apexcharts-legend-text{
         color: #fff !important;
         fill: #fff !important;
+    }
+
+    .quoteFormSubmit{
+        background: linear-gradient(135deg, #10b981, #059669) !important;
+        border: 2px solid #10b981 !important;
+        color: white !important;
+        padding: 12px 20px !important;
+        border-radius: 8px !important;
+        font-weight: 700 !important;
+        cursor: pointer !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative !important;
+        overflow: hidden !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4), 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+        z-index: 10 !important;
+        pointer-events: auto !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 100px !important;
     }

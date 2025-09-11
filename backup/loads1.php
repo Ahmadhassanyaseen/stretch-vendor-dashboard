@@ -44,7 +44,7 @@
             <td class="toggle-details"><?= htmlspecialchars($shipment['weight']) ?></td>
             <td class="toggle-details truncate"><?= htmlspecialchars($shipment['broker']) ?></td>
             <td class="toggle-details">
-                <button class="bg-blue-500 p-2 rounded text-white quoteBtn"  data-id="<?= htmlspecialchars($shipment['id']) ?>"><i class="fa-solid fa-quote-left" style="margin-right: 5px;"></i>Quote</button>
+                <button class="bg-blue-500 p-2 rounded text-white quoteBtn" onclick="openQuoteModal('<?= htmlspecialchars($shipment['id']) ?>')" data-id="<?= htmlspecialchars($shipment['id']) ?>"><i class="fa-solid fa-quote-left" style="margin-right: 5px;"></i>Quote</button>
         </td>
 
             
@@ -157,7 +157,7 @@
                                     <button type="button" onclick="closeQuoteModal()" class="flex-1 py-4 px-6 bgRed text-white font-semibold rounded-xl transition-all duration-300 text-lg">
                                         Cancel
                                     </button>
-                                    <button type="submit" class="flex-1 py-4 px-6 font-semibold rounded-xl transition-all duration-300 text-lg shadow-lg quoteFormSubmit" >
+                                    <button type="submit" class="flex-1 py-4 px-6 font-semibold rounded-xl transition-all duration-300 text-lg shadow-lg quoteBtn" >
                                         <i class="fas fa-paper-plane mr-2"></i>Submit
                                     </button>
                                 </div>
@@ -167,7 +167,7 @@
 
 <script>
 // Function to close the modal
-function closeQuoteModal() {
+function closeModal() {
     const modal = document.getElementById('quoteModal');
     if (!modal) return;
     
@@ -176,7 +176,7 @@ function closeQuoteModal() {
     // Remove event listeners when closing
     const closeButton = document.getElementById('closeModalBtn');
     if (closeButton) {
-        closeButton.removeEventListener('click', closeQuoteModal);
+        closeButton.removeEventListener('click', closeModal);
     }
     
     setTimeout(() => {
