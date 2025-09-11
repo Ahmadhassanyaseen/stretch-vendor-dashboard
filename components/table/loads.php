@@ -44,7 +44,7 @@
             <td class="toggle-details"><?= htmlspecialchars($shipment['weight']) ?></td>
             <td class="toggle-details truncate"><?= htmlspecialchars($shipment['broker']) ?></td>
             <td class="toggle-details">
-                <button class="bg-blue-500 p-2 rounded text-white quoteBtn" onclick="openQuoteModal('<?= htmlspecialchars($shipment['id']) ?>')" data-id="<?= htmlspecialchars($shipment['id']) ?>">Quote</button>
+                <button class="bg-blue-500 p-2 rounded text-white quoteBtn" onclick="openQuoteModal('<?= htmlspecialchars($shipment['id']) ?>')" data-id="<?= htmlspecialchars($shipment['id']) ?>"><i class="fa-solid fa-quote-left" style="margin-right: 5px;"></i>Quote</button>
         </td>
 
             
