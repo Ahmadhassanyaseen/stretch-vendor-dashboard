@@ -540,13 +540,11 @@ async function formatDetails(data) {
 }
 
 async function loadAdditionalDetails(details) {
+    console.log(details);
     try {
         const fuelAndTollCost = await getfuelAndTollCost(
-            details.pickup_lat, 
-            details.pickup_lng, 
-            details.dropoff_lat, 
-            details.dropoff_lng, 
-            details.distance_total
+            details.pickup, 
+            details.dropoff, 
         );
         console.log(fuelAndTollCost);
         
@@ -555,8 +553,8 @@ async function loadAdditionalDetails(details) {
                 <h4 class="font-semibold text-xl text-gray-700 dark:text-white mb-2">Shipment Information</h4>
                 <div class="space-y-2 text-md">
                     <p class="grid grid-cols-2"><span class="font-medium">Distance:</span> <span>${details.distance_total} miles</span></p>
-                    <p class="grid grid-cols-2"><span class="font-medium">Fuel Cost:</span> <span>$${fuelAndTollCost.fuel_cost}</span></p>
-                    <p class="grid grid-cols-2"><span class="font-medium">Toll Cost:</span> <span>$${fuelAndTollCost.toll_cost.total_toll_cost}</span></p>
+                    <p class="grid grid-cols-2"><span class="font-medium">Fuel Cost:</span> <span>$${fuelAndTollCost.data.fuelCost.toFixed(2)}</span></p>
+                    <p class="grid grid-cols-2"><span class="font-medium">Toll Cost:</span> <span>$${fuelAndTollCost.data.tollCosts.toFixed(2)}</span></p>
                     <p class="grid grid-cols-2"><span class="font-medium">Requested Price:</span> <span>$${details.price}</span></p>
                     <p class="grid grid-cols-2"><span class="font-medium">Average Market Price:</span> <span>$${details.avg_price}</span></p>
                 </div>
@@ -574,17 +572,12 @@ async function loadAdditionalDetails(details) {
 
 
 
-async function getfuelAndTollCost(pickup_lat, pickup_long, dropoff_lat, dropoff_long, distance){
+async function getfuelAndTollCost(pickup_address,  dropoff_address){
     const formData = new FormData();
-    formData.append('pickup_lat', pickup_lat);
-    formData.append('pickup_long', pickup_long);
-    formData.append('dropoff_lat', dropoff_lat);
-    formData.append('dropoff_long', dropoff_long);
-    formData.append('distance', distance);
-    formData.append('freight_type', "general");
-    formData.append('method', "get_fuel_and_toll_cost_vendor");
+    formData.append('pickup_address', pickup_address);
+    formData.append('dropoff_address', dropoff_address);
     
-    const response = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
+    const response = await fetch('https://stretchxlfreight.com/xion/lane-rate.php', {
         method: 'POST',
         body: formData
     });
@@ -592,6 +585,24 @@ async function getfuelAndTollCost(pickup_lat, pickup_long, dropoff_lat, dropoff_
     console.log(data);
     return data;
 }
+// async function getfuelAndTollCost(pickup_lat, pickup_long, dropoff_lat, dropoff_long, distance){
+//     const formData = new FormData();
+//     formData.append('pickup_lat', pickup_lat);
+//     formData.append('pickup_long', pickup_long);
+//     formData.append('dropoff_lat', dropoff_lat);
+//     formData.append('dropoff_long', dropoff_long);
+//     formData.append('distance', distance);
+//     formData.append('freight_type', "general");
+//     formData.append('method', "get_fuel_and_toll_cost_vendor");
+    
+//     const response = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
+//         method: 'POST',
+//         body: formData
+//     });
+//     const data = await response.json();
+//     console.log(data);
+//     return data;
+// }
 
 function quoteLoad(){
     // const shipmentId = $(this).data('id');
