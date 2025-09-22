@@ -5,7 +5,8 @@
         <table id="shipmentsTable" class="w-full display xeno-table" >
             <thead class="text-white">
                 <tr>
-                    <th class="bg-blue-500 rounded-tl-xl ">Customer</th>
+                    <th class="bg-blue-500 rounded-tl-xl " style="display: none;"></th>
+                    <th class="bg-blue-500 rounded-tl-xl  ">Customer</th>
                     <th class="bg-blue-500 ">Tracking #</th>
                     <th class="bg-blue-500 ">Pickup</th>
                     <th class="bg-blue-500 ">Dropoff</th>
@@ -26,7 +27,18 @@
                 </tr>
                 <?php } else{ ?>
                 <?php foreach ($shipments as $shipment): ?>
-                <tr class=" dark:bg-gray-800">
+                <tr class="dark:bg-gray-800" data-created="<?= strtotime($shipment['created_at']) ?>">
+                    <td style="display: none;">
+                    <?php
+                        $target = strtotime($shipment['created_at']);
+                        $now = time();
+
+                        $diff = abs($target - $now); // absolute difference
+
+                        echo $diff;
+                    ?>
+
+                    </td>
                     <td class="truncate"><?= htmlspecialchars(html_entity_decode($shipment['name']), ENT_QUOTES | ENT_HTML5) ?></td>
                     <td>#<?= htmlspecialchars($shipment['tracking_number']) ?></td>
                     <td class="truncate"><?= htmlspecialchars(html_entity_decode($shipment['pickup']), ENT_QUOTES | ENT_HTML5) ?></td>
@@ -111,16 +123,19 @@
 </div>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script>
 
 $(document).ready(function() {
-    $('#shipmentsTable').DataTable({
-        dom: "<'p-4'<'mb-4't>p>", // Simplified DOM structure
+    // Initialize the DataTable with custom sorting for the first column
+    var table = $('#shipmentsTable').DataTable({
+        dom: "<'.p-4'<'mb-4't>p>",
         responsive: true,
         pageLength: 10,
         lengthMenu: [5, 10, 25, 50, 100],
-        order: [[10, 'desc']],
+        order: [[0, 'asc']], // Default sort by first column (posted time) in descending order
         columnDefs: [
+           
             { 
                 orderable: true, 
                 targets: '_all' 

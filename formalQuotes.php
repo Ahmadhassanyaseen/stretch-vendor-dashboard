@@ -13,7 +13,7 @@
     }
 
     $data['id'] = $userData['id'];
-    $response = fetchAllVendorLeadsConverted($data);
+    $response = fetchAllVendorLeadsFormal($data);
     ?>
    
     <div class="flex flex-col flex-1 w-full">
@@ -36,7 +36,7 @@
                 'name' => $value['name'],
                 'quantity' => $value['freight_pallet_count_c'],
                 'type' => $value['freight_type_c'],
-                'tracking_number' => $value['truckerpath_ref_id_c'] ?? 'N/A',
+                'tracking_number' => $value['opertunity_id_c'] ?? 'N/A',
                 'pickup' => $value['pickup_address_c'],
                 'dropoff' => $value['dropoff_address_c'],
                 'amount' => '$' . $value['platform_price_c'] ?? '0.00',
@@ -50,7 +50,7 @@
 
             ?>
 
-           <?php include 'components/table/quotes.php'; ?>
+           <?php include 'components/table/shipment.php'; ?>
 
          
         </div>

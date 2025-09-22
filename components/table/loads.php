@@ -1,4 +1,23 @@
-
+<style>
+    .truncate-extra{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 80px;
+    }
+    .truncate-small{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 50px;
+    }
+    .truncate{
+        max-width: 130px;
+    }
+    #shipmentsTable{
+        text-align: center;
+    }
+</style>
 
 <div class="w-full overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800 text-gray-700 dark:text-white">
     <div class="w-full overflow-x-auto">
@@ -6,17 +25,17 @@
     <thead class="text-white">
         <tr>
             <th class="bg-blue-500 rounded-tl-xl "></th> 
-            <th class="bg-blue-500">Age</th>
+            <th class="bg-blue-500 truncate-small">Age</th>
             <th class="bg-blue-500 truncate">Pickup Date</th>
             <th class="truncate bg-blue-500">Pickup</th>
-            <th class="bg-blue-500">Deadhead</th>
+            <th class="bg-blue-500 truncate-small">Deadhead</th>
             <th class="bg-blue-500">Dropoff</th>
             <th class="bg-blue-500 truncate">Requested Price</th>
             <th class="bg-blue-500 truncate">Avg Mrkt Price</th>
-            <th class="bg-blue-500">Type</th>
-            <th class="bg-blue-500">Weight</th>
+            <th class="bg-blue-500 truncate-small">Type</th>
+            <th class="bg-blue-500 truncate-small">Weight</th>
             <th class="bg-blue-500">Broker</th>
-            <th class="bg-blue-500 rounded-tr-xl ">Actions</th>
+            <th class="bg-blue-500 rounded-tr-xl truncate-extra">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -27,23 +46,51 @@
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4  Maui 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                 </svg>
             </td>
-            <td class="toggle-details truncate"><?= htmlspecialchars($shipment['created_at']) ?></td>
-            <td class="toggle-details truncate"><?= htmlspecialchars(htmlspecialchars_decode($shipment['pickup_date'])) ?></td>
+            <td class="toggle-details truncate-small"><?= htmlspecialchars($shipment['created_at']) ?></td>
+            <td class="toggle-details truncate"><?php
+                $raw = htmlspecialchars_decode($shipment['pickup_date']);
+                $raw = trim(is_string($raw) ? $raw : '');
+                $formatted = 'N/A';
+                if ($raw !== '') {
+                    $dt = false;
+                    if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $raw)) {
+                        // Format like 2025-09-19
+                        $dt = DateTime::createFromFormat('Y-m-d', $raw);
+                    } elseif (preg_match('/^\d{2}\/\d{2}$/', $raw)) {
+                        // Format like 09/22 -> add current year
+                        $rawWithYear = $raw . '/' . date('Y');
+                        $dt = DateTime::createFromFormat('m/d/Y', $rawWithYear);
+                    } else {
+                        // Generic fallback
+                        $ts = strtotime($raw);
+                        if ($ts !== false) {
+                            $dt = (new DateTime())->setTimestamp($ts);
+                        }
+                    }
+                    if ($dt instanceof DateTime) {
+                        $formatted = $dt->format('m/d/y');
+                    }
+                }
+                echo htmlspecialchars($formatted, ENT_QUOTES, 'UTF-8');
+            ?></td>
             <td class="toggle-details truncate"><?= htmlspecialchars($shipment['pickup']) ?></td>
-            <td class="toggle-details"><?= htmlspecialchars($shipment['deadhead']) ?></td>
+            <td class="toggle-details truncate-small"><?= htmlspecialchars($shipment['deadhead']) ?></td>
             <td class="toggle-details truncate"><?= htmlspecialchars($shipment['dropoff']) ?></td>
             <td class="toggle-details font-bold"><?= htmlspecialchars($shipment['price']) ?></td>
             <td class="toggle-details"><?= htmlspecialchars($shipment['avg_price']) ?></td>
-            <td class="toggle-details">
+            <td class="toggle-details truncate-small">
                 <div class="badge-container"><?php 
                $equipment = explode(',', $shipment['equipment']);
-               foreach($equipment as $eq){
-                echo "<span class='badge'>".$eq."</span> ";
+               foreach ($equipment as $eq) {
+                   $full = trim((string)$eq);
+                   if ($full === '') { continue; }
+                   $initial = strtoupper(substr($full, 0, 1));
+                   echo "<span class='badge' title='" . htmlspecialchars($full, ENT_QUOTES, 'UTF-8') . "'>" . htmlspecialchars($initial, ENT_QUOTES, 'UTF-8') . "</span> ";
                }
                 ?></div></td>
-            <td class="toggle-details"><?= htmlspecialchars($shipment['weight']) ?></td>
+            <td class="toggle-details truncate-small"><?= htmlspecialchars($shipment['weight']) ?></td>
             <td class="toggle-details truncate"><?= htmlspecialchars($shipment['broker']) ?></td>
-            <td class="toggle-details">
+            <td class="toggle-details truncate-extra">
                 <button class="bg-blue-500 p-2 rounded text-white quoteBtn"  data-id="<?= htmlspecialchars($shipment['id']) ?>"><i class="fa-solid fa-quote-left" style="margin-right: 5px;"></i>Quote</button>
         </td>
 
@@ -138,7 +185,7 @@
                                 </div>
                             </div>
                             </div>
-                            <form id="quoteForm" class="bgBlue rounded-xl px-2 py-4">
+                            <form id="quoteForm" class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl px-2 py-4">
                                 <div class="mb-6">
                                     <label for="quotePrice" class="block text-sm font-semibold text-white mb-3 text-center">
                                         <i class="fas fa-dollar-sign mr-2 text-green-600"></i>Your Quote Price
@@ -166,6 +213,7 @@
                     </div>
 
 <script>
+ 
 // Function to close the modal
 function closeQuoteModal() {
     const modal = document.getElementById('quoteModal');
@@ -261,14 +309,14 @@ function openQuoteModal(buttonElement) {
 function handleModalClose(event) {
     const modal = document.getElementById('quoteModal');
     if (event.type === 'keydown' && event.key === 'Escape') {
-        closeModal();
+        closeQuoteModal();
         return;
     }
     
     // Check if click is outside the modal content
     const modalContent = document.querySelector('#quoteModal .modal-content');
     if (modal && modalContent && !modalContent.contains(event.target) && event.target === modal) {
-        closeModal();
+        closeQuoteModal();
     }
 }
 
@@ -338,7 +386,7 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
     */
     
     // For now, just close the modal
-    closeModal();
+    closeQuoteModal();
 });
 </script>
 
@@ -610,9 +658,7 @@ function quoteLoad(){
     $('#quoteModal').css('display', 'flex');
 }
 
-function closeModal(){
-    $('#quoteModal').css('display', 'none');
-}
+
 
 $('#quoteForm').submit(async function(e) {
     e.preventDefault();
@@ -729,14 +775,26 @@ formData.append('shipment_data', JSON.stringify(shipmentData));
         processData: false,
         contentType: false,
         success: function(response) {
-            console.log(response);
-            Swal.fire({
-                title: 'Success!',
-                text: 'Quote submitted successfully!',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-            $('#quoteModal').hide();
+            console.log(JSON.parse(response));
+            let responseNew = JSON.parse(response);
+            if(responseNew.success){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Quote submitted successfully!',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+                $('#quoteModal').hide();
+                window.location.href = 'http://localhost/stretch-vendor';
+            }else{
+                Swal.fire({
+                    title: 'Error!',
+                    text: responseNew.message,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+                submitBtn.prop('disabled', false).html('Submit');
+            }
         },
         error: function(xhr, status, error) {
             console.error('Error submitting quote:', error);
@@ -746,6 +804,7 @@ formData.append('shipment_data', JSON.stringify(shipmentData));
                 icon: 'error',
                 confirmButtonText: 'OK'
             });
+            submitBtn.prop('disabled', false).html('Submit');
         }
     });
 });

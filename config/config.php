@@ -53,6 +53,10 @@ function fetchAllVendorLeadsConverted($data){
     $data["method"] = "fetchAllVendorLeadsConverted";
     return curlRequest($data);
 }
+function fetchAllVendorLeadsFormal($data){
+    $data["method"] = "fetchAllVendorLeadsFormal";
+    return curlRequest($data);
+}
 function fetchAllVendorVehicles($data){
     $data["method"] = "fetchAllVendorVehicles";
     return curlRequest($data);
@@ -106,6 +110,10 @@ function getLoadsFromTP($data){
 }
 function getLoadFrom123($data){
     $data["method"] = "getLoadFrom123";
+    return curlRequest($data);
+}
+function getLoadFromTS(){
+    $data["method"] = "searchLoadsTS";
     return curlRequest($data);
 }
 

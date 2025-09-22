@@ -42,23 +42,24 @@
             <li class="relative px-6 py-3 sidebar-menu-item">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-500 transition-colors duration-150 hover:text-gray-800"
-                href="shipments.php"
-                title="Shipments"
+                href="formalQuotes.php"
+                title="Formal Quotes"
               >
               <i class="fa-solid fa-clipboard-list text-xl"></i>
-                <span class="ml-4 sidebar-item hidden">Shipments</span>
+                <span class="ml-4 sidebar-item hidden">Formal Quotes</span>
               </a>
             </li>
             <li class="relative px-6 py-3 sidebar-menu-item">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-500 transition-colors duration-150 hover:text-gray-800"
-                href="formalQuotes.php"
-                title="Formal Quotes"
+                href="shipments.php"
+                title="Booked Loads"
               >
               <i class="fa-solid fa-clipboard-check text-xl"></i>
-                <span class="ml-4 sidebar-item hidden">Formal Quotes</span>
+                <span class="ml-4 sidebar-item hidden">Booked Loads</span>
               </a>
             </li>
+           
             <li class="relative px-6 py-3 sidebar-menu-item">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-500 transition-colors duration-150 hover:text-gray-800"
@@ -159,6 +160,20 @@
                 <span class="ml-4">Search Load</span>
               </a>
             </li>
+            
+            <li class="relative px-6 py-3 sidebar-menu-item">
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-primary-color rounded-tr-lg rounded-br-lg opacity-0"
+                aria-hidden="true"
+              ></span>
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold text-gray-500 transition-colors duration-150 hover:text-gray-800"
+                href="formalQuotes.php"
+              >
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span class="ml-4">Formal Quotes</span>
+              </a>
+            </li>
             <li class="relative px-6 py-3 sidebar-menu-item">
               <span
                 class="absolute inset-y-0 left-0 w-1 bg-primary-color rounded-tr-lg rounded-br-lg opacity-0"
@@ -182,20 +197,7 @@
                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
                   ></path>
                 </svg>
-                <span class="ml-4">Shipments</span>
-              </a>
-            </li>
-            <li class="relative px-6 py-3 sidebar-menu-item">
-              <span
-                class="absolute inset-y-0 left-0 w-1 bg-primary-color rounded-tr-lg rounded-br-lg opacity-0"
-                aria-hidden="true"
-              ></span>
-              <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-500 transition-colors duration-150 hover:text-gray-800"
-                href="formalQuotes.php"
-              >
-                <i class="fas fa-file-invoice-dollar"></i>
-                <span class="ml-4">Formal Quotes</span>
+                <span class="ml-4">Booked Loads</span>
               </a>
             </li>
             <li class="relative px-6 py-3 sidebar-menu-item">

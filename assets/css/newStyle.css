@@ -493,6 +493,7 @@
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
+        overflow: auto;
     }
 
     #quoteModal.show {
@@ -507,7 +508,8 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         position: relative;
         width: 100%;
-        max-width: 90%;
+        max-width: 500px;
+        top:25%;
         transform: translateY(20px);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         border: 1px solid rgba(59, 130, 246, 0.1);
@@ -518,7 +520,7 @@
         gap: 10px;
     }
     .quoteModalDetails{
-       flex:2;
+       width:100%;
     }
 
     #quoteModal.show .modal-content {
@@ -584,11 +586,11 @@
         display: block;
         margin-bottom: 0.5rem;
         font-weight: 500;
-        color: #fff;
+        color: #000;
         font-size: 0.875rem;
     }
     #quoteForm label i {
-        color: #fff;
+        color: #000;
     }
 
     #quoteForm input[type="number"],
@@ -724,7 +726,7 @@
         background: linear-gradient(135deg, #10b981, #059669) !important;
         border: 2px solid #10b981 !important;
         color: white !important;
-        padding: 12px 20px !important;
+        padding:8px !important;
         border-radius: 8px !important;
         font-weight: 700 !important;
         cursor: pointer !important;

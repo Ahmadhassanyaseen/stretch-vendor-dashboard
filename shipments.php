@@ -17,7 +17,7 @@ if (isset($_COOKIE["vendor"])) {
         <main class="h-full overflow-y-auto pb-10">
           <div class=" px-6 pb-10 mx-auto grid">
           <h1 class="text-3xl font-bold my-6 tracking-tight neon-red-header">
-              Shipments
+          Booked Loads
             </h1>
            
             
@@ -34,7 +34,7 @@ foreach($response as $key => $value){
     'name' => $value['name'],
     'quantity' =>$value['freight_box_count_c'],
     'type' => $value['freight_type_c'],
-    'tracking_number' => $value['truckerpath_ref_id_c'] ?? 'N/A',
+    'tracking_number' => $value['opertunity_id_c'] ?? 'N/A',
     'pickup' => $value['pickup_address_c'],
     'dropoff' => $value['dropoff_address_c'],
     'amount' => '$' . $value['total_price_c'] ?? '0.00',

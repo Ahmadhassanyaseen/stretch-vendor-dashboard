@@ -5,17 +5,30 @@
             {
                 $now = new DateTime('now', new DateTimeZone('UTC'));
 
-                // Check if the input is a reasonable timestamp (after 2000-01-01)
-                // If it's less than 946684800 (2000-01-01), treat it as age in seconds
-                if (is_numeric($datetime) && $datetime < 946684800) {
-                    // Treat as age in seconds, convert to timestamp by subtracting from current time
-                    $ago = new DateTime('now', new DateTimeZone('UTC'));
-                    // Round to whole seconds for DateInterval compatibility
-                    $seconds = (int) round($datetime);
-                    $ago->sub(new DateInterval('PT' . $seconds . 'S'));
+                // Support three input types:
+                // 1) Numeric less than 946684800 (2000-01-01): age in seconds
+                // 2) Numeric greater/equal to 946684800: Unix timestamp (seconds)
+                // 3) Non-numeric string (e.g., ISO8601 'YYYY-MM-DDTHH:MM:SS'): parse as datetime in UTC
+                if (is_numeric($datetime)) {
+                    if ($datetime < 946684800) {
+                        // Treat as age in seconds, convert to timestamp by subtracting from current time
+                        $ago = new DateTime('now', new DateTimeZone('UTC'));
+                        // Round to whole seconds for DateInterval compatibility
+                        $seconds = (int) round($datetime);
+                        $ago->sub(new DateInterval('PT' . $seconds . 'S'));
+                    } else {
+                        // Treat as Unix timestamp (seconds since epoch)
+                        $ago = new DateTime('@' . ((int) $datetime));
+                        $ago->setTimezone(new DateTimeZone('UTC'));
+                    }
                 } else {
-                    // Original logic: treat as Unix timestamp
-                    $ago = new DateTime('@' . $datetime, new DateTimeZone('UTC'));
+                    // Attempt to parse as a date-time string (e.g., '2025-09-20T10:44:50')
+                    try {
+                        $ago = new DateTime((string) $datetime, new DateTimeZone('UTC'));
+                    } catch (Exception $e) {
+                        // Fallback to now if parsing fails to avoid breaking the flow
+                        $ago = new DateTime('now', new DateTimeZone('UTC'));
+                    }
                 }
 
                 $diff = $now->diff($ago);
@@ -45,6 +58,7 @@
                     return $diff->y . 'y';
                 }
             }
+
 
             include 'config/config.php';
 
@@ -79,6 +93,165 @@
 
             $data123['location'] = $address;
             $response123 = getLoadFrom123($data123);
+            $responseTS = getLoadFromTS();
+
+
+?>
+
+<?php
+    $loads = $response['data']['items'];
+
+    foreach ($loads as $key => $value) {
+        if ($value['drop_off']['address']['city'] && $value['drop_off']['address']['state']) {
+            $dropoff = $value['drop_off']['address']['city'] . ', ' . $value['drop_off']['address']['state'];
+        } else {
+            $dropoff = 'N/A';
+        }
+        if (!empty($value['equipment'])) {
+            // Use full equipment names with proper casing and uniqueness
+            $equipmentNames = array_map(function ($eq) {
+                // Ensure string and apply consistent casing (e.g., "Van", "Flatbed")
+                return ucwords(strtolower((string)$eq));
+            }, $value['equipment']);
+            $equipment = implode(', ', array_unique(array_filter($equipmentNames)));
+        } else {
+            $equipment = 'N/A';
+        }
+        $shipments[] = [
+            'pickup_date' => $value['all_in_one_date']['pickup_day'] ?? 'N/A',
+            'pickup' => $value['pickup']['address']['city'] . ', ' . $value['pickup']['address']['state'],
+            'pickup_lat' => $value['pickup']['location']['lat'],
+            'pickup_lng' => $value['pickup']['location']['lng'],
+            'dropoff_lat' => $value['drop_off']['location']['lat'],
+            'dropoff_lng' => $value['drop_off']['location']['lng'],
+            'deadhead' => number_format($value['pickup']['deadhead'], 2),
+            'dropoff' => $dropoff,
+            'broker' => $value['broker']['company'] ?? 'N/A',
+            'broker_dot' => $value['broker']['dot'] ?? 'N/A',
+            'price' => $value['price'] ?? 0,
+            'avg_price' => $value['avg_price'] ?? 0,
+            'distance_total' => $value['distance_total'] ?? 0,
+            'weight' => $value['weight'] ?? 0,
+            'created_at' => time_elapsed_string($value['created_at'] / 1000),  // Show relative time (e.g., '2 hours ago')
+            'equipment' => $equipment,
+            'id' => $value['shipment_id'],
+            'shipment_data' => $value
+        ];
+    }
+    $shipmentsNew = [];  // Initialize empty array
+
+    if (isset($response123['status']) && $response123['status'] != 'pending' && $response123['status'] == 200) {
+        $loadsNew = $response123['data']['loads'];
+
+        foreach ($loadsNew as $key => $value) {
+            if (!empty($value['equipments'])) {
+                // Use full equipment type names (from nested arrays/objects), properly cased and unique
+                $equipmentNames = array_map(function ($eq) {
+                    // Extract equipment type from the nested array/object
+                    $eqType = '';
+                    if (is_array($eq)) {
+                        $eqType = $eq['equipmentType'] ?? '';
+                    } elseif (is_object($eq)) {
+                        $eqType = $eq->equipmentType ?? '';
+                    } else {
+                        $eqType = (string)$eq;
+                    }
+                    return ucwords(strtolower($eqType));
+                }, $value['equipments']);
+                $equipment = implode(', ', array_unique(array_filter($equipmentNames)));
+                $equipment = $equipment ?: 'N/A';
+            } else {
+                $equipment = 'N/A';
+            }
+            $price = 0;
+            if (isset($value['rate']['amount']) && $value['rate']['amount'] > 0) {
+                $price = $value['rate']['amount'];
+            }
+            $shipmentsNew[] = [
+                'pickup_date' => $value['pickupDates'][0] ?? 'N/A',
+                'pickup' => $value['originLocation']['address']['city'] . ', ' . $value['originLocation']['address']['state'],
+                'pickup_lat' => $value['originLocation']['geolocation']['latitude'],
+                'pickup_lng' => $value['originLocation']['geolocation']['longitude'],
+                'dropoff_lat' => $value['destinationLocation']['geolocation']['latitude'],
+                'dropoff_lng' => $value['destinationLocation']['geolocation']['longitude'],
+                'deadhead' => 0,
+                'dropoff' => $value['destinationLocation']['address']['city'] . ', ' . $value['destinationLocation']['address']['state'],
+                'broker' => $value['poster']['name'] ?? 'N/A',
+                'broker_dot' => $value['poster']['docketNumber']['number'] ?? 'N/A',
+                'price' => $price,
+                'avg_price' => $price ?? 0,
+                'distance_total' => $value['computedMileage'] ?? 0,
+                'weight' => $value['weight'] ?? 0,
+                'created_at' => time_elapsed_string($value['age'] / 1000), 
+                'equipment' => $equipment,
+                'id' => $value['id'],
+                'shipment_data' => $value
+            ];
+        }
+    }
+
+    $shipments = array_merge($shipments, $shipmentsNew);
+
+
+    if(isset($responseTS['data']) && !empty($responseTS['data'])){
+        $shipmentsTs = [];
+
+        $loadsTS = $responseTS['data'];
+
+        foreach ($loadsTS as $key => $value) {
+
+            $birthDate = new DateTime($value['createDateTime']);
+            $today = new DateTime("now");
+            $age = $birthDate->diff($today);
+            $equipment = 'Van';
+            if(isset($value['equipmentAttributes']['equipmentTypeId'])){
+                switch ($value['equipmentAttributes']['equipmentTypeId']) {
+                    case 43:
+                        $equipment = 'Van';
+                        break;
+                    case 12:
+                        $equipment = 'Flatbed';
+                        break;
+                    case 31:
+                        $equipment = 'Reefer';
+                        break;
+                    case 30:
+                        $equipment = 'Power Only';
+                        break;
+                    case 37:
+                        $equipment = 'Step Deck';
+                        break;
+                    default:
+                        $equipment = 'Van';
+                        break;
+                }
+
+            }
+        $shipmentsTS[] = [
+            'pickup_date' => $value['loadStops'][0]['lateDateTime'] ?? 'N/A',
+            'pickup' => $value['loadStops'][0]['location']['city'] . ', ' . $value['loadStops'][0]['location']['state'],
+            'pickup_lat' => $value['loadStops'][0]['location']['latitude'],
+            'pickup_lng' => $value['loadStops'][0]['location']['longitude'],
+            'dropoff_lat' => $value['loadStops'][1]['location']['latitude'],
+            'dropoff_lng' => $value['loadStops'][1]['location']['longitude'],
+            'deadhead' => 0,
+            'dropoff' => $value['loadStops'][1]['location']['city'] . ', ' . $value['loadStops'][1]['location']['state'],
+            'broker' => $value['loadStops'][0]['contactName'] ?? 'N/A',
+            'broker_dot' =>  'N/A',
+            'price' => $value['rateAttributes']['postedAllInRate']['amount'] ?? 0,
+            'avg_price' => $value['rateAttributes']['postedAllInRate']['amount'] ?? 0,
+            'distance_total' => $value['computedMileage'] ?? 0,
+            'weight' => $value['dimensional']['weight'] ?? 0,
+            'created_at' => time_elapsed_string($value['createDateTime']),
+            'equipment' => $equipment,
+            'id' => $value['loadId'],
+            'shipment_data' => $value
+        ];
+        }
+        
+        $shipments = array_merge($shipments, $shipmentsTS);
+    }
+
 
 ?>
 
@@ -107,7 +280,7 @@
                                     <div class="w-3 h-3 bg-green-400 rounded-full absolute top-0 left-0 animate-ping"></div>
                                 </div>
                                 <span class="text-sm font-medium text-white">Live Feed Active</span>
-                                <div class="ml-2 text-xs text-white/70 font-mono">150 loads</div>
+                                <div class="ml-2 text-xs text-white/70 font-mono"><?php echo count($shipments); ?> loads</div>
                             </div>
                         </div>
                     </div>
@@ -116,90 +289,7 @@
           
           
          
-          <?php
-$loads = $response['data']['items'];
 
-foreach ($loads as $key => $value) {
-    if ($value['drop_off']['address']['city'] && $value['drop_off']['address']['state']) {
-        $dropoff = $value['drop_off']['address']['city'] . ', ' . $value['drop_off']['address']['state'];
-    } else {
-        $dropoff = 'N/A';
-    }
-    if (!empty($value['equipment'])) {
-        $equipmentInitials = array_map(function ($eq) {
-            return strtoupper(substr($eq, 0, 1));
-        }, $value['equipment']);
-        $equipment = implode(',', array_unique($equipmentInitials));
-    } else {
-        $equipment = 'N/A';
-    }
-    $shipments[] = [
-        'pickup_date' => $value['all_in_one_date']['pickup_day'] ?? 'N/A',
-        'pickup' => $value['pickup']['address']['city'] . ', ' . $value['pickup']['address']['state'],
-        'pickup_lat' => $value['pickup']['location']['lat'],
-        'pickup_lng' => $value['pickup']['location']['lng'],
-        'dropoff_lat' => $value['drop_off']['location']['lat'],
-        'dropoff_lng' => $value['drop_off']['location']['lng'],
-        'deadhead' => number_format($value['pickup']['deadhead'], 2),
-        'dropoff' => $dropoff,
-        'broker' => $value['broker']['company'] ?? 'N/A',
-        'broker_dot' => $value['broker']['dot'] ?? 'N/A',
-        'price' => $value['price'] ?? 0,
-        'avg_price' => $value['avg_price'] ?? 0,
-        'distance_total' => $value['distance_total'] ?? 0,
-        'weight' => $value['weight'] ?? 0,
-        'created_at' => time_elapsed_string($value['created_at'] / 1000),  // Show relative time (e.g., '2 hours ago')
-        'equipment' => $equipment,
-        'id' => $value['shipment_id'],
-        'shipment_data' => $value
-    ];
-}
-$shipmentsNew = [];  // Initialize empty array
-
-if (isset($response123['status']) && $response123['status'] != 'pending' && $response123['status'] == 200) {
-    $loadsNew = $response123['data']['loads'];
-
-    foreach ($loadsNew as $key => $value) {
-        if (!empty($value['equipments'])) {
-            $equipmentInitials = array_map(function ($eq) {
-                // Extract equipment type from the nested array
-                $eqType = is_array($eq) ? ($eq['equipmentType'] ?? '') : $eq;
-                return strtoupper(substr($eqType, 0, 1));
-            }, $value['equipments']);
-            $equipment = implode(',', array_filter(array_unique($equipmentInitials)));
-            $equipment = $equipment ?: 'N/A';
-        } else {
-            $equipment = 'N/A';
-        }
-        $price = 0;
-        if (isset($value['rate']['amount']) && $value['rate']['amount'] > 0) {
-            $price = $value['rate']['amount'];
-        }
-        $shipmentsNew[] = [
-            'pickup_date' => $value['pickupDates'][0] ?? 'N/A',
-            'pickup' => $value['originLocation']['address']['city'] . ', ' . $value['originLocation']['address']['state'],
-            'pickup_lat' => $value['originLocation']['geolocation']['latitude'],
-            'pickup_lng' => $value['originLocation']['geolocation']['longitude'],
-            'dropoff_lat' => $value['destinationLocation']['geolocation']['latitude'],
-            'dropoff_lng' => $value['destinationLocation']['geolocation']['longitude'],
-            'deadhead' => 0,
-            'dropoff' => $value['destinationLocation']['address']['city'] . ', ' . $value['destinationLocation']['address']['state'],
-            'broker' => $value['poster']['name'] ?? 'N/A',
-            'broker_dot' => $value['poster']['docketNumber']['number'] ?? 'N/A',
-            'price' => $price,
-            'avg_price' => $price ?? 0,
-            'distance_total' => $value['computedMileage'] ?? 0,
-            'weight' => $value['weight'] ?? 0,
-            'created_at' => time_elapsed_string($value['age'] / 1000),  // Show relative time (e.g., '2 hours ago')
-            'equipment' => $equipment,
-            'id' => $value['id'],
-            'shipment_data' => $value
-        ];
-    }
-}
-
-$shipments = array_merge($shipments, $shipmentsNew);
-?>
 
 <div class="glassmorphism-card mb-8 hover-lift fade-in-up animation-delay-200" style="opacity: 1;">
                     <div class="flex items-center space-x-3 mb-6">
@@ -278,113 +368,113 @@ $shipments = array_merge($shipments, $shipmentsNew);
 
 <!-- Add this before the closing body tag -->
 <script>
-// Initialize Google Places Autocomplete
-document.addEventListener('DOMContentLoaded', function() {
-    // Load Google Maps API with Places library
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyA-XmAtSvNj2CjcYT7VRfnIk58aGsdeh7k&libraries=places&callback=initAutocomplete`;
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
-});
-
-// This function will be called when the Google Maps API is loaded
-window.initAutocomplete = function() {
-    const searchInput = document.getElementById('search');
-    const searchResults = document.getElementById('searchResults');
-    const clearButton = document.getElementById('clearSearch');
-
-    // Create autocomplete object with city and postal code suggestions
-    const autocomplete = new google.maps.places.Autocomplete(searchInput, {
-        types: ['(regions)'],
-        componentRestrictions: {country: 'us'}, // Restrict to US addresses
-        fields: ['address_components', 'geometry', 'formatted_address', 'name', 'postal_code']
+    // Initialize Google Places Autocomplete
+    document.addEventListener('DOMContentLoaded', function() {
+        // Load Google Maps API with Places library
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyA-XmAtSvNj2CjcYT7VRfnIk58aGsdeh7k&libraries=places&callback=initAutocomplete`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
     });
 
-    // When a place is selected
-    autocomplete.addListener('place_changed', function() {
-        const place = autocomplete.getPlace();
-        if (!place.geometry) {
-            console.log('No details available for input: ' + place.name);
-            return;
-        }
-        
-        // Get address components
-        let city = '';
-        let state = '';
-        let postalCode = '';
-        
-        // Find city, state, and postal code from address components
-        for (const component of place.address_components) {
-            const componentType = component.types[0];
-            if (componentType === 'locality') {
-                city = component.long_name;
-            }
-            if (componentType === 'administrative_area_level_1') {
-                state = component.short_name;
-            }
-            if (componentType === 'postal_code') {
-                postalCode = component.long_name;
-            }
-        }
-        
-        // If input was a zip code, format as "ZIP, City, State"
-        if (searchInput.value.match(/^\d{5}(-\d{4})?$/) && city && state) {
-            searchInput.value = `${postalCode || searchInput.value}, ${city}, ${state}`;
-            return;
-        }
-        searchInput.value = place.formatted_address;
-        
-        console.log('Selected location:', place.formatted_address);
-    });
-    
-    // Prevent form submission on enter key in the search input
-    searchInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-        }
-    });
+    // This function will be called when the Google Maps API is loaded
+    window.initAutocomplete = function() {
+        const searchInput = document.getElementById('search');
+        const searchResults = document.getElementById('searchResults');
+        const clearButton = document.getElementById('clearSearch');
 
-    // Show/hide clear button based on input
-    searchInput.addEventListener('input', function() {
-        if (searchInput.value.length > 0) {
-            clearButton.classList.remove('hidden');
-        } else {
+        // Create autocomplete object with city and postal code suggestions
+        const autocomplete = new google.maps.places.Autocomplete(searchInput, {
+            types: ['(regions)'],
+            componentRestrictions: {country: 'us'}, // Restrict to US addresses
+            fields: ['address_components', 'geometry', 'formatted_address', 'name', 'postal_code']
+        });
+
+        // When a place is selected
+        autocomplete.addListener('place_changed', function() {
+            const place = autocomplete.getPlace();
+            if (!place.geometry) {
+                console.log('No details available for input: ' + place.name);
+                return;
+            }
+            
+            // Get address components
+            let city = '';
+            let state = '';
+            let postalCode = '';
+            
+            // Find city, state, and postal code from address components
+            for (const component of place.address_components) {
+                const componentType = component.types[0];
+                if (componentType === 'locality') {
+                    city = component.long_name;
+                }
+                if (componentType === 'administrative_area_level_1') {
+                    state = component.short_name;
+                }
+                if (componentType === 'postal_code') {
+                    postalCode = component.long_name;
+                }
+            }
+            
+            // If input was a zip code, format as "ZIP, City, State"
+            if (searchInput.value.match(/^\d{5}(-\d{4})?$/) && city && state) {
+                searchInput.value = `${postalCode || searchInput.value}, ${city}, ${state}`;
+                return;
+            }
+            searchInput.value = place.formatted_address;
+            
+            console.log('Selected location:', place.formatted_address);
+        });
+        
+        // Prevent form submission on enter key in the search input
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+            }
+        });
+
+        // Show/hide clear button based on input
+        searchInput.addEventListener('input', function() {
+            if (searchInput.value.length > 0) {
+                clearButton.classList.remove('hidden');
+            } else {
+                clearButton.classList.add('hidden');
+            }
+        });
+
+        // Clear search input
+        clearButton.addEventListener('click', function() {
+            searchInput.value = '';
             clearButton.classList.add('hidden');
-        }
+            searchResults.classList.add('hidden');
+            // Reset any filters here if needed
+        });
+
+        // Close dropdown when clicking outside
+        // document.addEventListener('click', function(e) {
+        //     if (!searchInput.contains(e.target)) {
+        //         searchResults.classList.add('hidden');
+        //     }
+        // });
+    };
+
+    let searchButton = document.getElementById('searchButton');
+
+
+    searchButton.addEventListener('click', function() {
+    // Get the formatted address
+    let searchInput = document.getElementById('search');
+    let loadRadius = document.getElementById('load_radius').value;
+    let loadType = document.getElementById('load_type').value;
+
+        const address = searchInput.value.trim();
+        console.log('Selected location:', address);
+        window.location.href = 'searchLoad.php?address=' + address + '&load_radius=' + loadRadius + '&load_type=' + loadType;
+        // Here you can add code to filter your table based on the selected location
+        // For example: filterTableByLocation(place);
     });
-
-    // Clear search input
-    clearButton.addEventListener('click', function() {
-        searchInput.value = '';
-        clearButton.classList.add('hidden');
-        searchResults.classList.add('hidden');
-        // Reset any filters here if needed
-    });
-
-    // Close dropdown when clicking outside
-    // document.addEventListener('click', function(e) {
-    //     if (!searchInput.contains(e.target)) {
-    //         searchResults.classList.add('hidden');
-    //     }
-    // });
-};
-
-let searchButton = document.getElementById('searchButton');
-
-
-searchButton.addEventListener('click', function() {
-  // Get the formatted address
-  let searchInput = document.getElementById('search');
-  let loadRadius = document.getElementById('load_radius').value;
-  let loadType = document.getElementById('load_type').value;
-
-    const address = searchInput.value.trim();
-    console.log('Selected location:', address);
-    window.location.href = 'searchLoad.php?address=' + address + '&load_radius=' + loadRadius + '&load_type=' + loadType;
-    // Here you can add code to filter your table based on the selected location
-    // For example: filterTableByLocation(place);
-});
 
 </script>
 
