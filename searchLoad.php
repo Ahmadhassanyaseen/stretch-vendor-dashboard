@@ -99,6 +99,7 @@
 ?>
 
 <?php
+    $shipments = [];
     $loads = $response['data']['items'];
 
     foreach ($loads as $key => $value) {
