@@ -785,7 +785,7 @@ formData.append('shipment_data', JSON.stringify(shipmentData));
                     confirmButtonText: 'OK'
                 });
                 $('#quoteModal').hide();
-                window.location.href = 'http://localhost/stretch-vendor';
+                window.location.href = 'https://stretchxlfreight.com/vendor';
             }else{
                 Swal.fire({
                     title: 'Error!',
