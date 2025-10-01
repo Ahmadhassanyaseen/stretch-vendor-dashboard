@@ -101,7 +101,7 @@
 <?php
     $shipments = [];
     $loads = $response['data']['items'];
-
+   
     foreach ($loads as $key => $value) {
         if ($value['drop_off']['address']['city'] && $value['drop_off']['address']['state']) {
             $dropoff = $value['drop_off']['address']['city'] . ', ' . $value['drop_off']['address']['state'];
@@ -125,6 +125,7 @@
             'pickup_lng' => $value['pickup']['location']['lng'],
             'dropoff_lat' => $value['drop_off']['location']['lat'],
             'dropoff_lng' => $value['drop_off']['location']['lng'],
+            'dropoff_date' => $value['drop_off']['date_local'] ?? '',
             'deadhead' => number_format($value['pickup']['deadhead'], 2),
             'dropoff' => $dropoff,
             'broker' => $value['broker']['company'] ?? 'N/A',
@@ -175,6 +176,7 @@
                 'pickup_lng' => $value['originLocation']['geolocation']['longitude'],
                 'dropoff_lat' => $value['destinationLocation']['geolocation']['latitude'],
                 'dropoff_lng' => $value['destinationLocation']['geolocation']['longitude'],
+                'dropoff_date' => '',
                 'deadhead' => 0,
                 'dropoff' => $value['destinationLocation']['address']['city'] . ', ' . $value['destinationLocation']['address']['state'],
                 'broker' => $value['poster']['name'] ?? 'N/A',
@@ -236,6 +238,7 @@
             'dropoff_lat' => $value['loadStops'][1]['location']['latitude'],
             'dropoff_lng' => $value['loadStops'][1]['location']['longitude'],
             'deadhead' => 0,
+            'dropoff_date' => $value['loadStops'][1]['earlyDateTime'],
             'dropoff' => $value['loadStops'][1]['location']['city'] . ', ' . $value['loadStops'][1]['location']['state'],
             'broker' => $value['loadStops'][0]['contactName'] ?? 'N/A',
             'broker_dot' =>  'N/A',

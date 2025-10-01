@@ -116,4 +116,8 @@ function getLoadFromTS(){
     $data["method"] = "searchLoadsTS";
     return curlRequest($data);
 }
+function updateReminderForShipper($data){
+    $data["method"] = "updateReminderForShipper";
+    return curlRequest($data);
+}
 
