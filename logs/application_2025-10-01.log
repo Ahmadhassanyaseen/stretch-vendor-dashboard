@@ -43,3 +43,43 @@
 )
 
 [2025-10-01 12:27:51] [INFO] API Response: {"id":"572c3b60-20c2-622b-5c96-68dcf96ee9ef","type":"general","description":"This is for household transport","carrier_vehicle_type":"van","rate":"4.16","mileage":"200.16","fuel":"40.5","distance":"48.79","duration":"1 hr 27 mins","pickup_time":"14:52","pickup_date":"10\/04\/2025","pickup_address":"Baltimore, MD, US","dropoff_address":"Washington, DC, US","dropoff_date":"10\/17\/2025","dropoff_time":"14:53","freight_length":"12","freight_weight":"12000","freight_type":"general","freight_width":"13","freight_height":"11","freight_pallet_count":"10","freight_box_count":"23","number_of_stops":"","platform_price":"212.51","addons":"detention-50,layover-200,","addons_total":"250","shipper_name":"Ahmad Hassan","shipper_address":"Faisalabad","shipper_phone":"03154540483","shipper_email":"ahmadhassan795294@gmail.com","vendor_status":"0","status":"Assigned","vendor_id":"3010cac7-2139-3a23-1d47-685d4eeaa24c","total_price":"550.47","opertunity_id":"000290","vendor_quotes":[]}
+[2025-10-01 13:29:44] [INFO] Sending to API: Array
+(
+    [id] => 572c3b60-20c2-622b-5c96-68dcf96ee9ef
+    [action] => confirm
+    [method] => updateReminderForShipper
+)
+
+[2025-10-01 13:29:45] [INFO] API Response: {"success":false,"error":"Failed to send email: You must provide at least one recipient email address."}
+[2025-10-01 13:33:18] [INFO] Sending to API: Array
+(
+    [id] => 572c3b60-20c2-622b-5c96-68dcf96ee9ef
+    [action] => confirm
+    [method] => updateReminderForShipper
+)
+
+[2025-10-01 13:33:19] [INFO] API Response: {"success":false,"error":"Failed to send email: You must provide at least one recipient email address."}
+[2025-10-01 13:55:14] [INFO] Sending to API: Array
+(
+    [id] => 572c3b60-20c2-622b-5c96-68dcf96ee9ef
+    [action] => confirm
+    [method] => updateReminderForShipper
+)
+
+[2025-10-01 13:55:15] [INFO] API Response: {"success":false,"error":"Failed to send email: You must provide at least one recipient email address."}
+[2025-10-01 13:59:07] [INFO] Sending to API: Array
+(
+    [id] => 572c3b60-20c2-622b-5c96-68dcf96ee9ef
+    [action] => confirm
+    [method] => updateReminderForShipper
+)
+
+[2025-10-01 13:59:13] [INFO] API Response: {"success":true,"message":"Three day shipper reminder email sent successfully"}
+[2025-10-01 14:05:03] [INFO] Sending to API: Array
+(
+    [id] => 572c3b60-20c2-622b-5c96-68dcf96ee9ef
+    [action] => confirm
+    [method] => updateReminderForShipper
+)
+
+[2025-10-01 14:05:04] [INFO] API Response: {"success":true,"message":"Three day shipper reminder email sent successfully"}
