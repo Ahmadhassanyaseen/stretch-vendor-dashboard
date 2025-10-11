@@ -3,7 +3,11 @@
 
 <?php include 'components/layout/header.php'; ?>
     <?php include 'components/layout/sidebar.php'; ?>
-
+<style>
+  .bg-green-100{
+    background-color: #d1fae5;
+  }
+</style>
     <?php
     if (isset($_COOKIE["vendor"])) {
       $userData = json_decode($_COOKIE["vendor"], true);
@@ -210,6 +214,8 @@
                                     // Check if any quote is accepted
                                     $hasAcceptedQuote = false;
                                     foreach ($shipment['vendor_quotes'] as $quote) {
+                                      $quote['status'] = strtolower($quote['status']);
+                                      // echo $quote['status'];
                                       if (isset($quote['status']) && $quote['status'] === 'accepted') {
                                         $hasAcceptedQuote = true;
                                         break;
@@ -217,6 +223,7 @@
                                     }
 
                                     foreach ($shipment['vendor_quotes'] as $quote) {
+                                      $quote['status'] = strtolower($quote['status']);
                                       ?>
                                     <div class="space-y-2 m-0 text-sm shadow border border-gray-200 p-2 rounded-lg <?= $quote['status'] == 'accepted' ? 'bg-green-100' : ($quote['status'] == 'rejected' ? 'bg-red-100' : '') ?>">
                                     <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700 dark:text-white ">Name:</span> <span class="col-span-2 text-gray-700 dark:text-white "><?= htmlspecialchars($quote['name'] ?? 'N/A') ?></span></p>
@@ -401,7 +408,7 @@
             });
             $('#custom-price-quote').click(function() {
               var custom_price = $('#custom_price_value').val();
-              var vendor_id = '<?php echo $shipment['vendor_id']; ?>';
+              var vendor_id = '<?php echo $userData['id']; ?>';
               var shipment_id = '<?php echo $shipment['id']; ?>';
               Swal.fire(
                 {
