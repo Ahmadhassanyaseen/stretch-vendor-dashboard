@@ -226,11 +226,11 @@
                                       $quote['status'] = strtolower($quote['status']);
                                       ?>
                                     <div class="space-y-2 m-0 text-sm shadow border border-gray-200 p-2 rounded-lg <?= $quote['status'] == 'accepted' ? 'bg-green-100' : ($quote['status'] == 'rejected' ? 'bg-red-100' : '') ?>">
-                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700 dark:text-white ">Name:</span> <span class="col-span-2 text-gray-700 dark:text-white "><?= htmlspecialchars($quote['name'] ?? 'N/A') ?></span></p>
-                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700 dark:text-white ">Email:</span> <span class="col-span-2 text-gray-700 dark:text-white "><?= htmlspecialchars($quote['email'] ?? 'N/A') ?></span></p>
-                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700 dark:text-white ">Phone:</span> <span class="col-span-2 text-gray-700 dark:text-white "><?= htmlspecialchars($quote['phone'] ?? 'N/A') ?></span></p>
-                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700 dark:text-white ">Quoted Price: </span><span class="col-span-2 text-gray-700 dark:text-white ">$<?= htmlspecialchars($quote['price'] ?? 'N/A') ?></span></p>
-                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700 dark:text-white ">Status:</span><span class="col-span-2 text-gray-700 dark:text-white "><?= htmlspecialchars($quote['status'] ?? 'N/A') ?></span></p>
+                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700  ">Name:</span> <span class="col-span-2 text-gray-700  "><?= htmlspecialchars($quote['name'] ?? 'N/A') ?></span></p>
+                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700  ">Email:</span> <span class="col-span-2 text-gray-700  "><?= htmlspecialchars($quote['email'] ?? 'N/A') ?></span></p>
+                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700  ">Phone:</span> <span class="col-span-2 text-gray-700  "><?= htmlspecialchars($quote['phone'] ?? 'N/A') ?></span></p>
+                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700  ">Quoted Price: </span><span class="col-span-2 text-gray-700  ">$<?= htmlspecialchars($quote['price'] ?? 'N/A') ?></span></p>
+                                    <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700  ">Status:</span><span class="col-span-2 text-gray-700  "><?= htmlspecialchars($quote['status'] ?? 'N/A') ?></span></p>
                                     
                                     </div>
                         

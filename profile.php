@@ -249,9 +249,9 @@ $user = $userData;
                         Type
                         </label>
                       <select name="vnd_type" id="vnd_type" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white">
-                          <option value="">Select Type</option>
-                          <option value="Interstate" <?= $user['vnd_type'] == 'Interstate' ? 'selected' : '' ?>>Interstate</option>
-                          <option value="Intrastate" <?= $user['vnd_type'] == 'Intrastate' ? 'selected' : '' ?>>Intrastate</option>
+                          <option value="" class="text-gray-700">Select Type</option>
+                          <option value="Interstate" class="text-gray-700"  <?= $user['vnd_type'] == 'Interstate' ? 'selected' : '' ?>>Interstate</option>
+                          <option value="Intrastate" class="text-gray-700" <?= $user['vnd_type'] == 'Intrastate' ? 'selected' : '' ?>>Intrastate</option>
                         </select>
                      </div>
                     </div>
