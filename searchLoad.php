@@ -197,7 +197,7 @@
 
 
     if(isset($responseTS['data']) && !empty($responseTS['data'])){
-        $shipmentsTs = [];
+        $shipmentsTS = [];
 
         $loadsTS = $responseTS['data'];
 
@@ -230,31 +230,124 @@
                 }
 
             }
-        $shipmentsTS[] = [
-            'pickup_date' => $value['loadStops'][0]['lateDateTime'] ?? 'N/A',
-            'pickup' => $value['loadStops'][0]['location']['city'] . ', ' . $value['loadStops'][0]['location']['state'],
-            'pickup_lat' => $value['loadStops'][0]['location']['latitude'],
-            'pickup_lng' => $value['loadStops'][0]['location']['longitude'],
-            'dropoff_lat' => $value['loadStops'][1]['location']['latitude'],
-            'dropoff_lng' => $value['loadStops'][1]['location']['longitude'],
-            'deadhead' => 0,
-            'dropoff_date' => $value['loadStops'][1]['earlyDateTime'],
-            'dropoff' => $value['loadStops'][1]['location']['city'] . ', ' . $value['loadStops'][1]['location']['state'],
-            'broker' => $value['loadStops'][0]['contactName'] ?? 'N/A',
-            'broker_dot' =>  'N/A',
-            'price' => $value['rateAttributes']['postedAllInRate']['amount'] ?? 0,
-            'avg_price' => $value['rateAttributes']['postedAllInRate']['amount'] ?? 0,
-            'distance_total' => $value['computedMileage'] ?? 0,
-            'weight' => $value['dimensional']['weight'] ?? 0,
-            'created_at' => time_elapsed_string($value['createDateTime']),
-            'equipment' => $equipment,
-            'id' => $value['loadId'],
-            'shipment_data' => $value
-        ];
+
+            $pickupXeno = $value['loadStops'][0]['location']['city'] . ', ' . $value['loadStops'][0]['location']['state'];
+
+            
+            // if(isset($value['loadStops'][0]['location']['city']) && isset($value['loadStops'][0]['location']['state']) ){
+                if($pickupXeno == $address ){
+                   $shipmentsTS[] = [
+                        'pickup_date' => $value['loadStops'][0]['lateDateTime'] ?? 'N/A',
+                        'pickup' => $pickupXeno,
+                        'pickup_lat' => $value['loadStops'][0]['location']['latitude'],
+                        'pickup_lng' => $value['loadStops'][0]['location']['longitude'],
+                        'dropoff_lat' => $value['loadStops'][1]['location']['latitude'],
+                        'dropoff_lng' => $value['loadStops'][1]['location']['longitude'],
+                        'deadhead' => 0,
+                        'dropoff_date' => $value['loadStops'][1]['earlyDateTime'],
+                        'dropoff' => $value['loadStops'][1]['location']['city'] . ', ' . $value['loadStops'][1]['location']['state'],
+                        'broker' => $value['loadStops'][0]['contactName'] ?? 'N/A',
+                        'broker_dot' =>  'N/A',
+                        'price' => $value['rateAttributes']['postedAllInRate']['amount'] ?? 0,
+                        'avg_price' => $value['rateAttributes']['postedAllInRate']['amount'] ?? 0,
+                        'distance_total' => $value['computedMileage'] ?? 0,
+                        'weight' => $value['dimensional']['weight'] ?? 0,
+                        'created_at' => time_elapsed_string($value['createDateTime']),
+                        'equipment' => $equipment,
+                        'id' => $value['loadId'],
+                        'shipment_data' => $value
+                    ];
+                }
+
+            // }
+        
         }
         
         $shipments = array_merge($shipments, $shipmentsTS);
     }
+
+
+
+
+$uniqueShipments = [];
+$i = 0;
+
+function formatDateXeno($date){
+ $raw = htmlspecialchars_decode($date);
+                $raw = trim(is_string($raw) ? $raw : '');
+                $formatted = 'N/A';
+                if ($raw !== '') {
+                    $dt = false;
+                    if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $raw)) {
+                        // Format like 2025-09-19
+                        $dt = DateTime::createFromFormat('Y-m-d', $raw);
+                    } elseif (preg_match('/^\d{2}\/\d{2}$/', $raw)) {
+                        // Format like 09/22 -> add current year
+                        $rawWithYear = $raw . '/' . date('Y');
+                        $dt = DateTime::createFromFormat('m/d/Y', $rawWithYear);
+                    } else {
+                        // Generic fallback
+                        $ts = strtotime($raw);
+                        if ($ts !== false) {
+                            $dt = (new DateTime())->setTimestamp($ts);
+                        }
+                    }
+                    if ($dt instanceof DateTime) {
+                        $formatted = $dt->format('m/d/y');
+                    }
+                }
+                return $formatted;
+}
+
+foreach ($shipments as $shipment) {
+    $isDuplicate = false;
+    
+                $shipment['pickup_date'] = formatDateXeno($shipment['pickup_date']);
+                $shipment['dropoff_date'] = formatDateXeno($shipment['dropoff_date']);
+
+    // Normalize current shipment fields
+    $pickup_date = trim(strtolower($shipment['pickup_date']));
+    $pickup = trim(strtolower($shipment['pickup']));
+    $dropoff_date = trim(strtolower($shipment['dropoff_date']));
+    $dropoff = trim(strtolower($shipment['dropoff']));
+    $broker = trim(strtolower($shipment['broker']));
+
+    // echo $pickup_date." ";
+    // echo $pickup." ";
+    // echo $dropoff_date." ";
+    // echo $dropoff." ";
+    // echo $broker."<br>";
+
+
+
+    // Compare against all existing unique shipments
+    foreach ($uniqueShipments as $u) {
+        if (
+            trim(strtolower($u['pickup_date'])) === $pickup_date &&
+            trim(strtolower($u['pickup'])) === $pickup &&
+            trim(strtolower($u['dropoff_date'])) === $dropoff_date &&
+            trim(strtolower($u['dropoff'])) === $dropoff &&
+            trim(strtolower($u['broker'])) === $broker
+        ) {
+            // echo "duplicate " . $i;
+            // echo $u['broker'];
+            // Found a match → mark as duplicate
+            $isDuplicate = true;
+            break;
+        }
+    }
+
+
+    // If not duplicate, add it
+    if (!$isDuplicate) {
+        // $i++;
+        // echo "not duplicate " . $i++;
+        $uniqueShipments[] = $shipment;
+    }
+}
+
+// Replace original list
+$shipments = array_values($uniqueShipments);
 
 
 ?>
