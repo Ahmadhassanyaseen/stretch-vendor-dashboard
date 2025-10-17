@@ -629,9 +629,9 @@ async function loadAdditionalDetails(details) {
             <div class="bg-white text-gray-700 p-4 rounded-lg shadow dark:bg-gray-700 dark:text-white w-full">
                 <h4 class="font-semibold text-xl text-gray-700 dark:text-white mb-2">Shipment Information</h4>
                 <div class="space-y-2 text-md">
-                    <p class="grid grid-cols-2"><span class="font-medium">Distance:</span> <span>${details.distance_total} miles</span></p>
-                    <p class="grid grid-cols-2"><span class="font-medium">Fuel Cost:</span> <span>$${fuelAndTollCost.data.fuelCost.toFixed(2)}</span></p>
-                    <p class="grid grid-cols-2"><span class="font-medium">Toll Cost:</span> <span>$${fuelAndTollCost.data.tollCosts.toFixed(2)}</span></p>
+                    <p class="grid grid-cols-2"><span class="font-medium">Distance:</span> <span>${fuelAndTollCost.data.totalMileage ? fuelAndTollCost.data.totalMileage.toFixed(2) : 0} miles</span></p>
+                    <p class="grid grid-cols-2"><span class="font-medium">Fuel Cost:</span> <span>$${fuelAndTollCost.data.fuelCost ? fuelAndTollCost.data.fuelCost.toFixed(2) : 0}</span></p>
+                    <p class="grid grid-cols-2"><span class="font-medium">Toll Cost:</span> <span>$${fuelAndTollCost.data.tollCosts ? fuelAndTollCost.data.tollCosts.toFixed(2) : 0}</span></p>
                     <p class="grid grid-cols-2"><span class="font-medium">Requested Price:</span> <span>$${details.price}</span></p>
                     <p class="grid grid-cols-2"><span class="font-medium">Average Market Price:</span> <span>$${details.avg_price}</span></p>
                 </div>

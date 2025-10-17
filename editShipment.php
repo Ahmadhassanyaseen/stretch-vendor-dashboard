@@ -194,6 +194,9 @@
                     </div>
                     
                     <!-- Shipper Information -->
+                     <?php
+                     if($shipment['status'] == 'converted' || $shipment['status'] == 'Converted') {
+                     ?>
                     <div class="pb-4 mt-4 border-t border-gray-200 ">
                       <h5 class="mb-2 mt-4 font-semibold text-gray-700 dark:text-white ">Shipper Information</h5>
                       <div class="space-y-1 ">
@@ -203,6 +206,7 @@
                         <p class="text-gray-700 dark:text-white "><?php echo $shipment['shipper_address']; ?></p>
                       </div>
                     </div>
+                    <?php } ?>
                   </div>
                 </div>
               </div>
@@ -225,7 +229,7 @@
                                     foreach ($shipment['vendor_quotes'] as $quote) {
                                       $quote['status'] = strtolower($quote['status']);
                                       ?>
-                                    <div class="space-y-2 m-0 text-sm shadow border border-gray-200 p-2 rounded-lg <?= $quote['status'] == 'accepted' ? 'bg-green-100' : ($quote['status'] == 'rejected' ? 'bg-red-100' : '') ?>">
+                                    <div class="space-y-2 m-0 text-sm shadow border border-gray-200 p-2 rounded-lg <?= $quote['status'] == 'accepted' ? 'bg-green-100' : ($quote['status'] == 'rejected' ? 'bg-red-100' : 'bg-white') ?>">
                                     <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700  ">Name:</span> <span class="col-span-2 text-gray-700  "><?= htmlspecialchars($quote['name'] ?? 'N/A') ?></span></p>
                                     <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700  ">Email:</span> <span class="col-span-2 text-gray-700  "><?= htmlspecialchars($quote['email'] ?? 'N/A') ?></span></p>
                                     <p class="grid grid-cols-3 text-sm"><span class="font-medium text-gray-700  ">Phone:</span> <span class="col-span-2 text-gray-700  "><?= htmlspecialchars($quote['phone'] ?? 'N/A') ?></span></p>
