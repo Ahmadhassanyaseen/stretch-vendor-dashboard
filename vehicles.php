@@ -12,7 +12,7 @@
             <h1 class="text-3xl font-bold my-6 tracking-tight neon-red-header">
               Vehicles
             </h1>
-            <a href="addVehicle.php" class="bgBlue text-white py-2 px-4 rounded">
+            <a id="addVehicleBtn" class="bgBlue text-white py-2 px-4 rounded cursor-pointer">
             Add Vehicle
             </a>
             
@@ -22,11 +22,11 @@
             <?php
 
 
-if (isset($_COOKIE["vendor"])) {
-    $userData = json_decode($_COOKIE["vendor"], true);
-} else {
-    $userData = [];
-}
+                  if (isset($_COOKIE["vendor"])) {
+                      $userData = json_decode($_COOKIE["vendor"], true);
+                  } else {
+                      $userData = [];
+                  }
 
           
                   $data['id'] = $userData['id'];
@@ -58,5 +58,35 @@ if (isset($_COOKIE["vendor"])) {
         </main>
       </div>
     </div>
+
+    <script>
+       <?php
+      if (isset($_COOKIE['vendor'])) {
+    ?>
+        var userData = <?php echo ($_COOKIE['vendor']); ?>;
+        <?php } else { ?>
+        var userData = []; 
+        <?php } ?>
+      document.getElementById('addVehicleBtn').addEventListener('click', function() {
+        console.log(userData);
+        if((userData && userData.tier_status == '0') || (userData.tier_status == "")){
+          Swal.fire({
+            title: "Tier Status!",
+            text: "Please activate your account to add vehicle.",
+            icon: "warning",
+            showCancelButton: false,
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK"
+          }).then((result) => {
+            // if (result.isConfirmed) {
+              window.location.href = 'tier.php';
+            // }
+          });
+        }else{
+             window.location.href = 'addVehicle.php';
+        }
+       
+      });
+    </script>
   </body>
 </html>

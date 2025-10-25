@@ -191,9 +191,10 @@
         });
         
         const formData = new FormData();
+        let verification_type = document.querySelector('input[name="verification_type"]:checked').value;
        
         formData.append('dot_mc_number', document.getElementById('dot_mc_number').value);
-        formData.append('verification_type', document.querySelector('input[name="verification_type"]:checked').value);
+        formData.append('verification_type', verification_type);
         formData.append('method', 'verifyDotMC');
         
         const response = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
@@ -229,7 +230,7 @@
         let token = new Date().getTime();
         
         // Redirect after successful submission
-        window.location.href = 'create-account.php?token=' + token;
+        window.location.href = 'create-account.php?type=' + verification_type + '&number=' + data.dot_mc_number + '&token=' + token;
             
     } catch (error) {
         console.error('Error creating account:', error);

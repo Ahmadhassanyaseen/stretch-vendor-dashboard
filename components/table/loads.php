@@ -29,8 +29,8 @@
             <th class="bg-blue-500 truncate">Pickup Date</th>
             <th class="truncate bg-blue-500">Pickup</th>
             <th class="bg-blue-500 truncate-small">Deadhead</th>
-            <th class="bg-blue-500 truncate">Dropoff Date</th>
             <th class="bg-blue-500">Dropoff</th>
+            <th class="bg-blue-500 truncate">Dropoff Date</th>
             <th class="bg-blue-500 truncate">Requested Price</th>
             <th class="bg-blue-500 truncate">Avg Mrkt Price</th>
             <th class="bg-blue-500 truncate-small">Type</th>
@@ -49,73 +49,74 @@
             </td>
             <td class="toggle-details truncate-small"><?= htmlspecialchars($shipment['created_at']) ?></td>
             <td class="toggle-details truncate"><?php
-                $raw = htmlspecialchars_decode($shipment['pickup_date']);
-                $raw = trim(is_string($raw) ? $raw : '');
-                $formatted = 'N/A';
-                if ($raw !== '') {
-                    $dt = false;
-                    if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $raw)) {
-                        // Format like 2025-09-19
-                        $dt = DateTime::createFromFormat('Y-m-d', $raw);
-                    } elseif (preg_match('/^\d{2}\/\d{2}$/', $raw)) {
-                        // Format like 09/22 -> add current year
-                        $rawWithYear = $raw . '/' . date('Y');
-                        $dt = DateTime::createFromFormat('m/d/Y', $rawWithYear);
-                    } else {
-                        // Generic fallback
-                        $ts = strtotime($raw);
-                        if ($ts !== false) {
-                            $dt = (new DateTime())->setTimestamp($ts);
-                        }
-                    }
-                    if ($dt instanceof DateTime) {
-                        $formatted = $dt->format('m/d/y');
-                    }
-                }
-                echo htmlspecialchars($formatted, ENT_QUOTES, 'UTF-8');
-            ?></td>
+    $raw = htmlspecialchars_decode($shipment['pickup_date']);
+    $raw = trim(is_string($raw) ? $raw : '');
+    $formatted = 'N/A';
+    if ($raw !== '') {
+        $dt = false;
+        if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $raw)) {
+            // Format like 2025-09-19
+            $dt = DateTime::createFromFormat('Y-m-d', $raw);
+        } elseif (preg_match('/^\d{2}\/\d{2}$/', $raw)) {
+            // Format like 09/22 -> add current year
+            $rawWithYear = $raw . '/' . date('Y');
+            $dt = DateTime::createFromFormat('m/d/Y', $rawWithYear);
+        } else {
+            // Generic fallback
+            $ts = strtotime($raw);
+            if ($ts !== false) {
+                $dt = (new DateTime())->setTimestamp($ts);
+            }
+        }
+        if ($dt instanceof DateTime) {
+            $formatted = $dt->format('m/d/y');
+        }
+    }
+    echo htmlspecialchars($formatted, ENT_QUOTES, 'UTF-8');?></td>
             <td class="toggle-details truncate"><?= htmlspecialchars($shipment['pickup']) ?></td>
             <td class="toggle-details truncate-small"><?= htmlspecialchars($shipment['deadhead']) ?></td>
             <td class="toggle-details truncate"><?= htmlspecialchars($shipment['dropoff']) ?></td>
-            <td class="toggle-details truncate"><?php 
-            
-            $raw = htmlspecialchars_decode($shipment['dropoff_date']);
-            $raw = trim(is_string($raw) ? $raw : '');
-            $formatted = 'N/A';
-            if ($raw !== '') {
-                $dt = false;
-                if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $raw)) {
-                    // Format like 2025-09-19
-                    $dt = DateTime::createFromFormat('Y-m-d', $raw);
-                } elseif (preg_match('/^\d{2}\/\d{2}$/', $raw)) {
-                    // Format like 09/22 -> add current year
-                    $rawWithYear = $raw . '/' . date('Y');
-                    $dt = DateTime::createFromFormat('m/d/Y', $rawWithYear);
-                } else {
-                    // Generic fallback
-                    $ts = strtotime($raw);
-                    if ($ts !== false) {
-                        $dt = (new DateTime())->setTimestamp($ts);
-                    }
-                }
-                if ($dt instanceof DateTime) {
-                    $formatted = $dt->format('m/d/y');
-                }
+            <td class="toggle-details truncate"><?php
+
+    $raw = htmlspecialchars_decode($shipment['dropoff_date']);
+    $raw = trim(is_string($raw) ? $raw : '');
+    $formatted = 'N/A';
+    if ($raw !== '') {
+        $dt = false;
+        if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $raw)) {
+            // Format like 2025-09-19
+            $dt = DateTime::createFromFormat('Y-m-d', $raw);
+        } elseif (preg_match('/^\d{2}\/\d{2}$/', $raw)) {
+            // Format like 09/22 -> add current year
+            $rawWithYear = $raw . '/' . date('Y');
+            $dt = DateTime::createFromFormat('m/d/Y', $rawWithYear);
+        } else {
+            // Generic fallback
+            $ts = strtotime($raw);
+            if ($ts !== false) {
+                $dt = (new DateTime())->setTimestamp($ts);
             }
-            echo htmlspecialchars($formatted, ENT_QUOTES, 'UTF-8');
-         ?></td>
+        }
+        if ($dt instanceof DateTime) {
+            $formatted = $dt->format('m/d/y');
+        }
+    }
+    echo htmlspecialchars($formatted, ENT_QUOTES, 'UTF-8');
+?></td>
             <td class="toggle-details font-bold"><?= htmlspecialchars($shipment['price']) ?></td>
             <td class="toggle-details"><?= htmlspecialchars($shipment['avg_price']) ?></td>
             <td class="toggle-details truncate-small">
-                <div class="badge-container"><?php 
-               $equipment = explode(',', $shipment['equipment']);
-               foreach ($equipment as $eq) {
-                   $full = trim((string)$eq);
-                   if ($full === '') { continue; }
-                   $initial = strtoupper(substr($full, 0, 1));
-                   echo "<span class='badge' title='" . htmlspecialchars($full, ENT_QUOTES, 'UTF-8') . "'>" . htmlspecialchars($initial, ENT_QUOTES, 'UTF-8') . "</span> ";
-               }
-                ?></div></td>
+                <div class="badge-container"><?php
+    $equipment = explode(',', $shipment['equipment']);
+    foreach ($equipment as $eq) {
+        $full = trim((string) $eq);
+        if ($full === '') {
+            continue;
+        }
+        $initial = strtoupper(substr($full, 0, 1));
+        echo "<span class='badge' title='" . htmlspecialchars($full, ENT_QUOTES, 'UTF-8') . "'>" . htmlspecialchars($initial, ENT_QUOTES, 'UTF-8') . '</span> ';
+    }
+?></div></td>
             <td class="toggle-details truncate-small"><?= htmlspecialchars($shipment['weight']) ?></td>
             <td class="toggle-details truncate"><?= htmlspecialchars($shipment['broker']) ?></td>
             <td class="toggle-details truncate-extra">
@@ -130,25 +131,7 @@
 </div>
 </div>
 
-<!-- <div id="quoteModal" class="quote-modal">
-    <div class="modal-content">
-        <form id="quoteForm">
-            <button type="button" class="close" id="closeModalBtn" aria-label="Close">&times;</button>
-            <h2>Create Quote</h2>
-            <div class="form-group">
-                <label for="price">Price ($)</label>
-                <input type="number" id="quotePrice" name="price" step="0.01" min="0" placeholder="Enter amount" required>
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="quoteDescription" name="description" placeholder="Enter quote details" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">
-                <span>Submit Quote</span>
-            </button>
-        </form>
-    </div>
-</div> -->
+
 <div id="quoteModal" class="quote-modal">
                         <div class="modal-content">
                             <div class="text-center mb-6">
@@ -278,12 +261,35 @@ function closeQuoteModal() {
 //         modal.classList.add('show');
 //     }, 10);
 // }
+  <?php
+if (isset($_COOKIE['vendor'])) {
+    ?>
+        var userData = <?php echo ($_COOKIE['vendor']); ?>;
+        <?php } else { ?>
+        var userData = []; 
+        <?php } ?>
 
 $(document).on('click', '.quoteBtn', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        console.log('DIRECT EVENT LISTENER FIRED!');
-        openQuoteModal(this);
+        console.log(userData);
+        if((userData && userData.tier_status == '0') || (userData.tier_status == "")){
+          Swal.fire({
+            title: "Tier Status!",
+            text: "Your tier status is not active. Please activate your account.",
+            icon: "warning",
+            showCancelButton: false,
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK" 
+          }).then((result) => {
+            // if (result.isConfirmed) {
+              window.location.href = 'tier.php';
+            // }
+          });
+        }else{
+            console.log('DIRECT EVENT LISTENER FIRED!');
+            openQuoteModal(this);
+        }
 });
 
 function openQuoteModal(buttonElement) {

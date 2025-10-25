@@ -13,9 +13,19 @@ $tokenTime = intval($token);
 //   header('Location: verifyDot.php?error=token_expired');
 //   exit();
 // }
-
+$refData = '';
+$number = '';
+$type = '';
 if (isset($_COOKIE['ref_id'])) {
   $refData = $_COOKIE['ref_id'];
+}
+
+if (isset($_GET['type'])) {
+  $type = $_GET['type'];
+}
+
+if (isset($_GET['number'])) {
+  $number = $_GET['number'];
 }
 
 // Continue with your page rendering if token is valid
@@ -186,6 +196,8 @@ if (isset($_COOKIE['ref_id'])) {
         formData.append('password', document.getElementById('password').value);
         formData.append('confirm_password', document.getElementById('confirm_password').value);
         formData.append('ref_id', document.getElementById('ref_id').value);
+        formData.append('number', '<?php echo $number; ?>');
+        formData.append('type', '<?php echo $type; ?>');
 
         formData.append('method', 'createVendor');
         

@@ -97,20 +97,20 @@ if(!isset($_COOKIE['vendor'])){
           });
         }
        
-        if(userData && userData.tier_status == '0'){
-          Swal.fire({
-            title: "Tier Status!",
-            text: "Your tier status is not active. Please contact support.",
-            icon: "warning",
-            showCancelButton: false,
-            confirmButtonColor: "#3085d6",
-            confirmButtonText: "OK"
-          }).then((result) => {
-            // if (result.isConfirmed) {
-              window.location.href = 'profile.php';
-            // }
-          });
-        }
+        // if((userData && userData.tier_status == '0') || (userData.tier_status == "")){
+        //   Swal.fire({
+        //     title: "Tier Status!",
+        //     text: "Your tier status is not active. Please contact support.",
+        //     icon: "warning",
+        //     showCancelButton: false,
+        //     confirmButtonColor: "#3085d6",
+        //     confirmButtonText: "OK"
+        //   }).then((result) => {
+        //     // if (result.isConfirmed) {
+        //       window.location.href = 'profile.php';
+        //     // }
+        //   });
+        // }
       });
     </script>
     <link rel="stylesheet" href="./assets/css/newStyle.css">

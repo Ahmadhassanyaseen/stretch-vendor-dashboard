@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         "id" => $userData['id'],
         "name" => $_POST['user_name'],
         "email" => $_POST['email'],
-        "profile_status" => $userData['profile_status'],
+        "profile_status" => $result['data']['profile_status'],
         "dot_number" => $_POST['dot_number'],
         "mc_number" => $_POST['mc_number'],
         "vnd_type" => $_POST['vnd_type'],
@@ -46,10 +46,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         "street" => $_POST['street'],
         "tier_status" => $userData['tier_status']
     ];
+    // print_r($cacheData);
      
     if($result['status'] == 'success'){
         // echo json_encode($result);
-        file_put_contents('store.json', json_encode($result['data']));
+        // file_put_contents('store.json', json_encode($result['data']));
         setcookie("vendor", json_encode($cacheData), time() + (86400 * 30), "/");
         header('Location: ../profile.php?status=success');
         exit;

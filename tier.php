@@ -7,6 +7,9 @@ if (isset($_COOKIE["vendor"])) {
   $userData = [];
 }
 
+
+// print_r($userData);
+
 $statusMsg = '';
 if(isset($_GET['status']) && $_GET['status'] == 'success'){
     $statusMsg = 'Profile updated successfully';
@@ -168,6 +171,19 @@ $user = $userData;
         <!-- Payment Form -->
         <form id="paymentForm" class="max-w-lg w-full mx-auto bg-white rounded-lg shadow-md p-6">
             <div class="form-group">
+                <label class="form-label">Select Plan</label>
+                <div class="flex  gap-10">
+                    <div class="flex items-center justify-center cursor-pointer">
+                        <input type="radio" id="monthly" name="plan" value="35" checked class="mr-2">
+                        <label for="monthly" class="text-[#4b5563] font-medium mb-0">$35 per month</label>
+                    </div>
+                    <div class="flex items-center justify-center cursor-pointer">
+                        <input type="radio" id="yearly" name="plan" value="350" class="mr-2">
+                        <label for="yearly" class="text-[#4b5563] font-medium mb-0">$350 per year</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="cardType" class="form-label">Card Type</label>
                 <div class="input-wrapper">
                    <select id="cardType" class="form-input">
@@ -226,8 +242,14 @@ $user = $userData;
             const expiryDate = document.getElementById('expiryDate');
             const cvv = document.getElementById('cvv');
             const cardType = document.getElementById('cardType');
+            // Get the selected plan value
+            function getSelectedPlan() {
+                const selectedPlan = document.querySelector('input[name="plan"]:checked');
+                return selectedPlan ? selectedPlan.value : null;
+            }
             
-            
+            // Example: Log the selected plan value
+
             // Card preview elements
             const cardNumberPreview = document.getElementById('cardNumberPreview');
             const cardNamePreview = document.getElementById('cardNamePreview');
@@ -448,6 +470,10 @@ $user = $userData;
             // Form submission
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
+
+                            // console.log('Selected Plan:', getSelectedPlan());
+
+                            // return;
                 
                 
                 // Validate all fields
@@ -476,6 +502,7 @@ $user = $userData;
                     formData.append('expiryDate', expiryDate.value);
                     formData.append('cvv', cvv.value);
                     formData.append('cardType', cardType.value);
+                    formData.append('amount', getSelectedPlan());
                     formData.append('vendor_id', '<?php echo $user['id']; ?>');
 
                     formData.append('method', 'vendorTierPayment');
@@ -501,11 +528,11 @@ $user = $userData;
                                 confirmButtonText: 'Continue',
                                 allowOutsideClick: false
                             }).then(() => {
-                                fetch('./helper/logout.php')
+                                fetch('./helper/updateCookie.php')
                                         .then(() => {
                                             setTimeout(() => {
                                            
-                                            window.location.href = 'login.php';
+                                            window.location.href = 'profile.php';
                                             }, 1000);
                                         });
                             });

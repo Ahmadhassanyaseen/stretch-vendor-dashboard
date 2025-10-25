@@ -22,6 +22,8 @@ if (!isset($userData)) {
 
 $user = $userData;
 
+// print_r($user);
+
 
 // Handle form submission
 
@@ -99,8 +101,8 @@ $user = $userData;
               <div class="px-6 py-3 my-6 flex justify-between items-center bgRed text-white rounded-lg shadow-md ">
                 
                 
-                  Your tier status is not active. Please activate your tier to avail all features.
-                  <a href="tier.php" class="text-red-600 font-bold border bg-white border-red-600 px-2 py-1 rounded hover:bg-red-600 hover:text-white hover:border-white transition-all duration-300">Activate Tier</a>
+                  Please finalize your subscription to activate your account.
+                  <a href="tier.php" class="text-red-600 font-bold border bg-white border-red-600 px-2 py-1 rounded hover:bg-red-600 hover:text-white hover:border-white transition-all duration-300">Activate Account</a>
                   
                 
               </div>
@@ -110,7 +112,7 @@ $user = $userData;
                   <div class="px-6 py-3 my-6 flex justify-between items-center bgBlue text-white rounded-lg shadow-md ">
                   
                   
-                  Your tier status is active. You can avail all features.
+                  Your account is active. You can avail all features.
                   
                 
               </div>
@@ -200,12 +202,21 @@ $user = $userData;
                       <label class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         DOT Number
                       </label>
+                     
+
                       <input
                         type="text"
                         value="<?= htmlspecialchars($user['dot_number'] ?? '') ?>"
                         class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
-                        name="dot_number"
+                        disabled
                       />
+                      <input
+                        type="hidden"
+                        name="dot_number"
+                        value="<?= htmlspecialchars($user['dot_number'] ?? '') ?>"
+                        
+                      />
+                      <!-- <p class="mt-1 text-xs text-gray-500 dark:text-white">DOT Number cannot be changed</p> -->
                       
                       <!-- <p class="mt-1 text-xs text-gray-500">DOT Number cannot be changed</p> -->
                     </div>

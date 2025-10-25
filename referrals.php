@@ -21,10 +21,12 @@ if (isset($_COOKIE['vendor'])) {
 $data['id'] = $userData['id'];
 $response = getReferralData($data);
 $earned = 0;
+if(isset($response) && count($response) > 0){
 foreach($response as $referral){
    if($referral['status'] == 'Complete'){
     $earned += 5;
    }
+}
 }
 
 ?>

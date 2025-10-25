@@ -44,7 +44,7 @@
                      [
                        'title' => 'In Progress Shipments',
                        'value' => array_reduce($response, function ($carry, $item) {
-                         return $carry + (in_array(strtolower($item['status_c']), ['assigned', 'quoted', '', 'inprocess']) ? 1 : 0);
+                         return $carry + (in_array(strtolower($item['status_c']), ['assigned', 'formal','quoted', '', 'inprocess']) ? 1 : 0);
                        }, 0),
                        'icon' => 'hourglass-start',
                        'color' => 'blue',
