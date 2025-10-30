@@ -146,7 +146,7 @@ $user = $userData;
 
                     <div class="w-full">
                       <label for="user_name" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
-                        Username
+                        Username <span class="text-red-600">*</span>
                       </label>
                       <input
                         type="text"
@@ -200,7 +200,7 @@ $user = $userData;
                   <div class="space-y-4 w-full">
                     <div class="w-full">
                       <label class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
-                        DOT Number
+                        DOT Number <span class="text-red-600">*</span>
                       </label>
                      
 
@@ -223,7 +223,7 @@ $user = $userData;
 
                     <div class="w-full">
                       <label for="mc_number" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
-                      MC Number
+                      MC Number <span class="text-red-600">*</span>
                       </label>
                       <input
                         type="text"
@@ -243,7 +243,7 @@ $user = $userData;
 
                       <div>
                         <label for="contact_number" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
-                          Contact Number
+                          Contact Number <span class="text-red-600">*</span>
                         </label>
                         <input
                           type="text"
@@ -258,7 +258,7 @@ $user = $userData;
 
                       <div>
                         <label for="vnd_type" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
-                        Type
+                        Type <span class="text-red-600">*</span>
                         </label>
                       <select name="vnd_type" id="vnd_type" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white"   required>
                           <option value="" class="text-gray-700">Select Type</option>
@@ -274,7 +274,7 @@ $user = $userData;
                   <div class="space-y-4 w-full">
                     <div class="w-full">
                       <label class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
-                        Street
+                        Street <span class="text-red-600">*</span>
                       </label>
                         <input
                             type="text"
@@ -291,7 +291,7 @@ $user = $userData;
 
                     <div class="w-full">
                       <label for="city" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
-                      City
+                      City <span class="text-red-600">*</span>
                       </label>
                       <input
                         type="text"
@@ -319,7 +319,7 @@ $user = $userData;
 
                       <div>
                         <label for="state" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
-                         State
+                         State <span class="text-red-600">*</span>
                         </label>
                        
                           <input
@@ -343,7 +343,7 @@ $user = $userData;
 
                       <div>
                         <label for="zip" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
-                        Zip Code
+                        Zip Code <span class="text-red-600">*</span>
                         </label>
                       <input type="text" id="zip" name="zip" value="<?= htmlspecialchars($user['zip'] ?? '') ?>" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  " placeholder="Enter zip code" required/>
                       </div>
