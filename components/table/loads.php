@@ -286,7 +286,22 @@ $(document).on('click', '.quoteBtn', function(e) {
               window.location.href = 'tier.php';
             // }
           });
-        }else{
+        }
+        else if((userData && userData.has_vehicle == '0') || (userData.has_vehicle == "")){
+          Swal.fire({
+            title: "Vehicle Required!",
+            text: "Please add atleast one vehicle to quote.",
+            icon: "warning",
+            showCancelButton: false,
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK" 
+          }).then((result) => {
+            // if (result.isConfirmed) {
+              window.location.href = 'addVehicle.php';
+            // }
+          });
+        }
+        else{
             console.log('DIRECT EVENT LISTENER FIRED!');
             openQuoteModal(this);
         }
@@ -632,7 +647,7 @@ async function loadAdditionalDetails(details) {
         console.log(fuelAndTollCost);
         
         return `
-            <div class="bg-white text-gray-700 p-4 rounded-lg shadow dark:bg-gray-700 dark:text-white w-full">
+            <div class="bg-white text-left text-gray-700 p-4 rounded-lg shadow dark:bg-gray-700 dark:text-white w-full">
                 <h4 class="font-semibold text-xl text-gray-700 dark:text-white mb-2">Shipment Information</h4>
                 <div class="space-y-2 text-md">
                     <p class="grid grid-cols-2"><span class="font-medium">Distance:</span> <span>${fuelAndTollCost.data.totalMileage ? fuelAndTollCost.data.totalMileage.toFixed(2) : 0} miles</span></p>

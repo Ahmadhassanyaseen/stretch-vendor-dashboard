@@ -15,6 +15,7 @@
     $data['id'] = $userData['id'];
     $response = fetchAllVendorLeadsFormal($data);
     ?>
+    
    
     <div class="flex flex-col flex-1 w-full">
      <?php include 'components/layout/topbar.php'; ?>
@@ -34,23 +35,31 @@
               $shipments[] = [
                 'id' => $value['id'],
                 'name' => $value['name'],
+                'price' => $value['platform_price_c'],
+                'avg_price' => $value['platform_price_c'],
                 'quantity' => $value['freight_pallet_count_c'],
                 'type' => $value['freight_type_c'],
                 'tracking_number' => $value['opertunity_id_c'] ?? 'N/A',
                 'pickup' => $value['pickup_address_c'],
+                'pickup_date' => $value['pickup_date_c'] ?? 'N/A',
                 'dropoff' => $value['dropoff_address_c'],
+                'dropoff_date' => $value['dropoff_date_c'] ?? 'N/A',
                 'amount' => '$' . $value['platform_price_c'] ?? '0.00',
                 'status' => $value['status_c'] ?? 'Pending',
                 'weight' => $value['freight_weight_c'] . 'lbs',
                 'created_at' => $value['date_entered'],
                 'vendor_status' => $value['vendor_status_c'] ?? '0',
+                'deadhead' => $value['deadhead_distance_c'] ?? '0',
+                'broker' => $value['name'] ?? '0',
+                'equipment' => $value['carrier_vehicle_type_c'] ?? '0',
+
                 'signed_agreement_link' => $value['signed_agreement_link_c'] ?? '#',
               ];
             }
 
             ?>
 
-           <?php include 'components/table/shipment.php'; ?>
+           <?php include 'components/table/loads.php'; ?>
 
          
         </div>

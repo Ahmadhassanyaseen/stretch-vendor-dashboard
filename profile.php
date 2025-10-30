@@ -252,6 +252,7 @@ $user = $userData;
                           class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  "
                           placeholder="Enter contact number"
                           value="<?= htmlspecialchars($user['phone'] ?? '') ?>"
+                            required
                         />
                    </div>
 
@@ -259,7 +260,7 @@ $user = $userData;
                         <label for="vnd_type" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         Type
                         </label>
-                      <select name="vnd_type" id="vnd_type" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white">
+                      <select name="vnd_type" id="vnd_type" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  text-gray-700 dark:text-white"   required>
                           <option value="" class="text-gray-700">Select Type</option>
                           <option value="Interstate" class="text-gray-700"  <?= $user['vnd_type'] == 'Interstate' ? 'selected' : '' ?>>Interstate</option>
                           <option value="Intrastate" class="text-gray-700" <?= $user['vnd_type'] == 'Intrastate' ? 'selected' : '' ?>>Intrastate</option>
@@ -283,6 +284,7 @@ $user = $userData;
                             name="street"
                             placeholder="Start typing your address..."
                             autocomplete="off"
+                            required
                         />
                       <!-- <p class="mt-1 text-xs text-gray-500">DOT Number cannot be changed</p> -->
                     </div>
@@ -304,6 +306,7 @@ $user = $userData;
                         id="city"
                         name="city"
                         value="<?= htmlspecialchars($user['city'] ?? '') ?>"
+                        required
                       
                       />
                     </div>
@@ -332,6 +335,7 @@ $user = $userData;
                           id="state"
                           name="state"
                           value="<?= htmlspecialchars($user['state'] ?? '') ?>"
+                          required
                          
                           />
                         
@@ -341,7 +345,7 @@ $user = $userData;
                         <label for="zip" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                         Zip Code
                         </label>
-                      <input type="text" id="zip" name="zip" value="<?= htmlspecialchars($user['zip'] ?? '') ?>" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  " placeholder="Enter zip code" />
+                      <input type="text" id="zip" name="zip" value="<?= htmlspecialchars($user['zip'] ?? '') ?>" class="w-full px-3 py-2 mt-2 border border-gray-400 rounded-md  " placeholder="Enter zip code" required/>
                       </div>
                     </div>
                   </div>
