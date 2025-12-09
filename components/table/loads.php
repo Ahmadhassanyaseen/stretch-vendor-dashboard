@@ -40,92 +40,98 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($shipments as $shipment): ?>
-        <tr data-details='<?php echo htmlspecialchars(json_encode($shipment), ENT_QUOTES, 'UTF-8'); ?>' class="cursor-pointer hover:bg-gray-50 dark:bg-gray-700 bg-white">
-            <td class="flex items-center toggle-details ">
-                <svg class=" mr-2" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4  Maui 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-                </svg>
-            </td>
-            <td class="toggle-details truncate-small"><?= htmlspecialchars($shipment['created_at']) ?></td>
-            <td class="toggle-details truncate"><?php
-    $raw = htmlspecialchars_decode($shipment['pickup_date']);
-    $raw = trim(is_string($raw) ? $raw : '');
-    $formatted = 'N/A';
-    if ($raw !== '') {
-        $dt = false;
-        if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $raw)) {
-            // Format like 2025-09-19
-            $dt = DateTime::createFromFormat('Y-m-d', $raw);
-        } elseif (preg_match('/^\d{2}\/\d{2}$/', $raw)) {
-            // Format like 09/22 -> add current year
-            $rawWithYear = $raw . '/' . date('Y');
-            $dt = DateTime::createFromFormat('m/d/Y', $rawWithYear);
-        } else {
-            // Generic fallback
-            $ts = strtotime($raw);
-            if ($ts !== false) {
-                $dt = (new DateTime())->setTimestamp($ts);
-            }
-        }
-        if ($dt instanceof DateTime) {
-            $formatted = $dt->format('m/d/y');
-        }
-    }
-    echo htmlspecialchars($formatted, ENT_QUOTES, 'UTF-8');?></td>
-            <td class="toggle-details truncate"><?= htmlspecialchars($shipment['pickup']) ?></td>
-            <td class="toggle-details truncate-small"><?= htmlspecialchars($shipment['deadhead']) ?></td>
-            <td class="toggle-details truncate"><?= htmlspecialchars($shipment['dropoff']) ?></td>
-            <td class="toggle-details truncate"><?php
+        <?php
+        if(is_array($shipments) && count($shipments) > 0){
+        foreach ($shipments as $shipment): ?>
+            <tr data-details='<?php echo htmlspecialchars(json_encode($shipment), ENT_QUOTES, 'UTF-8'); ?>' class="cursor-pointer hover:bg-gray-50 dark:bg-gray-700 bg-white">
+                <td class="flex items-center toggle-details ">
+                    <svg class=" mr-2" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4  Maui 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                </td>
+                <td class="toggle-details truncate-small"><?= htmlspecialchars($shipment['created_at']) ?></td>
+                <td class="toggle-details truncate">
+                    <?php
+                        $raw = htmlspecialchars_decode($shipment['pickup_date']);
+                        $raw = trim(is_string($raw) ? $raw : '');
+                        $formatted = 'N/A';
+                        if ($raw !== '') {
+                            $dt = false;
+                            if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $raw)) {
+                                // Format like 2025-09-19
+                                $dt = DateTime::createFromFormat('Y-m-d', $raw);
+                            } elseif (preg_match('/^\d{2}\/\d{2}$/', $raw)) {
+                                // Format like 09/22 -> add current year
+                                $rawWithYear = $raw . '/' . date('Y');
+                                $dt = DateTime::createFromFormat('m/d/Y', $rawWithYear);
+                            } else {
+                                // Generic fallback
+                                $ts = strtotime($raw);
+                                if ($ts !== false) {
+                                    $dt = (new DateTime())->setTimestamp($ts);
+                                }
+                            }
+                            if ($dt instanceof DateTime) {
+                                $formatted = $dt->format('m/d/y');
+                            }
+                        }
+                        echo htmlspecialchars($formatted, ENT_QUOTES, 'UTF-8');?></td>
+                                <td class="toggle-details truncate"><?= htmlspecialchars($shipment['pickup']) ?></td>
+                                <td class="toggle-details truncate-small"><?= htmlspecialchars($shipment['deadhead']) ?></td>
+                                <td class="toggle-details truncate"><?= htmlspecialchars($shipment['dropoff']) ?></td>
+                                <td class="toggle-details truncate"><?php
 
-    $raw = htmlspecialchars_decode($shipment['dropoff_date']);
-    $raw = trim(is_string($raw) ? $raw : '');
-    $formatted = 'N/A';
-    if ($raw !== '') {
-        $dt = false;
-        if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $raw)) {
-            // Format like 2025-09-19
-            $dt = DateTime::createFromFormat('Y-m-d', $raw);
-        } elseif (preg_match('/^\d{2}\/\d{2}$/', $raw)) {
-            // Format like 09/22 -> add current year
-            $rawWithYear = $raw . '/' . date('Y');
-            $dt = DateTime::createFromFormat('m/d/Y', $rawWithYear);
-        } else {
-            // Generic fallback
-            $ts = strtotime($raw);
-            if ($ts !== false) {
-                $dt = (new DateTime())->setTimestamp($ts);
-            }
-        }
-        if ($dt instanceof DateTime) {
-            $formatted = $dt->format('m/d/y');
-        }
-    }
-    echo htmlspecialchars($formatted, ENT_QUOTES, 'UTF-8');
-?></td>
-            <td class="toggle-details font-bold"><?= htmlspecialchars($shipment['price']) ?></td>
-            <td class="toggle-details"><?= htmlspecialchars($shipment['avg_price']) ?></td>
-            <td class="toggle-details truncate-small">
-                <div class="badge-container"><?php
-    $equipment = explode(',', $shipment['equipment']);
-    foreach ($equipment as $eq) {
-        $full = trim((string) $eq);
-        if ($full === '') {
-            continue;
-        }
-        $initial = strtoupper(substr($full, 0, 1));
-        echo "<span class='badge' title='" . htmlspecialchars($full, ENT_QUOTES, 'UTF-8') . "'>" . htmlspecialchars($initial, ENT_QUOTES, 'UTF-8') . '</span> ';
-    }
-?></div></td>
-            <td class="toggle-details truncate-small"><?= htmlspecialchars($shipment['weight']) ?></td>
-            <td class="toggle-details truncate"><?= htmlspecialchars($shipment['broker']) ?></td>
-            <td class="toggle-details truncate-extra">
-                <button class="bg-blue-500 p-2 rounded text-white quoteBtn"  data-id="<?= htmlspecialchars($shipment['id']) ?>"><i class="fa-solid fa-quote-left" style="margin-right: 5px;"></i>Quote</button>
-        </td>
+                        $raw = htmlspecialchars_decode($shipment['dropoff_date']);
+                        $raw = trim(is_string($raw) ? $raw : '');
+                        $formatted = 'N/A';
+                        if ($raw !== '') {
+                            $dt = false;
+                            if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $raw)) {
+                                // Format like 2025-09-19
+                                $dt = DateTime::createFromFormat('Y-m-d', $raw);
+                            } elseif (preg_match('/^\d{2}\/\d{2}$/', $raw)) {
+                                // Format like 09/22 -> add current year
+                                $rawWithYear = $raw . '/' . date('Y');
+                                $dt = DateTime::createFromFormat('m/d/Y', $rawWithYear);
+                            } else {
+                                // Generic fallback
+                                $ts = strtotime($raw);
+                                if ($ts !== false) {
+                                    $dt = (new DateTime())->setTimestamp($ts);
+                                }
+                            }
+                            if ($dt instanceof DateTime) {
+                                $formatted = $dt->format('m/d/y');
+                            }
+                        }
+                        echo htmlspecialchars($formatted, ENT_QUOTES, 'UTF-8');
+                    ?>
+                </td>
+                <td class="toggle-details font-bold"><?= htmlspecialchars($shipment['price']) ?></td>
+                <td class="toggle-details"><?= htmlspecialchars($shipment['avg_price']) ?></td>
+                <td class="toggle-details truncate-small">
+                    <div class="badge-container"><?php
+                            $equipment = explode(',', $shipment['equipment']);
+                            foreach ($equipment as $eq) {
+                                $full = trim((string) $eq);
+                                if ($full === '') {
+                                    continue;
+                                }
+                                $initial = strtoupper(substr($full, 0, 1));
+                                echo "<span class='badge' title='" . htmlspecialchars($full, ENT_QUOTES, 'UTF-8') . "'>" . htmlspecialchars($initial, ENT_QUOTES, 'UTF-8') . '</span> ';
+                            }
+                    ?></div>
+                </td>
+                <td class="toggle-details truncate-small"><?= htmlspecialchars($shipment['weight']) ?></td>
+                <td class="toggle-details truncate"><?= htmlspecialchars($shipment['broker']) ?></td>
+                <td class="toggle-details truncate-extra">
+                    <button class="bg-blue-500 p-2 rounded text-white quoteBtn"  data-id="<?= htmlspecialchars($shipment['id']) ?>"><i class="fa-solid fa-quote-left" style="margin-right: 5px;"></i>Quote</button>
+                </td>
 
-            
-        </tr>
-        <?php endforeach; ?>
+                
+            </tr>
+        <?php endforeach;
+        } ?>
     </tbody>
 </table>
 </div>

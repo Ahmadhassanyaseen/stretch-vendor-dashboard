@@ -14,6 +14,7 @@
 
     $data['id'] = $userData['id'];
     $response = fetchAllVendorLeadsFormal($data);
+    $shipments = [];
     ?>
     
    
