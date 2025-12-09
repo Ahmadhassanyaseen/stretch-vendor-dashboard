@@ -95,12 +95,15 @@
             $response123 = getLoadFrom123($data123);
             $responseTS = getLoadFromTS();
 
+            // print_r($responseTS);
 
 ?>
 
 <?php
     $shipments = [];
     $loads = $response['data']['items'];
+
+   
    
     foreach ($loads as $key => $value) {
         if ($value['drop_off']['address']['city'] && $value['drop_off']['address']['state']) {
@@ -145,6 +148,9 @@
     if (isset($response123['status']) && $response123['status'] != 'pending' && $response123['status'] == 200) {
         $loadsNew = $response123['data']['loads'];
 
+        // echo count($loadsNew);
+        // echo count($loadsNew);
+       
         foreach ($loadsNew as $key => $value) {
             if (!empty($value['equipments'])) {
                 // Use full equipment type names (from nested arrays/objects), properly cased and unique
@@ -193,6 +199,8 @@
         }
     }
 
+    // echo count($shipmentsNew);// echo count($shipments);
+
     $shipments = array_merge($shipments, $shipmentsNew);
 
 
@@ -200,7 +208,9 @@
         $shipmentsTS = [];
 
         $loadsTS = $responseTS['data'];
+// echo count($loadsTS);
 
+       
         foreach ($loadsTS as $key => $value) {
 
             $birthDate = new DateTime($value['createDateTime']);
@@ -232,10 +242,15 @@
             }
 
             $pickupXeno = $value['loadStops'][0]['location']['city'] . ', ' . $value['loadStops'][0]['location']['state'];
+            $addressNew = str_replace(', USA', '', $address);
+           
 
             
             // if(isset($value['loadStops'][0]['location']['city']) && isset($value['loadStops'][0]['location']['state']) ){
-                if($pickupXeno == $address ){
+                // echo  $pickupXeno . " == " . $addressNew . "\n";
+                // echo $value['loadStops'][0]['contactName'];
+                if($pickupXeno == $addressNew ){
+                    // echo "pl";
                    $shipmentsTS[] = [
                         'pickup_date' => $value['loadStops'][0]['lateDateTime'] ?? 'N/A',
                         'pickup' => $pickupXeno,
@@ -262,7 +277,9 @@
             // }
         
         }
+
         
+        // echo count($shipmentsTS);
         $shipments = array_merge($shipments, $shipmentsTS);
     }
 
@@ -298,6 +315,8 @@ function formatDateXeno($date){
                 }
                 return $formatted;
 }
+
+// echo count($shipments);
 
 foreach ($shipments as $shipment) {
     $isDuplicate = false;
@@ -349,7 +368,7 @@ foreach ($shipments as $shipment) {
 // Replace original list
 $shipments = array_values($uniqueShipments);
 
-
+// echo count($shipments);
 ?>
 
 <?php include 'components/layout/header.php'; ?>
