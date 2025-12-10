@@ -1,0 +1,140 @@
+[2025-12-10 12:40:58] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeads
+)
+
+[2025-12-10 12:41:00] [INFO] API Response: [{"id":"1787a557-5e30-a3f8-74e4-68ef73126438","name":"ahmed kaleem","date_entered":"2025-10-15 10:11:47","date_modified":"2025-10-15 10:29:00","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"1787a557-5e30-a3f8-74e4-68ef73126438","pickup_address_c":"Los Angeles, CA, US","pickup_lat_c":"34.05","pickup_lng_c":"-118.24","dropoff_address_c":"Jersey City, NJ, US","dropoff_lat_c":"40.73","dropoff_lng_c":"-74.08","freight_description_c":"test","carrier_vehicle_type_c":"flatbed","freight_weight_c":"70","freight_length_c":"7","freight_width_c":"7","freight_height_c":"7","freight_pallet_count_c":"70","freight_box_count_c":"70","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"ahmed kaleem","freight_shipper_phone_c":"03218666732","freight_shipper_email_c":"appstream840@gmail.com","freight_shipper_address_c":"7050 Friendship Road","freight_type_c":"perishables","rate_c":"2.55","mileage_c":"7158.61","total_price_c":"10,924.95","distance_c":"2,829.49","pickup_time_c":"15:14","fuel_c":"1999.16","addons_c":"liftgate_service-50,hazmat_compliance-500,","duration_c":"1 day 19 hrs 57 mins","deadhead_price_c":"3.95","deadhead_distance_c":"1.55","vendor_id_c":"f1d75146-f665-4328-ba46-67045bc45d6e","opertunity_id_c":"000001","pickup_state_c":"CA","vendor_name_c":"UMINA BROS INC","vendor_email_c":"pacificiquengaruye@gmail.com","pickup_city_c":"Los Angeles","pickup_zip_c":"","dropoff_city_c":"Jersey City","dropoff_state_c":"NJ","dropoff_zip_c":"","truckerpath_ref_id_c":"296881022|46138469-b847-47a5-b14d-b7f14123e542|b8ba366a-66ae-48b5-afc5-1da75149be8f","addons_total_c":"550","dropoff_time_c":"19:11","toll_c":"42.7","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"1105.5304","vendor_confirmation_c":"","amount_paid_c":"10,924.95","payments_made_c":"1","payment_notes_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"https:\/\/stretchxlfreight.com\/dashboard\/pdf\/agreement_1787a557-5e30-a3f8-74e4-68ef73126438_1760524140.pdf","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1","platform_price_c":"8099.89","market_price_c":"9,204.42","source_c":".com","status_c":"Converted","co_signer_c":"","dropoff_date_c":"2025-10-23","pickup_date_c":"2025-10-16","agreement_status_c":"SIGNED","client_payment_type_c":"paid_by_creditcard","email1_c":"","tracking_c":"0","shipment_id_c":"KrO2NuHomEzsTBuG7r7oKA==|","carrier_quote_ids_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c|","reminder_c":"0","posted_c":"1","tp_c":"0","pickup_time_new_c":null,"dropoff_time_new_c":null,"commodity_c":null,"hazardous_c":null,"cargovalue_c":null,"is_international_c":null,"insurance_amount_c":null},{"id":"1a127472-33dd-24b8-1fd2-68f244aab4c3","name":"ahmed kaleem","date_entered":"2025-10-17 13:27:34","date_modified":"2025-10-17 13:35:46","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"1a127472-33dd-24b8-1fd2-68f244aab4c3","pickup_address_c":"San Andreas, CA, US","pickup_lat_c":"38.20","pickup_lng_c":"-120.68","dropoff_address_c":"Los Angeles, CA, US","dropoff_lat_c":"34.05","dropoff_lng_c":"-118.24","freight_description_c":"Test","carrier_vehicle_type_c":"flatbed","freight_weight_c":"80","freight_length_c":"8","freight_width_c":"8","freight_height_c":"8","freight_pallet_count_c":"80","freight_box_count_c":"110","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"ahmed kaleem","freight_shipper_phone_c":"03218666732","freight_shipper_email_c":"appstream840@gmail.com","freight_shipper_address_c":"7050 Friendship Road","freight_type_c":"general","rate_c":"2.51","mileage_c":"904.28","total_price_c":"1,865.97","distance_c":"362.80","pickup_time_c":"20:30","fuel_c":"175.17","addons_c":"detention-50,hazmat_compliance-500,","duration_c":"6 hrs 12 mins","deadhead_price_c":"36.60","deadhead_distance_c":"14.58","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000010","pickup_state_c":"CA","vendor_name_c":"Ahmad Hassan","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"San Andreas","pickup_zip_c":"","dropoff_city_c":"Los Angeles","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"297246717|f91a8261-4d7b-469f-9430-22f4b19ac4e4|9b2cc75a-5904-48c7-a706-710c574f1fa8","addons_total_c":"550","dropoff_time_c":"23:30","toll_c":"0","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"333.856","vendor_confirmation_c":"","amount_paid_c":"1041.6","payments_made_c":"1","payment_notes_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"https:\/\/stretchxlfreight.com\/dashboard\/pdf\/agreement_1a127472-33dd-24b8-1fd2-68f244aab4c3_1760708146.pdf","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1","platform_price_c":"982.12","market_price_c":"1,116.05","source_c":".com","status_c":"Converted","co_signer_c":"","dropoff_date_c":"2025-10-31","pickup_date_c":"2025-10-20","agreement_status_c":"SIGNED","client_payment_type_c":"paid_by_creditcard","email1_c":"","tracking_c":"0","shipment_id_c":"%2BOtB3%2BUYkDE!9%2B40H4%2Brow==|","carrier_quote_ids_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c|","reminder_c":"0","posted_c":"1","tp_c":"0","pickup_time_new_c":null,"dropoff_time_new_c":null,"commodity_c":null,"hazardous_c":null,"cargovalue_c":null,"is_international_c":null,"insurance_amount_c":null},{"id":"34730c7f-70d1-82f7-0685-68ef795fe334","name":"Ahmad Hassan","date_entered":"2025-10-15 10:39:26","date_modified":"2025-10-15 10:54:14","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"34730c7f-70d1-82f7-0685-68ef795fe334","pickup_address_c":"Jersey City, NJ, US","pickup_lat_c":"40.73","pickup_lng_c":"-74.08","dropoff_address_c":"Los Angeles, CA, US","dropoff_lat_c":"34.05","dropoff_lng_c":"-118.24","freight_description_c":"this is test","carrier_vehicle_type_c":"flatbed","freight_weight_c":"12000","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"general","rate_c":"2.70","mileage_c":"7711.85","total_price_c":"10,584.73","distance_c":"2,794.15","pickup_time_c":"15:42","fuel_c":"1567.52","addons_c":"liftgate_service-50,inside_delivery-75,","duration_c":"1 day 19 hrs 36 mins","deadhead_price_c":"2.08","deadhead_distance_c":"0.77","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000002","pickup_state_c":"NJ","vendor_name_c":"Ahmad Hassan","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Jersey City","pickup_zip_c":"","dropoff_city_c":"Los Angeles","dropoff_state_c":"CA","dropoff_zip_c":"","truckerpath_ref_id_c":"296885530|c4d6afd0-458b-4db5-a879-29b6fd264702|75cf1124-7f3e-40fc-81af-8b0f5d90e3f4","addons_total_c":"125","dropoff_time_c":"15:41","toll_c":"44.2","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"1120.078","vendor_confirmation_c":"","amount_paid_c":"10,584.73","payments_made_c":"2","payment_notes_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"https:\/\/stretchxlfreight.com\/dashboard\/pdf\/agreement_34730c7f-70d1-82f7-0685-68ef795fe334_1760525245.pdf","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"0","platform_price_c":"8206.57","market_price_c":"9,325.65","source_c":".com","status_c":"Converted","co_signer_c":"","dropoff_date_c":"2025-10-27","pickup_date_c":"2025-10-24","agreement_status_c":"SIGNED","client_payment_type_c":"paid_by_creditcard","email1_c":"","tracking_c":"1","shipment_id_c":"!YQGaoMdCqdwvSk%2Bw6q7%2Bw==|","carrier_quote_ids_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c|","reminder_c":"0","posted_c":"1","tp_c":"0","pickup_time_new_c":null,"dropoff_time_new_c":null,"commodity_c":null,"hazardous_c":null,"cargovalue_c":null,"is_international_c":null,"insurance_amount_c":null},{"id":"8578b124-d866-27b5-9116-693819e6b752","name":"hamza amir","date_entered":"2025-12-09 12:44:03","date_modified":"2025-12-09 14:00:45","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"8578b124-d866-27b5-9116-693819e6b752","pickup_address_c":"Baltimore, MD, US","pickup_lat_c":"39.29","pickup_lng_c":"-76.61","dropoff_address_c":"Washington, DC, US","dropoff_lat_c":"38.90","dropoff_lng_c":"-77.04","freight_description_c":"test","carrier_vehicle_type_c":"flatbed","freight_weight_c":"900","freight_length_c":"4","freight_width_c":"4","freight_height_c":"4","freight_pallet_count_c":"99","freight_box_count_c":"99","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"hamza amir","freight_shipper_phone_c":"03218666732","freight_shipper_email_c":"hamzabha543@gmail.com","freight_shipper_address_c":"lasani pulli muslim town muslim town sarghoda road","freight_type_c":"general","rate_c":"2.73","mileage_c":"116.05","total_price_c":"777.06","distance_c":"43.14","pickup_time_c":"08:00","fuel_c":"27.21","addons_c":"detention-50,hazmat_compliance-500,","duration_c":"1 hr 29 mins","deadhead_price_c":"0.55","deadhead_distance_c":"0.2","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000061","pickup_state_c":"MD","vendor_name_c":"Ahmad Hassan","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"Baltimore","pickup_zip_c":"","dropoff_city_c":"Washington DC","dropoff_state_c":"DC","dropoff_zip_c":"","truckerpath_ref_id_c":"306212465|70c43e8a-5613-47b6-bca7-d992b6fb0d3c|6ca0c7ea-28dc-4fea-9120-042682ce7f27","addons_total_c":"550","dropoff_time_c":"17:00","toll_c":"0","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"100.5172","vendor_confirmation_c":"","amount_paid_c":"112","payments_made_c":"1","payment_notes_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"https:\/\/stretchxlfreight.com\/dashboard\/pdf\/agreement_8578b124-d866-27b5-9116-693819e6b752_1765288844.pdf","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1","platform_price_c":"126.55","market_price_c":"143.81","source_c":".com","status_c":"Converted","co_signer_c":"","dropoff_date_c":"2025-12-10","pickup_date_c":"2025-12-09","agreement_status_c":"SIGNED","client_payment_type_c":"paid_by_creditcard","email1_c":"","tracking_c":"0","shipment_id_c":"70c43e8a-5613-47b6-bca7-d992b6fb0d3c|","carrier_quote_ids_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c|","reminder_c":"0","posted_c":"1","tp_c":"1","pickup_time_new_c":"08:00 AM","dropoff_time_new_c":"05:00 PM","commodity_c":"","hazardous_c":"","cargovalue_c":"","is_international_c":"","insurance_amount_c":""},{"id":"cf31fcbd-2145-80fe-f003-68f2168b84ba","name":"Ahmad Hassan","date_entered":"2025-10-17 10:10:42","date_modified":"2025-10-17 11:04:32","modified_user_id":null,"created_by":"","description":null,"deleted":"0","assigned_user_id":"8cf8b27d-5a29-984b-b3c3-5693eede3156","vehicle_source":null,"vehicle_cetagory":null,"vehicle_id":null,"min_hours":null,"passenger":null,"bags":null,"promhourly":null,"uc_vehicles_show":"^^","facilities":"^^","id_c":"cf31fcbd-2145-80fe-f003-68f2168b84ba","pickup_address_c":"San Diego, CA, US","pickup_lat_c":"32.72","pickup_lng_c":"-117.16","dropoff_address_c":"Washington, DC, US","dropoff_lat_c":"38.90","dropoff_lng_c":"-77.04","freight_description_c":"This is test","carrier_vehicle_type_c":"van","freight_weight_c":"12000","freight_length_c":"12","freight_width_c":"12","freight_height_c":"12","freight_pallet_count_c":"12","freight_box_count_c":"12","number_of_stops_c":"","client_notes_c":"","freight_shipper_name_c":"Ahmad Hassan","freight_shipper_phone_c":"03154540483","freight_shipper_email_c":"ahmadhassan795294@gmail.com","freight_shipper_address_c":"Faisalabad","freight_type_c":"general","rate_c":"2.51","mileage_c":"6685.93","total_price_c":"9,462.76","distance_c":"2,682.42","pickup_time_c":"15:12","fuel_c":"1635.38","addons_c":"liftgate_service-50,inside_delivery-75,","duration_c":"1 day 17 hrs 7 mins","deadhead_price_c":"2.59","deadhead_distance_c":"1.03","vendor_id_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c","opertunity_id_c":"000006","pickup_state_c":"CA","vendor_name_c":"Ahmad Hassan","vendor_email_c":"madarauchihaoffocial@gmail.com","pickup_city_c":"San Diego","pickup_zip_c":"","dropoff_city_c":"Washington DC","dropoff_state_c":"DC","dropoff_zip_c":"","truckerpath_ref_id_c":"297215891|2d73a251-efac-418a-9f92-aeefe68fc043|9ddc9bd6-cc44-46d9-9dfb-ae0f3790738a","addons_total_c":"125","dropoff_time_c":"15:14","toll_c":"0","client_budget_c":"","driver_info_c":"","vendor_phone_c":"","vendor_price_c":"","vendor_deposit_c":"","profit_c":"999.868","vendor_confirmation_c":"","amount_paid_c":"11200","payments_made_c":"3","payment_notes_c":"","agreement_link_c":"","esigned_description_c":"","signed_agreement_link_c":"http:\/\/localhost\/stretch-dashboard\/pdf\/agreement_cf31fcbd-2145-80fe-f003-68f2168b84ba_1760699084.pdf","vnd_vendors_id_c":"","vnd_vechiles_id_c":"","vendor_notes_c":"","see_vendors_button_c":"","vendor_status_c":"1","platform_price_c":"7325.03","market_price_c":"8,323.90","source_c":".com","status_c":"Converted","co_signer_c":"","dropoff_date_c":"2025-10-24","pickup_date_c":"2025-10-18","agreement_status_c":"SIGNED","client_payment_type_c":"paid_by_creditcard","email1_c":"","tracking_c":"1","shipment_id_c":"lCLKCDCu5U9JiN6SWm9NMQ==|","carrier_quote_ids_c":"3010cac7-2139-3a23-1d47-685d4eeaa24c|","reminder_c":"0","posted_c":"1","tp_c":"0","pickup_time_new_c":null,"dropoff_time_new_c":null,"commodity_c":null,"hazardous_c":null,"cargovalue_c":null,"is_international_c":null,"insurance_amount_c":null}]
+[2025-12-10 12:46:40] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 12:46:41] [INFO] API Response: []
+[2025-12-10 12:46:58] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 12:46:58] [INFO] API Response: []
+[2025-12-10 12:47:10] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 12:47:11] [INFO] API Response: []
+[2025-12-10 12:59:19] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 12:59:20] [INFO] API Response: []
+[2025-12-10 13:00:21] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:00:22] [INFO] API Response: []
+[2025-12-10 13:01:54] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:01:54] [INFO] API Response: []
+[2025-12-10 13:03:07] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:03:08] [INFO] API Response: []
+[2025-12-10 13:08:37] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:08:38] [INFO] API Response: []
+[2025-12-10 13:08:56] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:08:56] [INFO] API Response: []
+[2025-12-10 13:09:25] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:09:25] [INFO] API Response: []
+[2025-12-10 13:09:54] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:09:55] [INFO] API Response: []
+[2025-12-10 13:10:39] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:10:39] [INFO] API Response: []
+[2025-12-10 13:11:15] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:11:16] [INFO] API Response: []
+[2025-12-10 13:11:46] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:11:47] [INFO] API Response: []
+[2025-12-10 13:12:16] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:12:16] [INFO] API Response: []
+[2025-12-10 13:13:30] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:13:31] [INFO] API Response: []
+[2025-12-10 13:16:26] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:16:27] [INFO] API Response: []
+[2025-12-10 13:17:04] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:17:04] [INFO] API Response: []
+[2025-12-10 13:20:05] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchAllVendorLeadsFormal
+)
+
+[2025-12-10 13:20:05] [INFO] API Response: []

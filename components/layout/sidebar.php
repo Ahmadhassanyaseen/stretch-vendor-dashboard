@@ -80,6 +80,16 @@
                 <span class="ml-4 sidebar-item hidden">Referrals</span>
               </a>
             </li>
+            <li class="relative px-6 py-3 sidebar-menu-item">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold text-gray-500 transition-colors duration-150 hover:bgRed"
+                href="locations.php"
+                title="Locations"
+              >
+               <i class="fas fa-location-dot text-xl"></i>
+                <span class="ml-4 sidebar-item hidden">Locations</span>
+              </a>
+            </li>
            
           </ul>
           
@@ -224,6 +234,19 @@
               >
                <i class="fas fa-user"></i>
                 <span class="ml-4">Referrals</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3 sidebar-menu-item">
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-primary-color rounded-tr-lg rounded-br-lg opacity-0"
+                aria-hidden="true"
+              ></span>
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold text-gray-500 transition-colors duration-150 hover:text-gray-800 "
+                href="locations.php"
+              >
+               <i class="fas fa-location-dot"></i>
+                <span class="ml-4">Locations</span>
               </a>
             </li>
           </ul>
