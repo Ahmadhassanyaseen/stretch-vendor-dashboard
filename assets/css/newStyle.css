@@ -271,6 +271,10 @@
                     border: 1px solid rgba(255, 255, 255, 0.2);
                 }
 
+                .remove-location{
+                    background: linear-gradient(135deg, #f44336, #e91e63, #9c27b0);
+                  
+                }
                 .modern-btn:hover {
                     box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
                     border-color: rgba(255, 255, 255, 0.3);

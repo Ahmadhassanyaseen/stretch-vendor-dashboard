@@ -120,4 +120,8 @@ function updateReminderForShipper($data){
     $data["method"] = "updateReminderForShipper";
     return curlRequest($data);
 }
+function fetchVendorTopLocations($data){
+    $data["method"] = "fetchVendorTopLocations";
+    return curlRequest($data);
+}
 

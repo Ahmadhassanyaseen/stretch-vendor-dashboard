@@ -5,16 +5,17 @@
 <?php include 'components/layout/header.php'; ?>
   <?php include 'components/layout/sidebar.php'; ?>
   <?php
-    
-    if (isset($_COOKIE['vendor'])) {
-      $userData = json_decode($_COOKIE['vendor'], true);
-    } else {
-      $userData = [];
-    }
 
-    
-    
-    ?>
+if (isset($_COOKIE['vendor'])) {
+    $userData = json_decode($_COOKIE['vendor'], true);
+} else {
+    $userData = [];
+}
+$data['id'] = $userData['id'];
+$response = fetchVendorTopLocations($data);
+// print_r($response);
+
+?>
     
    
     <div class="flex flex-col flex-1 w-full">
@@ -79,7 +80,63 @@
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+            </div>
+
+            <?php
+             $locations = [];
+            // Normalize locations from API response
+            // $response is likely an array from curlRequest; adjust selectors as needed
+            $locationsRaw = $response;
+
+            if (is_string($locationsRaw)) {
+                $locations = array_values(array_filter(array_map('trim', explode('|', $locationsRaw))));
+            } elseif (is_array($locationsRaw)) {
+                // If backend already returns an array, map to plain strings
+                $locations = array_values(array_filter(array_map(function ($it) {
+                    // Support either scalar or array item with a 'location' field
+                    if (is_array($it))
+                        return trim((string) ($it['location'] ?? $it['name'] ?? ''));
+                    return trim((string) $it);
+                }, $locationsRaw)));
+            } else {
+                $locations = [];
+            }
+            ?>
+
+<div class="mt-6">
+  <h2 class="text-xl font-semibold mb-4 ">Your Top Locations</h2>
+
+  <?php if (empty($locations)) { ?>
+    <div class="p-6 rounded-xl border border-dashed border-blue-300/50 bg-white/10 text-white/80">
+      No saved locations yet. Use the search above to add one.
+    </div>
+  <?php } else { ?>
+    <div id="topLocations" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <?php foreach ($locations as $loc): ?>
+        <div class="relative p-4 rounded-xl bg-white dark:bg-gray-800 shadow border border-gray-200/60 dark:border-gray-700 hover:shadow-lg transition">
+          <button
+            type="button"
+            class="remove-location absolute text-white -top-2 -right-2 w-8 h-8 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 shadow"
+            title="Remove"
+            onClick="removeLocation('<?= htmlspecialchars($loc, ENT_QUOTES, 'UTF-8') ?>')"
+           
+          >
+            <i class="fas fa-times text-sm"></i>
+          </button>
+          <div class="flex items-start">
+            <div class="mr-3 mt-1 text-blue-600 dark:text-blue-400">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-800 dark:text-white"><?= htmlspecialchars($loc, ENT_QUOTES, 'UTF-8') ?></div>
+              <!-- <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">Preferred pickup</div> -->
+            </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  <?php } ?>
+</div>
 
 
 
@@ -177,35 +234,70 @@
 
 
                 searchButton.addEventListener('click', async function() {
-                // Get the formatted address
-                let searchInput = document.getElementById('search');
 
-                if(searchInput.value.trim() == ''){
-                    alert("Kindly enter a location");
-                return;
-                }
+                    let locationsCount = '<?php echo count($locations); ?>';
+                    // console.log(locationsCount);
+                    // return;
 
-                const fd = new FormData();
-                // TODO: replace with your actual server method and keys
-                fd.append('method', 'saveTopLocation'); // ← confirm/change
-                fd.append('id', '<?php echo $userData['id']; ?>');
-                fd.append('location', searchInput.value);
-                try{
-                    const resp = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
-                        method: 'POST',
-                        body: fd
-                    });
-                    const json = await resp.json();
-                    if (json && (json.success === true || json.status === 200)){
-                        Swal.fire('Saved', 'Location preference saved successfully.', 'success');
-                    }else{
-                        const msg = (json && (json.message || json.error)) || 'Unable to save location.';
-                        Swal.fire('Error', msg, 'error');
+                    if(locationsCount >= 5){
+                        Swal.fire('Limit Exceeded', 'You can only add 5 locations.', 'warning');
+                        return;
                     }
-                    }catch(err){
-                    console.error(err);
-                    Swal.fire('Network error', 'Could not reach the server.', 'error');
-                    }
+
+                    let searchInput = document.getElementById('search');
+
+                        if(searchInput.value.trim() == ''){
+                            alert("Kindly enter a location");
+                        return;
+                        }
+
+                   let allLocations = '<?php echo addslashes(is_string($response) ? $response : (is_array($locations) ? implode('|', $locations) : '')); ?>';
+const newLoc = searchInput.value.trim();
+if (!newLoc) {
+  Swal.fire('Enter a location', 'Please type a location first.', 'warning');
+  return;
+}
+
+// Normalize existing list
+const list = allLocations
+  ? allLocations.split('|').map(s => s.trim()).filter(Boolean)
+  : [];
+
+// Exact match (case-insensitive) check
+const exists = list.some(s => s.toLowerCase() === newLoc.toLowerCase());
+if (exists) {
+  Swal.fire('Already added', 'This location already exists in your list.', 'info');
+  return;
+}
+
+// Safe new string to send
+const newLocations = [...list, newLoc].join('|');
+console.log('Will save:', newLocations);
+
+// Proceed to send newLocations
+const fd = new FormData();
+fd.append('method', 'saveTopLocationsVendor'); // adjust if backend differs
+fd.append('id', '<?php echo $userData['id']; ?>');
+fd.append('locations', newLocations);
+
+try {
+  const resp = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
+    method: 'POST',
+    body: fd
+  });
+  const json = await resp.json();
+  if (json && (json.success === true || json.status === 200)) {
+    Swal.fire('Saved', 'Location preference saved successfully.', 'success');
+      window.location.reload();
+    // Optionally append a new card to the grid here without reloading
+  } else {
+    const msg = (json && (json.message || json.error)) || 'Unable to save location.';
+    Swal.fire('Error', msg, 'error');
+  }
+} catch (err) {
+  console.error(err);
+  Swal.fire('Network error', 'Could not reach the server.', 'error');
+}
 
                 
 
@@ -213,7 +305,85 @@
                 
                 });
 
-            </script>
+
+
+                async function removeLocation(location) {
+  // Original pipe-delimited list from server
+  let allLocations = '<?php echo addslashes(is_string($response) ? $response : (is_array($locations) ? implode('|', $locations) : '')); ?>';
+
+  // Normalize to array
+  const items = allLocations
+    .split('|')
+    .map(s => s.trim())
+    .filter(Boolean);
+
+  // Remove the selected item (exact match)
+  const updated = items.filter(item => item !== location);
+
+  // If nothing changed, stop
+  if (updated.length === items.length) {
+    Swal.fire('Not found', 'Location not present in your list.', 'info');
+    return;
+  }
+
+  // Confirm deletion
+  const confirmRes = await Swal.fire({
+    title: 'Remove location?',
+    text: location,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#ef4444',
+    cancelButtonColor: '#6b7280',
+    confirmButtonText: 'Remove'
+  });
+  if (!confirmRes.isConfirmed) return;
+
+  const newString = updated.join('|');
+
+  // Update server (choose one approach below)
+
+  // Approach A: overwrite the full list (common when backend expects entire string)
+  const fd = new FormData();
+  fd.append('method', 'saveTopLocationsVendor'); // or 'updateTopLocationsVendor' if your API has it
+  fd.append('id', '<?php echo $userData['id']; ?>');
+  fd.append('locations', newString); // send full updated list
+
+  try {
+    const resp = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
+      method: 'POST',
+      body: fd
+    });
+    const json = await resp.json();
+    if (json && (json.success === true || json.status === 200)) {
+      // Remove the card from DOM
+      const btn = document.querySelector(`.remove-location[data-location="${CSS.escape(location)}"]`) || null;
+      const card = btn ? btn.closest('.relative.p-4') : null;
+      if (card) card.remove();
+
+      // Optionally update your local variable/state
+      allLocations = newString;
+
+      // If nothing left, swap grid to empty-state
+      const grid = document.getElementById('topLocations');
+      if (grid && grid.children.length === 0) {
+        grid.outerHTML = '<div class="p-6 rounded-xl border border-dashed border-blue-300/50 bg-white/10 text-white/80">No saved locations yet. Use the search above to add one.</div>';
+      }
+
+      Swal.fire('Removed', 'Location removed successfully.', 'success');
+      window.location.reload();
+    } else {
+      const msg = (json && (json.message || json.error)) || 'Failed to remove location.';
+      Swal.fire('Error', msg, 'error');
+    }
+  } catch (e) {
+    console.error(e);
+    Swal.fire('Network error', 'Could not reach the server.', 'error');
+  }
+
+ 
+}
+              
+             </script>
           
 
          
