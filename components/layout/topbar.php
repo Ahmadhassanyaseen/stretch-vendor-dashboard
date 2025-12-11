@@ -152,6 +152,15 @@
                         <span>Payments</span>
                       </a>
                     </li>
+                    <li class="flex">
+                      <a
+                        class="inline-flex items-center gap-4 w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
+                        href="locations.php"
+                      >
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Locations</span>
+                      </a>
+                    </li>
                     
                     <li class="flex">
                       <a
