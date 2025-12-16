@@ -45,7 +45,7 @@
                         <select
                           id="vehicle_type"
                           name="vehicle_type"
-                          required
+                
                           class="w-full px-3 py-2 mt-2 border rounded-md"
                         >
                           <option value="" class="text-gray-700">Select Vehicle Type</option>
@@ -125,7 +125,10 @@
                           type="number"
                           id="hourly_rate"
                           name="hourly_rate"
-                          
+                          step="0.01"
+                          min="0"
+                          inputmode="decimal"
+                          lang="en" 
                           class="w-full px-3 py-2 mt-2 border rounded-md "
                           placeholder="Enter hourly rate"
                         />
@@ -177,14 +180,16 @@
                         <label for="mileage" class="block text-sm font-medium text-gray-700 dark:text-white mb-1">
                           Mileage
                         </label>
-                        <input
+                       <input
                           type="number"
                           id="mileage"
                           name="mileage"
-                          
-                          class="w-full px-3 py-2 mt-2 border rounded-md  "
-                          placeholder="Enter mileage"
-
+                          step="0.01"
+                          min="0"
+                          inputmode="decimal"
+                          lang="en" 
+                          class="w-full px-3 py-2 mt-2 border rounded-md"
+                          placeholder="0.00"
                         />
                      </div>
 
@@ -194,7 +199,7 @@
                         </label>
                       <select name="status" id="status" class="w-full px-3 py-2 mt-2 border rounded-md  ">
                           <option value="" class="text-gray-700">Select Status</option>
-                          <option value="Yes" class="text-gray-700">Active</option>
+                          <option value="Yes" class="text-gray-700" selected>Active</option>
                           <option value="No" class="text-gray-700">Inactive</option>
                         </select>
                       </div>
@@ -210,7 +215,7 @@
                       </label>
                       <input
                         type="text"
-                        
+                        required
                         class="w-full px-3 py-2 mt-2 border rounded-md  "
                         name="pickup_address"
                       
@@ -246,7 +251,7 @@
                           type="text"
                           id="pickup_state"
                           name="pickup_state"
-                          
+                          required
                           
                           class="w-full px-3 py-2 mt-2 border rounded-md  "
                           placeholder="Enter state"
@@ -258,7 +263,7 @@
                         Availability
                         </label>
                      
-                       <select name="availability" id="availability" class="w-full px-3 py-2 mt-2 border rounded-md  ">
+                       <select name="availability" id="availability" class="w-full px-3 py-2 mt-2 border rounded-md  " required>
                           <option value="" class="text-gray-700">Select Availability</option>
                           <option value="every_day" class="text-gray-700">Every Day</option>
                           <option value="every_weekend" class="text-gray-700">Every Weekend</option>
@@ -303,7 +308,26 @@
         </main>
       </div>
     </div>
-
+<script>
+  const mileageEl = document.getElementById('mileage');
+  if (mileageEl) {
+    mileageEl.addEventListener('blur', () => {
+      const v = mileageEl.value;
+      if (v !== '' && !isNaN(v)) {
+        mileageEl.value = parseFloat(v).toFixed(2);
+      }
+    });
+  }
+  const hourly_rate = document.getElementById('hourly_rate');
+  if (hourly_rate) {
+    hourly_rate.addEventListener('blur', () => {
+      const v = hourly_rate.value;
+      if (v !== '' && !isNaN(v)) {
+        hourly_rate.value = parseFloat(v).toFixed(2);
+      }
+    });
+  }
+</script>
     <script>
         <?php if(isset($_GET['success']) && $_GET['success'] == 1){ ?>
             Swal.fire({

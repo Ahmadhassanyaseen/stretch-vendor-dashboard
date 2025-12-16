@@ -29,6 +29,17 @@ $data['id'] = $userData['id'];
 $response = fetchAllVendorLeadsConverted($data);
 
 foreach($response as $key => $value){
+
+
+  $quoteAccepted = false;
+              $quotePrice = '0';
+              foreach ($value['vendor_quotes'] as $quote) {
+                $quote['status'] = strtolower($quote['status']);
+                if($quote['status'] == 'accepted'){
+                  $quoteAccepted = true;
+                  $quotePrice = $quote['price'];
+                }
+              }
   $shipments[] = [
     'id' => $value['id'],
     'name' => $value['name'],
@@ -37,7 +48,8 @@ foreach($response as $key => $value){
     'tracking_number' => $value['opertunity_id_c'] ?? 'N/A',
     'pickup' => $value['pickup_address_c'],
     'dropoff' => $value['dropoff_address_c'],
-    'amount' => '$' . $value['total_price_c'] ?? '0.00',
+    'amount' => '$' . $quoteAccepted ? $quotePrice : $value['total_price_c'] ?? '0.00',
+               
     'status' => $value['status_c'] ?? 'Pending',
     'weight' => $value['freight_weight_c'].'lbs',
     'created_at' => $value['date_entered'],

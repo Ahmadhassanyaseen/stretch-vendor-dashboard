@@ -14,6 +14,8 @@
 
     $data['id'] = $userData['id'];
     $response = fetchAllVendorLeads($data);
+
+    // print_r($response);
     ?>
      
       <div class="flex flex-col flex-1 w-full">
@@ -60,7 +62,7 @@
                        'color' => 'green',
                        'bgClass' => 'modern-btn',
                      ],
-                     [
+                     [ 
                        'title' => 'Cancelled Shipments',
                        'value' => array_reduce($response, function ($carry, $item) {
                          return $carry + (in_array(strtolower($item['status_c']), ['cancelled', 'dead', 'deleted']) ? 1 : 0);
@@ -93,7 +95,17 @@
             <!-- Card -->
             <?php
 
+
             foreach ($response as $key => $value) {
+              $quoteAccepted = false;
+              $quotePrice = '0';
+              foreach ($value['vendor_quotes'] as $quote) {
+                $quote['status'] = strtolower($quote['status']);
+                if($quote['status'] == 'accepted'){
+                  $quoteAccepted = true;
+                  $quotePrice = $quote['price'];
+                }
+              }
               $quantity = "N/A";
               if(isset($value['freight_pallet_count_c']) && $value['freight_pallet_count_c'] != ""){
                 $quantity = $value['freight_pallet_count_c'];
@@ -106,7 +118,7 @@
                 'tracking_number' => $value['opertunity_id_c'] ?? 'N/A',
                 'pickup' => $value['pickup_address_c'] ?? 'N/A',
                 'dropoff' => $value['dropoff_address_c'] ?? 'N/A',
-                'amount' => '$' . $value['platform_price_c'] ?? '0.00',
+                'amount' => '$' . $quoteAccepted ? $quotePrice : $value['platform_price_c'] ?? '0.00',
                 'status' => $value['status_c'] ?? 'Pending',
                 'weight' => $value['freight_weight_c'] . 'lbs',
                 'created_at' => $value['date_entered'],

@@ -126,6 +126,7 @@ if (!empty($response['tier_date'])) {
               </div>
               <?php
                 }else{
+                   if(isset($response['tier_renew']) && $response['tier_renew'] != '1'){
                   ?>
                  <div class="flex gap-4 items-center justify-center">
                   <button
@@ -138,6 +139,20 @@ if (!empty($response['tier_date'])) {
                   Your account is active. You can avail all features. Next Renew <?php echo $nextRenewDate; ?></div>
                 </div>
                   <?php
+                }else{
+                  ?>
+                 <div class="flex gap-4 items-center justify-center">
+                  <a
+                    href="tier.php"
+                    class="px-4 py-3 text-sm font-medium text-white bgBlue cursor-pointer rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  >
+                   Renew Now
+                  </a>
+                  <div class="px-6 py-3 my-6 flex justify-between items-center bgBlue text-white rounded-lg shadow-md ">
+                  Your tier will expire on <?php echo $nextRenewDate; ?></div>
+                </div>
+                  <?php
+                }
                 }
                 ?>
             
@@ -629,7 +644,7 @@ if (!empty($response['tier_date'])) {
         preConfirm: async () => {
           try {
            let formData = new FormData();
-            formData.append('action', 'deleteVendor');
+            formData.append('method', 'deleteVendor');
             formData.append('id', '<?php echo $userData['id']; ?>');
             // Replace with your actual endpoint
             const res = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
@@ -681,7 +696,7 @@ if (!empty($response['tier_date'])) {
         preConfirm: async () => {
           try {
             let formData = new FormData();
-            formData.append('action', 'stopRenew');
+            formData.append('method', 'stopRenew');
             formData.append('id', '<?php echo $userData['id']; ?>');
             // Replace with your actual endpoint
             const res = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
