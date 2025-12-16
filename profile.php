@@ -24,10 +24,28 @@ $user = $userData;
 
 // print_r($user);
 
+$data['id'] = $userData['id'];
+$response = fetchVendorById($data);
+// print_r($response);
 
 // Handle form submission
 
 ?>
+
+
+<?php
+$nextRenewDate = '';
+if (!empty($response['tier_date'])) {
+  try {
+    $dt = new DateTime($response['tier_date']);
+    $dt->modify('+1 month');
+    $nextRenewDate = $dt->format('Y-m-d'); // or 'F j, Y'
+  } catch (Exception $e) {
+    $nextRenewDate = $response['tier_date']; // fallback
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
   <head>
@@ -109,13 +127,16 @@ $user = $userData;
               <?php
                 }else{
                   ?>
+                 <div class="flex gap-4 items-center justify-center">
+                  <button
+                    id="stopRenew"
+                    class="px-4 py-3 text-sm font-medium text-white bgRed cursor-pointer rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  >
+                   Delete Subscription
+                  </button>
                   <div class="px-6 py-3 my-6 flex justify-between items-center bgBlue text-white rounded-lg shadow-md ">
-                  
-                  
-                  Your account is active. You can avail all features.
-                  
-                
-              </div>
+                  Your account is active. You can avail all features. Next Renew <?php echo $nextRenewDate; ?></div>
+                </div>
                   <?php
                 }
                 ?>
@@ -350,12 +371,18 @@ $user = $userData;
                     </div>
                   </div>
                 </div>
-                <div class="flex  mt-4">
+                <div class="flex justify-between  mt-4">
                   <button
                     type="submit"
                     class="px-4 py-2 text-sm font-medium text-white bgBlue cursor-pointer rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     Save Changes
+                  </button>
+                  <button
+                    id="deleteAccount"
+                    class="px-4 py-2 text-sm font-medium text-white bgRed cursor-pointer rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  >
+                   Delete Account
                   </button>
                 </div>
               </form>
@@ -579,5 +606,114 @@ $user = $userData;
         });
     </script>
     <?php } ?>
+
+
+    <script>
+  const deleteAccountBtn = document.getElementById('deleteAccount');
+
+  if (deleteAccountBtn) {
+    deleteAccountBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      Swal.fire({
+        title: 'Delete account?',
+        html: 'This will permanently delete your account, including all data and subscriptions. This action cannot be undone.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete permanently',
+        cancelButtonText: 'Cancel',
+        reverseButtons: true,
+        focusCancel: true,
+        showLoaderOnConfirm: true,
+        allowOutsideClick: () => !Swal.isLoading(),
+        preConfirm: async () => {
+          try {
+           let formData = new FormData();
+            formData.append('action', 'deleteVendor');
+            formData.append('id', '<?php echo $userData['id']; ?>');
+            // Replace with your actual endpoint
+            const res = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
+              method: 'POST',
+              body: formData,
+            });
+
+            if (!res.ok) throw new Error('Network error');
+            const data = await res.json();
+            if (!data.success) throw new Error(data.message || 'Deletion failed');
+
+            return data; // Pass to then() as result.value
+          } catch (err) {
+            Swal.showValidationMessage(err.message || 'Request failed');
+          }
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'Deleted',
+            text: (result.value && result.value.message) || 'Your account has been deleted.',
+            icon: 'success'
+          }).then(() => {
+            // Optional: redirect, e.g. to logout or home
+            window.location.href = '/logout.php';
+          });
+        }
+      });
+    });
+  }
+   
+  const stopRenew = document.getElementById('stopRenew');
+
+  if (stopRenew) {
+    stopRenew.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      Swal.fire({
+        title: 'Delete Subscription?',
+        html: 'This will stop your subscription renewal and you will not be able to access the features. This action cannot be undone.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, stop renewal',
+        cancelButtonText: 'Cancel',
+        reverseButtons: true,
+        focusCancel: true,
+        showLoaderOnConfirm: true,
+        allowOutsideClick: () => !Swal.isLoading(),
+        preConfirm: async () => {
+          try {
+            let formData = new FormData();
+            formData.append('action', 'stopRenew');
+            formData.append('id', '<?php echo $userData['id']; ?>');
+            // Replace with your actual endpoint
+            const res = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
+              method: 'POST',
+              body: formData,
+            });
+
+            console.log(res);
+
+            if (!res.ok) throw new Error('Network error');
+            const data = await res.json();
+            if (!data.success) throw new Error(data.message || 'Deletion failed');
+
+            return data; // Pass to then() as result.value
+          } catch (err) {
+            Swal.showValidationMessage(err.message || 'Request failed');
+          }
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'Deleted',
+            text: (result.value && result.value.message) || 'Your account has been deleted.',
+            icon: 'success'
+          }).then(() => {
+            // Optional: redirect, e.g. to logout or home
+            window.location.reload();
+          });
+        }
+      });
+    });
+  }
+</script>
   </body>
 </html>

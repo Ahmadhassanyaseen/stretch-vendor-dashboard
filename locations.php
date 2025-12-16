@@ -124,7 +124,7 @@ $response = fetchVendorTopLocations($data);
             <i class="fas fa-times text-sm"></i>
           </button>
           <div class="flex items-start">
-            <div class="mr-3 mt-1 text-blue-600 dark:text-blue-400">
+            <div class="mr-3 text-blue-600 dark:text-blue-400">
               <i class="fas fa-map-marker-alt"></i>
             </div>
             <div>

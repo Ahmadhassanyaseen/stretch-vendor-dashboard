@@ -33,3 +33,10 @@
 )
 
 [2025-12-11 12:50:29] [INFO] API Response: "Los Angeles, CA, USA|New Jersey, USA|Baltimore, MD, USA"
+[2025-12-11 13:02:25] [INFO] Sending to API: Array
+(
+    [id] => 3010cac7-2139-3a23-1d47-685d4eeaa24c
+    [method] => fetchVendorTopLocations
+)
+
+[2025-12-11 13:02:26] [INFO] API Response: "Los Angeles, CA, USA|Baltimore, MD, USA|San Francisco, CA, USA|Louisville, KY, USA|New York, NY, USA"

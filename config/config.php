@@ -92,6 +92,11 @@ function fetchShipmentById($data){
     $data["method"] = "fetchShipmentById";
     return curlRequest($data);
 }
+
+function fetchVendorById($data){
+    $data["method"] = "fetchVendorById";
+    return curlRequest($data);
+}
 function updateShipment($data){
     $data["method"] = "updateShipment";
     return curlRequest($data);
