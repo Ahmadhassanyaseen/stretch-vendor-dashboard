@@ -48,7 +48,7 @@ foreach($response as $key => $value){
     'tracking_number' => $value['opertunity_id_c'] ?? 'N/A',
     'pickup' => $value['pickup_address_c'],
     'dropoff' => $value['dropoff_address_c'],
-    'amount' => '$' . $quoteAccepted ? $quotePrice : $value['total_price_c'] ?? '0.00',
+    'amount' => $quoteAccepted ? '$' . $quotePrice : '$' . $value['total_price_c'] ?? '$0.00',
                
     'status' => $value['status_c'] ?? 'Pending',
     'weight' => $value['freight_weight_c'].'lbs',
