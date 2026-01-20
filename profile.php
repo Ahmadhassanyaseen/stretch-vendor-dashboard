@@ -109,10 +109,16 @@ if (!empty($response['tier_date'])) {
         <?php include 'components/layout/topbar.php'; ?>
         <main class="h-full overflow-y-auto">
           <div class=" px-6 mx-auto grid">
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between items-center gap-3">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-white ">
               Profile
             </h2>
+            <div class="flex gap-2 justify-end flex-1">
+
+              <button onclick="startTrial()" class="px-6 py-4 text-sm font-medium text-white bgBlue cursor-pointer rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Start Free Trial</button>              
+            </div>
+            
+
             <?php 
                 if($userData['tier_status'] != '1'){
                   ?>
@@ -728,6 +734,55 @@ if (!empty($response['tier_date'])) {
         }
       });
     });
+  }
+
+  function startTrial(){
+    Swal.fire({
+      title: 'Start Free Trial?',
+      html: 'This will start your free trial and you will be able to access the features. This action cannot be undone.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, start trial',
+      cancelButtonText: 'Cancel',
+      reverseButtons: true,
+      focusCancel: true,
+      showLoaderOnConfirm: true,
+      allowOutsideClick: () => !Swal.isLoading(),
+      preConfirm: async () => {
+        try {
+          let formData = new FormData();
+          formData.append('method', 'startTrial');
+          formData.append('id', '<?php echo $userData['id']; ?>');
+          // Replace with your actual endpoint
+          const res = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
+            method: 'POST',
+            body: formData,
+          });
+
+          console.log(res);
+
+          if (!res.ok) throw new Error('Network error');
+          const data = await res.json();
+          if (!data.success) throw new Error(data.message || 'Trial start failed');
+
+          return data; // Pass to then() as result.value
+        } catch (err) {
+          Swal.showValidationMessage(err.message || 'Request failed');
+        }
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Started',
+          text: (result.value && result.value.message) || 'Your trial has been started.',
+          icon: 'success'
+        }).then(() => {
+          // Optional: redirect, e.g. to logout or home
+          window.location.reload();
+        });
+      }
+    });
+    
   }
 </script>
   </body>

@@ -583,12 +583,6 @@ $(document).ready(function() {
                 const details = tr.data('details-json');
                 const content = await formatDetails(details);
                 row.child(content).show();
-
-                console.log(details);
-                // Render map
-                if (details.pickup && details.dropoff) {
-                    renderRadarMap(details.id, details.pickup, details.dropoff);
-                }
             } catch (error) {
                 console.error('Error loading details:', error);
                 row.child(`
@@ -600,108 +594,6 @@ $(document).ready(function() {
         }
     });
 });
-
-
-
-const RADAR_API_KEY = "prj_live_pk_54b2a02354afc907c3550d5b7e709b61937d9d88";
-const mapInstances = {};
-
-async function geocodeAddress(address) {
-    const url = `https://api.radar.io/v1/geocode/forward?query=${encodeURIComponent(address)}`;
-    try {
-        const res = await fetch(url, {
-            headers: { "Authorization": RADAR_API_KEY }
-        });
-        if (!res.ok) throw new Error('Geocoding failed');
-        const data = await res.json();
-        if (data.addresses && data.addresses.length > 0) {
-            return data.addresses[0];
-        }
-        return null;
-    } catch (e) {
-        console.error("Geocoding error", e);
-        return null;
-    }
-}
-
-async function renderRadarMap(id, pickup, dropoff) {
-    const mapId = `map-${id}`;
-    const mapElement = document.getElementById(mapId);
-    
-    if (!mapElement) return;
-
-    // Ensure the container has height
-    mapElement.style.height = '340px';
-    mapElement.style.width = '100%';
-
-    // Cleanup existing map instance if any
-    if (mapInstances[id]) {
-        mapInstances[id].remove();
-        delete mapInstances[id];
-    }
-
-    // Initialize map
-    const map = L.map(mapId).setView([39.5, -98.35], 4);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    
-    mapInstances[id] = map;
-
-    // Force map to update its size after a short delay to handle potential visibility transitions
-    setTimeout(() => {
-        map.invalidateSize();
-    }, 100);
-
-    try {
-        // Geocode both addresses
-        const [originLoc, destLoc] = await Promise.all([
-            geocodeAddress(pickup),
-            geocodeAddress(dropoff)
-        ]);
-
-        if (!originLoc || !destLoc) {
-            console.error("Could not geocode one or both addresses");
-            return;
-        }
-
-        const originCoords = `${originLoc.latitude},${originLoc.longitude}`;
-        const destCoords = `${destLoc.latitude},${destLoc.longitude}`;
-
-        // Fetch directions
-        const directionsUrl = `https://api.radar.io/v1/route/directions?locations=${originCoords}|${destCoords}&mode=car&geometry=linestring`;
-        
-        const res = await fetch(directionsUrl, {
-            headers: { "Authorization": RADAR_API_KEY }
-        });
-
-        if (!res.ok) {
-            console.error("Radar Directions error", await res.text());
-            return;
-        }
-
-        const data = await res.json();
-        if (!data.routes || !data.routes.length) {
-            console.warn("No route found");
-            return;
-        }
-
-        const route = data.routes[0];
-        // route.geometry.coordinates is [lng, lat], Leaflet needs [lat, lng]
-        const coords = route.geometry.coordinates.map(c => [c[1], c[0]]);
-
-        const line = L.polyline(coords, { color: "blue", weight: 4 }).addTo(map);
-        map.fitBounds(line.getBounds(), { padding: [50, 50] });
-
-        // Add markers
-        L.marker([originLoc.latitude, originLoc.longitude]).addTo(map).bindPopup("Pickup: " + pickup);
-        L.marker([destLoc.latitude, destLoc.longitude]).addTo(map).bindPopup("Dropoff: " + dropoff);
-
-    } catch (err) {
-        console.error("Error rendering Radar map:", err);
-    }
-}
 // Function to format the details row content
 async function formatDetails(data) {
     shipmentData = data;
@@ -709,10 +601,10 @@ async function formatDetails(data) {
     const details = typeof data === 'string' ? JSON.parse(data) : data;
     
     // Generate map URL immediately
-    // const pickup = details.pickup.split(', ').slice(0, 3).join(',');
-    // const dropoff = details.dropoff.split(', ').slice(0, 3).join(',');
-    // const mapUrl = `https://maps.google.com/maps?q=${pickup}to=${dropoff}&t=&z=7&ie=UTF8&iwloc=&output=embed`;
-    const mapId = `map-${details.id}`;
+    const pickup = details.pickup.split(', ').slice(0, 3).join(',');
+    const dropoff = details.dropoff.split(', ').slice(0, 3).join(',');
+    const mapUrl = `https://maps.google.com/maps?q=${pickup}to=${dropoff}&t=&z=7&ie=UTF8&iwloc=&output=embed`;
+    
     // Generate a unique ID for this loading container
     const loadingContainerId = 'loading-container-' + Date.now();
     
@@ -722,9 +614,9 @@ async function formatDetails(data) {
             <div class="bg-white text-gray-700 p-4 rounded-lg shadow dark:bg-gray-700 dark:text-white w-full">
                 <h4 class="font-semibold text-xl text-gray-700 dark:text-white mb-2">Route Information</h4>
                 <div class="space-y-2 text-sm">
-                   <div class="mapouter">
+                    <div class="mapouter">
                         <div class="gmap_canvas">
-                            <div id="${mapId}" style="height: 100%; width: 100%;"></div>
+                            <iframe width="100%" height="340" src="${mapUrl}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                         </div>
                     </div>
                 </div>
