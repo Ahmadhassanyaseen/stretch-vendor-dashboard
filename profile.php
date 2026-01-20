@@ -114,10 +114,9 @@ if (!empty($response['tier_date'])) {
               Profile
             </h2>
             <div class="flex gap-2 justify-end flex-1">
-               <?php 
-                if($userData['tier_status'] == '0'){
-                  ?>
+
             <?php 
+            if($userData['tier_status'] == '0'){
             // echo $user['trial_status'] ;
             if($user['trial_status'] == '0') { ?>
               <button onclick="startTrial()" class="px-6 py-4 text-sm font-medium text-white bgBlue cursor-pointer rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Start Free Trial</button>   
@@ -134,7 +133,8 @@ if (!empty($response['tier_date'])) {
               </p> 
             <?php } ?>           
             </div>
-            <?php } ?>
+             <?php } ?>    
+            
 
             <?php 
                 if($userData['tier_status'] != '1'){
