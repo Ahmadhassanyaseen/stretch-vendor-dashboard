@@ -114,6 +114,9 @@ if (!empty($response['tier_date'])) {
               Profile
             </h2>
             <div class="flex gap-2 justify-end flex-1">
+               <?php 
+                if($userData['tier_status'] == '0'){
+                  ?>
             <?php 
             // echo $user['trial_status'] ;
             if($user['trial_status'] == '0') { ?>
@@ -131,7 +134,7 @@ if (!empty($response['tier_date'])) {
               </p> 
             <?php } ?>           
             </div>
-            
+            <?php } ?>
 
             <?php 
                 if($userData['tier_status'] != '1'){
