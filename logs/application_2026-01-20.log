@@ -533,3 +533,68 @@
 )
 
 [2026-01-20 13:14:58] [INFO] API Response: {"name":"Ahmad Hassan","tier_status":"","tier_amount":"","tier_date":"","tier_renew":"","password_set":0}
+[2026-01-20 13:57:25] [INFO] Sending to API: Array
+(
+    [email] => satojapantour@gmail.com
+    [password] => Test@123
+    [method] => vendorLogin
+)
+
+[2026-01-20 13:57:25] [INFO] API Response: {"status":"success","message":"Login successful","data":{"id":"c208e221-77ba-f664-b5fc-696f5d08f020","name":"sato","email":"satojapantour@gmail.com","profile_status":"Complete","dot_number":"1000156","mc_number":"798798","vnd_type":"Interstate","phone":"03154540483","city":"Newport Beach","state":"CA","zip":"97034","street":"Balboa Island Ferry","tier_status":"0","has_vehicle":"","trial_status":"1","trial_date":"2026-01-20"}}
+[2026-01-20 13:57:27] [INFO] Sending to API: Array
+(
+    [id] => c208e221-77ba-f664-b5fc-696f5d08f020
+    [method] => fetchAllVendorLeads
+)
+
+[2026-01-20 13:57:27] [INFO] API Response: []
+[2026-01-20 13:57:31] [INFO] Sending to API: Array
+(
+    [id] => c208e221-77ba-f664-b5fc-696f5d08f020
+    [method] => fetchVendorById
+)
+
+[2026-01-20 13:57:31] [INFO] API Response: {"name":"sato","tier_status":"0","tier_amount":"","tier_date":"","tier_renew":"","password_set":1}
+[2026-01-20 13:58:35] [INFO] Sending to API: Array
+(
+    [id] => c208e221-77ba-f664-b5fc-696f5d08f020
+    [method] => fetchVendorById
+)
+
+[2026-01-20 13:58:36] [INFO] API Response: {"name":"sato","tier_status":"0","tier_amount":"","tier_date":"","tier_renew":"","password_set":1}
+[2026-01-20 14:05:52] [INFO] Sending to API: Array
+(
+    [id] => c208e221-77ba-f664-b5fc-696f5d08f020
+    [method] => fetchVendorById
+)
+
+[2026-01-20 14:05:52] [INFO] API Response: {"name":"sato","tier_status":"0","tier_amount":"","tier_date":"","tier_renew":"","password_set":1}
+[2026-01-20 14:07:21] [INFO] Sending to API: Array
+(
+    [email] => satojapantour@gmail.com
+    [password] => Test@123
+    [method] => vendorLogin
+)
+
+[2026-01-20 14:07:22] [INFO] API Response: {"status":"success","message":"Login successful","data":{"id":"c208e221-77ba-f664-b5fc-696f5d08f020","name":"sato","email":"satojapantour@gmail.com","profile_status":"Complete","dot_number":"1000156","mc_number":"798798","vnd_type":"Interstate","phone":"03154540483","city":"Newport Beach","state":"CA","zip":"97034","street":"Balboa Island Ferry","tier_status":"0","has_vehicle":"","trial_status":"-1","trial_date":"2026-01-20"}}
+[2026-01-20 14:07:23] [INFO] Sending to API: Array
+(
+    [id] => c208e221-77ba-f664-b5fc-696f5d08f020
+    [method] => fetchAllVendorLeads
+)
+
+[2026-01-20 14:07:24] [INFO] API Response: []
+[2026-01-20 14:07:27] [INFO] Sending to API: Array
+(
+    [id] => c208e221-77ba-f664-b5fc-696f5d08f020
+    [method] => fetchVendorById
+)
+
+[2026-01-20 14:07:27] [INFO] API Response: {"name":"sato","tier_status":"0","tier_amount":"","tier_date":"","tier_renew":"","password_set":1}
+[2026-01-20 14:07:36] [INFO] Sending to API: Array
+(
+    [id] => c208e221-77ba-f664-b5fc-696f5d08f020
+    [method] => fetchVendorById
+)
+
+[2026-01-20 14:07:36] [INFO] API Response: {"name":"sato","tier_status":"0","tier_amount":"","tier_date":"","tier_renew":"","password_set":1}

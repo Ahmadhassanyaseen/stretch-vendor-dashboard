@@ -67,24 +67,7 @@ $response = fetchVendorById($data);
           <form method="POST" id="new-password-form" class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
             <div class="w-full">
                 <h1 class="mb-6 text-xl font-semibold text-gray-700 dark:text-white"><?php echo $response['name']; ?></h1>
-              <h2 class="mb-6 text-xl font-semibold text-gray-700 dark:text-white">
-                Please set a Username
-              </h2>
-               <div class="mb-4">
-                <label class="block text-sm text-gray-700 dark:text-gray-400 mb-1" for="username">
-                  New Username
-                </label>
-                <input
-                  class="w-full px-3 py-2 text-sm border rounded-lg focus:border-primary-color focus:outline-none focus:ring-1 focus:ring-primary-color"
-                  id="username"
-                  name="username"
-                  type="text"
-                  placeholder="Enter new username"
-                  required
-                  minlength="4"
-                />
-                <div id="username-error" class="error">Username can not have special characters</div>
-              </div>
+              
               <h2 class="mb-6 text-xl font-semibold text-gray-700 dark:text-white">
                 Please set a password
               </h2>
@@ -137,14 +120,14 @@ $response = fetchVendorById($data);
       document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('new-password-form');
         const password = document.getElementById('password');
-        const username = document.getElementById('username');
+        // const username = document.getElementById('username');
         const confirmPassword = document.getElementById('confirm_password');
         const passwordError = document.getElementById('password-error');
         const confirmPasswordError = document.getElementById('confirm-password-error');
-        const usernameError = document.getElementById('username-error');
+        // const usernameError = document.getElementById('username-error');
         // Password validation pattern
         const passwordPattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
-        const usernamePattern = /^[a-zA-Z0-9]{4,}$/;
+        // const usernamePattern = /^[a-zA-Z0-9]{4,}$/;
         function validatePassword() {
           const isValid = passwordPattern.test(password.value);
           if (!isValid) {
@@ -173,31 +156,31 @@ $response = fetchVendorById($data);
             return true;
           }
         }
-        function validateUsername() {
-          const isValid = usernamePattern.test(username.value);
-          if (!isValid) {
-            username.classList.add('error-border');
-            username.classList.remove('success-border');
-            usernameError.classList.add('show');
-            return false;
-          } else {
-            username.classList.remove('error-border');
-            username.classList.add('success-border');
-            usernameError.classList.remove('show');
-            return true;
-          }
-        }
+        // function validateUsername() {
+        //   const isValid = usernamePattern.test(username.value);
+        //   if (!isValid) {
+        //     username.classList.add('error-border');
+        //     username.classList.remove('success-border');
+        //     usernameError.classList.add('show');
+        //     return false;
+        //   } else {
+        //     username.classList.remove('error-border');
+        //     username.classList.add('success-border');
+        //     usernameError.classList.remove('show');
+        //     return true;
+        //   }
+        // }
         // Real-time validation
         password.addEventListener('input', validatePassword);
         confirmPassword.addEventListener('input', validateConfirmPassword);
-        username.addEventListener('input', validateUsername);
+        // username.addEventListener('input', validateUsername);
         // Form submission
         form.addEventListener('submit', async function(e) {
           e.preventDefault();
           const isPasswordValid = validatePassword();
           const isConfirmPasswordValid = validateConfirmPassword();
-          const isUsernameValid = validateUsername();
-          if (!isPasswordValid || !isConfirmPasswordValid || !isUsernameValid) {
+        //   const isUsernameValid = validateUsername();
+          if (!isPasswordValid || !isConfirmPasswordValid ) {
             return;
           }
           try {

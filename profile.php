@@ -114,14 +114,21 @@ if (!empty($response['tier_date'])) {
               Profile
             </h2>
             <div class="flex gap-2 justify-end flex-1">
-            <?php if($user['trial_status'] == '0') { ?>
+            <?php 
+            // echo $user['trial_status'] ;
+            if($user['trial_status'] == '0') { ?>
               <button onclick="startTrial()" class="px-6 py-4 text-sm font-medium text-white bgBlue cursor-pointer rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Start Free Trial</button>   
-            <?php }else{
+            <?php }else if($user['trial_status'] == '-1'){
               ?>
-            <p class="text-sm text-gray-600 dark:text-white">
-            Your Free Trial will expire on <?php echo date('F j, Y', strtotime($user['trial_date'] . ' + 7 days'));
-            ?>
-            </p> 
+              <p class="text-sm text-red-500">
+              Your Free Trial has expired. Please upgrade to a plan to continue using the service.
+              </p> 
+              <?php
+            } else{ ?>
+              <p class="text-sm text-gray-600 dark:text-white">
+              Your Free Trial will expire on <?php echo date('F j, Y', strtotime($user['trial_date'] . ' + 7 days'));
+              ?>
+              </p> 
             <?php } ?>           
             </div>
             
