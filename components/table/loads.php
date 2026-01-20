@@ -279,7 +279,7 @@ $(document).on('click', '.quoteBtn', function(e) {
         e.preventDefault();
         e.stopPropagation();
         console.log(userData);
-        if((userData && userData.tier_status == '0') || (userData.tier_status == "")){
+        if(((userData && userData.tier_status == '0') || (userData.tier_status == ""))&& (userData.trial_status != "1")){
           Swal.fire({
             title: "Tier Status!",
             text: "Your tier status is not active. Please activate your account.",
@@ -289,7 +289,7 @@ $(document).on('click', '.quoteBtn', function(e) {
             confirmButtonText: "OK" 
           }).then((result) => {
             // if (result.isConfirmed) {
-              window.location.href = 'tier.php';
+              window.location.href = 'profile.php';
             // }
           });
         }

@@ -107,7 +107,7 @@ $response = fetchVendorTopLocations($data);
   <h2 class="text-xl font-semibold mb-4 ">Your Top Locations</h2>
 
   <?php if (empty($locations)) { ?>
-    <div class="p-6 rounded-xl border border-dashed border-blue-300/50 bg-white/10 text-white/80">
+    <div class="p-6 rounded-xl border border-dashed border-blue-300/50 bg-white/10 ">
       No saved locations yet. Use the search above to add one.
     </div>
   <?php } else { ?>

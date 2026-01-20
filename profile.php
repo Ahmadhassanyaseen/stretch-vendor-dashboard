@@ -114,8 +114,15 @@ if (!empty($response['tier_date'])) {
               Profile
             </h2>
             <div class="flex gap-2 justify-end flex-1">
-
-              <button onclick="startTrial()" class="px-6 py-4 text-sm font-medium text-white bgBlue cursor-pointer rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Start Free Trial</button>              
+            <?php if($user['trial_status'] == '0') { ?>
+              <button onclick="startTrial()" class="px-6 py-4 text-sm font-medium text-white bgBlue cursor-pointer rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Start Free Trial</button>   
+            <?php }else{
+              ?>
+            <p class="text-sm text-gray-600 dark:text-white">
+            Your Free Trial will expire on <?php echo date('F j, Y', strtotime($user['trial_date'] . ' + 7 days'));
+            ?>
+            </p> 
+            <?php } ?>           
             </div>
             
 
@@ -778,7 +785,7 @@ if (!empty($response['tier_date'])) {
           icon: 'success'
         }).then(() => {
           // Optional: redirect, e.g. to logout or home
-          window.location.reload();
+          window.location.href = 'helper/updateTrial.php';
         });
       }
     });
