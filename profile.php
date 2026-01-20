@@ -763,7 +763,7 @@ if (!empty($response['tier_date'])) {
 
           if (!res.ok) throw new Error('Network error');
           const data = await res.json();
-          if (!data.success) throw new Error(data.message || 'Trial start failed');
+          if (data.status !== 'success') throw new Error(data.message || 'Trial start failed');
 
           return data; // Pass to then() as result.value
         } catch (err) {
