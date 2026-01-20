@@ -130,3 +130,4 @@ function fetchVendorTopLocations($data){
     return curlRequest($data);
 }
 
+
