@@ -598,3 +598,17 @@
 )
 
 [2026-01-20 14:07:36] [INFO] API Response: {"name":"sato","tier_status":"0","tier_amount":"","tier_date":"","tier_renew":"","password_set":1}
+[2026-01-20 14:47:45] [INFO] Sending to API: Array
+(
+    [id] => c208e221-77ba-f664-b5fc-696f5d08f020
+    [method] => fetchVendorById
+)
+
+[2026-01-20 14:47:46] [INFO] API Response: {"name":"sato","tier_status":"0","tier_amount":"","tier_date":"","tier_renew":"","password_set":1}
+[2026-01-20 14:47:48] [INFO] Sending to API: Array
+(
+    [id] => c208e221-77ba-f664-b5fc-696f5d08f020
+    [method] => fetchVendorById
+)
+
+[2026-01-20 14:47:48] [INFO] API Response: {"name":"sato","tier_status":"0","tier_amount":"","tier_date":"","tier_renew":"","password_set":1}

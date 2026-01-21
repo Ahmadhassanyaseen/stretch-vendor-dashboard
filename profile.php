@@ -762,38 +762,39 @@ if (!empty($response['tier_date'])) {
       focusCancel: true,
       showLoaderOnConfirm: true,
       allowOutsideClick: () => !Swal.isLoading(),
-      preConfirm: async () => {
-        try {
-          let formData = new FormData();
-          formData.append('method', 'startTrial');
-          formData.append('id', '<?php echo $userData['id']; ?>');
-          // Replace with your actual endpoint
-          const res = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
-            method: 'POST',
-            body: formData,
-          });
+      // preConfirm: async () => {
+      //   try {
+      //     let formData = new FormData();
+      //     formData.append('method', 'startTrial');
+      //     formData.append('id', '<?php echo $userData['id']; ?>');
+      //     // Replace with your actual endpoint
+      //     const res = await fetch('https://stretchxlfreight.com/logistx/index.php?entryPoint=VendorSystem', {
+      //       method: 'POST',
+      //       body: formData,
+      //     });
 
-          console.log(res);
+      //     console.log(res);
 
-          if (!res.ok) throw new Error('Network error');
-          const data = await res.json();
-          if (data.status !== 'success') throw new Error(data.message || 'Trial start failed');
+      //     if (!res.ok) throw new Error('Network error');
+      //     const data = await res.json();
+      //     if (data.status !== 'success') throw new Error(data.message || 'Trial start failed');
 
-          return data; // Pass to then() as result.value
-        } catch (err) {
-          Swal.showValidationMessage(err.message || 'Request failed');
-        }
-      }
+      //     return data; // Pass to then() as result.value
+      //   } catch (err) {
+      //     Swal.showValidationMessage(err.message || 'Request failed');
+      //   }
+      // }
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: 'Started',
-          text: (result.value && result.value.message) || 'Your trial has been started.',
-          icon: 'success'
-        }).then(() => {
-          // Optional: redirect, e.g. to logout or home
-          window.location.href = 'helper/updateTrial.php';
-        });
+        window.location.href = 'tier.php?trial=true';
+        // Swal.fire({
+        //   title: 'Started',
+        //   text: (result.value && result.value.message) || 'Your trial has been started.',
+        //   icon: 'success'
+        // }).then(() => {
+        //   // Optional: redirect, e.g. to logout or home
+        //   window.location.href = 'helper/updateTrial.php';
+        // });
       }
     });
     

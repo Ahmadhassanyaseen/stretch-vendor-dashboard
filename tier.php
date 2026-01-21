@@ -6,6 +6,7 @@ if (isset($_COOKIE["vendor"])) {
 } else {
   $userData = [];
 }
+$trial = isset($_GET['trial'])  ? $_GET['trial'] : false;
 
 
 // print_r($userData);
@@ -173,6 +174,12 @@ $user = $userData;
             <div class="form-group">
                 <label class="form-label">Select Plan</label>
                 <div class="flex  gap-10">
+                    <?php if($trial){ ?>
+                    <div class="flex items-center justify-center cursor-pointer">
+                        <input type="radio" id="monthly" name="plan" value="0" checked class="mr-2">
+                        <label for="monthly" class="text-[#4b5563] font-medium mb-0">Free Trial</label>
+                    </div>
+                    <?php }else{ ?>
                     <div class="flex items-center justify-center cursor-pointer">
                         <input type="radio" id="monthly" name="plan" value="35" checked class="mr-2">
                         <label for="monthly" class="text-[#4b5563] font-medium mb-0">$35 per month</label>
@@ -181,6 +188,7 @@ $user = $userData;
                         <input type="radio" id="yearly" name="plan" value="350" class="mr-2">
                         <label for="yearly" class="text-[#4b5563] font-medium mb-0">$350 per year</label>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
             <div class="form-group">
@@ -503,6 +511,7 @@ $user = $userData;
                     formData.append('cvv', cvv.value);
                     formData.append('cardType', cardType.value);
                     formData.append('amount', getSelectedPlan());
+                    formData.append('trial', '<?php echo $trial; ?>');
                     formData.append('vendor_id', '<?php echo $user['id']; ?>');
 
                     formData.append('method', 'vendorTierPayment');
