@@ -22,7 +22,9 @@ if (isset($_COOKIE['vendor'])) {
         "state" => $userData['state'],
         "zip" => $userData['zip'],
         "street" => $userData['street'],
-        "tier_status" => '1'
+        "tier_status" => '1',
+        "trial_status" => $userData['trial_status'],
+        "trial_date" => $userData['trial_date']
     ];
 
 
@@ -30,4 +32,5 @@ if (isset($_COOKIE['vendor'])) {
 
 
      header('Content-Type: application/json');
-    echo json_encode(['status' => 'success']);
+      header('Location: ../profile.php');
+    // echo json_encode(['status' => 'success']);

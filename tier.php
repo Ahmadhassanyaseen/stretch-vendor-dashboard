@@ -496,6 +496,7 @@ $user = $userData;
                     const buttonText = document.getElementById('buttonText');
                     const buttonLoader = document.getElementById('buttonLoader');
                     const submitButton = form.querySelector('button[type="submit"]');
+                    let trial = '<?php echo $trial; ?>';
                     
                     buttonText.textContent = 'Processing...';
                     buttonLoader.classList.remove('hidden');
@@ -511,7 +512,7 @@ $user = $userData;
                     formData.append('cvv', cvv.value);
                     formData.append('cardType', cardType.value);
                     formData.append('amount', getSelectedPlan());
-                    formData.append('trial', '<?php echo $trial; ?>');
+                    formData.append('trial', trial);
                     formData.append('vendor_id', '<?php echo $user['id']; ?>');
 
                     formData.append('method', 'vendorTierPayment');
@@ -537,13 +538,12 @@ $user = $userData;
                                 confirmButtonText: 'Continue',
                                 allowOutsideClick: false
                             }).then(() => {
-                                fetch('./helper/updateCookie.php')
-                                        .then(() => {
-                                            setTimeout(() => {
-                                           
-                                            window.location.href = 'profile.php';
-                                            }, 1000);
-                                        });
+                                if(trial){
+                                    window.location.href = 'helper/updateTrial.php';
+                                }else{
+                                    window.location.href = 'helper/updateCookie.php';
+                                }
+                               
                             });
                         } else {
                             throw new Error(result.message || 'Payment failed. Please try again.');

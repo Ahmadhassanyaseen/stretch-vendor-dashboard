@@ -22,7 +22,7 @@ if (isset($_COOKIE['vendor'])) {
         "state" => $userData['state'],
         "zip" => $userData['zip'],
         "street" => $userData['street'],
-        "tier_status" => '1',
+        "tier_status" => $userData['tier_status'],
         "trial_status" => '1',
         "trial_date" => date('Y-m-d')
     ];
