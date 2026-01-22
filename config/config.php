@@ -129,5 +129,9 @@ function fetchVendorTopLocations($data){
     $data["method"] = "fetchVendorTopLocations";
     return curlRequest($data);
 }
+function cancelTrial($data){
+    $data["method"] = "cancelTrial";
+    return curlRequest($data);
+}
 
 

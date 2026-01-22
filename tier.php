@@ -148,95 +148,97 @@ $user = $userData;
     <div class="container mx-auto px-4 py-8 ">
         <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Payment Information</h1>
         <p class="text-center text-gray-600 mb-8">Please enter your payment information to activate your tier.</p>
-        <div class="flex justify-center max-w-5xl mx-auto items-center">
-        <!-- Credit Card Preview -->
-        <div class="card-preview mb-8 w-full">
-            <div class="card-front">
-                <div class="card-logo">
-                    <i class="far fa-credit-card"></i>
-                </div>
-                <div id="cardNumberPreview" class="card-number">•••• •••• •••• ••••</div>
-                <div class="card-details">
-                    <div>
-                        <div class="text-xs text-gray-200">CARD HOLDER</div>
-                        <div id="cardNamePreview">FULL NAME</div>
+        <div class="flex flex-col lg:flex-row justify-center max-w-5xl mx-auto items-center">
+            <!-- Credit Card Preview -->
+            <div class="card-preview mb-8 w-full">
+                <div class="card-front">
+                    <div class="card-logo">
+                        <i class="far fa-credit-card"></i>
                     </div>
-                    <div>
-                        <div class="text-xs text-gray-200">EXPIRES</div>
-                        <div id="cardExpiryPreview">••/••</div>
+                    <div id="cardNumberPreview" class="card-number">•••• •••• •••• ••••</div>
+                    <div class="card-details">
+                        <div>
+                            <div class="text-xs text-gray-200">CARD HOLDER</div>
+                            <div id="cardNamePreview">FULL NAME</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-200">EXPIRES</div>
+                            <div id="cardExpiryPreview">••/••</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Payment Form -->
-        <form id="paymentForm" class="max-w-lg w-full mx-auto bg-white rounded-lg shadow-md p-6">
-            <div class="form-group">
-                <label class="form-label">Select Plan</label>
-                <div class="flex  gap-10">
-                    <?php if($trial){ ?>
-                    <div class="flex items-center justify-center cursor-pointer">
-                        <input type="radio" id="monthly" name="plan" value="0" checked class="mr-2">
-                        <label for="monthly" class="text-[#4b5563] font-medium mb-0">Free Trial</label>
-                    </div>
-                    <?php }else{ ?>
-                    <div class="flex items-center justify-center cursor-pointer">
-                        <input type="radio" id="monthly" name="plan" value="35" checked class="mr-2">
-                        <label for="monthly" class="text-[#4b5563] font-medium mb-0">$35 per month</label>
-                    </div>
-                    <div class="flex items-center justify-center cursor-pointer">
-                        <input type="radio" id="yearly" name="plan" value="350" class="mr-2">
-                        <label for="yearly" class="text-[#4b5563] font-medium mb-0">$350 per year</label>
-                    </div>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="cardType" class="form-label">Card Type</label>
-                <div class="input-wrapper">
-                   <select id="cardType" class="form-input">
-                        <option value="">Select Card Type</option>
-                        <option value="VISA">Visa</option>
-                        <option value="MASTERCARD">Mastercard</option>
-                        <option value="AMEX">American Express</option>
-                        <option value="DISCOVER">Discover</option>
-                   </select>
-                </div>
-                <div id="cardTypeError" class="text-red-500 text-sm mt-1 hidden">Please enter a valid card type</div>
-            </div>
-            <div class="form-group">
-                <label for="cardNumber" class="form-label">Card Number</label>
-                <div class="input-wrapper">
-                    <input type="text" id="cardNumber" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" />
-                    <div id="cardType" class="card-type"></div>
-                </div>
-                <div id="cardNumberError" class="text-red-500 text-sm mt-1 hidden">Please enter a valid card number</div>
             </div>
 
-            <div class="form-group">
-                <label for="cardName" class="form-label">Name on Card</label>
-                <input type="text" id="cardName" class="form-input" placeholder="John Doe" />
-                <div id="cardNameError" class="text-red-500 text-sm mt-1 hidden">Please enter the name on card</div>
-            </div>
-
-            <div class="input-group">
+            <!-- Payment Form -->
+            <form id="paymentForm" class="max-w-lg w-full mx-auto bg-white rounded-lg shadow-md p-6">
                 <div class="form-group">
-                    <label for="expiryDate" class="form-label">Expiry Date</label>
-                    <input type="text" id="expiryDate" class="form-input" placeholder="MM/YY" maxlength="5" />
-                    <div id="expiryDateError" class="text-red-500 text-sm mt-1 hidden">Please enter a valid expiry date</div>
+                    <label class="form-label">Select Plan</label>
+                    <div class="flex  <?php if($trial){ echo "flex-col justify-start items-start gap-4"; }else{ echo "gap-10";}?>">
+                        <?php if($trial){ ?>
+                        <div class="flex items-center justify-center cursor-pointer">
+                            <input type="radio" id="monthly" name="plan" value="0" checked class="mr-2">
+                            <label for="monthly" class="text-[#4b5563] font-medium mb-0">7 day fee trial</label>
+                        
+                        </div>
+                        <p class="font-bold">(You will be charged $35 after 7 days)</p>
+                        <?php }else{ ?>
+                        <div class="flex items-center justify-center cursor-pointer">
+                            <input type="radio" id="monthly" name="plan" value="35" checked class="mr-2">
+                            <label for="monthly" class="text-[#4b5563] font-medium mb-0">$35 per month</label>
+                        </div>
+                        <div class="flex items-center justify-center cursor-pointer">
+                            <input type="radio" id="yearly" name="plan" value="350" class="mr-2">
+                            <label for="yearly" class="text-[#4b5563] font-medium mb-0">$350 per year</label>
+                        </div>
+                        <?php } ?>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="cvv" class="form-label">CVV</label>
-                    <input type="text" id="cvv" class="form-input" placeholder="•••" maxlength="4" />
-                    <div id="cvvError" class="text-red-500 text-sm mt-1 hidden">Please enter a valid CVV</div>
+                    <label for="cardType" class="form-label">Card Type</label>
+                    <div class="input-wrapper">
+                    <select id="cardType" class="form-input">
+                            <option value="">Select Card Type</option>
+                            <option value="VISA">Visa</option>
+                            <option value="MASTERCARD">Mastercard</option>
+                            <option value="AMEX">American Express</option>
+                            <option value="DISCOVER">Discover</option>
+                    </select>
+                    </div>
+                    <div id="cardTypeError" class="text-red-500 text-sm mt-1 hidden">Please enter a valid card type</div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="cardNumber" class="form-label">Card Number</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="cardNumber" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" />
+                        <div id="cardType" class="card-type"></div>
+                    </div>
+                    <div id="cardNumberError" class="text-red-500 text-sm mt-1 hidden">Please enter a valid card number</div>
+                </div>
 
-            <button type="submit" class="btn-submit mt-2">
-                <span id="buttonText">Pay Now</span>
-                <div id="buttonLoader" class="hidden animate-spin rounded-full h-5 w-5 border-b-2 border-white mx-auto"></div>
-            </button>
-        </form>
+                <div class="form-group">
+                    <label for="cardName" class="form-label">Name on Card</label>
+                    <input type="text" id="cardName" class="form-input" placeholder="John Doe" />
+                    <div id="cardNameError" class="text-red-500 text-sm mt-1 hidden">Please enter the name on card</div>
+                </div>
+
+                <div class="input-group">
+                    <div class="form-group">
+                        <label for="expiryDate" class="form-label">Expiry Date</label>
+                        <input type="text" id="expiryDate" class="form-input" placeholder="MM/YY" maxlength="5" />
+                        <div id="expiryDateError" class="text-red-500 text-sm mt-1 hidden">Please enter a valid expiry date</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv" class="form-label">CVV</label>
+                        <input type="text" id="cvv" class="form-input" placeholder="•••" maxlength="4" />
+                        <div id="cvvError" class="text-red-500 text-sm mt-1 hidden">Please enter a valid CVV</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit mt-2">
+                    <span id="buttonText">Pay Now</span>
+                    <div id="buttonLoader" class="hidden animate-spin rounded-full h-5 w-5 border-b-2 border-white mx-auto"></div>
+                </button>
+            </form>
         <div>
             
         

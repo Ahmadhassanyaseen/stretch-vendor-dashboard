@@ -212,7 +212,7 @@ $response = fetchVendorById($data);
                 icon: 'success',
                 confirmButtonText: 'OK'
               });
-              window.location.href = 'login.php';
+              window.location.href = 'login.php?trial=true';
             } else {
               throw new Error(result.message || 'Failed to reset password');
             }

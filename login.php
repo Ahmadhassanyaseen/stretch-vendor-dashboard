@@ -1,3 +1,6 @@
+<?php
+$trial = isset($_GET['trial'])  ? $_GET['trial'] : false;
+?>
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
   <head>
@@ -228,6 +231,8 @@
       // Login function
       async function loginUser(data) {
           try {
+
+              let trial = <?php echo $trial; ?>;
               Swal.fire({
                   title: 'Please wait...',
                   text: 'Signing in...',
@@ -266,7 +271,11 @@
               // localStorage.setItem('vendor_session', Math.floor(Date.now() / 1000));
 
               // Redirect to dashboard or home page
-              window.location.href = 'index.php';
+              if(trial){
+                window.location.href = 'tier.php?trial=true';
+              }else{
+                window.location.href = 'index.php';
+              }
              
 
           } catch (error) {

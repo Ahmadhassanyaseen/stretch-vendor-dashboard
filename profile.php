@@ -100,6 +100,19 @@ if (!empty($response['tier_date'])) {
     </script>
     <link rel="stylesheet" href="./assets/css/variable.css" />
     <link rel="stylesheet" href="./assets/css/newStyle.css" />
+    <style>
+      @media(max-width:1200px){
+        .title-container{
+          flex-direction:column;
+          align-items:start;
+          gap:0;
+        }
+        .title-container *{
+          text-align:left;
+          justify-content:start;
+        }
+      }
+    </style>
   </head>
   <body>
     <div     class="flex h-screen bg-gray-50 dark:bg-gray-900"
@@ -109,11 +122,11 @@ if (!empty($response['tier_date'])) {
         <?php include 'components/layout/topbar.php'; ?>
         <main class="h-full overflow-y-auto">
           <div class=" px-6 mx-auto grid">
-            <div class="flex justify-between items-center gap-3">
+            <div class="flex title-container  justify-between items-startd lg:items-center  gap-3">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-white ">
               Profile
             </h2>
-            <div class="flex gap-2 justify-end flex-1">
+            <div class="flex gap-2 justify-start lg:justify-end flex-1">
             <?php 
             // echo $user['trial_status'] ;
             if($user['trial_status'] == '0') { ?>
