@@ -232,7 +232,7 @@ $trial = isset($_GET['trial'])  ? $_GET['trial'] : false;
       async function loginUser(data) {
           try {
 
-              let trial = <?php echo $trial; ?>;
+              let trial = <?php echo $trial ? 'true' : 'false'; ?>;
               Swal.fire({
                   title: 'Please wait...',
                   text: 'Signing in...',
