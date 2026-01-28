@@ -1,3 +1,10 @@
+<?php
+$email = '';
+if(isset($_GET['email'])){
+  $email = $_GET['email'];
+}
+
+?>
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
   <head>
@@ -116,6 +123,8 @@
     </div>
 
     <script>
+            let email = '<?php echo $email;  ?>';
+            console.log(email);
         document.getElementById('verify-dot-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -228,9 +237,10 @@
             confirmButtonText: 'Continue'
         });
         let token = new Date().getTime();
+  
         
         // Redirect after successful submission
-        window.location.href = 'create-account.php?type=' + verification_type + '&number=' + data.dot_mc_number + '&token=' + token;
+        window.location.href = 'create-account.php?type=' + verification_type + '&number=' + data.dot_mc_number + '&token=' + token  + '&email=' + email;
             
     } catch (error) {
         console.error('Error creating account:', error);

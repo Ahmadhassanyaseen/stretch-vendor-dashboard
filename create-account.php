@@ -1,6 +1,16 @@
 <?php
+
+$email = '';
+if(isset($_GET['email'])){
+  $email = $_GET['email'];
+}
+
 if (!isset($_GET['token'])) {
-  header('Location: verifyDot.php');
+  if (isset($_GET['email'])) {
+    header('Location: verifyDot.php?email='.$_GET['email']);
+  }else{
+    header('Location: verifyDot.php');
+  }
   exit();
 }
 
@@ -102,6 +112,7 @@ if (isset($_GET['number'])) {
                   name="email"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="jane.doe@example.com"
+                  value="<?php echo $email; ?>"
                   oninput="validateField('email', this.value)"
                 />
                 <span id="email_error" class="text-xs text-red-600 dark:text-red-400 mt-1 hidden"></span>
