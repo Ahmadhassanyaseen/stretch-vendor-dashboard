@@ -122,7 +122,7 @@
         const confirmPasswordError = document.getElementById('confirm-password-error');
 
         // Password validation pattern
-        const passwordPattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])[^\s]{8,}$/;
 
         function validatePassword() {
           const isValid = passwordPattern.test(password.value);

@@ -259,7 +259,7 @@ if (isset($_GET['number'])) {
         const patterns = {
             username: /^[a-zA-Z0-9_]{3,20}$/,
             email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-            password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+            password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])[^\s]{8,}$/
         };
 
         // Error messages

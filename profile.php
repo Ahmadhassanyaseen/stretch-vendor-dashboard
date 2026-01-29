@@ -169,7 +169,7 @@ if (!empty($response['tier_date'])) {
                    Delete Subscription
                   </button>
                   <div class="px-6 py-3 my-6 flex justify-between items-center bgBlue text-white rounded-lg shadow-md ">
-                  Your account is active. You can avail all features. Next Renew <?php echo $nextRenewDate; ?></div>
+                  Your account is active. You can use all features. Next Renew <?php echo $nextRenewDate; ?></div>
                 </div>
                   <?php
                 }else{

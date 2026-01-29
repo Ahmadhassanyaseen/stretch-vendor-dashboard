@@ -181,6 +181,7 @@ $user = $userData;
                         
                         </div>
                         <p class="font-bold">(You will be charged $35 after 7 days)</p>
+                        <p class="font-bold">(Your card will not be charged until after the 7 day free trial has expired)</p>
                         <?php }else{ ?>
                         <div class="flex items-center justify-center cursor-pointer">
                             <input type="radio" id="monthly" name="plan" value="35" checked class="mr-2">
@@ -235,7 +236,13 @@ $user = $userData;
                 </div>
 
                 <button type="submit" class="btn-submit mt-2">
-                    <span id="buttonText">Pay Now</span>
+                    <span id="buttonText">
+                        <?php if($trial){ ?>
+                        Start 7 Day Free Trial
+                        <?php }else{ ?>
+                        Pay Now
+                        <?php } ?>
+                    </span>
                     <div id="buttonLoader" class="hidden animate-spin rounded-full h-5 w-5 border-b-2 border-white mx-auto"></div>
                 </button>
             </form>
